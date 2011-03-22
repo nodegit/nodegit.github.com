@@ -1,6 +1,13 @@
 body {
   font-family: Georgia, sans-serif;
 }
+  body .boston {
+    padding: 20px;
+    position: relative;
+    left: 50%;
+    margin-top: 20px;
+    margin-left: -120px;
+  }
 
 .forkme {
   position: absolute;
@@ -40,6 +47,16 @@ pre {
     padding-left: 10px;
     font-size: 200%;
   }
+
+    #container .branding .small a {
+      text-decoration: none;
+    }
+
+#container .command, #container code {
+  -moz-box-shadow: 0px 0px 14px #CCC;
+  -webkit-box-shadow: 0px 0px 14px #CCC;
+  box-shadow: 0px 0px 14px #CCC;
+}
 
 #container .command {
   padding: 10px;
