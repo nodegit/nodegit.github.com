@@ -33,7 +33,7 @@
       </section>
 
       <div class="description">
-        <span class="version">Version 0.0.2</span> Node.js libgit2 asynchronous native bindings
+        <span class="version">Version 0.0.3</span> Node.js libgit2 asynchronous native bindings
       </div>
 
       <p>A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api, unit tests, documentation and accomodations to make contributing easier.</p>
@@ -49,7 +49,7 @@
 
       <h2>install</h2>
       <p>
-        <pre class="command">sudo npm install nodegit</pre>
+        <pre class="command">npm install nodegit</pre>
       </p>
 
       <h2>use</h2>
@@ -65,7 +65,7 @@
       repo.branch( 'master', function( err, branch ) {
           if( err ) { throw err; }
           // Iterate over the revision history
-          branch.history.each( function( i, commit ) {
+          branch.history().on( 'commit', function( commit ) {
               // Print out `git log` emulation
               console.log( 'commit ' + commit.sha );
               console.log( commit.author.name + '<' + commit.author.email + '>' );
@@ -91,7 +91,7 @@
       repo.branch( 'master', function( err, branch ) {
           if( err ) { throw err; }
           // Iterate over the revision history
-          branch.tree().each( function( i, entry ) {
+          branch.tree().on( 'entry', function( entry ) {
             console.log( entry.name );
             console.log( entry.content );
           });
