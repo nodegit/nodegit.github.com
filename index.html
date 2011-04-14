@@ -91,7 +91,7 @@
       repo.branch( 'master', function( err, branch ) {
           if( err ) { throw err; }
           // Iterate over the revision history
-          branch.tree().on( 'entry', function( entry ) {
+          branch.tree().walk(function( i, entry ) {
             console.log( entry.name );
             console.log( entry.content );
           });
