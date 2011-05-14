@@ -49,7 +49,7 @@
 
       <h2>install</h2>
       <p>
-        <pre class="command">sudo npm install nodegit</pre>
+        <pre class="command">npm install nodegit</pre>
       </p>
 
       <h2>use</h2>
@@ -60,19 +60,29 @@
   // Open a repository for reading
   git.repo( '.git', function( err, repo ) {
       // Success is always 0, failure is always an error string
-      if( err ) { throw err; }
+      if( err ) {
+        throw new Error( err );
+      }
+
       // Use the master branch
       repo.branch( 'master', function( err, branch ) {
-          if( err ) { throw err; }
+          if( err ) {
+            throw new Error( err );
+          }
+          
           // Iterate over the revision history
-          branch.history.each( function( i, commit ) {
+          var history = branch.history();
+          history.on( 'commit', function( index, commit ) {
               // Print out `git log` emulation
               console.log( 'commit ' + commit.sha );
+              console.log( '\n' );
               console.log( commit.author.name + '<' + commit.author.email + '>' );
               console.log( commit.time );
-              console.log( '\n' );
               console.log( commit.message );
-              console.log( '\n' );
+          });
+
+          history.on( 'end', function() {
+            // Continue
           });
       });
   });
@@ -86,12 +96,18 @@
   // Open a repository for reading
   git.repo( '.git', function( err, repo ) {
       // Success is always 0, failure is always an error string
-      if( err ) { throw err; }
+      if( err ) {
+        throw new Error( err );
+      }
+
       // Use the master branch
       repo.branch( 'master', function( err, branch ) {
-          if( err ) { throw err; }
+          if( err ) {
+            throw new Error( err );
+          }
+
           // Iterate over the revision history
-          branch.tree().each( function( i, entry ) {
+          branch.tree().walk(function( i, entry ) {
             console.log( entry.name );
             console.log( entry.content );
           });
