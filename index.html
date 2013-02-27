@@ -76,7 +76,7 @@
       }
         
       // Iterate over the revision history.
-      branch.history().on("commit", function( index, commit ) {
+      branch.history().on("commit", function(index, commit) {
         // Print out `git log` emulation.
         console.log("commit " + commit.sha);
         console.log("\n");
