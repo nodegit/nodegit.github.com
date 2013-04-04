@@ -16,7 +16,7 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
 
 #### use
 
-*emulate `git log`*
+*emulate git log*
 
     // Load in the module.
     var git = require('nodegit'),
@@ -91,7 +91,7 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
       });
     });  
   
-  
+
 #### download
 
 You can download this project in either [zip](http://github.com/tbranyen/nodegit/zipball/master) or [tar](http://github.com/tbranyen/nodegit/tarball/master) formats.
