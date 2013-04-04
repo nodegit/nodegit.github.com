@@ -261,6 +261,7 @@ h6
 
 .params .name, .props .name, .name code {
 	color: #A35A00;
+  text-shadow: none;
 	font-family: Consolas, 'Lucida Console', Monaco, monospace;
 	font-size: 100%;
 }
