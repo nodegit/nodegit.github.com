@@ -349,12 +349,10 @@ pre {
     float: right;
   }
 
-  #container .branding > a:first-child {
+  #container .branding .headline {
     display: block;
-  }
-
-  #container .branding > a {
     font-size: 400%;
+    vertical-align: middle;
   }
 
   #container .branding .small {
@@ -392,5 +390,6 @@ pre code {
 
 .social {
   margin-top: 15px;
+  margin-right: 100px;
   text-align: center;
 }
