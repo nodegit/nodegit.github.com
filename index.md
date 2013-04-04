@@ -80,7 +80,6 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
 
         // Iterate over the revision history.
         branch.tree(function(error, tree) {
-            console.log(tree);
           if (error) throw error;
           tree.walk().on('entry', function(error, entry) {
             entry.name(function(error, name) {

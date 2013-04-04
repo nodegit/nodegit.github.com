@@ -145,7 +145,6 @@ git.repo(&#39;.git&#39;, function(error, repository) {
 
     // Iterate over the revision history.
     branch.tree(function(error, tree) {
-        console.log(tree);
       if (error) throw error;
       tree.walk().on(&#39;entry&#39;, function(error, entry) {
         entry.name(function(error, name) {
