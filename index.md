@@ -13,7 +13,7 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
     npm install nodegit
   
   
-  
+
 #### use
 
 *emulate `git log`*
@@ -90,6 +90,7 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
         });
       });
     });  
+  
   
 #### download
 
