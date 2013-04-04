@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Nodegit: Index</title>
+    <title>Nodegit: Namespace: utilities</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -46,128 +46,245 @@
         
 
 
+
+<section>
+    
+<header>
+    <h2>
+    utilities
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
     
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utilities.js.html">utilities.js</a>, line 6
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="success"><span class="type-signature">&lt;static> </span>success<span class="signature">(error, callback)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if error is null, if it is not, convert it to a GitError and call
+the callback.
+    </div>
     
 
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utilities.js.html">utilities.js</a>, line 16
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    True if the error was null, false otherwise.
+</div>
 
 
 
-    <section>
-        <article><p>Version <strong>0.0.79</strong> Node.js libgit2 asynchronous native bindings</p>
-
-<p>A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api, unit tests, documentation and accomodations to make contributing easier.</p>
-
-<h4>require</h4>
-
-<ul><li><a href="http://nodejs.org/">Node.js &gt;=0.8</a></li><li><a href="http://npmjs.org/">npm</a> <em>(if you want the premiere install experience)</em></li><li><a href="http://git-scm.com/">Git</a> <em>(if you want to unit test )</em>  </li></ul>
-
-<h4>install</h4>
-
-<pre><code>npm install nodegit</code></pre>
-
-<h4>use</h4>
-
-<p><em>emulate <code>git log</code></em></p>
-
-<pre><code>// Load in the module.
-var git = require(&#39;nodegit&#39;),
-  async = require(&#39;async&#39;);
-
-// Open the repository in the current directory.
-git.repo(&#39;.git&#39;, function(error, repository) {
-  if (error) throw error;
-
-  // Use the master branch.
-  repository.branch(&#39;master&#39;, function(error, branch) {
-    if (error) throw error;
-
-    // Iterate over the revision history.
-    branch.history().on(&#39;commit&#39;, function(error, commit) {
-
-      // Print out `git log` emulation.
-        async.series([
-            function(callback) {
-                commit.sha(callback);
-            },
-            function(callback) {
-                commit.time(callback);
-            },
-            function(callback) {
-                commit.author(function(error, author) {
-                    author.name(callback);
-                });
-            },
-            function(callback) {
-                commit.author(function(error, author) {
-                    author.email(callback);
-                });
-            },
-            function(callback) {
-                commit.message(callback);
-            }
-        ], function printCommit(error, results) {
-            if (error) throw error;
-            console.log(&#39;SHA &#39; + results[0]);
-            console.log(new Date(results[1] * 1000));
-            console.log(results[2] + &#39; &lt;&#39; + results[3] + &#39;&gt;&#39;);
-            console.log(results[4]);
-        });
-    });
-  });
-});</code></pre>
-
-<p><em>view commit tree and blob information</em></p>
-
-<pre><code>// Load in the module.
-var git = require(&#39;nodegit&#39;);
-
-// Open the repository in the current directory.
-git.repo(&#39;.git&#39;, function(error, repository) {
-  if (error) throw error;
-
-  // Use the master branch.
-  repository.branch(&#39;master&#39;, function(error, branch) {
-    if (error) throw error;
-
-    // Iterate over the revision history.
-    branch.tree(function(error, tree) {
-        console.log(tree);
-      if (error) throw error;
-      tree.walk().on(&#39;entry&#39;, function(error, entry) {
-        entry.name(function(error, name) {
-            console.log(name);
-        });
-      });
-    });
-  });
-});  </code></pre>
-
-<h4>download</h4>
-
-<p>You can download this project in either <a href="http://github.com/tbranyen/nodegit/zipball/master">zip</a> or <a href="http://github.com/tbranyen/nodegit/tarball/master">tar</a> formats.</p>
-
-<p>You can also clone and build the project with <a href="http://git-scm.com">Git</a> by running:</p>
-
-<pre><code>$ git clone git://github.com/tbranyen/nodegit
-
-$ cd nodegit
-
-$ node install</code></pre></article>
-    </section>
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
 
 
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
 
 
 
