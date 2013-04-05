@@ -62,7 +62,7 @@
     
         
 <dt>
-    <h4 class="name" id="Reference"><span class="type-signature"></span>new Reference<span class="signature">(rawRepo, rawReference)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Reference"><span class="type-signature"></span>new Reference<span class="signature">(rawRepo, <span class="optional">rawReference</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -92,7 +92,11 @@
 		<th>Type</th>
 		
 		
+		<th>Argument</th>
 		
+		
+		
+		<th>Default</th>
 		
 		
 		<th class="last">Description</th>
@@ -117,7 +121,17 @@
             </td>
             
             
+                <td class="attributes">
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                </td>
             
             
             <td class="description last"></td>
@@ -134,16 +148,27 @@
             
                 
 <span class="param-type">git.raw.Reference</span>
-|
-
-<span class="param-type">null</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                    new git.raw.Reference()
+                
+                </td>
             
             
             <td class="description last"></td>
@@ -290,7 +315,7 @@
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type"><a href="Reference.html#lookupCallback">Reference~lookupCallback</a></span>
 
 
             
@@ -403,7 +428,7 @@
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type"><a href="Reference.html#oidCallback">Reference~oidCallback</a></span>
 
 
             
@@ -444,7 +469,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reference.js.html">reference.js</a>, line 46
+        <a href="reference.js.html">reference.js</a>, line 51
     </li></ul></dd>
     
     
@@ -468,6 +493,286 @@
         </dl>
     
     
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+        
+        <dl>
+                
+<dt>
+    <h4 class="name" id="lookupCallback"><span class="type-signature"></span>lookupCallback<span class="signature">(error, reference)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="GitError.html">GitError</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An Error or null if successful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>reference</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Reference.html">Reference</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Retrieved reference object or null.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="reference.js.html">reference.js</a>, line 31
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="oidCallback"><span class="type-signature"></span>oidCallback<span class="signature">(error, oid)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="GitError.html">GitError</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An Error or null if successful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>oid</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Oid.html">Oid</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Retrieved Oid object or null.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="reference.js.html">reference.js</a>, line 52
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            </dl>
     
     
     
