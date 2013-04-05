@@ -26,13 +26,15 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
     git.repo('.git', function(error, repository) {
       if (error) throw error;
 
-      // Use the master branch.
+      // Use the master branch (a branch is the HEAD commit)
       repository.branch('master', function(error, branch) {
         if (error) throw error;
 
-        // Iterate over the revision history.
-        branch.history().on('commit', function(error, commit) {
+        // History returns an event, and begins walking the history
+        var history = branch.history();
 
+        // History emits 'commit' event for each commit in the branch's history
+        history.on('commit', function(error, commit) {
           // Print out `git log` emulation.
             async.series([
                 function(callback) {

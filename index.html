@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <title>Nodegit: Index</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/common.css">
     <link type="text/css" rel="stylesheet" href="styles/ir_black.css">
 </head>
@@ -91,13 +88,15 @@ var git = require(&#39;nodegit&#39;),
 git.repo(&#39;.git&#39;, function(error, repository) {
   if (error) throw error;
 
-  // Use the master branch.
+  // Use the master branch (a branch is the HEAD commit)
   repository.branch(&#39;master&#39;, function(error, branch) {
     if (error) throw error;
 
-    // Iterate over the revision history.
-    branch.history().on(&#39;commit&#39;, function(error, commit) {
+    // History returns an event, and begins walking the history
+    var history = branch.history();
 
+    // History emits &#39;commit&#39; event for each commit in the branch&#39;s history
+    history.on(&#39;commit&#39;, function(error, commit) {
       // Print out `git log` emulation.
         async.series([
             function(callback) {
@@ -190,7 +189,6 @@ $ node install</code></pre></article>
     </div>
 </footer>
 
-<script> prettyPrint(); </script>
 <script src="scripts/highlight.pack.js"></script>
 <script>
   hljs.tabReplace = '    ';
