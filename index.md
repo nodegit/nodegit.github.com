@@ -41,7 +41,7 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
                     commit.sha(callback);
                 },
                 function(callback) {
-                    commit.time(callback);
+                    commit.date(callback);
                 },
                 function(callback) {
                     commit.author(function(error, author) {
@@ -59,14 +59,15 @@ A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api,
             ], function printCommit(error, results) {
                 if (error) throw error;
                 console.log('SHA ' + results[0]);
-                console.log(new Date(results[1] * 1000));
+                console.log(results[1] * 1000);
                 console.log(results[2] + ' <' + results[3] + '>');
                 console.log(results[4]);
             });
         });
       });
-    });
-
+    });  
+  
+  
 *view commit tree and blob information*
 
     // Load in the module.

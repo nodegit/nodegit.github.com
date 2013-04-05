@@ -333,7 +333,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 149
+        <a href="commit.js.html">commit.js</a>, line 168
     </li></ul></dd>
     
     
@@ -405,7 +405,7 @@
             <td class="type">
             
                 
-<span class="param-type">Commit~committerCalback</span>
+<span class="param-type"><a href="Commit.html#committerCallback">Commit~committerCallback</a></span>
 
 
             
@@ -446,7 +446,120 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 167
+        <a href="commit.js.html">commit.js</a>, line 186
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="date"><span class="type-signature"></span>date<span class="signature">(callback)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieve the commit time as a Date object.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Commit.html#dateCallback">Commit~dateCallback</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commit.js.html">commit.js</a>, line 132
     </li></ul></dd>
     
     
@@ -583,7 +696,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 206
+        <a href="commit.js.html">commit.js</a>, line 225
     </li></ul></dd>
     
     
@@ -615,7 +728,9 @@ Path must be relative to repository root.
     
     
     <div class="description">
-        Walk the history of this commit.
+        Walk the history from this commit backwards.
+An EventEmitter is returned that will emit a 'commit' event for each 
+commit in the history, and one 'end' event when the walk is completed.
     </div>
     
 
@@ -648,7 +763,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 232
+        <a href="commit.js.html">commit.js</a>, line 253
     </li></ul></dd>
     
     
@@ -682,7 +797,7 @@ Path must be relative to repository root.
     
             
 <div class="param-desc">
-    Event
+    historyWalkEmitter
 </div>
 
 
@@ -1051,7 +1166,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 131
+        <a href="commit.js.html">commit.js</a>, line 150
     </li></ul></dd>
     
     
@@ -1236,7 +1351,7 @@ Path must be relative to repository root.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type"><a href="Commit.html#parentsCallback">Commit~parentsCallback</a></span>
 
 
             
@@ -1277,7 +1392,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 279
+        <a href="commit.js.html">commit.js</a>, line 300
     </li></ul></dd>
     
     
@@ -1309,7 +1424,8 @@ Path must be relative to repository root.
     
     
     <div class="description">
-        Get a diff tree showing changes between this commit and its parent(s).
+        Generate an array of diff trees showing changes between this commit 
+and its parent(s).
     </div>
     
 
@@ -1349,7 +1465,7 @@ Path must be relative to repository root.
             <td class="type">
             
                 
-<span class="param-type">Function</span>
+<span class="param-type"><a href="Commit.html#parentsDiffTreesCallback">Commit~parentsDiffTreesCallback</a></span>
 
 
             
@@ -1390,7 +1506,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 297
+        <a href="commit.js.html">commit.js</a>, line 324
     </li></ul></dd>
     
     
@@ -1535,7 +1651,7 @@ Path must be relative to repository root.
     
     
     <div class="description">
-        Retrieve the commit time as a unix timestamp in seconds.
+        Retrieve the commit time as a unix timestamp.
     </div>
     
 
@@ -1729,7 +1845,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 185
+        <a href="commit.js.html">commit.js</a>, line 204
     </li></ul></dd>
     
     
@@ -1873,7 +1989,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 150
+        <a href="commit.js.html">commit.js</a>, line 169
     </li></ul></dd>
     
     
@@ -2011,7 +2127,145 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 168
+        <a href="commit.js.html">commit.js</a>, line 187
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="dateCallback"><span class="type-signature"></span>dateCallback<span class="signature">(error, time)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="GitError.html">GitError</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An Error or null if successful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>time</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Retrieved time as a Date object.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commit.js.html">commit.js</a>, line 133
     </li></ul></dd>
     
     
@@ -2149,7 +2403,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 207
+        <a href="commit.js.html">commit.js</a>, line 226
     </li></ul></dd>
     
     
@@ -2563,7 +2817,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 132
+        <a href="commit.js.html">commit.js</a>, line 151
     </li></ul></dd>
     
     
@@ -2702,6 +2956,282 @@ Path must be relative to repository root.
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="commit.js.html">commit.js</a>, line 58
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="parentsCallback"><span class="type-signature"></span>parentsCallback<span class="signature">(error, parents)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="GitError.html">GitError</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An Error or null if successful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>parents</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Commit.html">Commit</a>></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Commit's parent(s).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commit.js.html">commit.js</a>, line 301
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="parentsDiffTreesCallback"><span class="type-signature"></span>parentsDiffTreesCallback<span class="signature">(error, diffLists)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="GitError.html">GitError</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An Error or null if successful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>diffLists</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="DiffList.html">DiffList</a>></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Array of DiffTrees showing changes between this commit and its parent(s)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="commit.js.html">commit.js</a>, line 325
     </li></ul></dd>
     
     
@@ -3115,7 +3645,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 186
+        <a href="commit.js.html">commit.js</a>, line 205
     </li></ul></dd>
     
     
@@ -3260,7 +3790,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 257
+        <a href="commit.js.html">commit.js</a>, line 278
     </li></ul></dd>
     
     
@@ -3399,7 +3929,7 @@ Path must be relative to repository root.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="commit.js.html">commit.js</a>, line 246
+        <a href="commit.js.html">commit.js</a>, line 267
     </li></ul></dd>
     
     
@@ -3433,7 +3963,7 @@ Path must be relative to repository root.
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="DiffList.html">DiffList</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="DiffList.html#event:delta">delta</a></li><li><a href="DiffList.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="FileDelta.html">FileDelta</a></li><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
 </nav>
 
 <br clear="both">

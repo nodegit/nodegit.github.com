@@ -156,7 +156,7 @@ Commit.prototype.message = function(callback) {
 };
 
 /**
- * Retrieve the commit time as a unix timestamp in seconds.
+ * Retrieve the commit time as a unix timestamp.
  *
  * @param {Commit~timeCallback} callback
  */
@@ -168,7 +168,26 @@ Commit.prototype.time = function(callback) {
    */
   this.rawCommit.time(function(error, time) {
     if (success(error, callback)) {
-      callback(null, time);
+      // git_commit_time returns timestamp in s, converting to ms here
+      callback(null, time * 1000);
+    }
+  });
+};
+
+/**
+ * Retrieve the commit time as a Date object.
+ *
+ * @param {Commit~dateCallback} callback
+ */
+Commit.prototype.date = function(callback) {
+  /**
+   * @callback Commit~dateCallback Callback executed on date retrieval.
+   * @param {GitError|null} error An Error or null if successful.
+   * @param {Date|null} time Retrieved time as a Date object.
+   */
+  this.time(function(error, time) {
+    if (success(error, callback)) {
+      callback(null, new Date(time));
     }
   });
 };
@@ -212,7 +231,7 @@ Commit.prototype.author = function(callback) {
 /**
  * Retrieve the commit's committer.
  *
- * @param {Commit~committerCalback} callback
+ * @param {Commit~committerCallback} callback
  */
 Commit.prototype.committer = function(callback) {
   /**
@@ -272,12 +291,14 @@ Commit.prototype.file = function(path, callback) {
 };
 
 /**
- * Walk the history of this commit.
+ * Walk the history from this commit backwards.
+ * An EventEmitter is returned that will emit a 'commit' event for each 
+ * commit in the history, and one 'end' event when the walk is completed.
  *
  * @fires Commit#commit
  * @fires Commit#end
  *
- * @return {EventEmitter} Event
+ * @return {EventEmitter} historyWalkEmitter
  */
 Commit.prototype.history = function() {
   var event = new events.EventEmitter(),
@@ -324,9 +345,14 @@ Commit.prototype.history = function() {
 /**
  * Retrieve the commit's parents.
  *
- * @param {Function} callback
+ * @param {Commit~parentsCallback} callback
  */
 Commit.prototype.parents = function(callback) {
+  /**
+   * @callback Commit~parentsCallback Callback executed on parents retrieval.
+   * @param {GitError|null} error An Error or null if successful.
+   * @param {Commit[]|null} parents Commit's parent(s).
+   */
   var self = this;
   self.rawCommit.parents(function processParent(error, rawParents) {
     if (success(error, callback)) {
@@ -340,11 +366,17 @@ Commit.prototype.parents = function(callback) {
 };
 
 /**
- * Get a diff tree showing changes between this commit and its parent(s).
+ * Generate an array of diff trees showing changes between this commit 
+ * and its parent(s).
  *
- * @param  {Function} callback
+ * @param {Commit~parentsDiffTreesCallback} callback
  */
 Commit.prototype.parentsDiffTrees = function(callback) {
+  /**
+   * @callback Commit~parentsDiffTreesCallback Callback executed on diff trees retrieval.
+   * @param {GitError|null} error An Error or null if successful.
+   * @param {DiffList[]|null} diffLists Array of DiffTrees showing changes between this commit and its parent(s)
+   */
   var self = this;
   self.sha(function(error, commitSha) {
     if (!success(error, callback)) {
@@ -385,7 +417,7 @@ exports.commit = Commit;
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="DiffList.html">DiffList</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="DiffList.html#event:delta">delta</a></li><li><a href="DiffList.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="FileDelta.html">FileDelta</a></li><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
 </nav>
 
 <br clear="both">

@@ -103,7 +103,7 @@ git.repo(&#39;.git&#39;, function(error, repository) {
                 commit.sha(callback);
             },
             function(callback) {
-                commit.time(callback);
+                commit.date(callback);
             },
             function(callback) {
                 commit.author(function(error, author) {
@@ -121,13 +121,13 @@ git.repo(&#39;.git&#39;, function(error, repository) {
         ], function printCommit(error, results) {
             if (error) throw error;
             console.log(&#39;SHA &#39; + results[0]);
-            console.log(new Date(results[1] * 1000));
+            console.log(results[1] * 1000);
             console.log(results[2] + &#39; &lt;&#39; + results[3] + &#39;&gt;&#39;);
             console.log(results[4]);
         });
     });
   });
-});</code></pre>
+});  </code></pre>
 
 <p><em>view commit tree and blob information</em></p>
 
@@ -176,7 +176,7 @@ $ node install</code></pre></article>
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="DiffList.html">DiffList</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="DiffList.html#event:delta">delta</a></li><li><a href="DiffList.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="FileDelta.html">FileDelta</a></li><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
 </nav>
 
 <br clear="both">
