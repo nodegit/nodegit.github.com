@@ -304,9 +304,8 @@ body {
   font-family: sans-serif;
 }
   body .built-in {
+    padding: 0 20px 55px;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
   }
   body .amp {
     font-size: 30px;
@@ -395,4 +394,11 @@ pre code {
   margin-top: 15px;
   margin-right: 100px;
   text-align: center;
+}
+
+.by-a-kiwi {
+  height: 96px;
+  position: relative;
+  top: 25px;
+  width: 96px;
 }
