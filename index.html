@@ -1,237 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Nodegit: Index</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/common.css">
-    <link type="text/css" rel="stylesheet" href="styles/ir_black.css">
+  <title>NodeGit: Native Node bindings to Git.</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+  <link type="text/css" rel="stylesheet" href="styles/common.css">
+  <link type="text/css" rel="stylesheet" href="styles/ir_black.css">
 </head>
 
 <body>
 
-<div id="main">
-    <!-- Fork Me -->
-    <a href="http://github.com/tbranyen/nodegit">
-      <img class="forkme"
-      src="http://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"
-      alt="Fork me on GitHub">
-    </a>
+  <header>
+    <h1 class="brand">NodeGit</h1>
 
-    <div id="container">
+    <!--
+    <nav>
+      <div class="pure-menu pure-menu-open pure-menu-horizontal">
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li class="pure-menu-selected"><a href="#">Flickr</a></li>
+              <li><a href="#">Messenger</a></li>
+              <li><a href="#">Sports</a></li>
+              <li><a href="#">Finance</a></li>
+          </ul>
+      </div>
+    </nav>
+    -->
+    <!--
+    <nav><a href="#">Test</a> </nav>
+    <nav><a href="#">Test</a> </nav>
+    -->
+  </header>
 
-        <!-- Branding -->
-        <section class="branding">
-            <a class="download" href="http://github.com/tbranyen/nodegit/zipball/master">
-                <img src="http://github.com/images/modules/download/zip.png">
-            </a>
-            <a class="download" href="http://github.com/tbranyen/nodegit/tarball/master">
-                <img src="http://github.com/images/modules/download/tar.png">
-            </a>
-            <div class="headline">
-                <a href="http://github.com/tbranyen/nodegit">nodegit</a>
-                <a class="travis" href="https://travis-ci.org/tbranyen/nodegit"><img src="https://travis-ci.org/tbranyen/nodegit.png" alt="Build Status" style="max-width:100%;"></a>
-            </div>
-            <span class="small">by <a href="http://github.com/tbranyen">tbranyen</a> &amp; <a href="http://github.com/faceleg">faceleg</a></span>
-        </section>
-        <div class="social">
-            <iframe src="http://ghbtns.com/github-btn.html?count=true&user=tbranyen&repo=nodegit&type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://nodegit.github.com/" data-text="When I need git tools in Node.js, I use nodegit" data-hashtags="nodejs">Tweet</a>
-        </div>
+  <script src="scripts/highlight.pack.js"></script>
+  <script>
+    hljs.tabReplace = '    ';
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><p>Version <strong>0.0.79</strong> Node.js libgit2 asynchronous native bindings</p>
-
-<p>A collection of non-blocking Node.js libgit2 bindings, raw api, convenience api, unit tests, documentation and accomodations to make contributing easier.</p>
-
-<h4>require</h4>
-
-<ul><li><a href="http://nodejs.org/">Node.js &gt;=0.8</a></li><li><a href="http://npmjs.org/">npm</a> <em>(if you want the premiere install experience)</em></li><li><a href="http://git-scm.com/">Git</a> <em>(if you want to unit test )</em>  </li></ul>
-
-<h4>install</h4>
-
-<pre><code>npm install nodegit</code></pre>
-
-<h4>use</h4>
-
-<p><em>emulate git log</em></p>
-
-<pre><code>// Load in the module.
-var git = require(&#39;nodegit&#39;),
-  async = require(&#39;async&#39;);
-
-// Open the repository in the current directory.
-git.repo(&#39;.git&#39;, function(error, repository) {
-  if (error) throw error;
-
-  // Use the master branch (a branch is the HEAD commit)
-  repository.branch(&#39;master&#39;, function(error, branch) {
-    if (error) throw error;
-
-    // History returns an event, and begins walking the history
-    var history = branch.history();
-
-    // History emits &#39;commit&#39; event for each commit in the branch&#39;s history
-    history.on(&#39;commit&#39;, function(error, commit) {
-      // Print out `git log` emulation.
-        async.series([
-            function(callback) {
-                commit.sha(callback);
-            },
-            function(callback) {
-                commit.date(callback);
-            },
-            function(callback) {
-                commit.author(function(error, author) {
-                    author.name(callback);
-                });
-            },
-            function(callback) {
-                commit.author(function(error, author) {
-                    author.email(callback);
-                });
-            },
-            function(callback) {
-                commit.message(callback);
-            }
-        ], function printCommit(error, results) {
-            if (error) throw error;
-            console.log(&#39;SHA &#39; + results[0]);
-            console.log(results[1] * 1000);
-            console.log(results[2] + &#39; &lt;&#39; + results[3] + &#39;&gt;&#39;);
-            console.log(results[4]);
-        });
-    });
-  });
-});  </code></pre>
-
-<p><em>view commit tree and blob information</em></p>
-
-<pre><code>// Load in the module.
-var git = require(&#39;nodegit&#39;);
-
-// Open the repository in the current directory.
-git.repo(&#39;.git&#39;, function(error, repository) {
-  if (error) throw error;
-
-  // Use the master branch.
-  repository.branch(&#39;master&#39;, function(error, branch) {
-    if (error) throw error;
-
-    // Iterate over the revision history.
-    branch.tree(function(error, tree) {
-      if (error) throw error;
-      tree.walk().on(&#39;entry&#39;, function(error, entry) {
-        entry.name(function(error, name) {
-            console.log(name);
-        });
-      });
-    });
-  });
-});  </code></pre>
-
-<h4>download</h4>
-
-<p>You can download this project in either <a href="http://github.com/tbranyen/nodegit/zipball/master">zip</a> or <a href="http://github.com/tbranyen/nodegit/tarball/master">tar</a> formats.</p>
-
-<p>You can also clone and build the project with <a href="http://git-scm.com">Git</a> by running:</p>
-
-<pre><code>$ git clone git://github.com/tbranyen/nodegit
-
-$ cd nodegit
-
-$ node install</code></pre></article>
-    </section>
-
-
-
-
-
-
-    </div>
-</div>
-
-<nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Blob.html">Blob</a></li><li><a href="Commit.html">Commit</a></li><li><a href="DiffList.html">DiffList</a></li><li><a href="GitError.html">GitError</a></li><li><a href="Oid.html">Oid</a></li><li><a href="Reference.html">Reference</a></li><li><a href="Repo.html">Repo</a></li><li><a href="RevWalk.html">RevWalk</a></li><li><a href="Tree.html">Tree</a></li><li><a href="TreeEntry.html">TreeEntry</a></li></ul><h3>Events</h3><ul><li><a href="Commit.html#event:commit">commit</a></li><li><a href="Commit.html#event:end">end</a></li><li><a href="DiffList.html#event:delta">delta</a></li><li><a href="DiffList.html#event:end">end</a></li><li><a href="Tree.html#event:end">end</a></li><li><a href="Tree.html#event:entry">entry</a></li></ul><h3>Namespaces</h3><ul><li><a href="FileDelta.html">FileDelta</a></li><li><a href="utilities.html">utilities</a></li></ul><h3>Global</h3><ul><li><a href="global.html#repo">repo</a></li></ul>
-</nav>
-
-<br clear="both">
-
-<!--<footer>
-    <div class="built-in">
-      <a target="_blank" href="http://bostonbuilt.org"><img class="boston" src="img/boston.gif" alt="Built in Boston USA"></a>
-      <span class="amp">&amp;</span>
-      <a href="http://by-a.kiwi.nz" target="_blank" title="Coded by a Kiwi"><img alt="Coded by a Kiwi" class="by-a-kiwi" src="http://served.by-a.kiwi.nz/coded/badge.svg" /></a>
-    </div>
-</footer>-->
-
-<script src="scripts/highlight.pack.js"></script>
-<script>
-  hljs.tabReplace = '    ';
-  hljs.initHighlightingOnLoad();
-</script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39991515-2', 'github.io');
-  ga('send', 'pageview');
-
-</script>
+    ga('create', 'UA-21174385-2', 'github.com');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>
-
-<!--
-  ____ ____ ____ ____ ____ ____ ____
-  ||N |||O |||D |||E |||. |||J |||S ||
-  ||__|||__|||__|||__|||__|||__|||__||
-  |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-
-   ____
-  ||+ ||
-  ||__||
-  |/__\|
-
-   ____ ____ ____ ____ ____ ____ ____
-  ||L |||I |||B |||G |||I |||T |||2 ||
-  ||__|||__|||__|||__|||__|||__|||__||
-  |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-
-   ____
-  ||= ||
-  ||__||
-  |/__\|
-
-   ____ ____ ____ ____ ____ ____ ____
-  ||O |||W |||N |||Z |||O |||N |||E ||
-  ||__|||__|||__|||__|||__|||__|||__||
-  |/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-
--->
