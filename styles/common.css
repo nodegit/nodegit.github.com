@@ -2,28 +2,37 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
 html, body {
   background: #434343;
 }
 
-header {
+header, footer {
   text-align: center;
-  overflow: visible;
   background: #383838;
+  color: white;
 }
 
-h1.brand {
+a {
+  text-decoration: none;
+}
+
+.brand {
   color: transparent;
   position: relative;
   margin: 0;
   padding: 2%;
-  height: 100px;
+  height: 130px;
 }
 
-h1.brand:before {
+.brand:before {
   content: "";
   width: 228px;
-  height: 50px;
+  height: 51px;
   display: block;
   background: url(../img/nodegit.svg);
   margin: auto;
@@ -36,9 +45,45 @@ header {
   position: relative;
 }
 
-nav .pure-button {
-  background: #000;
-  color: #FFF;
+nav ul {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #313131;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 3.5em;
+}
+
+nav a {
+  color: white;
+  padding: 0 3em;
+  display: block;
+  font-size: .8em;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  background: #313131;
+}
+
+footer {
+  line-height: 4.5em;
+  font-size: .8em;
+  letter-spacing: 1px;
+}
+
+footer a {
+  color: #F45C60;
+}
+
+#wrapper .block {
+  max-width: 980px;
+  margin: auto;
+  padding: 6em 2em;
+  background: white;
 }
 
 /*
