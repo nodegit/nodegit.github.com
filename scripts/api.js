@@ -52,10 +52,10 @@
       });
     });
 
-    scrollable.height($("html").innerHeight() - 160);
+    scrollable.height($("html").innerHeight() - 260);
 
     $(window).on("resize", function() {
-      scrollable.height($("html").innerHeight() - 160);
+      scrollable.height($("html").innerHeight() - 260);
     });
 
     // Highlight the new code blocks.
