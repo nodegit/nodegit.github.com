@@ -155,3 +155,5 @@ ul.api-contents table h3 {
 .scrollable {
   overflow-y: auto;
 }
+
+.scrollable::-webkit-scrollbar { width: 0 !important }
