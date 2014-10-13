@@ -147,6 +147,7 @@ ul.api-contents table h3 {
   display: inline-block;
   padding-bottom: 15px;
   color: #3D3D3D;
+  padding-top: 10px;
 }
 
 .api-content .inner-block strong.cName {
