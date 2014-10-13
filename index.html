@@ -63,9 +63,24 @@
                     {%if not fields.length%}
                     <li>No properties available.</li>
                     {%endif%}
-                    {%each fields as field%}
-                    <li id="{{jsClassName}}/field/{{field.name}}">{{field.name}}</li>
-                    {%endeach%}
+                    <li>
+                      <table class="pure-table">
+                        <thead>
+                          <tr>
+                            <th><sub>Name</sub></th>
+                            <th><sub>Type</sub></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {%each fields as field%}
+                          <tr id="{{jsClassName}}/field/{{field.name}}">
+                            <td><strong>{{field.name}}</strong></td>
+                            <td>{{ field.jsClassName }}</td>
+                          </tr>
+                          {%endeach%}
+                        </tbody>
+                      </table>
+                    </li>
                   </ul>
 
                   <h4>Functions:</h4>
@@ -75,7 +90,7 @@
                     {%endif%}
                     {%each functions as function%}
                     <li id="{{jsClassName}}/function/{{function.name}}">
-                      <strong>{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
+                      <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
                     </li>
                     {%endeach%}
                   </ul>

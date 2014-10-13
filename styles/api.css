@@ -126,6 +126,7 @@ ul.api-contents table h3 {
   margin-top: 20px;
   padding: 10px;
   padding-left: 30px;
+  list-style: none;
 }
 
 .api-content .inner-block h3 {
