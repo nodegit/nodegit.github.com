@@ -9,6 +9,7 @@
         "jsFunctionName": "get",
         "return": {
           "cType": "int",
+          "comment": null,
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -77,6 +78,7 @@
         "jsFunctionName": "getMany",
         "return": {
           "cType": "int",
+          "comment": null,
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -156,6 +158,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 on success, non-zero callback return value, or error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -223,6 +226,7 @@
         "jsFunctionName": "cacheFlush",
         "return": {
           "cType": "void",
+          "comment": null,
           "cppClassName": "void",
           "jsClassName": "void"
         },
@@ -250,6 +254,7 @@
         "jsFunctionName": "addMacro",
         "return": {
           "cType": "int",
+          "comment": null,
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -330,6 +335,7 @@
         "jsFunctionName": "lookup",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -379,6 +385,7 @@
         "return": {
           "cppClassName": "Wrapper",
           "cType": "const void *",
+          "comment": " the pointer",
           "jsClassName": "Buffer"
         },
         "isConstructorMethod": false,
@@ -405,6 +412,7 @@
         "jsFunctionName": "rawsize",
         "return": {
           "cType": "git_off_t",
+          "comment": " size on bytes",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -433,6 +441,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -490,6 +499,7 @@
         "jsFunctionName": "isBinary",
         "return": {
           "cType": "int",
+          "comment": " 1 if the content of the blob is detected\n as binary; 0 otherwise.",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -562,6 +572,7 @@
         "jsFunctionName": "initOptions",
         "return": {
           "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -599,6 +610,7 @@
         "jsFunctionName": "head",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, GIT_EUNBORNBRANCH if HEAD points to a non\n         existing branch, non-zero value returned by `notify_cb`, or\n         other error code \n<\n 0 (use giterr_last for error details)",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -636,6 +648,7 @@
         "jsFunctionName": "index",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, non-zero return value from `notify_cb`, or error\n         code \n<\n 0 (use giterr_last for error details)",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -683,6 +696,7 @@
         "jsFunctionName": "tree",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, non-zero return value from `notify_cb`, or error\n         code \n<\n 0 (use giterr_last for error details)",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -766,6 +780,7 @@
         "jsFunctionName": "clone",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, any non-zero return value from a callback\n         function, or a negative value to indicate an error (use\n         `giterr_last` for a detailed error message)",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -825,6 +840,7 @@
         "jsFunctionName": "cloneInto",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, any non-zero return value from a callback\n         function, or a negative value to indicate an error (use\n         `giterr_last` for a detailed error message)",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -973,6 +989,7 @@
         "jsFunctionName": "lookup",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -1021,6 +1038,7 @@
         "jsFunctionName": "id",
         "return": {
           "cType": "const git_oid *",
+          "comment": " object identity for the commit.",
           "cppClassName": "GitOid",
           "jsClassName": "Oid"
         },
@@ -1048,6 +1066,7 @@
         "jsFunctionName": "message",
         "return": {
           "cType": "const char *",
+          "comment": " the message of a commit",
           "cppClassName": "String",
           "jsClassName": "String"
         },
@@ -1075,6 +1094,7 @@
         "jsFunctionName": "time",
         "return": {
           "cType": "git_time_t",
+          "comment": " the time of a commit",
           "cppClassName": "Int32",
           "jsClassName": "Number"
         },
@@ -1102,6 +1122,7 @@
         "jsFunctionName": "timeOffset",
         "return": {
           "cType": "int",
+          "comment": " positive or negative timezone offset, in minutes from UTC",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -1129,6 +1150,7 @@
         "jsFunctionName": "committer",
         "return": {
           "cType": "const git_signature *",
+          "comment": " the committer of a commit",
           "cppClassName": "GitSignature",
           "jsClassName": "Signature"
         },
@@ -1156,6 +1178,7 @@
         "jsFunctionName": "author",
         "return": {
           "cType": "const git_signature *",
+          "comment": " the author of a commit",
           "cppClassName": "GitSignature",
           "jsClassName": "Signature"
         },
@@ -1183,6 +1206,7 @@
         "jsFunctionName": "treeId",
         "return": {
           "cType": "const git_oid *",
+          "comment": " the id of tree pointed to by commit.",
           "cppClassName": "GitOid",
           "jsClassName": "Oid"
         },
@@ -1210,6 +1234,7 @@
         "jsFunctionName": "parentcount",
         "return": {
           "cType": "unsigned int",
+          "comment": " integer of count of parents",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -1237,6 +1262,7 @@
         "jsFunctionName": "parentId",
         "return": {
           "cType": "const git_oid *",
+          "comment": " the id of the parent, NULL on error.",
           "cppClassName": "GitOid",
           "jsClassName": "Oid"
         },
@@ -1275,6 +1301,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code\n\tThe created commit will be written to the Object Database and\n\tthe given reference will be updated to point to it",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -1531,6 +1558,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": null,
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -1599,6 +1627,7 @@
         "jsFunctionName": "numDeltas",
         "return": {
           "cType": "size_t",
+          "comment": " Count of number of deltas in the list",
           "cppClassName": "Uint32",
           "jsClassName": "Number"
         },
@@ -1627,6 +1656,7 @@
         "return": {
           "cType": "const git_diff_delta *",
           "copy": "git_diff_delta_dup",
+          "comment": " Pointer to git_diff_delta (or NULL if `idx` out of range)",
           "cppClassName": "GitDelta",
           "jsClassName": "Delta"
         },
@@ -2070,6 +2100,7 @@
         "jsFunctionName": "fromstr",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2108,6 +2139,7 @@
         "jsFunctionName": "allocfmt",
         "return": {
           "cType": "char *",
+          "comment": " the c-string; NULL if memory is exhausted. Caller must\n\t\t\tdeallocate the string with git__free().",
           "cppClassName": "String",
           "jsClassName": "String"
         },
@@ -2167,6 +2199,7 @@
         "return": {
           "copy": "git_diff_delta_dup",
           "cType": "const git_diff_delta *",
+          "comment": null,
           "cppClassName": "GitDelta",
           "jsClassName": "Delta"
         },
@@ -2194,6 +2227,7 @@
         "jsFunctionName": "fromDiff",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, other value \n<\n 0 on error",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2242,6 +2276,7 @@
         "jsFunctionName": "numHunks",
         "return": {
           "cType": "size_t",
+          "comment": null,
           "cppClassName": "Uint32",
           "jsClassName": "Number"
         },
@@ -2269,6 +2304,7 @@
         "jsFunctionName": "numLinesInHunk",
         "return": {
           "cType": "int",
+          "comment": " Number of lines in hunk or -1 if invalid hunk index",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -2306,6 +2342,7 @@
         "jsFunctionName": "getLineInHunk",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, \n<\n0 on failure",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -2418,6 +2455,7 @@
         "jsFunctionName": "lookup",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, GIT_ENOTFOUND, GIT_EINVALIDSPEC or an error code.",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2467,6 +2505,7 @@
         "return": {
           "copy": "git_oid_dup",
           "cType": "const git_oid *",
+          "comment": " a pointer to the oid if available, NULL otherwise",
           "cppClassName": "GitOid",
           "jsClassName": "Oid"
         },
@@ -2494,6 +2533,7 @@
         "jsFunctionName": "type",
         "return": {
           "cType": "git_ref_t",
+          "comment": " the type",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -2573,6 +2613,7 @@
         "jsFunctionName": "create",
         "return": {
           "cType": "int",
+          "comment": " 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2632,6 +2673,7 @@
         "return": {
           "copy": "git_remote_dup",
           "cType": "int",
+          "comment": " 0, GIT_ENOTFOUND, GIT_EINVALIDSPEC or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2680,6 +2722,7 @@
         "jsFunctionName": "name",
         "return": {
           "cType": "const char *",
+          "comment": " a pointer to the name or NULL for in-memory remotes",
           "cppClassName": "String",
           "jsClassName": "String"
         },
@@ -2707,6 +2750,7 @@
         "jsFunctionName": "url",
         "return": {
           "cType": "const char *",
+          "comment": " a pointer to the url",
           "cppClassName": "String",
           "jsClassName": "String"
         },
@@ -2734,6 +2778,7 @@
         "jsFunctionName": "pushurl",
         "return": {
           "cType": "const char *",
+          "comment": " a pointer to the url or NULL if no special url for pushing is set",
           "cppClassName": "String",
           "jsClassName": "String"
         },
@@ -2762,6 +2807,7 @@
         "return": {
           "copy": "git_strarray_copy",
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2800,6 +2846,7 @@
         "jsFunctionName": "rename",
         "return": {
           "cType": "int",
+          "comment": " 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -2847,6 +2894,7 @@
         "jsFunctionName": "delete",
         "return": {
           "cType": "int",
+          "comment": " 0 on success, or an error code.",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -2914,6 +2962,7 @@
         "jsFunctionName": "open",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -2952,6 +3001,7 @@
         "jsFunctionName": "init",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3000,6 +3050,7 @@
         "jsFunctionName": "initInitOptions",
         "return": {
           "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3037,6 +3088,7 @@
         "jsFunctionName": "initExt",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code on failure.",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3085,6 +3137,7 @@
         "jsFunctionName": "index",
         "return": {
           "cType": "int",
+          "comment": " 0, or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3168,6 +3221,7 @@
         "jsFunctionName": "createRevwalk",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3206,6 +3260,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3244,6 +3299,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3281,6 +3337,7 @@
         "jsFunctionName": "next",
         "return": {
           "cType": "int",
+          "comment": " 0 if the next commit was found;\n\tGIT_ITEROVER if there are no commits left to iterate",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3319,6 +3376,7 @@
         "jsFunctionName": "sorting",
         "return": {
           "cType": "void",
+          "comment": null,
           "cppClassName": "void",
           "jsClassName": "void"
         },
@@ -3356,6 +3414,7 @@
         "jsFunctionName": "simplifyFirstParent",
         "return": {
           "cType": "void",
+          "comment": null,
           "cppClassName": "void",
           "jsClassName": "void"
         },
@@ -3404,6 +3463,7 @@
         "jsFunctionName": "create",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3626,6 +3686,7 @@
         "jsFunctionName": "init",
         "return": {
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3692,6 +3753,7 @@
         "jsFunctionName": "credSshKeyFromAgent",
         "return": {
           "cType": "int",
+          "comment": " 0 for success or an error code for failure",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -3745,6 +3807,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3792,6 +3855,7 @@
         "jsFunctionName": "entrycount",
         "return": {
           "cType": "size_t",
+          "comment": " the number of entries in the tree",
           "cppClassName": "Uint32",
           "jsClassName": "Number"
         },
@@ -3819,6 +3883,7 @@
         "jsFunctionName": "entryByname",
         "return": {
           "cType": "const git_tree_entry *",
+          "comment": " the tree entry; NULL if not found",
           "cppClassName": "GitTreeEntry",
           "jsClassName": "TreeEntry"
         },
@@ -3856,6 +3921,7 @@
         "jsFunctionName": "entryByindex",
         "return": {
           "cType": "const git_tree_entry *",
+          "comment": " the tree entry; NULL if not found",
           "cppClassName": "GitTreeEntry",
           "jsClassName": "TreeEntry"
         },
@@ -3894,6 +3960,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 on success; GIT_ENOTFOUND if the path does not exist",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -3966,6 +4033,7 @@
         "jsFunctionName": "create",
         "return": {
           "cType": "int",
+          "comment": " 0 on success; error code otherwise",
           "cppClassName": "Number",
           "jsClassName": "Number",
           "isErrorCode": true
@@ -4005,6 +4073,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -4074,6 +4143,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": null,
           "cppClassName": "Number",
           "jsClassName": "Number"
         },
@@ -4112,6 +4182,7 @@
         "return": {
           "isErrorCode": true,
           "cType": "int",
+          "comment": " 0 or an error code",
           "cppClassName": "Number",
           "jsClassName": "Number"
         },

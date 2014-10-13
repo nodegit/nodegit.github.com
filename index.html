@@ -188,7 +188,9 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
 
                       <h4>Returns:</h4>
                       <div class="arguments">
-                        {%if function.return.isErrorCode%}
+                        {%if function.return.comment%}
+                        <span>{{ function.return.comment }}</span>
+                        {%elsif function.return.isErrorCode%}
                         <span>An error code.</span>
                         {%elsif isAsync%}
                         <span>A Promise.</span>
