@@ -41,6 +41,10 @@
   margin-right: 10px;
 }
 
+#list-api a.active .subnav a {
+  padding: 0;
+}
+
 #list-api a:hover, #list-api a.active {
   background: #353535;
   color: #FFF;

@@ -122,7 +122,7 @@
                     <li>No functions available.</li>
                     {%endif%}
                     {%each functions as function%}
-                    <li id="{{jsClassName}}/function/{{function.name}}">
+                    <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
                       <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
                     </li>
                     {%endeach%}

@@ -14,8 +14,6 @@
 
     var contentTemplate = combyne($(".api-content script").eq(1).html().trim());
 
-    console.log(resp);
-
     resp.forEach(function(ctor) {
       // Add nav entry.
       var anchor = $("<a href='#" + ctor.jsClassName + "'><li>" + ctor.jsClassName + "</li><ul class='subnav'></ul></a>").appendTo(listApi);
@@ -27,7 +25,7 @@
 
       ctor.functions.forEach(function(func) {
         var isPrototype = func.isPrototypeMethod ? "#" : ".";
-        anchor.find(".subnav").append("<li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li>");
+        anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
       });
     });
 
