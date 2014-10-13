@@ -1,0 +1,4416 @@
+[
+  {
+    "cType": null,
+    "functions": [
+      {
+        "cFunctionName": "git_attr_get",
+        "ignore": false,
+        "description": "<p>Look up the value of one git attribute for path.</p>\n",
+        "cppFunctionName": "Get",
+        "jsFunctionName": "get",
+        "return": {
+          "cType": "int",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "value_out",
+            "cType": "const char **",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Output of the value of the attribute.  Use the GIT_ATTR_...\n             macros to test for TRUE, FALSE, UNSPECIFIED, etc. or just\n             use the string value for attributes set to a value.  You\n             should NOT modify or free this value.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "The repository containing the path.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "flags",
+            "cType": "uint32_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "A combination of GIT_ATTR_CHECK... flags.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The path to check for attributes.  Relative paths are\n             interpreted relative to the repo root.  The file does\n             not have to exist, but if it does not, then it will be\n             treated as a plain file (not a directory).",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The name of the attribute to look up.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_attr_get_many",
+        "ignore": false,
+        "description": "<p>Look up a list of git attributes for path.</p>\n",
+        "cppFunctionName": "GetMany",
+        "jsFunctionName": "getMany",
+        "return": {
+          "cType": "int",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "values_out",
+            "cType": "const char **",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "An array of num_attr entries that will have string\n             pointers written into it for the values of the attributes.\n             You should not modify or free the values that are written\n             into this array (although of course, you should free the\n             array itself if you allocated it).",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "The repository containing the path.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "flags",
+            "cType": "uint32_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "A combination of GIT_ATTR_CHECK... flags.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The path inside the repo to check attributes.  This\n             does not have to exist, but if it does not, then\n             it will be treated as a plain file (i.e. not a directory).",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "num_attr",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "The number of attributes being looked up",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "names",
+            "cType": "const char **",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "An array of num_attr strings containing attribute names.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>Use this if you have a known list of attributes that you want to\n look up in a single call.  This is somewhat more efficient than\n calling <code>git_attr_get()</code> multiple times.</p>\n\n<p>For example, you might write:</p>\n\n<pre><code> const char *attrs[] = { &quot;crlf&quot;, &quot;diff&quot;, &quot;foo&quot; };\n const char **values[3];\n git_attr_get_many(values, repo, 0, &quot;my/fun/file.c&quot;, 3, attrs);\n</code></pre>\n\n<p>Then you could loop through the 3 values to get the settings for\n the three attributes you asked about.</p>\n"
+      },
+      {
+        "cFunctionName": "git_attr_foreach",
+        "ignore": true,
+        "description": "<p>Loop over all the git attributes for a path.</p>\n",
+        "cppFunctionName": "Foreach",
+        "jsFunctionName": "foreach",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 on success, non-zero callback return value, or error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "The repository containing the path.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "flags",
+            "cType": "uint32_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "A combination of GIT_ATTR_CHECK... flags.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Path inside the repo to check attributes.  This does not have\n             to exist, but if it does not, then it will be treated as a\n             plain file (i.e. not a directory).",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "callback",
+            "cType": "git_attr_foreach_cb",
+            "cppClassName": "AttrForeachCb",
+            "jsClassName": "AttrForeachCb",
+            "comment": "Function to invoke on each attribute name and value.  The\n             value may be NULL is the attribute is explicitly set to\n             UNSPECIFIED using the '!' sign.  Callback will be invoked\n             only once per attribute name, even if there are multiple\n             rules for a given file.  The highest priority rule will be\n             used.  Return a non-zero value from this to stop looping.\n             The value will be returned from `git_attr_foreach`.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "payload",
+            "cType": "void *",
+            "cppClassName": "Function",
+            "jsClassName": "Function",
+            "comment": "Passed on as extra parameter to callback function.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_attr_cache_flush",
+        "ignore": false,
+        "description": "<p>Flush the gitattributes cache.</p>\n",
+        "cppFunctionName": "CacheFlush",
+        "jsFunctionName": "cacheFlush",
+        "return": {
+          "cType": "void",
+          "comment": null,
+          "cppClassName": "void",
+          "jsClassName": "void"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Call this if you have reason to believe that the attributes files on\n disk no longer match the cached contents of memory.  This will cause\n the attributes files to be reloaded the next time that an attribute\n access function is called.</p>\n"
+      },
+      {
+        "cFunctionName": "git_attr_add_macro",
+        "ignore": false,
+        "description": "<p>Add a macro definition.</p>\n",
+        "cppFunctionName": "AddMacro",
+        "jsFunctionName": "addMacro",
+        "return": {
+          "cType": "int",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "values",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Macros will automatically be loaded from the top level <code>.gitattributes</code>\n file of the repository (plus the build-in &quot;binary&quot; macro).  This\n function allows you to add others.  For example, to add the default\n macro, you would call:</p>\n\n<pre><code> git_attr_add_macro(repo, &quot;binary&quot;, &quot;-diff -crlf&quot;);\n</code></pre>\n"
+      }
+    ],
+    "filename": "attr.h",
+    "ignore": false,
+    "cppClassName": "GitAttr",
+    "jsClassName": "Attr",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": []
+  },
+  {
+    "filename": "blame.h",
+    "ignore": false,
+    "cppClassName": "GitBlame",
+    "jsClassName": "Blame",
+    "cType": "git_blame",
+    "description": "",
+    "freeFunctionName": "git_blame_free",
+    "dependencies": [
+      "../include/blame.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "dependencies": [
+      "../include/wrapper.h",
+      "node_buffer.h",
+      "../include/blob.h",
+      "../include/repository.h",
+      "../include/oid.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_blob_lookup",
+        "ignore": false,
+        "description": "<p>Lookup a blob object from a repository.</p>\n",
+        "cppFunctionName": "Lookup",
+        "jsFunctionName": "lookup",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "blob",
+            "cType": "git_blob **",
+            "cppClassName": "GitBlob",
+            "jsClassName": "Blob",
+            "comment": "pointer to the looked up blob",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repo to use when locating the blob.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "identity of the blob to locate.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blob_rawcontent",
+        "ignore": false,
+        "description": "<p>Get a read-only buffer with the raw content of a blob.</p>\n",
+        "cppFunctionName": "Rawcontent",
+        "jsFunctionName": "rawcontent",
+        "return": {
+          "cppClassName": "Wrapper",
+          "cType": "const void *",
+          "comment": " the pointer",
+          "jsClassName": "Buffer"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blob",
+            "cType": "const git_blob *",
+            "cppClassName": "GitBlob",
+            "jsClassName": "Blob",
+            "comment": "pointer to the blob",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>A pointer to the raw content of a blob is returned;\n this pointer is owned internally by the object and shall\n not be free&#39;d. The pointer may be invalidated at a later\n time.</p>\n"
+      },
+      {
+        "cFunctionName": "git_blob_rawsize",
+        "ignore": false,
+        "description": "<p>Get the size in bytes of the contents of a blob</p>\n",
+        "cppFunctionName": "Rawsize",
+        "jsFunctionName": "rawsize",
+        "return": {
+          "cType": "git_off_t",
+          "comment": " size on bytes",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blob",
+            "cType": "const git_blob *",
+            "cppClassName": "GitBlob",
+            "jsClassName": "Blob",
+            "comment": "pointer to the blob",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blob_create_frombuffer",
+        "ignore": false,
+        "description": "<p>Write an in-memory buffer to the ODB as a blob</p>\n",
+        "cppFunctionName": "CreateFrombuffer",
+        "jsFunctionName": "createFrombuffer",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "id",
+            "cType": "git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "return the id of the written blob",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "repository where to blob will be written",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "buffer",
+            "cType": "const void *",
+            "cppClassName": "Buffer",
+            "jsClassName": "Buffer",
+            "comment": "data to be written into the blob",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "len",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "length of the data",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blob_is_binary",
+        "ignore": false,
+        "description": "<p>Determine if the blob content is most certainly binary or not.</p>\n",
+        "cppFunctionName": "IsBinary",
+        "jsFunctionName": "isBinary",
+        "return": {
+          "cType": "int",
+          "comment": " 1 if the content of the blob is detected\n as binary; 0 otherwise.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blob",
+            "cType": "const git_blob *",
+            "cppClassName": "GitBlob",
+            "jsClassName": "Blob",
+            "comment": "The blob which content should be analyzed",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The heuristic used to guess if a file is binary is taken from core git:\n Searching for NUL bytes and looking for a reasonable ratio of printable\n to non-printable characters among the first 8000 bytes.</p>\n"
+      }
+    ],
+    "filename": "blob.h",
+    "ignore": false,
+    "cppClassName": "GitBlob",
+    "jsClassName": "Blob",
+    "cType": "git_blob",
+    "description": " In-memory representation of a blob object. ",
+    "freeFunctionName": "git_blob_free",
+    "fields": []
+  },
+  {
+    "cType": null,
+    "filename": "branch.h",
+    "ignore": false,
+    "cppClassName": "GitBranch",
+    "jsClassName": "Branch",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "buffer.h",
+    "ignore": false,
+    "cppClassName": "GitBuffer",
+    "jsClassName": "Buffer",
+    "cType": "git_buf",
+    "description": " A data buffer for exporting data from libgit2",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "dependencies": [
+      "../include/functions/copy.h",
+      "../include/checkout.h",
+      "../include/checkout_options.h",
+      "../include/repository.h",
+      "../include/index.h",
+      "../include/object.h",
+      "../include/checkout_options.h",
+      "../include/repository.h",
+      "../include/index.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_checkout_init_options",
+        "ignore": true,
+        "description": "<p>Initializes a <code>git_checkout_options</code> with default values. Equivalent to\n creating an instance with GIT_CHECKOUT_OPTIONS_INIT.</p>\n",
+        "cppFunctionName": "InitOptions",
+        "jsFunctionName": "initOptions",
+        "return": {
+          "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "opts",
+            "cType": "git_checkout_options *",
+            "cppClassName": "GitCheckoutOptions",
+            "jsClassName": "CheckoutOptions",
+            "comment": "the `git_checkout_options` struct to initialize.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "version",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Version of struct; pass `GIT_CHECKOUT_OPTIONS_VERSION`",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_checkout_head",
+        "ignore": false,
+        "description": "<p>Updates files in the index and the working tree to match the content of\n the commit pointed at by HEAD.</p>\n",
+        "cppFunctionName": "Head",
+        "jsFunctionName": "head",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, GIT_EUNBORNBRANCH if HEAD points to a non\n         existing branch, non-zero value returned by `notify_cb`, or\n         other error code \n<\n 0 (use giterr_last for error details)",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "repository to check out (must be non-bare)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "opts",
+            "cType": "const git_checkout_options *",
+            "cppClassName": "GitCheckoutOptions",
+            "jsClassName": "CheckoutOptions",
+            "comment": "specifies checkout options (may be NULL)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_checkout_index",
+        "ignore": false,
+        "description": "<p>Updates files in the working tree to match the content of the index.</p>\n",
+        "cppFunctionName": "Index",
+        "jsFunctionName": "index",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, non-zero return value from `notify_cb`, or error\n         code \n<\n 0 (use giterr_last for error details)",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "repository into which to check out (must be non-bare)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "index",
+            "cType": "git_index *",
+            "cppClassName": "GitIndex",
+            "jsClassName": "Index",
+            "comment": "index to be checked out (or NULL to use repository index)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "opts",
+            "cType": "const git_checkout_options *",
+            "cppClassName": "GitCheckoutOptions",
+            "jsClassName": "CheckoutOptions",
+            "comment": "specifies checkout options (may be NULL)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_checkout_tree",
+        "ignore": false,
+        "description": "<p>Updates files in the index and working tree to match the content of the\n tree pointed at by the treeish.</p>\n",
+        "cppFunctionName": "Tree",
+        "jsFunctionName": "tree",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, non-zero return value from `notify_cb`, or error\n         code \n<\n 0 (use giterr_last for error details)",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "repository to check out (must be non-bare)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "treeish",
+            "cType": "const git_object *",
+            "cppClassName": "GitObject",
+            "jsClassName": "Object",
+            "comment": "a commit, tag or tree which content will be used to update\n the working directory (or NULL to use HEAD)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "opts",
+            "cType": "const git_checkout_options *",
+            "cppClassName": "GitCheckoutOptions",
+            "jsClassName": "CheckoutOptions",
+            "comment": "specifies checkout options (may be NULL)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      }
+    ],
+    "filename": "checkout.h",
+    "ignore": false,
+    "cppClassName": "GitCheckout",
+    "jsClassName": "Checkout",
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_checkout_options",
+    "dependencies": [
+      "../include/strarray.h",
+      "../include/functions/copy.h",
+      "../include/checkout_options.h",
+      "../include/tree.h"
+    ],
+    "fields": [],
+    "filename": "checkout_options.h",
+    "ignore": false,
+    "cppClassName": "GitCheckoutOptions",
+    "jsClassName": "CheckoutOptions",
+    "description": " Checkout options structure",
+    "functions": []
+  },
+  {
+    "cType": null,
+    "trim": false,
+    "dependencies": [
+      "../include/signature.h",
+      "../include/checkout_options.h",
+      "../include/repository.h",
+      "../include/remote.h",
+      "../include/clone_options.h",
+      "../include/repository.h",
+      "../include/remote.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_clone",
+        "ignore": false,
+        "description": "<p>Clone a remote repository.</p>\n",
+        "cppFunctionName": "Clone",
+        "jsFunctionName": "clone",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, any non-zero return value from a callback\n         function, or a negative value to indicate an error (use\n         `giterr_last` for a detailed error message)",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_repository **",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "pointer that will receive the resulting repository object",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "url",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the remote repository to clone",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "local_path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "local directory to clone to",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "options",
+            "cType": "const git_clone_options *",
+            "cppClassName": "GitCloneOptions",
+            "jsClassName": "CloneOptions",
+            "comment": "configuration options for the clone.  If NULL, the\n        function works as though GIT_OPTIONS_INIT were passed.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "isOptional": true
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>This version handles the simple case. If you&#39;d like to create the\n repository or remote with non-default settings, you can create and\n configure them and then use <code>git_clone_into()</code>.</p>\n"
+      },
+      {
+        "cFunctionName": "git_clone_into",
+        "ignore": false,
+        "description": "<p>Clone into a repository</p>\n",
+        "cppFunctionName": "CloneInto",
+        "jsFunctionName": "cloneInto",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, any non-zero return value from a callback\n         function, or a negative value to indicate an error (use\n         `giterr_last` for a detailed error message)",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository to use",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "remote",
+            "cType": "git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the remote repository to clone from",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "co_opts",
+            "cType": "const git_checkout_options *",
+            "cppClassName": "GitCheckoutOptions",
+            "jsClassName": "CheckoutOptions",
+            "comment": "options to use during checkout",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "isOptional": true
+          },
+          {
+            "name": "branch",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the branch to checkout after the clone, pass NULL for the\n        remote's default branch",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "signature",
+            "cType": "const git_signature *",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "The identity used when updating the reflog.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>After creating the repository and remote and configuring them for\n paths and callbacks respectively, you can call this function to\n perform the clone operation and optionally checkout files.</p>\n"
+      }
+    ],
+    "filename": "clone.h",
+    "ignore": false,
+    "cppClassName": "GitClone",
+    "jsClassName": "Clone",
+    "fields": []
+  },
+  {
+    "cType": "git_clone_options",
+    "isStruct": true,
+    "isPublicStruct": true,
+    "dependencies": [
+      "../include/checkout_options.h",
+      "../include/remote_callbacks.h"
+    ],
+    "fields": [
+      {
+        "name": "version",
+        "cType": "int",
+        "cppFunctionName": "Version",
+        "jsFunctionName": "version",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "remote_callbacks",
+        "cType": "git_remote_callbacks",
+        "cppFunctionName": "RemoteCallbacks",
+        "jsFunctionName": "remoteCallbacks",
+        "cppClassName": "GitRemoteCallbacks",
+        "jsClassName": "RemoteCallbacks"
+      },
+      {
+        "name": "bare",
+        "cType": "int",
+        "cppFunctionName": "Bare",
+        "jsFunctionName": "bare",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "ignore_cert_errors",
+        "cType": "int",
+        "cppFunctionName": "IgnoreCertErrors",
+        "jsFunctionName": "ignoreCertErrors",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "remote_name",
+        "cType": "const char *",
+        "cppFunctionName": "RemoteName",
+        "jsFunctionName": "remoteName",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "name": "checkout_branch",
+        "cType": "const char *",
+        "cppFunctionName": "CheckoutBranch",
+        "jsFunctionName": "checkoutBranch",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      }
+    ],
+    "filename": "clone_options.h",
+    "ignore": false,
+    "cppClassName": "GitCloneOptions",
+    "jsClassName": "CloneOptions",
+    "description": " Clone options structure",
+    "functions": []
+  },
+  {
+    "dependencies": [
+      "../include/signature.h",
+      "../include/commit.h",
+      "../include/repository.h",
+      "../include/tree.h",
+      "../include/oid.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_commit_lookup",
+        "ignore": false,
+        "description": "<p>Lookup a commit object from a repository.</p>\n",
+        "cppFunctionName": "Lookup",
+        "jsFunctionName": "lookup",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "git_commit **",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "pointer to the looked up commit",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repo to use when locating the commit.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "identity of the commit to locate. If the object is\n\t\tan annotated tag it will be peeled back to the commit.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The returned object should be released with <code>git_commit_free</code> when no\n longer needed.</p>\n"
+      },
+      {
+        "cFunctionName": "git_commit_id",
+        "ignore": false,
+        "description": "<p>Get the id of a commit.</p>\n",
+        "cppFunctionName": "Id",
+        "jsFunctionName": "id",
+        "return": {
+          "cType": "const git_oid *",
+          "comment": " object identity for the commit.",
+          "cppClassName": "GitOid",
+          "jsClassName": "Oid"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_message",
+        "ignore": false,
+        "description": "<p>Get the full message of a commit.</p>\n",
+        "cppFunctionName": "Message",
+        "jsFunctionName": "message",
+        "return": {
+          "cType": "const char *",
+          "comment": " the message of a commit",
+          "cppClassName": "String",
+          "jsClassName": "String"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": true
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The returned message will be slightly prettified by removing any\n potential leading newlines.</p>\n"
+      },
+      {
+        "cFunctionName": "git_commit_time",
+        "ignore": false,
+        "description": "<p>Get the commit time (i.e. committer time) of a commit.</p>\n",
+        "cppFunctionName": "Time",
+        "jsFunctionName": "time",
+        "return": {
+          "cType": "git_time_t",
+          "comment": " the time of a commit",
+          "cppClassName": "Int32",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_time_offset",
+        "ignore": false,
+        "description": "<p>Get the commit timezone offset (i.e. committer&#39;s preferred timezone) of a commit.</p>\n",
+        "cppFunctionName": "TimeOffset",
+        "jsFunctionName": "timeOffset",
+        "return": {
+          "cType": "int",
+          "comment": " positive or negative timezone offset, in minutes from UTC",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_committer",
+        "ignore": false,
+        "description": "<p>Get the committer of a commit.</p>\n",
+        "cppFunctionName": "Committer",
+        "jsFunctionName": "committer",
+        "return": {
+          "cType": "const git_signature *",
+          "comment": " the committer of a commit",
+          "cppClassName": "GitSignature",
+          "jsClassName": "Signature"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_author",
+        "ignore": false,
+        "description": "<p>Get the author of a commit.</p>\n",
+        "cppFunctionName": "Author",
+        "jsFunctionName": "author",
+        "return": {
+          "cType": "const git_signature *",
+          "comment": " the author of a commit",
+          "cppClassName": "GitSignature",
+          "jsClassName": "Signature"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_tree_id",
+        "ignore": false,
+        "description": "<p>Get the id of the tree pointed to by a commit. This differs from\n <code>git_commit_tree</code> in that no attempts are made to fetch an object\n from the ODB.</p>\n",
+        "cppFunctionName": "TreeId",
+        "jsFunctionName": "treeId",
+        "return": {
+          "cType": "const git_oid *",
+          "comment": " the id of tree pointed to by commit.",
+          "cppClassName": "GitOid",
+          "jsClassName": "Oid"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_parentcount",
+        "ignore": false,
+        "description": "<p>Get the number of parents of this commit</p>\n",
+        "cppFunctionName": "Parentcount",
+        "jsFunctionName": "parentcount",
+        "return": {
+          "cType": "unsigned int",
+          "comment": " integer of count of parents",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_parent_id",
+        "ignore": false,
+        "description": "<p>Get the oid of a specified parent for a commit. This is different from\n <code>git_commit_parent</code>, which will attempt to load the parent commit from\n the ODB.</p>\n",
+        "cppFunctionName": "ParentId",
+        "jsFunctionName": "parentId",
+        "return": {
+          "cType": "const git_oid *",
+          "comment": " the id of the parent, NULL on error.",
+          "cppClassName": "GitOid",
+          "jsClassName": "Oid"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "commit",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "a previously loaded commit.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "n",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "the position of the parent (from 0 to `parentcount`)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_commit_create",
+        "ignore": false,
+        "description": "<p>Create new commit in the repository from a list of <code>git_object</code> pointers</p>\n",
+        "cppFunctionName": "CreateCommit",
+        "jsFunctionName": "createCommit",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code\n\tThe created commit will be written to the Object Database and\n\tthe given reference will be updated to point to it",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "id",
+            "cType": "git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "Pointer in which to store the OID of the newly created commit",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "Repository where to store the commit",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "update_ref",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "If not NULL, name of the reference that\n\twill be updated to point to this commit. If the reference\n\tis not direct, it will be resolved to a direct reference.\n\tUse \"HEAD\" to update the HEAD of the current branch and\n\tmake it point to this commit. If the reference doesn't\n\texist yet, it will be created. If it does exist, the first\n\tparent must be the tip of this branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "isOptional": true
+          },
+          {
+            "name": "author",
+            "cType": "const git_signature *",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "Signature with author and author time of commit",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "committer",
+            "cType": "const git_signature *",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "Signature with committer and * commit time of commit",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "message_encoding",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The encoding for the message in the\n  commit, represented with a standard encoding name.\n  E.g. \"UTF-8\". If NULL, no encoding header is written and\n  UTF-8 is assumed.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "isOptional": true
+          },
+          {
+            "name": "message",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Full message for this commit",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "tree",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "An instance of a `git_tree` object that will\n  be used as the tree for the commit. This tree object must\n  also be owned by the given `repo`.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "parent_count",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "Number of parents for this commit",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "parents",
+            "cType": "const git_commit **",
+            "cppClassName": "Array",
+            "jsClassName": "Array",
+            "comment": "Array of `parent_count` pointers to `git_commit`\n  objects that will be used as the parents for this commit. This\n  array may be NULL if `parent_count` is 0 (root commit). All the\n  given commits must be owned by the `repo`.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "arrayElementCppClassName": "GitCommit"
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The message will <strong>not</strong> be cleaned up automatically. You can do that\n with the <code>git_message_prettify()</code> function.</p>\n"
+      }
+    ],
+    "filename": "commit.h",
+    "ignore": false,
+    "cppClassName": "GitCommit",
+    "jsClassName": "Commit",
+    "cType": "git_commit",
+    "description": " Parsed representation of a commit object. ",
+    "freeFunctionName": "git_commit_free",
+    "fields": []
+  },
+  {
+    "cType": null,
+    "filename": "common.h",
+    "ignore": false,
+    "cppClassName": "GitCommon",
+    "jsClassName": "Common",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "config.h",
+    "ignore": false,
+    "cppClassName": "GitConfig",
+    "jsClassName": "Config",
+    "cType": "git_config",
+    "description": " Memory representation of a set of config files ",
+    "freeFunctionName": "git_config_free",
+    "dependencies": [
+      "../include/config.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "isStruct": true,
+    "filename": "cred.h",
+    "ignore": false,
+    "cppClassName": "GitCred",
+    "jsClassName": "Cred",
+    "cType": "git_diff",
+    "description": " The diff object that contains all individual file deltas.",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "cred_helpers.h",
+    "ignore": false,
+    "cppClassName": "GitCredHelpers",
+    "jsClassName": "CredHelpers",
+    "cType": "git_cred",
+    "description": "",
+    "dependencies": [
+      "../include/cred.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_diff_delta",
+    "dependencies": [
+      "../include/diff.h",
+      "../include/diff_file.h",
+      "../include/types.h"
+    ],
+    "fields": [
+      {
+        "name": "status",
+        "cType": "git_delta_t",
+        "cppFunctionName": "Status",
+        "jsFunctionName": "status",
+        "cppClassName": "Int32",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "flags",
+        "cType": "uint32_t",
+        "cppFunctionName": "Flags",
+        "jsFunctionName": "flags",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "similarity",
+        "cType": "uint16_t",
+        "cppFunctionName": "Similarity",
+        "jsFunctionName": "similarity",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "nfiles",
+        "cType": "uint16_t",
+        "cppFunctionName": "Nfiles",
+        "jsFunctionName": "nfiles",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "old_file",
+        "cType": "git_diff_file",
+        "cppFunctionName": "OldFile",
+        "jsFunctionName": "oldFile",
+        "cppClassName": "GitDiffFile",
+        "jsClassName": "DiffFile"
+      },
+      {
+        "name": "new_file",
+        "cType": "git_diff_file",
+        "cppFunctionName": "NewFile",
+        "jsFunctionName": "newFile",
+        "cppClassName": "GitDiffFile",
+        "jsClassName": "DiffFile"
+      }
+    ],
+    "filename": "delta.h",
+    "ignore": false,
+    "cppClassName": "GitDelta",
+    "jsClassName": "Delta",
+    "description": " Description of changes to one entry.",
+    "functions": []
+  },
+  {
+    "dependencies": [
+      "../include/diff.h",
+      "../include/delta.h",
+      "../include/repository.h",
+      "../include/tree.h",
+      "../include/index.h",
+      "../include/diff_options.h",
+      "../include/diff_options.h",
+      "../include/diff.h",
+      "../include/repository.h",
+      "../include/tree.h",
+      "../include/index.h",
+      "../include/commit.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_diff_tree_to_tree",
+        "ignore": false,
+        "description": "<p>Create a diff with the difference between two tree objects.</p>\n",
+        "cppFunctionName": "TreeToTree",
+        "jsFunctionName": "treeToTree",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "diff",
+            "cType": "git_diff **",
+            "cppClassName": "GitDiff",
+            "jsClassName": "Diff",
+            "comment": "Output pointer to a git_diff pointer to be allocated.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "The repository containing the trees.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "old_tree",
+            "cType": "git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "A git_tree object to diff from, or NULL for empty tree.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "new_tree",
+            "cType": "git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "A git_tree object to diff to, or NULL for empty tree.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "opts",
+            "cType": "const git_diff_options *",
+            "cppClassName": "GitDiffOptions",
+            "jsClassName": "DiffOptions",
+            "comment": "Structure with options to influence diff or NULL for defaults.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "isOptional": true
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>This is equivalent to <code>git diff \n&lt;old\n-tree&gt; \n&lt;new\n-tree&gt;</code></p>\n\n<p>The first tree will be used for the &quot;old_file&quot; side of the delta and the\n second tree will be used for the &quot;new_file&quot; side of the delta.  You can\n pass NULL to indicate an empty tree, although it is an error to pass\n NULL for both the <code>old_tree</code> and <code>new_tree</code>.</p>\n"
+      },
+      {
+        "cFunctionName": "git_diff_num_deltas",
+        "ignore": false,
+        "description": "<p>Query how many diff records are there in a diff.</p>\n",
+        "cppFunctionName": "NumDeltas",
+        "jsFunctionName": "numDeltas",
+        "return": {
+          "cType": "size_t",
+          "comment": " Count of number of deltas in the list",
+          "cppClassName": "Uint32",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "diff",
+            "cType": "const git_diff *",
+            "cppClassName": "GitDiff",
+            "jsClassName": "Diff",
+            "comment": "A git_diff generated by one of the above functions",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_diff_get_delta",
+        "ignore": false,
+        "description": "<p>Return the diff delta for an entry in the diff list.</p>\n",
+        "cppFunctionName": "GetDelta",
+        "jsFunctionName": "getDelta",
+        "return": {
+          "cType": "const git_diff_delta *",
+          "copy": "git_diff_delta_dup",
+          "comment": " Pointer to git_diff_delta (or NULL if `idx` out of range)",
+          "cppClassName": "GitDelta",
+          "jsClassName": "Delta"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "diff",
+            "cType": "const git_diff *",
+            "cppClassName": "GitDiff",
+            "jsClassName": "Diff",
+            "comment": "Diff list object",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": true
+          },
+          {
+            "name": "idx",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "Index into diff list",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The <code>git_delta</code> pointer points to internal data and you do not have\n to release it when you are done with it.  It will go away when the\n <code>git_diff</code> (or any associated <code>git_patch</code>) goes away.</p>\n\n<p>Note that the flags on the delta related to whether it has binary\n content or not may not be set if there are no attributes set for the\n file and there has been no reason to load the file data at this point.\n For now, if you need those flags to be up to date, your only option is\n to either use <code>git_diff_foreach</code> or create a <code>git_patch</code>.</p>\n"
+      }
+    ],
+    "filename": "diff.h",
+    "ignore": false,
+    "cppClassName": "GitDiff",
+    "jsClassName": "Diff",
+    "cType": "git_diff",
+    "description": " The diff object that contains all individual file deltas.",
+    "freeFunctionName": "git_diff_free",
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_diff_file",
+    "dependencies": [
+      "../include/diff.h",
+      "../include/oid.h",
+      "../include/types.h"
+    ],
+    "filename": "diff_file.h",
+    "ignore": false,
+    "cppClassName": "GitDiffFile",
+    "jsClassName": "DiffFile",
+    "description": " Description of one side of a delta.",
+    "fields": [
+      {
+        "type": "git_oid",
+        "name": "id",
+        "comments": "",
+        "cType": "git_oid",
+        "cppFunctionName": "Id",
+        "jsFunctionName": "id",
+        "cppClassName": "GitOid",
+        "jsClassName": "Oid"
+      },
+      {
+        "type": "const char *",
+        "name": "path",
+        "comments": "",
+        "cType": "const char *",
+        "cppFunctionName": "Path",
+        "jsFunctionName": "path",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "type": "git_off_t",
+        "name": "size",
+        "comments": "",
+        "cType": "git_off_t",
+        "cppFunctionName": "Size",
+        "jsFunctionName": "size",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "type": "uint32_t",
+        "name": "flags",
+        "comments": "",
+        "cType": "uint32_t",
+        "cppFunctionName": "Flags",
+        "jsFunctionName": "flags",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "type": "uint16_t",
+        "name": "mode",
+        "comments": "",
+        "cType": "uint16_t",
+        "cppFunctionName": "Mode",
+        "jsFunctionName": "mode",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      }
+    ],
+    "functions": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_diff_line",
+    "dependencies": [
+      "../include/diff.h",
+      "../include/oid.h",
+      "../include/types.h"
+    ],
+    "fields": [
+      {
+        "name": "origin",
+        "cType": "int",
+        "cppFunctionName": "Origin",
+        "jsFunctionName": "origin",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "old_lineno",
+        "cType": "int",
+        "cppFunctionName": "OldLineno",
+        "jsFunctionName": "oldLineno",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "new_lineno",
+        "cType": "int",
+        "cppFunctionName": "NewLineno",
+        "jsFunctionName": "newLineno",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "num_lines",
+        "cType": "int",
+        "cppFunctionName": "NumLines",
+        "jsFunctionName": "numLines",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "content_len",
+        "cType": "size_t",
+        "cppFunctionName": "ContentLen",
+        "jsFunctionName": "contentLen",
+        "cppClassName": "Uint32",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "content_offset",
+        "cType": "git_off_t",
+        "cppFunctionName": "ContentOffset",
+        "jsFunctionName": "contentOffset",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "content",
+        "cType": "const char *",
+        "cppFunctionName": "Content",
+        "jsFunctionName": "content",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      }
+    ],
+    "filename": "diff_line.h",
+    "ignore": false,
+    "cppClassName": "GitDiffLine",
+    "jsClassName": "DiffLine",
+    "description": " Structure describing a line (or data span) of a diff.",
+    "functions": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_diff_options",
+    "dependencies": [
+      "../include/diff.h",
+      "../include/types.h"
+    ],
+    "fields": [
+      {
+        "name": "version",
+        "cType": "unsigned int",
+        "cppFunctionName": "Version",
+        "jsFunctionName": "version",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "flags",
+        "cType": "uint32_t",
+        "cppFunctionName": "Flags",
+        "jsFunctionName": "flags",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "ignore_submodules",
+        "cType": "git_submodule_ignore_t",
+        "cppFunctionName": "IgnoreSubmodules",
+        "jsFunctionName": "ignoreSubmodules",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "context_lines",
+        "cType": "uint16_t",
+        "cppFunctionName": "ContextLines",
+        "jsFunctionName": "contextLines",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "interhunk_lines",
+        "cType": "uint16_t",
+        "cppFunctionName": "InterhunkLines",
+        "jsFunctionName": "interhunkLines",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "max_size",
+        "cType": "git_off_t",
+        "cppFunctionName": "MaxSize",
+        "jsFunctionName": "maxSize",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "old_prefix",
+        "cType": "const char *",
+        "cppFunctionName": "OldPrefix",
+        "jsFunctionName": "oldPrefix",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "name": "new_prefix",
+        "cType": "const char *",
+        "cppFunctionName": "NewPrefix",
+        "jsFunctionName": "newPrefix",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      }
+    ],
+    "filename": "diff_options.h",
+    "ignore": false,
+    "cppClassName": "GitDiffOptions",
+    "jsClassName": "DiffOptions",
+    "description": " Structure describing options about how the diff should be executed.",
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "errors.h",
+    "ignore": false,
+    "cppClassName": "GitErrors",
+    "jsClassName": "Errors",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "forwardDeclare": true,
+    "fields": [],
+    "filename": "filter.h",
+    "ignore": false,
+    "cppClassName": "GitFilter",
+    "jsClassName": "Filter",
+    "cType": "git_filter",
+    "description": " Filter structure used to register custom filters.",
+    "dependencies": [
+      "../include/repository.h",
+      "../include/blob.h"
+    ],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "graph.h",
+    "ignore": false,
+    "cppClassName": "GitGraph",
+    "jsClassName": "Graph",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "ignore.h",
+    "ignore": false,
+    "cppClassName": "GitIgnore",
+    "jsClassName": "Ignore",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "index.h",
+    "ignore": false,
+    "cppClassName": "GitIndex",
+    "jsClassName": "Index",
+    "cType": "git_index",
+    "description": " Memory representation of an index file. ",
+    "freeFunctionName": "git_index_free",
+    "dependencies": [
+      "../include/index.h",
+      "../include/oid.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "indexer.h",
+    "ignore": false,
+    "cppClassName": "GitIndexer",
+    "jsClassName": "Indexer",
+    "cType": "git_indexer",
+    "description": "",
+    "freeFunctionName": "git_indexer_free",
+    "dependencies": [
+      "../include/indexer.h",
+      "../include/odb.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "inttypes.h",
+    "ignore": false,
+    "cppClassName": "GitInttypes",
+    "jsClassName": "Inttypes",
+    "dependencies": [
+      "../include/odb_backend.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "merge.h",
+    "ignore": false,
+    "cppClassName": "GitMerge",
+    "jsClassName": "Merge",
+    "dependencies": [
+      "../include/repository.h",
+      "../include/oid.h",
+      "../include/index.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "message.h",
+    "ignore": false,
+    "cppClassName": "GitMessage",
+    "jsClassName": "Message",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "net.h",
+    "ignore": false,
+    "cppClassName": "GitNet",
+    "jsClassName": "Net",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "notes.h",
+    "ignore": false,
+    "cppClassName": "GitNotes",
+    "jsClassName": "Notes",
+    "cType": "git_note",
+    "description": " Representation of a git note ",
+    "dependencies": [
+      "../include/repository.h",
+      "../include/oid.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "object.h",
+    "ignore": false,
+    "cppClassName": "GitObject",
+    "jsClassName": "Object",
+    "cType": "git_object",
+    "description": " Representation of a generic object in a repository ",
+    "freeFunctionName": "git_object_free",
+    "dependencies": [
+      "../include/object.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "odb.h",
+    "ignore": false,
+    "cppClassName": "GitOdb",
+    "jsClassName": "Odb",
+    "cType": "git_odb",
+    "description": " An open object database handle. ",
+    "freeFunctionName": "git_odb_free",
+    "dependencies": [
+      "../include/odb.h",
+      "../include/oid.h",
+      "../include/odb_backend.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "odb_backend.h",
+    "ignore": false,
+    "cppClassName": "GitOdbBackend",
+    "jsClassName": "OdbBackend",
+    "cType": "git_odb",
+    "description": " An open object database handle. ",
+    "dependencies": [
+      "../include/odb_backend.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "fields": [],
+    "functions": [
+      {
+        "cFunctionName": "git_oid_fromstr",
+        "ignore": false,
+        "description": "<p>Parse a hex formatted object id into a git_oid.</p>\n",
+        "cppFunctionName": "Fromstr",
+        "jsFunctionName": "fromstr",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "oid structure the result is written into.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "str",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "input hex string; must be pointing at the start of\n\t\tthe hex sequence and have at least the number of bytes\n\t\tneeded for an oid encoded in hex (40 bytes).",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_oid_allocfmt",
+        "ignore": false,
+        "description": "<p>Format a git_oid into a newly allocated c-string.</p>\n",
+        "cppFunctionName": "Allocfmt",
+        "jsFunctionName": "allocfmt",
+        "return": {
+          "cType": "char *",
+          "comment": " the c-string; NULL if memory is exhausted. Caller must\n\t\t\tdeallocate the string with git__free().",
+          "cppClassName": "String",
+          "jsClassName": "String"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "the oid structure to format",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      }
+    ],
+    "filename": "oid.h",
+    "ignore": false,
+    "cppClassName": "GitOid",
+    "jsClassName": "Oid",
+    "cType": "git_oid",
+    "description": " Unique identity of any object (commit, tree, blob, tag). ",
+    "dependencies": [
+      "../include/oid.h"
+    ]
+  },
+  {
+    "filename": "pack.h",
+    "ignore": false,
+    "cppClassName": "GitPack",
+    "jsClassName": "Pack",
+    "cType": "git_packbuilder",
+    "description": " Representation of a git packbuilder ",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "isStruct": true,
+    "forwardDeclare": true,
+    "dependencies": [
+      "../include/delta.h",
+      "../include/diff_file.h",
+      "../include/diff_line.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_patch_get_delta",
+        "ignore": false,
+        "description": "<p>Get the delta associated with a patch</p>\n",
+        "cppFunctionName": "GetDelta",
+        "jsFunctionName": "getDelta",
+        "return": {
+          "copy": "git_diff_delta_dup",
+          "cType": "const git_diff_delta *",
+          "comment": null,
+          "cppClassName": "GitDelta",
+          "jsClassName": "Delta"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "patch",
+            "cType": "const git_patch *",
+            "cppClassName": "GitPatch",
+            "jsClassName": "Patch",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_patch_from_diff",
+        "ignore": false,
+        "description": "<p>Return the diff delta and patch for an entry in the diff list.</p>\n",
+        "cppFunctionName": "FromDiff",
+        "jsFunctionName": "fromDiff",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, other value \n<\n 0 on error",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_patch **",
+            "cppClassName": "GitPatch",
+            "jsClassName": "Patch",
+            "comment": "Output parameter for the delta patch object",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "diff",
+            "cType": "git_diff *",
+            "cppClassName": "GitDiff",
+            "jsClassName": "Diff",
+            "comment": "Diff list object",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "idx",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "Index into diff list",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The <code>git_patch</code> is a newly created object contains the text diffs\n for the delta.  You have to call <code>git_patch_free()</code> when you are\n done with it.  You can use the patch object to loop over all the hunks\n and lines in the diff of the one delta.</p>\n\n<p>For an unchanged file or a binary file, no <code>git_patch</code> will be\n created, the output will be set to NULL, and the <code>binary</code> flag will be\n set true in the <code>git_diff_delta</code> structure.</p>\n\n<p>The <code>git_diff_delta</code> pointer points to internal data and you do not have\n to release it when you are done with it.  It will go away when the\n <code>git_diff</code> and <code>git_patch</code> go away.</p>\n\n<p>It is okay to pass NULL for either of the output parameters; if you pass\n NULL for the <code>git_patch</code>, then the text diff will not be calculated.</p>\n"
+      },
+      {
+        "cFunctionName": "git_patch_num_hunks",
+        "ignore": false,
+        "description": "<p>Get the number of hunks in a patch</p>\n",
+        "cppFunctionName": "NumHunks",
+        "jsFunctionName": "numHunks",
+        "return": {
+          "cType": "size_t",
+          "comment": null,
+          "cppClassName": "Uint32",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "patch",
+            "cType": "const git_patch *",
+            "cppClassName": "GitPatch",
+            "jsClassName": "Patch",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_patch_num_lines_in_hunk",
+        "ignore": false,
+        "description": "<p>Get the number of lines in a hunk.</p>\n",
+        "cppFunctionName": "NumLinesInHunk",
+        "jsFunctionName": "numLinesInHunk",
+        "return": {
+          "cType": "int",
+          "comment": " Number of lines in hunk or -1 if invalid hunk index",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "patch",
+            "cType": "const git_patch *",
+            "cppClassName": "GitPatch",
+            "jsClassName": "Patch",
+            "comment": "The git_patch object",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "hunk_idx",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "Index of the hunk",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_patch_get_line_in_hunk",
+        "ignore": false,
+        "description": "<p>Get data about a line in a hunk of a patch.</p>\n",
+        "cppFunctionName": "GetLineInHunk",
+        "jsFunctionName": "getLineInHunk",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, \n<\n0 on failure",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "const git_diff_line **",
+            "cppClassName": "GitDiffLine",
+            "jsClassName": "DiffLine",
+            "comment": "The git_diff_line data for this line",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "patch",
+            "cType": "git_patch *",
+            "cppClassName": "GitPatch",
+            "jsClassName": "Patch",
+            "comment": "The patch to look in",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "hunk_idx",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "The index of the hunk",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "line_of_hunk",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "The index of the line in the hunk",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Given a patch, a hunk index, and a line index in the hunk, this\n will return a lot of details about that line.  If you pass a hunk\n index larger than the number of hunks or a line index larger than\n the number of lines in the hunk, this will return -1.</p>\n"
+      }
+    ],
+    "filename": "patch.h",
+    "ignore": false,
+    "cppClassName": "GitPatch",
+    "jsClassName": "Patch",
+    "cType": "git_patch",
+    "description": " The diff patch is used to store all the text diffs for a delta.",
+    "fields": []
+  },
+  {
+    "filename": "pathspec.h",
+    "ignore": false,
+    "cppClassName": "GitPathspec",
+    "jsClassName": "Pathspec",
+    "cType": "git_pathspec",
+    "description": " Compiled pathspec",
+    "freeFunctionName": "git_pathspec_free",
+    "dependencies": [
+      "../include/pathspec.h",
+      "../include/repository.h",
+      "../include/index.h",
+      "../include/tree.h",
+      "../include/diff.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "push.h",
+    "ignore": false,
+    "cppClassName": "GitPush",
+    "jsClassName": "Push",
+    "cType": "git_push",
+    "description": "",
+    "freeFunctionName": "git_push_free",
+    "dependencies": [
+      "../include/push.h",
+      "../include/remote.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "refdb.h",
+    "ignore": false,
+    "cppClassName": "GitRefdb",
+    "jsClassName": "Refdb",
+    "cType": "git_refdb",
+    "description": " An open refs database handle. ",
+    "freeFunctionName": "git_refdb_free",
+    "dependencies": [
+      "../include/refdb.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "functions": [
+      {
+        "cFunctionName": "git_reference_lookup",
+        "ignore": false,
+        "description": "<p>Lookup a reference by name in a repository.</p>\n",
+        "cppFunctionName": "Lookup",
+        "jsFunctionName": "lookup",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, GIT_ENOTFOUND, GIT_EINVALIDSPEC or an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "pointer to the looked-up reference",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository to look up the reference",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the long name for the reference (e.g. HEAD, refs/heads/master, refs/tags/v0.1.0, ...)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The returned reference must be freed by the user.</p>\n\n<p>The name will be checked for validity.\n See <code>git_reference_symbolic_create()</code> for rules about valid names.</p>\n"
+      },
+      {
+        "cFunctionName": "git_reference_target",
+        "ignore": false,
+        "description": "<p>Get the OID pointed to by a direct reference.</p>\n",
+        "cppFunctionName": "Target",
+        "jsFunctionName": "target",
+        "return": {
+          "copy": "git_oid_dup",
+          "cType": "const git_oid *",
+          "comment": " a pointer to the oid if available, NULL otherwise",
+          "cppClassName": "GitOid",
+          "jsClassName": "Oid"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "ref",
+            "cType": "const git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "The reference",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Only available if the reference is direct (i.e. an object id reference,\n not a symbolic one).</p>\n\n<p>To find the OID of a symbolic ref, call <code>git_reference_resolve()</code> and\n then this function (or maybe use <code>git_reference_name_to_id()</code> to\n directly resolve a reference name all the way through to an OID).</p>\n"
+      },
+      {
+        "cFunctionName": "git_reference_type",
+        "ignore": false,
+        "description": "<p>Get the type of a reference.</p>\n",
+        "cppFunctionName": "Type",
+        "jsFunctionName": "type",
+        "return": {
+          "cType": "git_ref_t",
+          "comment": " the type",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "ref",
+            "cType": "const git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "The reference",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Either direct (GIT_REF_OID) or symbolic (GIT_REF_SYMBOLIC)</p>\n"
+      }
+    ],
+    "filename": "refs.h",
+    "ignore": false,
+    "cppClassName": "GitRefs",
+    "jsClassName": "Refs",
+    "cType": "git_reference",
+    "description": " In-memory representation of a reference. ",
+    "dependencies": [
+      "../include/repository.h",
+      "../include/oid.h",
+      "../include/strarray.h",
+      "../include/object.h"
+    ],
+    "fields": []
+  },
+  {
+    "filename": "reflog.h",
+    "ignore": false,
+    "cppClassName": "GitReflog",
+    "jsClassName": "Reflog",
+    "cType": "git_reflog",
+    "description": " Representation of a reference log ",
+    "freeFunctionName": "git_reflog_free",
+    "dependencies": [
+      "../include/reflog.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "refspec.h",
+    "ignore": false,
+    "cppClassName": "GitRefspec",
+    "jsClassName": "Refspec",
+    "cType": "git_refspec",
+    "description": "",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "dependencies": [
+      "../include/functions/copy.h",
+      "../include/remote.h",
+      "../include/strarray.h",
+      "../include/repository.h",
+      "../include/transport.h",
+      "../include/remote.h",
+      "../include/repository.h",
+      "../include/strarray.h",
+      "../include/transport.h",
+      "../include/remote_callbacks.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_remote_create",
+        "ignore": false,
+        "description": "<p>Add a remote with the default fetch refspec to the repository&#39;s configuration.  This\n calls git_remote_save before returning.</p>\n",
+        "cppFunctionName": "Create",
+        "jsFunctionName": "create",
+        "return": {
+          "cType": "int",
+          "comment": " 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_remote **",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the resulting remote",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository in which to create the remote",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the remote's name",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "url",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the remote's url",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_remote_load",
+        "ignore": false,
+        "description": "<p>Get the information for a particular remote</p>\n",
+        "cppFunctionName": "Load",
+        "jsFunctionName": "load",
+        "return": {
+          "copy": "git_remote_dup",
+          "cType": "int",
+          "comment": " 0, GIT_ENOTFOUND, GIT_EINVALIDSPEC or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_remote **",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "pointer to the new remote object",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the associated repository",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the remote's name",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
+      },
+      {
+        "cFunctionName": "git_remote_name",
+        "ignore": false,
+        "description": "<p>Get the remote&#39;s name</p>\n",
+        "cppFunctionName": "Name",
+        "jsFunctionName": "name",
+        "return": {
+          "cType": "const char *",
+          "comment": " a pointer to the name or NULL for in-memory remotes",
+          "cppClassName": "String",
+          "jsClassName": "String"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "remote",
+            "cType": "const git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the remote",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_remote_url",
+        "ignore": false,
+        "description": "<p>Get the remote&#39;s url</p>\n",
+        "cppFunctionName": "Url",
+        "jsFunctionName": "url",
+        "return": {
+          "cType": "const char *",
+          "comment": " a pointer to the url",
+          "cppClassName": "String",
+          "jsClassName": "String"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "remote",
+            "cType": "const git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the remote",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_remote_pushurl",
+        "ignore": false,
+        "description": "<p>Get the remote&#39;s url for pushing</p>\n",
+        "cppFunctionName": "Pushurl",
+        "jsFunctionName": "pushurl",
+        "return": {
+          "cType": "const char *",
+          "comment": " a pointer to the url or NULL if no special url for pushing is set",
+          "cppClassName": "String",
+          "jsClassName": "String"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "remote",
+            "cType": "const git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the remote",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_remote_list",
+        "ignore": false,
+        "description": "<p>Get a list of the configured remotes for a repo</p>\n",
+        "cppFunctionName": "List",
+        "jsFunctionName": "list",
+        "return": {
+          "copy": "git_strarray_copy",
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_strarray *",
+            "cppClassName": "GitStrarray",
+            "jsClassName": "Strarray",
+            "comment": "a string array which receives the names of the remotes",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository to query",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The string array must be freed by the user.</p>\n"
+      },
+      {
+        "cFunctionName": "git_remote_rename",
+        "ignore": false,
+        "description": "<p>Give the remote a new name</p>\n",
+        "cppFunctionName": "Rename",
+        "jsFunctionName": "rename",
+        "return": {
+          "cType": "int",
+          "comment": " 0, GIT_EINVALIDSPEC, GIT_EEXISTS or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "problems",
+            "cType": "git_strarray *",
+            "cppClassName": "GitStrarray",
+            "jsClassName": "Strarray",
+            "comment": "non-default refspecs cannot be renamed and will be\n stored here for further processing by the caller. Always free this\n strarray on succesful return.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "remote",
+            "cType": "git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "the remote to rename",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "new_name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the new name the remote should bear",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>All remote-tracking branches and configuration settings\n for the remote are updated.</p>\n\n<p>The new name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n\n<p>A temporary in-memory remote cannot be given a name with this method.</p>\n"
+      },
+      {
+        "cFunctionName": "git_remote_delete",
+        "ignore": false,
+        "description": "<p>Delete an existing persisted remote.</p>\n",
+        "cppFunctionName": "Delete",
+        "jsFunctionName": "delete",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, or an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "remote",
+            "cType": "git_remote *",
+            "cppClassName": "GitRemote",
+            "jsClassName": "Remote",
+            "comment": "A valid remote",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>All remote-tracking branches and configuration settings\n for the remote will be removed.</p>\n"
+      }
+    ],
+    "filename": "remote.h",
+    "ignore": false,
+    "cppClassName": "GitRemote",
+    "jsClassName": "Remote",
+    "cType": "git_remote",
+    "description": "",
+    "freeFunctionName": "git_remote_free",
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_remote_callbacks",
+    "fields": [],
+    "filename": "remote_callbacks.h",
+    "ignore": false,
+    "cppClassName": "GitRemoteCallbacks",
+    "jsClassName": "RemoteCallbacks",
+    "description": " The callback settings structure",
+    "dependencies": [],
+    "functions": []
+  },
+  {
+    "dependencies": [
+      "../include/functions/copy.h",
+      "../include/repository.h",
+      "../include/repository.h",
+      "../include/odb.h",
+      "../include/config.h",
+      "../include/refdb.h",
+      "../include/index.h",
+      "../include/oid.h",
+      "../include/repository_init_options.h",
+      "../include/repository.h",
+      "../include/odb.h",
+      "../include/repository_init_options.h",
+      "../include/config.h",
+      "../include/refdb.h",
+      "../include/index.h",
+      "../include/oid.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_repository_open",
+        "ignore": false,
+        "description": "<p>Open a git repository.</p>\n",
+        "cppFunctionName": "Open",
+        "jsFunctionName": "open",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_repository **",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "pointer to the repo which will be opened",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the path to the repository",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The &#39;path&#39; argument must point to either a git repository\n folder, or an existing work dir.</p>\n\n<p>The method will automatically detect if &#39;path&#39; is a normal\n or bare repository or fail is &#39;path&#39; is neither.</p>\n"
+      },
+      {
+        "cFunctionName": "git_repository_init",
+        "ignore": false,
+        "description": "<p>Creates a new Git repository in the given folder.</p>\n",
+        "cppFunctionName": "Init",
+        "jsFunctionName": "init",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_repository **",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "pointer to the repo which will be created or reinitialized",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the path to the repository",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "is_bare",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "if true, a Git repository without a working directory is\n\t\tcreated at the pointed path. If false, provided path will be\n\t\tconsidered as the working directory into which the .git directory\n\t\twill be created.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>TODO:\n    - Reinit the repository</p>\n"
+      },
+      {
+        "cFunctionName": "git_repository_init_init_options",
+        "ignore": false,
+        "description": "<p>Initializes a <code>git_repository_init_options</code> with default values. Equivalent\n to creating an instance with GIT_REPOSITORY_INIT_OPTIONS_INIT.</p>\n",
+        "cppFunctionName": "InitInitOptions",
+        "jsFunctionName": "initInitOptions",
+        "return": {
+          "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "opts",
+            "cType": "git_repository_init_options *",
+            "cppClassName": "GitRepositoryInitOptions",
+            "jsClassName": "RepositoryInitOptions",
+            "comment": "the `git_repository_init_options` struct to initialize",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "version",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Version of struct; pass `GIT_REPOSITORY_INIT_OPTIONS_VERSION`",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_repository_init_ext",
+        "ignore": false,
+        "description": "<p>Create a new Git repository in the given folder with extended controls.</p>\n",
+        "cppFunctionName": "InitExt",
+        "jsFunctionName": "initExt",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_repository **",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "Pointer to the repo which will be created or reinitialized.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo_path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The path to the repository.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "opts",
+            "cType": "git_repository_init_options *",
+            "cppClassName": "GitRepositoryInitOptions",
+            "jsClassName": "RepositoryInitOptions",
+            "comment": "Pointer to git_repository_init_options struct.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>This will initialize a new git repository (creating the repo_path\n if requested by flags) and working directory as needed.  It will\n auto-detect the case sensitivity of the file system and if the\n file system supports file mode bits correctly.</p>\n"
+      },
+      {
+        "cFunctionName": "git_repository_index",
+        "ignore": false,
+        "description": "<p>Get the Index file for this repository.</p>\n",
+        "cppFunctionName": "Index",
+        "jsFunctionName": "index",
+        "return": {
+          "cType": "int",
+          "comment": " 0, or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_index **",
+            "cppClassName": "GitIndex",
+            "jsClassName": "Index",
+            "comment": "Pointer to store the loaded index",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "A repository object",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>If a custom index has not been set, the default\n index for the repository will be returned (the one\n located in <code>.git/index</code>).</p>\n\n<p>The index must be freed once it&#39;s no longer being used by\n the user.</p>\n"
+      }
+    ],
+    "filename": "repository.h",
+    "ignore": false,
+    "cppClassName": "GitRepository",
+    "jsClassName": "Repository",
+    "cType": "git_repository",
+    "description": " Representation of an existing git repository,\n including all its object contents",
+    "freeFunctionName": "git_repository_free",
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_repository_init_options",
+    "fields": [],
+    "filename": "repository_init_options.h",
+    "ignore": false,
+    "cppClassName": "GitRepositoryInitOptions",
+    "jsClassName": "RepositoryInitOptions",
+    "description": " Extended options structure for `git_repository_init_ext`.",
+    "dependencies": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "reset.h",
+    "ignore": false,
+    "cppClassName": "GitReset",
+    "jsClassName": "Reset",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "revparse.h",
+    "ignore": false,
+    "cppClassName": "GitRevparse",
+    "jsClassName": "Revparse",
+    "dependencies": [
+      "../include/object.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "functions": [
+      {
+        "cFunctionName": "git_revwalk_new",
+        "ignore": false,
+        "description": "<p>Allocate a new revision walker to iterate through a repo.</p>\n",
+        "cppFunctionName": "CreateRevwalk",
+        "jsFunctionName": "createRevwalk",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_revwalk **",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": "pointer to the new revision walker",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repo to walk through",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>This revision walker uses a custom memory pool and an internal\n commit cache, so it is relatively expensive to allocate.</p>\n\n<p>For maximum performance, this revision walker should be\n reused for different walks.</p>\n\n<p>This revision walker is <em>not</em> thread safe: it may only be\n used to walk a repository on a single thread; however,\n it is possible to have several revision walkers in\n several different threads walking the same repository.</p>\n"
+      },
+      {
+        "cFunctionName": "git_revwalk_push",
+        "ignore": false,
+        "description": "<p>Mark a commit to start traversal from.</p>\n",
+        "cppFunctionName": "Push",
+        "jsFunctionName": "push",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "walk",
+            "cType": "git_revwalk *",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": "the walker being used for the traversal.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "the oid of the commit to start from.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The given OID must belong to a committish on the walked\n repository.</p>\n\n<p>The given commit will be used as one of the roots\n when starting the revision walk. At least one commit\n must be pushed onto the walker before a walk can\n be started.</p>\n"
+      },
+      {
+        "cFunctionName": "git_revwalk_hide",
+        "ignore": false,
+        "description": "<p>Mark a commit (and its ancestors) uninteresting for the output.</p>\n",
+        "cppFunctionName": "Hide",
+        "jsFunctionName": "hide",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "walk",
+            "cType": "git_revwalk *",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": "the walker being used for the traversal.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "commit_id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "the oid of commit that will be ignored during the traversal",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The given OID must belong to a committish on the walked\n repository.</p>\n\n<p>The resolved commit and all its parents will be hidden from the\n output on the revision walk.</p>\n"
+      },
+      {
+        "cFunctionName": "git_revwalk_next",
+        "ignore": false,
+        "description": "<p>Get the next commit from the revision walk.</p>\n",
+        "cppFunctionName": "Next",
+        "jsFunctionName": "next",
+        "return": {
+          "cType": "int",
+          "comment": " 0 if the next commit was found;\n\tGIT_ITEROVER if there are no commits left to iterate",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "Pointer where to store the oid of the next commit",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "walk",
+            "cType": "git_revwalk *",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": "the walker to pop the commit from.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The initial call to this method is <em>not</em> blocking when\n iterating through a repo with a time-sorting mode.</p>\n\n<p>Iterating with Topological or inverted modes makes the initial\n call blocking to preprocess the commit list, but this block should be\n mostly unnoticeable on most repositories (topological preprocessing\n times at 0.3s on the git.git repo).</p>\n\n<p>The revision walker is reset when the walk is over.</p>\n"
+      },
+      {
+        "cFunctionName": "git_revwalk_sorting",
+        "ignore": false,
+        "description": "<p>Change the sorting mode when iterating through the\n repository&#39;s contents.</p>\n",
+        "cppFunctionName": "Sorting",
+        "jsFunctionName": "sorting",
+        "return": {
+          "cType": "void",
+          "comment": null,
+          "cppClassName": "void",
+          "jsClassName": "void"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "walk",
+            "cType": "git_revwalk *",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": "the walker being used for the traversal.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "sort_mode",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "combination of GIT_SORT_XXX flags",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Changing the sorting mode resets the walker.</p>\n"
+      },
+      {
+        "cFunctionName": "git_revwalk_simplify_first_parent",
+        "ignore": false,
+        "description": "<p>Simplify the history by first-parent</p>\n",
+        "cppFunctionName": "SimplifyFirstParent",
+        "jsFunctionName": "simplifyFirstParent",
+        "return": {
+          "cType": "void",
+          "comment": null,
+          "cppClassName": "void",
+          "jsClassName": "void"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "walk",
+            "cType": "git_revwalk *",
+            "cppClassName": "GitRevwalk",
+            "jsClassName": "Revwalk",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>No parents other than the first for each commit will be enqueued.</p>\n"
+      }
+    ],
+    "filename": "revwalk.h",
+    "ignore": false,
+    "cppClassName": "GitRevwalk",
+    "jsClassName": "Revwalk",
+    "cType": "git_revwalk",
+    "description": " Representation of an in-progress walk through the commits in a repo ",
+    "freeFunctionName": "git_revwalk_free",
+    "dependencies": [
+      "../include/revwalk.h",
+      "../include/repository.h",
+      "../include/oid.h"
+    ],
+    "fields": []
+  },
+  {
+    "dependencies": [
+      "../include/time.h",
+      "../include/signature.h",
+      "../include/repository.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_signature_new",
+        "ignore": false,
+        "description": "<p>Create a new action signature.</p>\n",
+        "cppFunctionName": "Create",
+        "jsFunctionName": "create",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_signature **",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "new signature, in case of error NULL",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "name of the person",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "email",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "email of the person",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "time",
+            "cType": "git_time_t",
+            "cppClassName": "Int32",
+            "jsClassName": "Number",
+            "comment": "time when the action happened",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "offset",
+            "cType": "int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "timezone offset in minutes for the time",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Call <code>git_signature_free()</code> to free the data.</p>\n\n<p>Note: angle brackets (&#39;\n&lt;\n&#39; and &#39;&gt;&#39;) characters are not allowed\n to be used in either the <code>name</code> or the <code>email</code> parameter.</p>\n"
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "cType": "const char *",
+        "cppFunctionName": "Name",
+        "jsFunctionName": "name",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "name": "email",
+        "cType": "const char *",
+        "cppFunctionName": "Email",
+        "jsFunctionName": "email",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "name": "when",
+        "cType": "git_time",
+        "copy": "git_time_dup",
+        "cppFunctionName": "When",
+        "jsFunctionName": "when",
+        "cppClassName": "GitTime",
+        "jsClassName": "Time"
+      }
+    ],
+    "filename": "signature.h",
+    "ignore": false,
+    "cppClassName": "GitSignature",
+    "jsClassName": "Signature",
+    "cType": "git_signature",
+    "description": " An action signature (e.g. for committers, taggers, etc) ",
+    "freeFunctionName": "git_signature_free"
+  },
+  {
+    "cType": null,
+    "filename": "stash.h",
+    "ignore": false,
+    "cppClassName": "GitStash",
+    "jsClassName": "Stash",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "status.h",
+    "ignore": false,
+    "cppClassName": "GitStatus",
+    "jsClassName": "Status",
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "stdint.h",
+    "ignore": false,
+    "cppClassName": "GitStdint",
+    "jsClassName": "Stdint",
+    "dependencies": [
+      "../include/tree.h",
+      "../include/repository.h",
+      "../include/tree_entry.h",
+      "../include/object.h",
+      "../include/treebuilder.h",
+      "../include/oid.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "stdarray.h",
+    "ignore": false,
+    "cppClassName": "GitStdarray",
+    "jsClassName": "Stdarray",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": "git_strarray",
+    "filename": "strarray.h",
+    "ignore": false,
+    "cppClassName": "GitStrarray",
+    "jsClassName": "Strarray",
+    "description": " Array of strings ",
+    "freeFunctionName": "git_strarray_free",
+    "dependencies": [
+      "../include/strarray.h"
+    ],
+    "fields": [
+      {
+        "type": "char **",
+        "name": "strings",
+        "comments": "",
+        "cType": "char **",
+        "cppFunctionName": "Strings",
+        "jsFunctionName": "strings",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "type": "size_t",
+        "name": "count",
+        "comments": "",
+        "cType": "size_t",
+        "cppFunctionName": "Count",
+        "jsFunctionName": "count",
+        "cppClassName": "Uint32",
+        "jsClassName": "Number"
+      }
+    ],
+    "functions": []
+  },
+  {
+    "filename": "submodule.h",
+    "ignore": false,
+    "cppClassName": "GitSubmodule",
+    "jsClassName": "Submodule",
+    "cType": "git_submodule",
+    "description": " Opaque structure representing a submodule.",
+    "freeFunctionName": "git_submodule_free",
+    "dependencies": [
+      "../include/submodule.h",
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "filename": "tag.h",
+    "ignore": false,
+    "cppClassName": "GitTag",
+    "jsClassName": "Tag",
+    "cType": "git_tag",
+    "description": " Parsed representation of a tag object. ",
+    "freeFunctionName": "git_tag_free",
+    "dependencies": [
+      "../include/tag.h",
+      "../include/repository.h",
+      "../include/object.h",
+      "../include/oid.h",
+      "../include/strarray.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "functions": [
+      {
+        "cFunctionName": "git_threads_init",
+        "ignore": false,
+        "description": "<p>Init the threading system.</p>\n",
+        "cppFunctionName": "Init",
+        "jsFunctionName": "init",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [],
+        "isAsync": false,
+        "comment": "<p>If libgit2 has been built with GIT_THREADS\n on, this function must be called once before\n any other library functions.</p>\n\n<p>If libgit2 has been built without GIT_THREADS\n support, this function is a no-op.</p>\n"
+      }
+    ],
+    "filename": "threads.h",
+    "ignore": false,
+    "cppClassName": "GitThreads",
+    "jsClassName": "Threads",
+    "dependencies": [],
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_time",
+    "fields": [
+      {
+        "name": "time",
+        "cType": "git_time_t",
+        "cppFunctionName": "Time",
+        "jsFunctionName": "time",
+        "cppClassName": "Int32",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "offset",
+        "cType": "int",
+        "cppFunctionName": "Offset",
+        "jsFunctionName": "offset",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      }
+    ],
+    "filename": "time.h",
+    "ignore": false,
+    "cppClassName": "GitTime",
+    "jsClassName": "Time",
+    "description": " Time in a signature ",
+    "dependencies": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "trace.h",
+    "ignore": false,
+    "cppClassName": "GitTrace",
+    "jsClassName": "Trace",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "trim": false,
+    "functions": [
+      {
+        "cFunctionName": "git_cred_ssh_key_from_agent",
+        "ignore": false,
+        "description": "<p>Create a new ssh key credential object used for querying an ssh-agent.\n The supplied credential parameter will be internally duplicated.</p>\n",
+        "cppFunctionName": "CredSshKeyFromAgent",
+        "jsFunctionName": "credSshKeyFromAgent",
+        "return": {
+          "cType": "int",
+          "comment": " 0 for success or an error code for failure",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_cred **",
+            "cppClassName": "GitCred",
+            "jsClassName": "Cred",
+            "comment": "The newly created credential object.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "username",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "username to use to authenticate",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      }
+    ],
+    "filename": "transport.h",
+    "ignore": false,
+    "cppClassName": "GitTransport",
+    "jsClassName": "Transport",
+    "dependencies": [
+      "../include/cred.h",
+      "../include/transport.h",
+      "../include/remote.h"
+    ],
+    "fields": []
+  },
+  {
+    "functions": [
+      {
+        "cFunctionName": "git_tree_lookup",
+        "ignore": false,
+        "description": "<p>Lookup a tree object from the repository.</p>\n",
+        "cppFunctionName": "Lookup",
+        "jsFunctionName": "lookup",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_tree **",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "Pointer to the looked up tree",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "The repo to use when locating the tree.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "Identity of the tree to locate.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_tree_entrycount",
+        "ignore": false,
+        "description": "<p>Get the number of entries listed in a tree</p>\n",
+        "cppFunctionName": "Entrycount",
+        "jsFunctionName": "entrycount",
+        "return": {
+          "cType": "size_t",
+          "comment": " the number of entries in the tree",
+          "cppClassName": "Uint32",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "tree",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "a previously loaded tree.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_tree_entry_byname",
+        "ignore": false,
+        "description": "<p>Lookup a tree entry by its filename</p>\n",
+        "cppFunctionName": "EntryByname",
+        "jsFunctionName": "entryByname",
+        "return": {
+          "cType": "const git_tree_entry *",
+          "comment": " the tree entry; NULL if not found",
+          "cppClassName": "GitTreeEntry",
+          "jsClassName": "TreeEntry"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "tree",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "a previously loaded tree.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "filename",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the filename of the desired entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>This returns a git_tree_entry that is owned by the git_tree.  You don&#39;t\n have to free it, but you must not use it after the git_tree is released.</p>\n"
+      },
+      {
+        "cFunctionName": "git_tree_entry_byindex",
+        "ignore": false,
+        "description": "<p>Lookup a tree entry by its position in the tree</p>\n",
+        "cppFunctionName": "EntryByindex",
+        "jsFunctionName": "entryByindex",
+        "return": {
+          "cType": "const git_tree_entry *",
+          "comment": " the tree entry; NULL if not found",
+          "cppClassName": "GitTreeEntry",
+          "jsClassName": "TreeEntry"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "tree",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "a previously loaded tree.",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "idx",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "the position in the entry list",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>This returns a git_tree_entry that is owned by the git_tree.  You don&#39;t\n have to free it, but you must not use it after the git_tree is released.</p>\n"
+      },
+      {
+        "cFunctionName": "git_tree_entry_bypath",
+        "ignore": false,
+        "description": "<p>Retrieve a tree entry contained in a tree or in any of its subtrees,\n given its relative path.</p>\n",
+        "cppFunctionName": "EntryBypath",
+        "jsFunctionName": "entryBypath",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 on success; GIT_ENOTFOUND if the path does not exist",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_tree_entry **",
+            "cppClassName": "GitTreeEntry",
+            "jsClassName": "TreeEntry",
+            "comment": "Pointer where to store the tree entry",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "root",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "Previously loaded tree which is the root of the relative path",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Path to the contained entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>Unlike the other lookup functions, the returned tree entry is owned by\n the user and must be freed explicitly with <code>git_tree_entry_free()</code>.</p>\n"
+      }
+    ],
+    "filename": "tree.h",
+    "ignore": false,
+    "cppClassName": "GitTree",
+    "jsClassName": "Tree",
+    "cType": "git_tree",
+    "description": " Representation of a tree object. ",
+    "freeFunctionName": "git_tree_free",
+    "dependencies": [
+      "../include/tree.h",
+      "../include/repository.h",
+      "../include/tree_entry.h",
+      "../include/object.h",
+      "../include/treebuilder.h",
+      "../include/oid.h"
+    ],
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "cType": "git_treebuilder",
+    "dependencies": [
+      "../include/tree.h",
+      "../include/oid.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_treebuilder_create",
+        "ignore": false,
+        "description": "<p>Create a new tree builder.</p>\n",
+        "cppFunctionName": "Create",
+        "jsFunctionName": "create",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success; error code otherwise",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_treebuilder **",
+            "cppClassName": "GitTreebuilder",
+            "jsClassName": "Treebuilder",
+            "comment": "Pointer where to store the tree builder",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "source",
+            "cType": "const git_tree *",
+            "cppClassName": "GitTree",
+            "jsClassName": "Tree",
+            "comment": "Source tree to initialize the builder (optional)",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>The tree builder can be used to create or modify trees in memory and\n write them as tree objects to the database.</p>\n\n<p>If the <code>source</code> parameter is not NULL, the tree builder will be\n initialized with the entries of the given tree.</p>\n\n<p>If the <code>source</code> parameter is NULL, the tree builder will start with no\n entries and will have to be filled manually.</p>\n"
+      },
+      {
+        "cFunctionName": "git_treebuilder_insert",
+        "ignore": false,
+        "description": "<p>Add or update an entry to the builder</p>\n",
+        "cppFunctionName": "Insert",
+        "jsFunctionName": "insert",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "const git_tree_entry **",
+            "cppClassName": "GitTreeEntry",
+            "jsClassName": "TreeEntry",
+            "comment": "Pointer to store the entry (optional)",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "bld",
+            "cType": "git_treebuilder *",
+            "cppClassName": "GitTreebuilder",
+            "jsClassName": "Treebuilder",
+            "comment": "Tree builder",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "filename",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Filename of the entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "id",
+            "cType": "const git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "SHA1 oid of the entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "filemode",
+            "cType": "git_filemode_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Folder attributes of the entry. This parameter must\n\t\t\tbe valued with one of the following entries: 0040000, 0100644,\n\t\t\t0100755, 0120000 or 0160000.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false,
+            "additionalCast": "(int)"
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Insert a new entry for <code>filename</code> in the builder with the\n given attributes.</p>\n\n<p>If an entry named <code>filename</code> already exists, its attributes\n will be updated with the given ones.</p>\n\n<p>The optional pointer <code>out</code> can be used to retrieve a pointer to\n the newly created/updated entry.  Pass NULL if you do not need it.</p>\n\n<p>No attempt is being made to ensure that the provided oid points\n to an existing git object in the object database, nor that the\n attributes make sense regarding the type of the pointed at object.</p>\n"
+      },
+      {
+        "cFunctionName": "git_treebuilder_remove",
+        "ignore": false,
+        "description": "<p>Remove an entry from the builder by its filename</p>\n",
+        "cppFunctionName": "Remove",
+        "jsFunctionName": "remove",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "bld",
+            "cType": "git_treebuilder *",
+            "cppClassName": "GitTreebuilder",
+            "jsClassName": "Treebuilder",
+            "comment": "Tree builder",
+            "isReturn": true,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "filename",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Filename of the entry to remove",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_treebuilder_write",
+        "ignore": false,
+        "description": "<p>Write the contents of the tree builder as a tree object</p>\n",
+        "cppFunctionName": "Write",
+        "jsFunctionName": "write",
+        "return": {
+          "isErrorCode": true,
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "id",
+            "cType": "git_oid *",
+            "cppClassName": "GitOid",
+            "jsClassName": "Oid",
+            "comment": "Pointer to store the OID of the newly written tree",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "Repository in which to store the object",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "bld",
+            "cType": "git_treebuilder *",
+            "cppClassName": "GitTreebuilder",
+            "jsClassName": "Treebuilder",
+            "comment": "Tree builder to write",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The tree builder will be written to the given <code>repo</code>, and its\n identifying SHA1 hash will be stored in the <code>id</code> pointer.</p>\n"
+      }
+    ],
+    "filename": "treebuilder.h",
+    "ignore": false,
+    "cppClassName": "GitTreebuilder",
+    "jsClassName": "Treebuilder",
+    "description": " Constructor for in-memory trees ",
+    "fields": []
+  },
+  {
+    "isStruct": true,
+    "forwardDeclare": true,
+    "cType": "git_tree_entry",
+    "dependencies": [
+      "../include/tree.h",
+      "../include/types.h",
+      "../include/oid.h"
+    ],
+    "fields": [
+      {
+        "name": "removed",
+        "cType": "uint16_t",
+        "cppFunctionName": "Removed",
+        "jsFunctionName": "removed",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "attr",
+        "cType": "uint16_t",
+        "cppFunctionName": "Attr",
+        "jsFunctionName": "attr",
+        "cppClassName": "Integer",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "oid",
+        "cType": "git_oid",
+        "cppFunctionName": "Oid",
+        "jsFunctionName": "oid",
+        "cppClassName": "GitOid",
+        "jsClassName": "Oid"
+      },
+      {
+        "name": "filename_len",
+        "cType": "size_t",
+        "cppFunctionName": "FilenameLen",
+        "jsFunctionName": "filenameLen",
+        "cppClassName": "Uint32",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "filename",
+        "structType": "char",
+        "structName": "filename[1]",
+        "cType": "char *",
+        "cppFunctionName": "Filename",
+        "jsFunctionName": "filename",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      }
+    ],
+    "filename": "tree_entry.h",
+    "ignore": false,
+    "cppClassName": "GitTreeEntry",
+    "jsClassName": "TreeEntry",
+    "description": " Representation of each one of the entries in a tree object. ",
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "types.h",
+    "ignore": false,
+    "cppClassName": "GitTypes",
+    "jsClassName": "Types",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  }
+]

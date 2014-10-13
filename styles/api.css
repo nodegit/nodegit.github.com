@@ -1,0 +1,197 @@
+#list-api {
+  color: #FFF;
+  list-style: none;
+  padding-left: 0px;
+  width: 240px;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 13px;
+  /* Cover #content */
+  z-index: 100;
+}
+
+#list-api a {
+  display: block;
+  font-weight: bold;
+  padding: 10px;
+  background: #383838;
+  color: #BBB;
+  transition: all linear .3s;
+  padding-left: 20px;
+}
+
+#list-api a .subnav {
+  display: none;
+}
+
+#list-api a.active .subnav {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #8D8D8D;
+}
+
+#list-api a.active .subnav a:first-child {
+  margin-top: 10px;
+}
+
+#list-api a.active .subnav li {
+  background: #333333;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#list-api a.active .subnav a {
+  padding: 0;
+}
+
+#list-api a:hover, #list-api a.active {
+  background: #353535;
+  color: #FFF;
+}
+
+.api-content {
+  color: #333;
+  float: left;
+  width: calc(100% - 225px);
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  left: 225px;
+}
+
+.api-content .inner-content {
+  width: 75%;
+  height: 100%;
+  margin: 17px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding: 20px;
+  padding-top: 10px;
+  background: #F5F2F0;
+}
+
+.api-content hr {
+  border-color: #C0C0C0;
+  margin-bottom: 15px;
+}
+
+ul.api-contents {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.api-contents table {
+  width: 100%;
+}
+
+ul.api-contents table th {
+  color: #858585;
+}
+
+ul.api-contents table h3 {
+  margin: 0;
+}
+
+.api-content .header strong {
+  color: #505050;
+}
+
+.api-content .is.added {}
+
+.api-content .is.added:before {
+  content: "\2713  Supported ";
+  color: #52800D;
+}
+
+.api-content .not.added:before {
+  content: "\2717  Unsupported ";
+  color: #80360D;
+}
+
+.api-content .header strong:not(:last-child) {
+  border-right: 1px solid #888;
+  padding-right: 7px;
+}
+
+.api-content .ref {
+  background: #E7E7E7;
+  padding: 4px;
+  font-weight: normal;
+  color: #424242;
+  border: 1px solid #DFDADA;
+}
+
+.api-content td:first-child ~ td {
+  color: #5C5C5C;
+}
+
+.api-content .inner-block {
+  background: #FFF;
+  border: 1px solid #C6C6C6;
+  margin: 0px;
+  margin-top: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  list-style: none;
+  border-radius: 4px;
+  padding-right: 30px;
+}
+
+.api-content .inner-block strong.cName,
+.api-content .inner-block strong.name {
+  font-size: 22px;
+  display: inline-block;
+  padding-bottom: 15px;
+  color: #3D3D3D;
+  padding-top: 10px;
+}
+
+.api-content .inner-block strong.cName {
+  color: #C9C9C9;
+  font-weight: normal;
+}
+
+.api-content .inner-block h3 {
+  margin-top: 0px;
+}
+
+.arguments {
+  border: 1px solid #C6C6C6;
+  padding: 10px;
+  margin: 15px 0px;
+  background: #F5F5F5;
+}
+
+.functions h4 {
+  color: #7A7A7A;
+}
+
+.scrollable {
+  overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar { width: 0 !important }
+
+pre {
+  background-color: #F9F8F7 !important;
+}
+
+.api-contents pre.const {
+  border: 1px solid #DFDADA;
+  margin-right: -20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.api-contents pre.const code {
+  margin-left: 10px;
+}
+
+pre.function {
+  margin-left: 0px !important;
+}
