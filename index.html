@@ -124,6 +124,46 @@
                     {%each functions as function%}
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
                       <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
+                      <h4>Arguments:</h4>
+                      <div class="arguments">
+                      {%if function.args.length > 2%}
+                      <table class="pure-table">
+                        <thead>
+                          <tr>
+                            <th><sub>Name</sub></th>
+                            <th><sub>Type</sub></th>
+                            <th><sub>Comment</sub></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {%each function.args as arg%}
+                          {%if not arg.isReturn%}
+                            {%if not arg.isSelf%}
+                            <tr>
+                              <td><strong>{{arg.name}}</strong></td>
+                              <td>{{ arg.jsClassName }}</td>
+                              <td>{{ arg.comment }}</td>
+                            </tr>
+                            {%endif%}
+                          {%endif%}
+                          {%endeach%}
+                        </tbody>
+                      </table>
+                      {%else%}
+                      <span>No arguments.</span>
+                      {%endif%}
+                      </div>
+
+                      <h4>Returns:</h4>
+                      <div class="arguments">
+                        {%if function.return.isErrorCode%}
+                        <span>An error code.</span>
+                        {%elsif isAsync%}
+                        <span>A Promise.</span>
+                        {%else%}
+                        <span>{{ function.return.jsClassName }}</span>
+                        {%endif%}
+                      </div>
                     </li>
                     {%endeach%}
                   </ul>

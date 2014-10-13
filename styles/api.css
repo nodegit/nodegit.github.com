@@ -140,3 +140,14 @@ ul.api-contents table h3 {
 .api-content .inner-block h3 {
   margin-top: 0px;
 }
+
+.arguments {
+  border: 1px solid #C6C6C6;
+  padding: 10px;
+  margin: 15px 0px;
+  background: #F5F5F5;
+}
+
+.functions h4 {
+  color: #7A7A7A;
+}
