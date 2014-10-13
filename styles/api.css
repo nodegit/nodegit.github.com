@@ -32,6 +32,9 @@
   padding: 0;
   list-style: none;
   color: #8D8D8D;
+}
+
+#list-api a.active .subnav a:first-child {
   margin-top: 10px;
 }
 
