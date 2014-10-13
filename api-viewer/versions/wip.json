@@ -10,7 +10,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": false,
@@ -40,7 +40,7 @@
             "name": "flags",
             "cType": "uint32_t",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "A combination of GIT_ATTR_CHECK... flags.",
             "isReturn": false,
             "isSelf": false,
@@ -78,7 +78,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": false,
@@ -108,7 +108,7 @@
             "name": "flags",
             "cType": "uint32_t",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "A combination of GIT_ATTR_CHECK... flags.",
             "isReturn": false,
             "isSelf": false,
@@ -157,7 +157,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -176,7 +176,7 @@
             "name": "flags",
             "cType": "uint32_t",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "A combination of GIT_ATTR_CHECK... flags.",
             "isReturn": false,
             "isSelf": false,
@@ -251,7 +251,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -331,7 +331,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -434,7 +434,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -491,7 +491,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -563,7 +563,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -582,7 +582,7 @@
             "name": "version",
             "cType": "unsigned int",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "Version of struct; pass `GIT_CHECKOUT_OPTIONS_VERSION`",
             "isReturn": false,
             "isSelf": false,
@@ -600,7 +600,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -637,7 +637,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -684,7 +684,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -767,7 +767,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -826,7 +826,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -908,7 +908,7 @@
         "cppFunctionName": "Version",
         "jsFunctionName": "version",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "remote_callbacks",
@@ -924,7 +924,7 @@
         "cppFunctionName": "Bare",
         "jsFunctionName": "bare",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "ignore_cert_errors",
@@ -932,7 +932,7 @@
         "cppFunctionName": "IgnoreCertErrors",
         "jsFunctionName": "ignoreCertErrors",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "remote_name",
@@ -974,7 +974,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -1103,7 +1103,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -1211,7 +1211,7 @@
         "return": {
           "cType": "unsigned int",
           "cppClassName": "Number",
-          "jsClassName": "Uint32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -1257,7 +1257,7 @@
             "name": "n",
             "cType": "unsigned int",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "the position of the parent (from 0 to `parentcount`)",
             "isReturn": false,
             "isSelf": false,
@@ -1276,7 +1276,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -1466,7 +1466,7 @@
         "cppFunctionName": "Flags",
         "jsFunctionName": "flags",
         "cppClassName": "Number",
-        "jsClassName": "Uint32"
+        "jsClassName": "Number"
       },
       {
         "name": "similarity",
@@ -1532,7 +1532,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -1717,7 +1717,7 @@
         "cppFunctionName": "Flags",
         "jsFunctionName": "flags",
         "cppClassName": "Number",
-        "jsClassName": "Uint32"
+        "jsClassName": "Number"
       },
       {
         "type": "uint16_t",
@@ -1747,7 +1747,7 @@
         "cppFunctionName": "Origin",
         "jsFunctionName": "origin",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "old_lineno",
@@ -1755,7 +1755,7 @@
         "cppFunctionName": "OldLineno",
         "jsFunctionName": "oldLineno",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "new_lineno",
@@ -1763,7 +1763,7 @@
         "cppFunctionName": "NewLineno",
         "jsFunctionName": "newLineno",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "num_lines",
@@ -1771,7 +1771,7 @@
         "cppFunctionName": "NumLines",
         "jsFunctionName": "numLines",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       },
       {
         "name": "content_len",
@@ -1818,7 +1818,7 @@
         "cppFunctionName": "Version",
         "jsFunctionName": "version",
         "cppClassName": "Number",
-        "jsClassName": "Uint32"
+        "jsClassName": "Number"
       },
       {
         "name": "flags",
@@ -1826,7 +1826,7 @@
         "cppFunctionName": "Flags",
         "jsFunctionName": "flags",
         "cppClassName": "Number",
-        "jsClassName": "Uint32"
+        "jsClassName": "Number"
       },
       {
         "name": "ignore_submodules",
@@ -1834,7 +1834,7 @@
         "cppFunctionName": "IgnoreSubmodules",
         "jsFunctionName": "ignoreSubmodules",
         "cppClassName": "Number",
-        "jsClassName": "Uint32"
+        "jsClassName": "Number"
       },
       {
         "name": "context_lines",
@@ -2071,7 +2071,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2195,7 +2195,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2270,7 +2270,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -2307,7 +2307,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -2419,7 +2419,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2574,7 +2574,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2633,7 +2633,7 @@
           "copy": "git_remote_dup",
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2763,7 +2763,7 @@
           "copy": "git_strarray_copy",
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2801,7 +2801,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -2848,7 +2848,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -2915,7 +2915,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2953,7 +2953,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -2983,7 +2983,7 @@
             "name": "is_bare",
             "cType": "unsigned int",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "if true, a Git repository without a working directory is\n\t\tcreated at the pointed path. If false, provided path will be\n\t\tconsidered as the working directory into which the .git directory\n\t\twill be created.",
             "isReturn": false,
             "isSelf": false,
@@ -3001,7 +3001,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -3020,7 +3020,7 @@
             "name": "version",
             "cType": "unsigned int",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "Version of struct; pass `GIT_REPOSITORY_INIT_OPTIONS_VERSION`",
             "isReturn": false,
             "isSelf": false,
@@ -3038,7 +3038,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -3086,7 +3086,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": false,
@@ -3169,7 +3169,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -3207,7 +3207,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -3245,7 +3245,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -3282,7 +3282,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": false,
@@ -3339,7 +3339,7 @@
             "name": "sort_mode",
             "cType": "unsigned int",
             "cppClassName": "Number",
-            "jsClassName": "Uint32",
+            "jsClassName": "Number",
             "comment": "combination of GIT_SORT_XXX flags",
             "isReturn": false,
             "isSelf": false,
@@ -3405,7 +3405,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -3455,7 +3455,7 @@
             "name": "offset",
             "cType": "int",
             "cppClassName": "Number",
-            "jsClassName": "Int32",
+            "jsClassName": "Number",
             "comment": "timezone offset in minutes for the time",
             "isReturn": false,
             "isSelf": false,
@@ -3627,7 +3627,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -3661,7 +3661,7 @@
         "cppFunctionName": "Offset",
         "jsFunctionName": "offset",
         "cppClassName": "Number",
-        "jsClassName": "Int32"
+        "jsClassName": "Number"
       }
     ],
     "filename": "time.h",
@@ -3693,7 +3693,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -3746,7 +3746,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": true,
         "isPrototypeMethod": false,
@@ -3895,7 +3895,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -3967,7 +3967,7 @@
         "return": {
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32",
+          "jsClassName": "Number",
           "isErrorCode": true
         },
         "isConstructorMethod": true,
@@ -4006,7 +4006,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -4075,7 +4075,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -4113,7 +4113,7 @@
           "isErrorCode": true,
           "cType": "int",
           "cppClassName": "Number",
-          "jsClassName": "Int32"
+          "jsClassName": "Number"
         },
         "isConstructorMethod": false,
         "isPrototypeMethod": true,
@@ -4229,3 +4229,4 @@
     "functions": []
   }
 ]
+
