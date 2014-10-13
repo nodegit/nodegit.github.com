@@ -138,6 +138,7 @@ ul.api-contents table h3 {
   padding: 10px;
   padding-left: 30px;
   list-style: none;
+  border-radius: 4px;
 }
 
 .api-content .inner-block strong.cName,
