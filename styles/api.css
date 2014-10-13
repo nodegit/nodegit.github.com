@@ -1,0 +1,133 @@
+#list-api {
+  color: #FFF;
+  list-style: none;
+  padding-left: 0px;
+  width: 240px;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+#list-api a {
+  display: block;
+  font-weight: bold;
+  padding: 10px;
+  background: #383838;
+  color: #BBB;
+  transition: all linear .3s;
+  padding-left: 20px;
+}
+
+#list-api a .subnav {
+  display: none;
+}
+
+#list-api a.active .subnav {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #8D8D8D;
+  margin-top: 10px;
+}
+
+#list-api a.active .subnav li {
+  background: #333333;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#list-api a:hover, #list-api a.active {
+  background: #353535;
+  color: #FFF;
+}
+
+.api-content {
+  color: #333;
+  float: left;
+  width: 50%;
+  min-height: 100%;
+  position: relative;
+  left: 225px;
+}
+
+.api-content .inner-content {
+  width: calc(100% - 17px);
+  height: 100%;
+  margin: 17px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding: 20px;
+  padding-top: 10px;
+  background: #EBEBEB;
+}
+
+.api-content hr {
+  border-color: #C0C0C0;
+  margin-bottom: 15px;
+}
+
+ul.api-contents {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.api-contents table {
+  width: 100%;
+}
+
+ul.api-contents table th {
+  color: #858585;
+}
+
+ul.api-contents table h3 {
+  margin: 0;
+}
+
+.api-content .header strong {
+  color: #505050;
+}
+
+.api-content .is.added {}
+
+.api-content .is.added:before {
+  content: "\2713  Supported ";
+  color: #52800D;
+}
+
+.api-content .not.added:before {
+  content: "\2717  Unsupported ";
+  color: #80360D;
+}
+
+.api-content .header strong:not(:last-child) {
+  border-right: 1px solid #888;
+  padding-right: 7px;
+}
+
+.api-content .ref {
+  background: #E7E7E7;
+  padding: 4px;
+  font-weight: normal;
+  color: #424242;
+  border: 1px solid #DFDADA;
+}
+
+.api-content td:first-child ~ td {
+  color: #5C5C5C;
+}
+
+.api-content .inner-block {
+  background: #FFF;
+  border: 1px solid #C6C6C6;
+  margin: 0px;
+  margin-top: 20px;
+  padding: 10px;
+  padding-left: 30px;
+}
+
+.api-content .inner-block h3 {
+  margin-top: 0px;
+}

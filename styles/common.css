@@ -1,3 +1,5 @@
+@import "demo.css";
+
 * {
   box-sizing: border-box;
 }
@@ -5,15 +7,32 @@
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
+  margin-top: -20px
 }
 
-html, body {
-  background: #434343;
+h1 {
+  color: rgba(164, 202, 214, 0.24);
+}
+
+html {
+  background-color: #3D3D3D;
+  height: 100%;
+}
+
+html:after {
+  content: "";
+  /*background: url(http://subtlepatterns.com/patterns/tactile_noise.png);*/
+  opacity: .2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 
 header, footer {
   text-align: center;
-  background: #383838;
   color: white;
 }
 
@@ -21,12 +40,35 @@ a {
   text-decoration: none;
 }
 
-.brand {
-  color: transparent;
-  position: relative;
+select {
+  outline: none !important;
+  font-size: 1.2em;
+  width: 122px;
+  color: #FFF;
+  border-width: 4px;
+  border-color: #383838;
+  background-color: #383838;
+  text-align: right;
   margin: 0;
-  padding: 2%;
-  height: 130px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+input[type=search] {
+  width: calc(100% - 142px);
+  color: #FFF;
+  outline: none;
+  border: none;
+  padding: 10px;
+  padding-left: 10px;
+  background: #383838;
+  font-size: 1.2em;
+}
+
+.brand {
+  color: rgba(0, 0, 0, 0);
+  margin: 0;
+  height: 120px;
 }
 
 .brand:before {
@@ -38,17 +80,27 @@ a {
   margin: auto;
   position: relative;
   top: 50%;
-  margin-top: -27px;
+  margin-top: -20px;
+  background-size: 164px 64px;
+  background-repeat: no-repeat;
 }
 
 header {
   position: relative;
+  margin: auto;
+  max-width: 960px;
+}
+
+nav {
+  height: 90px;
+  padding-top: 10px;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
-  border-top: 1px solid #313131;
+  line-height: 76px;
+  float: right;
 }
 
 nav ul li {
@@ -58,15 +110,15 @@ nav ul li {
 
 nav a {
   color: white;
-  padding: 0 3em;
   display: block;
   font-size: .8em;
   font-weight: 100;
   letter-spacing: 1px;
+  padding-left: 15px;
 }
 
-nav a:hover {
-  background: #313131;
+nav a:hover, nav a.active {
+  color: #727272;
 }
 
 footer {
@@ -80,30 +132,23 @@ footer a {
 }
 
 #wrapper .block {
-  max-width: 980px;
   margin: auto;
-  padding: 6em 2em;
-  background: white;
+  max-width: 960px;
+  margin-bottom: 20px;
 }
 
-/*
-header nav {
-  position: absolute;
-  top: 52px;
-  width: 50%;
-  text-align: right;
-  padding-right: 150px;
+#wrapper .full.block {
+  max-width: 100%;
 }
 
-header nav:nth-of-type(2) {
-  left: 50%;
-  text-align: left;
-  padding-left: 150px;
+.row {
+  margin: auto;
 }
 
-header nav a {
-  display: inline-block;
-  color: #FFF;
-  font-size: 20px;
+.row.full {
+  max-width: 100%;
 }
-*/
+
+.center {
+  text-align: center;
+}
