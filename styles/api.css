@@ -151,3 +151,7 @@ ul.api-contents table h3 {
 .functions h4 {
   color: #7A7A7A;
 }
+
+.scrollable {
+  overflow-y: auto;
+}

@@ -11,12 +11,15 @@
   getAPI("wip").then(function(resp) {
     var listApi = $("#list-api");
     var content = $(".api-content");
+    var scrollable = listApi.find(".scrollable");
 
     var contentTemplate = combyne($(".api-content script").eq(1).html().trim());
 
     resp.forEach(function(ctor) {
       // Add nav entry.
-      var anchor = $("<a href='#" + ctor.jsClassName + "'><li>" + ctor.jsClassName + "</li><ul class='subnav'></ul></a>").appendTo(listApi);
+      var anchor = $("<a href='#" + ctor.jsClassName + "'><li>" + ctor.jsClassName + "</li><ul class='subnav'></ul></a>").appendTo(scrollable);
+
+      scrollable.height($("html").innerHeight() - 160);
 
       // Add new content.
       var contentOutput = contentTemplate.render(ctor);
