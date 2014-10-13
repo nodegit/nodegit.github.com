@@ -5,6 +5,7 @@
       {
         "cFunctionName": "git_attr_get",
         "ignore": false,
+        "description": "<p>Look up the value of one git attribute for path.</p>\n",
         "cppFunctionName": "Get",
         "jsFunctionName": "get",
         "return": {
@@ -74,6 +75,7 @@
       {
         "cFunctionName": "git_attr_get_many",
         "ignore": false,
+        "description": "<p>Look up a list of git attributes for path.</p>\n",
         "cppFunctionName": "GetMany",
         "jsFunctionName": "getMany",
         "return": {
@@ -153,6 +155,7 @@
       {
         "cFunctionName": "git_attr_foreach",
         "ignore": true,
+        "description": "<p>Loop over all the git attributes for a path.</p>\n",
         "cppFunctionName": "Foreach",
         "jsFunctionName": "foreach",
         "return": {
@@ -222,6 +225,7 @@
       {
         "cFunctionName": "git_attr_cache_flush",
         "ignore": false,
+        "description": "<p>Flush the gitattributes cache.</p>\n",
         "cppFunctionName": "CacheFlush",
         "jsFunctionName": "cacheFlush",
         "return": {
@@ -250,6 +254,7 @@
       {
         "cFunctionName": "git_attr_add_macro",
         "ignore": false,
+        "description": "<p>Add a macro definition.</p>\n",
         "cppFunctionName": "AddMacro",
         "jsFunctionName": "addMacro",
         "return": {
@@ -311,6 +316,7 @@
     "cppClassName": "GitBlame",
     "jsClassName": "Blame",
     "cType": "git_blame",
+    "description": "",
     "freeFunctionName": "git_blame_free",
     "dependencies": [
       "../include/blame.h",
@@ -331,6 +337,7 @@
       {
         "cFunctionName": "git_blob_lookup",
         "ignore": false,
+        "description": "<p>Lookup a blob object from a repository.</p>\n",
         "cppFunctionName": "Lookup",
         "jsFunctionName": "lookup",
         "return": {
@@ -380,6 +387,7 @@
       {
         "cFunctionName": "git_blob_rawcontent",
         "ignore": false,
+        "description": "<p>Get a read-only buffer with the raw content of a blob.</p>\n",
         "cppFunctionName": "Rawcontent",
         "jsFunctionName": "rawcontent",
         "return": {
@@ -408,6 +416,7 @@
       {
         "cFunctionName": "git_blob_rawsize",
         "ignore": false,
+        "description": "<p>Get the size in bytes of the contents of a blob</p>\n",
         "cppFunctionName": "Rawsize",
         "jsFunctionName": "rawsize",
         "return": {
@@ -436,6 +445,7 @@
       {
         "cFunctionName": "git_blob_create_frombuffer",
         "ignore": false,
+        "description": "<p>Write an in-memory buffer to the ODB as a blob</p>\n",
         "cppFunctionName": "CreateFrombuffer",
         "jsFunctionName": "createFrombuffer",
         "return": {
@@ -495,6 +505,7 @@
       {
         "cFunctionName": "git_blob_is_binary",
         "ignore": false,
+        "description": "<p>Determine if the blob content is most certainly binary or not.</p>\n",
         "cppFunctionName": "IsBinary",
         "jsFunctionName": "isBinary",
         "return": {
@@ -526,6 +537,7 @@
     "cppClassName": "GitBlob",
     "jsClassName": "Blob",
     "cType": "git_blob",
+    "description": " In-memory representation of a blob object. ",
     "freeFunctionName": "git_blob_free",
     "fields": []
   },
@@ -547,6 +559,7 @@
     "cppClassName": "GitBuffer",
     "jsClassName": "Buffer",
     "cType": "git_buf",
+    "description": " A data buffer for exporting data from libgit2",
     "dependencies": [],
     "fields": [],
     "functions": []
@@ -568,6 +581,7 @@
       {
         "cFunctionName": "git_checkout_init_options",
         "ignore": true,
+        "description": "<p>Initializes a <code>git_checkout_options</code> with default values. Equivalent to\n creating an instance with GIT_CHECKOUT_OPTIONS_INIT.</p>\n",
         "cppFunctionName": "InitOptions",
         "jsFunctionName": "initOptions",
         "return": {
@@ -606,6 +620,7 @@
       {
         "cFunctionName": "git_checkout_head",
         "ignore": false,
+        "description": "<p>Updates files in the index and the working tree to match the content of\n the commit pointed at by HEAD.</p>\n",
         "cppFunctionName": "Head",
         "jsFunctionName": "head",
         "return": {
@@ -644,6 +659,7 @@
       {
         "cFunctionName": "git_checkout_index",
         "ignore": false,
+        "description": "<p>Updates files in the working tree to match the content of the index.</p>\n",
         "cppFunctionName": "Index",
         "jsFunctionName": "index",
         "return": {
@@ -692,6 +708,7 @@
       {
         "cFunctionName": "git_checkout_tree",
         "ignore": false,
+        "description": "<p>Updates files in the index and working tree to match the content of the\n tree pointed at by the treeish.</p>\n",
         "cppFunctionName": "Tree",
         "jsFunctionName": "tree",
         "return": {
@@ -758,6 +775,7 @@
     "ignore": false,
     "cppClassName": "GitCheckoutOptions",
     "jsClassName": "CheckoutOptions",
+    "description": " Checkout options structure",
     "functions": []
   },
   {
@@ -776,6 +794,7 @@
       {
         "cFunctionName": "git_clone",
         "ignore": false,
+        "description": "<p>Clone a remote repository.</p>\n",
         "cppFunctionName": "Clone",
         "jsFunctionName": "clone",
         "return": {
@@ -836,6 +855,7 @@
       {
         "cFunctionName": "git_clone_into",
         "ignore": false,
+        "description": "<p>Clone into a repository</p>\n",
         "cppFunctionName": "CloneInto",
         "jsFunctionName": "cloneInto",
         "return": {
@@ -971,6 +991,7 @@
     "ignore": false,
     "cppClassName": "GitCloneOptions",
     "jsClassName": "CloneOptions",
+    "description": " Clone options structure",
     "functions": []
   },
   {
@@ -985,6 +1006,7 @@
       {
         "cFunctionName": "git_commit_lookup",
         "ignore": false,
+        "description": "<p>Lookup a commit object from a repository.</p>\n",
         "cppFunctionName": "Lookup",
         "jsFunctionName": "lookup",
         "return": {
@@ -1034,6 +1056,7 @@
       {
         "cFunctionName": "git_commit_id",
         "ignore": false,
+        "description": "<p>Get the id of a commit.</p>\n",
         "cppFunctionName": "Id",
         "jsFunctionName": "id",
         "return": {
@@ -1062,6 +1085,7 @@
       {
         "cFunctionName": "git_commit_message",
         "ignore": false,
+        "description": "<p>Get the full message of a commit.</p>\n",
         "cppFunctionName": "Message",
         "jsFunctionName": "message",
         "return": {
@@ -1090,6 +1114,7 @@
       {
         "cFunctionName": "git_commit_time",
         "ignore": false,
+        "description": "<p>Get the commit time (i.e. committer time) of a commit.</p>\n",
         "cppFunctionName": "Time",
         "jsFunctionName": "time",
         "return": {
@@ -1118,6 +1143,7 @@
       {
         "cFunctionName": "git_commit_time_offset",
         "ignore": false,
+        "description": "<p>Get the commit timezone offset (i.e. committer&#39;s preferred timezone) of a commit.</p>\n",
         "cppFunctionName": "TimeOffset",
         "jsFunctionName": "timeOffset",
         "return": {
@@ -1146,6 +1172,7 @@
       {
         "cFunctionName": "git_commit_committer",
         "ignore": false,
+        "description": "<p>Get the committer of a commit.</p>\n",
         "cppFunctionName": "Committer",
         "jsFunctionName": "committer",
         "return": {
@@ -1174,6 +1201,7 @@
       {
         "cFunctionName": "git_commit_author",
         "ignore": false,
+        "description": "<p>Get the author of a commit.</p>\n",
         "cppFunctionName": "Author",
         "jsFunctionName": "author",
         "return": {
@@ -1202,6 +1230,7 @@
       {
         "cFunctionName": "git_commit_tree_id",
         "ignore": false,
+        "description": "<p>Get the id of the tree pointed to by a commit. This differs from\n <code>git_commit_tree</code> in that no attempts are made to fetch an object\n from the ODB.</p>\n",
         "cppFunctionName": "TreeId",
         "jsFunctionName": "treeId",
         "return": {
@@ -1230,6 +1259,7 @@
       {
         "cFunctionName": "git_commit_parentcount",
         "ignore": false,
+        "description": "<p>Get the number of parents of this commit</p>\n",
         "cppFunctionName": "Parentcount",
         "jsFunctionName": "parentcount",
         "return": {
@@ -1258,6 +1288,7 @@
       {
         "cFunctionName": "git_commit_parent_id",
         "ignore": false,
+        "description": "<p>Get the oid of a specified parent for a commit. This is different from\n <code>git_commit_parent</code>, which will attempt to load the parent commit from\n the ODB.</p>\n",
         "cppFunctionName": "ParentId",
         "jsFunctionName": "parentId",
         "return": {
@@ -1296,6 +1327,7 @@
       {
         "cFunctionName": "git_commit_create",
         "ignore": false,
+        "description": "<p>Create new commit in the repository from a list of <code>git_object</code> pointers</p>\n",
         "cppFunctionName": "CreateCommit",
         "jsFunctionName": "createCommit",
         "return": {
@@ -1421,6 +1453,7 @@
     "cppClassName": "GitCommit",
     "jsClassName": "Commit",
     "cType": "git_commit",
+    "description": " Parsed representation of a commit object. ",
     "freeFunctionName": "git_commit_free",
     "fields": []
   },
@@ -1440,6 +1473,7 @@
     "cppClassName": "GitConfig",
     "jsClassName": "Config",
     "cType": "git_config",
+    "description": " Memory representation of a set of config files ",
     "freeFunctionName": "git_config_free",
     "dependencies": [
       "../include/config.h"
@@ -1454,6 +1488,7 @@
     "cppClassName": "GitCred",
     "jsClassName": "Cred",
     "cType": "git_diff",
+    "description": " The diff object that contains all individual file deltas.",
     "dependencies": [],
     "fields": [],
     "functions": []
@@ -1464,6 +1499,7 @@
     "cppClassName": "GitCredHelpers",
     "jsClassName": "CredHelpers",
     "cType": "git_cred",
+    "description": "",
     "dependencies": [
       "../include/cred.h"
     ],
@@ -1532,6 +1568,7 @@
     "ignore": false,
     "cppClassName": "GitDelta",
     "jsClassName": "Delta",
+    "description": " Description of changes to one entry.",
     "functions": []
   },
   {
@@ -1553,6 +1590,7 @@
       {
         "cFunctionName": "git_diff_tree_to_tree",
         "ignore": false,
+        "description": "<p>Create a diff with the difference between two tree objects.</p>\n",
         "cppFunctionName": "TreeToTree",
         "jsFunctionName": "treeToTree",
         "return": {
@@ -1623,6 +1661,7 @@
       {
         "cFunctionName": "git_diff_num_deltas",
         "ignore": false,
+        "description": "<p>Query how many diff records are there in a diff.</p>\n",
         "cppFunctionName": "NumDeltas",
         "jsFunctionName": "numDeltas",
         "return": {
@@ -1651,6 +1690,7 @@
       {
         "cFunctionName": "git_diff_get_delta",
         "ignore": false,
+        "description": "<p>Return the diff delta for an entry in the diff list.</p>\n",
         "cppFunctionName": "GetDelta",
         "jsFunctionName": "getDelta",
         "return": {
@@ -1693,6 +1733,7 @@
     "cppClassName": "GitDiff",
     "jsClassName": "Diff",
     "cType": "git_diff",
+    "description": " The diff object that contains all individual file deltas.",
     "freeFunctionName": "git_diff_free",
     "fields": []
   },
@@ -1708,6 +1749,7 @@
     "ignore": false,
     "cppClassName": "GitDiffFile",
     "jsClassName": "DiffFile",
+    "description": " Description of one side of a delta.",
     "fields": [
       {
         "type": "git_oid",
@@ -1832,6 +1874,7 @@
     "ignore": false,
     "cppClassName": "GitDiffLine",
     "jsClassName": "DiffLine",
+    "description": " Structure describing a line (or data span) of a diff.",
     "functions": []
   },
   {
@@ -1911,6 +1954,7 @@
     "ignore": false,
     "cppClassName": "GitDiffOptions",
     "jsClassName": "DiffOptions",
+    "description": " Structure describing options about how the diff should be executed.",
     "functions": []
   },
   {
@@ -1931,6 +1975,7 @@
     "cppClassName": "GitFilter",
     "jsClassName": "Filter",
     "cType": "git_filter",
+    "description": " Filter structure used to register custom filters.",
     "dependencies": [
       "../include/repository.h",
       "../include/blob.h"
@@ -1967,6 +2012,7 @@
     "cppClassName": "GitIndex",
     "jsClassName": "Index",
     "cType": "git_index",
+    "description": " Memory representation of an index file. ",
     "freeFunctionName": "git_index_free",
     "dependencies": [
       "../include/index.h",
@@ -1982,6 +2028,7 @@
     "cppClassName": "GitIndexer",
     "jsClassName": "Indexer",
     "cType": "git_indexer",
+    "description": "",
     "freeFunctionName": "git_indexer_free",
     "dependencies": [
       "../include/indexer.h",
@@ -2042,6 +2089,7 @@
     "cppClassName": "GitNotes",
     "jsClassName": "Notes",
     "cType": "git_note",
+    "description": " Representation of a git note ",
     "dependencies": [
       "../include/repository.h",
       "../include/oid.h"
@@ -2055,6 +2103,7 @@
     "cppClassName": "GitObject",
     "jsClassName": "Object",
     "cType": "git_object",
+    "description": " Representation of a generic object in a repository ",
     "freeFunctionName": "git_object_free",
     "dependencies": [
       "../include/object.h",
@@ -2069,6 +2118,7 @@
     "cppClassName": "GitOdb",
     "jsClassName": "Odb",
     "cType": "git_odb",
+    "description": " An open object database handle. ",
     "freeFunctionName": "git_odb_free",
     "dependencies": [
       "../include/odb.h",
@@ -2084,6 +2134,7 @@
     "cppClassName": "GitOdbBackend",
     "jsClassName": "OdbBackend",
     "cType": "git_odb",
+    "description": " An open object database handle. ",
     "dependencies": [
       "../include/odb_backend.h"
     ],
@@ -2096,6 +2147,7 @@
       {
         "cFunctionName": "git_oid_fromstr",
         "ignore": false,
+        "description": "<p>Parse a hex formatted object id into a git_oid.</p>\n",
         "cppFunctionName": "Fromstr",
         "jsFunctionName": "fromstr",
         "return": {
@@ -2135,6 +2187,7 @@
       {
         "cFunctionName": "git_oid_allocfmt",
         "ignore": false,
+        "description": "<p>Format a git_oid into a newly allocated c-string.</p>\n",
         "cppFunctionName": "Allocfmt",
         "jsFunctionName": "allocfmt",
         "return": {
@@ -2166,6 +2219,7 @@
     "cppClassName": "GitOid",
     "jsClassName": "Oid",
     "cType": "git_oid",
+    "description": " Unique identity of any object (commit, tree, blob, tag). ",
     "dependencies": [
       "../include/oid.h"
     ]
@@ -2176,6 +2230,7 @@
     "cppClassName": "GitPack",
     "jsClassName": "Pack",
     "cType": "git_packbuilder",
+    "description": " Representation of a git packbuilder ",
     "dependencies": [
       "../include/repository.h"
     ],
@@ -2194,6 +2249,7 @@
       {
         "cFunctionName": "git_patch_get_delta",
         "ignore": false,
+        "description": "<p>Get the delta associated with a patch</p>\n",
         "cppFunctionName": "GetDelta",
         "jsFunctionName": "getDelta",
         "return": {
@@ -2223,6 +2279,7 @@
       {
         "cFunctionName": "git_patch_from_diff",
         "ignore": false,
+        "description": "<p>Return the diff delta and patch for an entry in the diff list.</p>\n",
         "cppFunctionName": "FromDiff",
         "jsFunctionName": "fromDiff",
         "return": {
@@ -2272,6 +2329,7 @@
       {
         "cFunctionName": "git_patch_num_hunks",
         "ignore": false,
+        "description": "<p>Get the number of hunks in a patch</p>\n",
         "cppFunctionName": "NumHunks",
         "jsFunctionName": "numHunks",
         "return": {
@@ -2300,6 +2358,7 @@
       {
         "cFunctionName": "git_patch_num_lines_in_hunk",
         "ignore": false,
+        "description": "<p>Get the number of lines in a hunk.</p>\n",
         "cppFunctionName": "NumLinesInHunk",
         "jsFunctionName": "numLinesInHunk",
         "return": {
@@ -2338,6 +2397,7 @@
       {
         "cFunctionName": "git_patch_get_line_in_hunk",
         "ignore": false,
+        "description": "<p>Get data about a line in a hunk of a patch.</p>\n",
         "cppFunctionName": "GetLineInHunk",
         "jsFunctionName": "getLineInHunk",
         "return": {
@@ -2399,6 +2459,7 @@
     "cppClassName": "GitPatch",
     "jsClassName": "Patch",
     "cType": "git_patch",
+    "description": " The diff patch is used to store all the text diffs for a delta.",
     "fields": []
   },
   {
@@ -2407,6 +2468,7 @@
     "cppClassName": "GitPathspec",
     "jsClassName": "Pathspec",
     "cType": "git_pathspec",
+    "description": " Compiled pathspec",
     "freeFunctionName": "git_pathspec_free",
     "dependencies": [
       "../include/pathspec.h",
@@ -2424,6 +2486,7 @@
     "cppClassName": "GitPush",
     "jsClassName": "Push",
     "cType": "git_push",
+    "description": "",
     "freeFunctionName": "git_push_free",
     "dependencies": [
       "../include/push.h",
@@ -2438,6 +2501,7 @@
     "cppClassName": "GitRefdb",
     "jsClassName": "Refdb",
     "cType": "git_refdb",
+    "description": " An open refs database handle. ",
     "freeFunctionName": "git_refdb_free",
     "dependencies": [
       "../include/refdb.h",
@@ -2451,6 +2515,7 @@
       {
         "cFunctionName": "git_reference_lookup",
         "ignore": false,
+        "description": "<p>Lookup a reference by name in a repository.</p>\n",
         "cppFunctionName": "Lookup",
         "jsFunctionName": "lookup",
         "return": {
@@ -2500,6 +2565,7 @@
       {
         "cFunctionName": "git_reference_target",
         "ignore": false,
+        "description": "<p>Get the OID pointed to by a direct reference.</p>\n",
         "cppFunctionName": "Target",
         "jsFunctionName": "target",
         "return": {
@@ -2529,6 +2595,7 @@
       {
         "cFunctionName": "git_reference_type",
         "ignore": false,
+        "description": "<p>Get the type of a reference.</p>\n",
         "cppFunctionName": "Type",
         "jsFunctionName": "type",
         "return": {
@@ -2560,6 +2627,7 @@
     "cppClassName": "GitRefs",
     "jsClassName": "Refs",
     "cType": "git_reference",
+    "description": " In-memory representation of a reference. ",
     "dependencies": [
       "../include/repository.h",
       "../include/oid.h",
@@ -2574,6 +2642,7 @@
     "cppClassName": "GitReflog",
     "jsClassName": "Reflog",
     "cType": "git_reflog",
+    "description": " Representation of a reference log ",
     "freeFunctionName": "git_reflog_free",
     "dependencies": [
       "../include/reflog.h",
@@ -2588,6 +2657,7 @@
     "cppClassName": "GitRefspec",
     "jsClassName": "Refspec",
     "cType": "git_refspec",
+    "description": "",
     "dependencies": [],
     "fields": [],
     "functions": []
@@ -2609,6 +2679,7 @@
       {
         "cFunctionName": "git_remote_create",
         "ignore": false,
+        "description": "<p>Add a remote with the default fetch refspec to the repository&#39;s configuration.  This\n calls git_remote_save before returning.</p>\n",
         "cppFunctionName": "Create",
         "jsFunctionName": "create",
         "return": {
@@ -2668,6 +2739,7 @@
       {
         "cFunctionName": "git_remote_load",
         "ignore": false,
+        "description": "<p>Get the information for a particular remote</p>\n",
         "cppFunctionName": "Load",
         "jsFunctionName": "load",
         "return": {
@@ -2718,6 +2790,7 @@
       {
         "cFunctionName": "git_remote_name",
         "ignore": false,
+        "description": "<p>Get the remote&#39;s name</p>\n",
         "cppFunctionName": "Name",
         "jsFunctionName": "name",
         "return": {
@@ -2746,6 +2819,7 @@
       {
         "cFunctionName": "git_remote_url",
         "ignore": false,
+        "description": "<p>Get the remote&#39;s url</p>\n",
         "cppFunctionName": "Url",
         "jsFunctionName": "url",
         "return": {
@@ -2774,6 +2848,7 @@
       {
         "cFunctionName": "git_remote_pushurl",
         "ignore": false,
+        "description": "<p>Get the remote&#39;s url for pushing</p>\n",
         "cppFunctionName": "Pushurl",
         "jsFunctionName": "pushurl",
         "return": {
@@ -2802,6 +2877,7 @@
       {
         "cFunctionName": "git_remote_list",
         "ignore": false,
+        "description": "<p>Get a list of the configured remotes for a repo</p>\n",
         "cppFunctionName": "List",
         "jsFunctionName": "list",
         "return": {
@@ -2842,6 +2918,7 @@
       {
         "cFunctionName": "git_remote_rename",
         "ignore": false,
+        "description": "<p>Give the remote a new name</p>\n",
         "cppFunctionName": "Rename",
         "jsFunctionName": "rename",
         "return": {
@@ -2890,6 +2967,7 @@
       {
         "cFunctionName": "git_remote_delete",
         "ignore": false,
+        "description": "<p>Delete an existing persisted remote.</p>\n",
         "cppFunctionName": "Delete",
         "jsFunctionName": "delete",
         "return": {
@@ -2921,6 +2999,7 @@
     "cppClassName": "GitRemote",
     "jsClassName": "Remote",
     "cType": "git_remote",
+    "description": "",
     "freeFunctionName": "git_remote_free",
     "fields": []
   },
@@ -2932,6 +3011,7 @@
     "ignore": false,
     "cppClassName": "GitRemoteCallbacks",
     "jsClassName": "RemoteCallbacks",
+    "description": " The callback settings structure",
     "dependencies": [],
     "functions": []
   },
@@ -2958,6 +3038,7 @@
       {
         "cFunctionName": "git_repository_open",
         "ignore": false,
+        "description": "<p>Open a git repository.</p>\n",
         "cppFunctionName": "Open",
         "jsFunctionName": "open",
         "return": {
@@ -2997,6 +3078,7 @@
       {
         "cFunctionName": "git_repository_init",
         "ignore": false,
+        "description": "<p>Creates a new Git repository in the given folder.</p>\n",
         "cppFunctionName": "Init",
         "jsFunctionName": "init",
         "return": {
@@ -3046,6 +3128,7 @@
       {
         "cFunctionName": "git_repository_init_init_options",
         "ignore": false,
+        "description": "<p>Initializes a <code>git_repository_init_options</code> with default values. Equivalent\n to creating an instance with GIT_REPOSITORY_INIT_OPTIONS_INIT.</p>\n",
         "cppFunctionName": "InitInitOptions",
         "jsFunctionName": "initInitOptions",
         "return": {
@@ -3084,6 +3167,7 @@
       {
         "cFunctionName": "git_repository_init_ext",
         "ignore": false,
+        "description": "<p>Create a new Git repository in the given folder with extended controls.</p>\n",
         "cppFunctionName": "InitExt",
         "jsFunctionName": "initExt",
         "return": {
@@ -3133,6 +3217,7 @@
       {
         "cFunctionName": "git_repository_index",
         "ignore": false,
+        "description": "<p>Get the Index file for this repository.</p>\n",
         "cppFunctionName": "Index",
         "jsFunctionName": "index",
         "return": {
@@ -3175,6 +3260,7 @@
     "cppClassName": "GitRepository",
     "jsClassName": "Repository",
     "cType": "git_repository",
+    "description": " Representation of an existing git repository,\n including all its object contents",
     "freeFunctionName": "git_repository_free",
     "fields": []
   },
@@ -3186,6 +3272,7 @@
     "ignore": false,
     "cppClassName": "GitRepositoryInitOptions",
     "jsClassName": "RepositoryInitOptions",
+    "description": " Extended options structure for `git_repository_init_ext`.",
     "dependencies": [],
     "functions": []
   },
@@ -3217,6 +3304,7 @@
       {
         "cFunctionName": "git_revwalk_new",
         "ignore": false,
+        "description": "<p>Allocate a new revision walker to iterate through a repo.</p>\n",
         "cppFunctionName": "CreateRevwalk",
         "jsFunctionName": "createRevwalk",
         "return": {
@@ -3255,6 +3343,7 @@
       {
         "cFunctionName": "git_revwalk_push",
         "ignore": false,
+        "description": "<p>Mark a commit to start traversal from.</p>\n",
         "cppFunctionName": "Push",
         "jsFunctionName": "push",
         "return": {
@@ -3294,6 +3383,7 @@
       {
         "cFunctionName": "git_revwalk_hide",
         "ignore": false,
+        "description": "<p>Mark a commit (and its ancestors) uninteresting for the output.</p>\n",
         "cppFunctionName": "Hide",
         "jsFunctionName": "hide",
         "return": {
@@ -3333,6 +3423,7 @@
       {
         "cFunctionName": "git_revwalk_next",
         "ignore": false,
+        "description": "<p>Get the next commit from the revision walk.</p>\n",
         "cppFunctionName": "Next",
         "jsFunctionName": "next",
         "return": {
@@ -3372,6 +3463,7 @@
       {
         "cFunctionName": "git_revwalk_sorting",
         "ignore": false,
+        "description": "<p>Change the sorting mode when iterating through the\n repository&#39;s contents.</p>\n",
         "cppFunctionName": "Sorting",
         "jsFunctionName": "sorting",
         "return": {
@@ -3410,6 +3502,7 @@
       {
         "cFunctionName": "git_revwalk_simplify_first_parent",
         "ignore": false,
+        "description": "<p>Simplify the history by first-parent</p>\n",
         "cppFunctionName": "SimplifyFirstParent",
         "jsFunctionName": "simplifyFirstParent",
         "return": {
@@ -3441,6 +3534,7 @@
     "cppClassName": "GitRevwalk",
     "jsClassName": "Revwalk",
     "cType": "git_revwalk",
+    "description": " Representation of an in-progress walk through the commits in a repo ",
     "freeFunctionName": "git_revwalk_free",
     "dependencies": [
       "../include/revwalk.h",
@@ -3459,6 +3553,7 @@
       {
         "cFunctionName": "git_signature_new",
         "ignore": false,
+        "description": "<p>Create a new action signature.</p>\n",
         "cppFunctionName": "Create",
         "jsFunctionName": "create",
         "return": {
@@ -3558,6 +3653,7 @@
     "cppClassName": "GitSignature",
     "jsClassName": "Signature",
     "cType": "git_signature",
+    "description": " An action signature (e.g. for committers, taggers, etc) ",
     "freeFunctionName": "git_signature_free"
   },
   {
@@ -3617,6 +3713,7 @@
     "ignore": false,
     "cppClassName": "GitStrarray",
     "jsClassName": "Strarray",
+    "description": " Array of strings ",
     "freeFunctionName": "git_strarray_free",
     "dependencies": [
       "../include/strarray.h"
@@ -3651,6 +3748,7 @@
     "cppClassName": "GitSubmodule",
     "jsClassName": "Submodule",
     "cType": "git_submodule",
+    "description": " Opaque structure representing a submodule.",
     "freeFunctionName": "git_submodule_free",
     "dependencies": [
       "../include/submodule.h",
@@ -3665,6 +3763,7 @@
     "cppClassName": "GitTag",
     "jsClassName": "Tag",
     "cType": "git_tag",
+    "description": " Parsed representation of a tag object. ",
     "freeFunctionName": "git_tag_free",
     "dependencies": [
       "../include/tag.h",
@@ -3682,6 +3781,7 @@
       {
         "cFunctionName": "git_threads_init",
         "ignore": false,
+        "description": "<p>Init the threading system.</p>\n",
         "cppFunctionName": "Init",
         "jsFunctionName": "init",
         "return": {
@@ -3729,6 +3829,7 @@
     "ignore": false,
     "cppClassName": "GitTime",
     "jsClassName": "Time",
+    "description": " Time in a signature ",
     "dependencies": [],
     "functions": []
   },
@@ -3749,6 +3850,7 @@
       {
         "cFunctionName": "git_cred_ssh_key_from_agent",
         "ignore": false,
+        "description": "<p>Create a new ssh key credential object used for querying an ssh-agent.\n The supplied credential parameter will be internally duplicated.</p>\n",
         "cppFunctionName": "CredSshKeyFromAgent",
         "jsFunctionName": "credSshKeyFromAgent",
         "return": {
@@ -3802,6 +3904,7 @@
       {
         "cFunctionName": "git_tree_lookup",
         "ignore": false,
+        "description": "<p>Lookup a tree object from the repository.</p>\n",
         "cppFunctionName": "Lookup",
         "jsFunctionName": "lookup",
         "return": {
@@ -3851,6 +3954,7 @@
       {
         "cFunctionName": "git_tree_entrycount",
         "ignore": false,
+        "description": "<p>Get the number of entries listed in a tree</p>\n",
         "cppFunctionName": "Entrycount",
         "jsFunctionName": "entrycount",
         "return": {
@@ -3879,6 +3983,7 @@
       {
         "cFunctionName": "git_tree_entry_byname",
         "ignore": false,
+        "description": "<p>Lookup a tree entry by its filename</p>\n",
         "cppFunctionName": "EntryByname",
         "jsFunctionName": "entryByname",
         "return": {
@@ -3917,6 +4022,7 @@
       {
         "cFunctionName": "git_tree_entry_byindex",
         "ignore": false,
+        "description": "<p>Lookup a tree entry by its position in the tree</p>\n",
         "cppFunctionName": "EntryByindex",
         "jsFunctionName": "entryByindex",
         "return": {
@@ -3955,6 +4061,7 @@
       {
         "cFunctionName": "git_tree_entry_bypath",
         "ignore": false,
+        "description": "<p>Retrieve a tree entry contained in a tree or in any of its subtrees,\n given its relative path.</p>\n",
         "cppFunctionName": "EntryBypath",
         "jsFunctionName": "entryBypath",
         "return": {
@@ -4007,6 +4114,7 @@
     "cppClassName": "GitTree",
     "jsClassName": "Tree",
     "cType": "git_tree",
+    "description": " Representation of a tree object. ",
     "freeFunctionName": "git_tree_free",
     "dependencies": [
       "../include/tree.h",
@@ -4029,6 +4137,7 @@
       {
         "cFunctionName": "git_treebuilder_create",
         "ignore": false,
+        "description": "<p>Create a new tree builder.</p>\n",
         "cppFunctionName": "Create",
         "jsFunctionName": "create",
         "return": {
@@ -4068,6 +4177,7 @@
       {
         "cFunctionName": "git_treebuilder_insert",
         "ignore": false,
+        "description": "<p>Add or update an entry to the builder</p>\n",
         "cppFunctionName": "Insert",
         "jsFunctionName": "insert",
         "return": {
@@ -4138,6 +4248,7 @@
       {
         "cFunctionName": "git_treebuilder_remove",
         "ignore": false,
+        "description": "<p>Remove an entry from the builder by its filename</p>\n",
         "cppFunctionName": "Remove",
         "jsFunctionName": "remove",
         "return": {
@@ -4177,6 +4288,7 @@
       {
         "cFunctionName": "git_treebuilder_write",
         "ignore": false,
+        "description": "<p>Write the contents of the tree builder as a tree object</p>\n",
         "cppFunctionName": "Write",
         "jsFunctionName": "write",
         "return": {
@@ -4228,6 +4340,7 @@
     "ignore": false,
     "cppClassName": "GitTreebuilder",
     "jsClassName": "Treebuilder",
+    "description": " Constructor for in-memory trees ",
     "fields": []
   },
   {
@@ -4287,6 +4400,7 @@
     "ignore": false,
     "cppClassName": "GitTreeEntry",
     "jsClassName": "TreeEntry",
+    "description": " Representation of each one of the entries in a tree object. ",
     "functions": []
   },
   {
@@ -4300,4 +4414,3 @@
     "functions": []
   }
 ]
-

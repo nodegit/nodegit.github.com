@@ -115,6 +115,7 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                       </tr>
                     </tbody>
                   </table>
+                  <p>{{{ description }}}</p>
                   <pre class="const language-javascript">
 <code>var {{ jsClassName }} = require("nodegit").{{ jsClassName }};</code></pre>
                   <div class="header">
@@ -161,9 +162,11 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
 {%if function.isConstructorMethod%}
                       <strong class="cName">{{jsClassName}}.</strong><strong class="name">{{function.jsFunctionName}}</strong>
+                      <p>{{{ function.description }}}</p>
 <pre class="function language-javascript"><code>{{ jsClassName }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i}}{%endeach%});</code></pre>
 {%else%}
                       <strong class="cName">{{jsClassName}}#</strong><strong class="name">{{function.jsFunctionName}}</strong>
+                      <p>{{{ function.description }}}</p>
 <pre class="function language-javascript">
 <code>var {{ jsClassName|toCamelCase }} = new {{ jsClassName }}();
 {{ jsClassName|toCamelCase }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i }}{%endeach%});
