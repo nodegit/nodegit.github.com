@@ -52,11 +52,41 @@
       });
     });
 
+    // Size the navigation bar correctly.
     scrollable.height($("html").innerHeight() - 230);
 
     $(window).on("resize", function() {
       scrollable.height($("html").innerHeight() - 230);
     });
+
+    var windowHeight = $(window).height();
+
+    // Store the url to match against.
+    var elms = $(".about, .inner-content, .inner-block li, h4[id]").each(function() {
+      $(this).data({
+        url: "#" + (this.id || ""),
+        top: $(this).offset().top
+      });
+    });
+
+    var children = listApi.find("a");
+
+    $(document).on("scroll ready", _.throttle(function() {
+      var doc = $(this);
+
+      elms.each(function() {
+        var pos = doc.scrollTop();
+        var el = $(this);
+
+        if (el.data("top") > pos && el.data("top") < pos + (windowHeight / 2)) {
+          children.removeClass("active");
+
+          var active = children.filter("[href='" + el.data("url") + "']");
+
+          active.addClass("active").parents(elms).addClass("active");
+        }
+      });
+    }, 50));
 
     // Highlight the new code blocks.
     Prism.highlightAll();
