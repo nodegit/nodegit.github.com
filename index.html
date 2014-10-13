@@ -149,16 +149,19 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                   </ul>
 
                   <h4>Functions:</h4>
-                  <ul class="functions inner-block">
                     {%if not functions.length%}
+                  <ul class="functions inner-block">
                     <li>No functions available.</li>
+                  </ul>
                     {%endif%}
                     {%each functions as function%}
+                  <ul class="functions inner-block">
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
-                      <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
 {%if function.isConstructorMethod%}
+                      <strong class="cName">{{jsClassName}}.</strong><strong class="name">{{function.jsFunctionName}}</strong>
 <pre class="function language-javascript"><code>{{ jsClassName }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i}}{%endeach%});</code></pre>
 {%else%}
+                      <strong class="cName">{{jsClassName}}#</strong><strong class="name">{{function.jsFunctionName}}</strong>
 <pre class="function language-javascript">
 <code>var {{ jsClassName|toCamelCase }} = new {{ jsClassName }}();
 {{ jsClassName|toCamelCase }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i }}{%endeach%});
@@ -209,8 +212,8 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                         {%endif%}
                       </div>
                     </li>
-                    {%endeach%}
                   </ul>
+                  {%endeach%}
                 </li>
               </ul>
             </div>

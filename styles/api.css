@@ -140,6 +140,19 @@ ul.api-contents table h3 {
   list-style: none;
 }
 
+.api-content .inner-block strong.cName,
+.api-content .inner-block strong.name {
+  font-size: 22px;
+  display: inline-block;
+  padding-bottom: 15px;
+  color: #3D3D3D;
+}
+
+.api-content .inner-block strong.cName {
+  color: #C9C9C9;
+  font-weight: normal;
+}
+
 .api-content .inner-block h3 {
   margin-top: 0px;
 }
