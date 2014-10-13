@@ -94,7 +94,7 @@
                   <ul class="properties inner-block">
                     {%if not fields.length%}
                     <li>No properties available.</li>
-                    {%endif%}
+                    {%else%}
                     <li>
                       <table class="pure-table">
                         <thead>
@@ -113,6 +113,7 @@
                         </tbody>
                       </table>
                     </li>
+                    {%endif%}
                   </ul>
 
                   <h4>Functions:</h4>

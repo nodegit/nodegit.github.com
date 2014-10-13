@@ -160,6 +160,7 @@ footer a {
   margin-left: 15px;
   color: #FFF;
   padding-bottom: 0;
+  padding-top: 54px;
 }
 
 .about p {
@@ -180,5 +181,5 @@ footer a {
 }
 
 .wrap-content {
-  width: 50%;
+  width: 75%;
 }
