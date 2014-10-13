@@ -71,7 +71,7 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
       // Get the blob contents from the file.
       entry.getBlob().then(function(blob) {
         // Show the name, sha, and filesize in byes.
-        console.log(entry.name() + entry.sha() + blob.size() + "b");
+        console.log(entry.filename(), entry.sha(), blob.rawsize());
 
         // Show a spacer.
         console.log(Array(72).join("=") + "\n\n");
