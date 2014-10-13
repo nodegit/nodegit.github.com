@@ -160,3 +160,18 @@ ul.api-contents table h3 {
 }
 
 .scrollable::-webkit-scrollbar { width: 0 !important }
+
+.api-contents pre.const {
+  border: 1px solid #DFDADA;
+  margin-right: -20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.api-contents pre.const code {
+  margin-left: 10px;
+}
+
+pre.function {
+  margin-left: 0px !important;
+}

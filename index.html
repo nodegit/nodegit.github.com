@@ -115,7 +115,8 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                       </tr>
                     </tbody>
                   </table>
-                  <hr>
+                  <pre class="const language-javascript">
+<code>var {{ jsClassName }} = require("nodegit").{{ jsClassName }};</code></pre>
                   <div class="header">
                     <strong class="{%if not ignore%}is{%else%}not{%endif%} added">in API</strong>
                     <strong class="deps">Depends on: <a class="ref">Repository</a></strong>
@@ -155,6 +156,15 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     {%each functions as function%}
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
                       <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
+{%if function.isConstructorMethod%}
+<pre class="function language-javascript"><code>{{ jsClassName }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i}}{%endeach%});</code></pre>
+{%else%}
+<pre class="function language-javascript">
+<code>var {{ jsClassName|toCamelCase }} = new {{ jsClassName }}();
+{{ jsClassName|toCamelCase }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i }}{%endeach%});
+</code></pre>
+{%endif%}
+
                       <p>{{{function.comment}}}</p>
                       <h4>Arguments:</h4>
                       <div class="arguments">
