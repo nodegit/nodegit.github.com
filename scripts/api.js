@@ -33,7 +33,8 @@
     });
 
     listApi.on("click", "a", function(ev) {
-      $(this).siblings().removeClass("active").end().addClass("active");
+      listApi.find("a").removeClass("active");
+      $(this).addClass("active");
     });
   });
 })(this);

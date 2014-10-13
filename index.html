@@ -19,6 +19,8 @@
         <div>
           <ul id="list-api">
             <a href="#"><li class="brand">NodeGit</li></a>
+            <a href="#Install" class="active"><li>Install</li></a>
+            <a href="#Example"><li>Example</li></a>
             <li><input tabindex="1" placeholder="Search API" type="search"></li>
             <div class="scrollable"></div>
           </ul>
@@ -33,8 +35,11 @@
               Status" data-canonical-src="https://travis-ci.org/tbranyen/nodegit.png" style="max-width:100%;"></a>
                 <a href="https://ci.appveyor.com/project/TimBranyen/nodegit"><img src="https://ci.appveyor.com/api/projects/status/e5a5q75l9yfhnfv2/branch/master" alt="Build Status: Windows" height="18" /></a>
 
+              <!--
               <h4>History:</h4>
+              -->
               <div class="wrap-content">
+              <!--
                 <p>
                   Originally started in 2011 as a project by TJ Fontaine, current
                   Node lead, as an FFI-binding to libgit2. Tim Branyen then
@@ -52,10 +57,11 @@
                   and is slowly becoming a full suite of automated 1:1 bindings
                   to libgit2.
                 </p>
-                <h4>Install:</h4>
+                -->
+                <h4 id="Install">Install:</h4>
                 <pre class="language-bash">
 <code>npm install nodegit</code></pre>
-                <h4>Clone and read example:</h4>
+                <h4 id="Example">Clone and read example:</h4>
                 <pre class="language-javascript">
 <code>var clone = require("nodegit").Clone.clone;
 
