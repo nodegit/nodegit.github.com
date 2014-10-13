@@ -41,8 +41,6 @@
       // Add nav entry.
       var anchor = $("<a href='#" + ctor.jsClassName + "'><li>" + ctor.jsClassName + "</li><ul class='subnav'></ul></a>").appendTo(scrollable);
 
-      scrollable.height($("html").innerHeight() - 160);
-
       // Add new content.
       var contentOutput = contentTemplate.render(ctor);
 
@@ -52,6 +50,12 @@
         var isPrototype = func.isPrototypeMethod ? "#" : ".";
         anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
       });
+    });
+
+    scrollable.height($("html").innerHeight() - 160);
+
+    $(window).on("resize", function() {
+      scrollable.height($("html").innerHeight() - 160);
     });
 
     // Highlight the new code blocks.
