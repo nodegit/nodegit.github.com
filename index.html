@@ -155,6 +155,7 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     {%each functions as function%}
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
                       <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">{{jsClassName}}#</strong><strong class="method">{{function.jsFunctionName}}</strong>
+                      <p>{{{function.comment}}}</p>
                       <h4>Arguments:</h4>
                       <div class="arguments">
                       {%if function.args.length > 2%}
