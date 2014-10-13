@@ -181,5 +181,9 @@ footer a {
 }
 
 .wrap-content {
-  width: 75%;
+  width: calc(75% + 24px);
+}
+
+pre[class*="language-"] {
+  margin-left: -20px !important;
 }
