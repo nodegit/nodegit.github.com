@@ -7,6 +7,9 @@
   position: fixed;
   left: 0;
   top: 0;
+  font-size: 13px;
+  /* Cover #content */
+  z-index: 100;
 }
 
 #list-api a {
@@ -46,14 +49,15 @@
 .api-content {
   color: #333;
   float: left;
-  width: 50%;
+  width: calc(100% - 225px);
   min-height: 100%;
   position: relative;
+  overflow-x: hidden;
   left: 225px;
 }
 
 .api-content .inner-content {
-  width: calc(100% - 17px);
+  width: 50%;
   height: 100%;
   margin: 17px;
   margin-right: 0px;

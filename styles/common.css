@@ -55,14 +55,14 @@ select {
 }
 
 input[type=search] {
-  width: calc(100% - 142px);
+  width: 100%;
   color: #FFF;
   outline: none;
   border: none;
   padding: 10px;
-  padding-left: 10px;
+  padding-left: 20px;
   background: #383838;
-  font-size: 1.2em;
+  font-size: 13px;
 }
 
 .brand {
@@ -151,4 +151,34 @@ footer a {
 
 .center {
   text-align: center;
+}
+
+.about {
+  background: #303030;
+  padding: 20px;
+  color: #FFF;
+  margin-left: 15px;
+  color: #FFF;
+  padding-bottom: 0;
+}
+
+.about p {
+  color: #BBB;
+}
+
+.about a {
+  color: #8A8A8A;
+}
+
+.about h4 {
+  color: #CCC;
+}
+
+.about h3:last-child {
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.wrap-content {
+  width: 50%;
 }
