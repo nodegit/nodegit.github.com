@@ -311,19 +311,287 @@
     "fields": []
   },
   {
+    "cType": "git_blame",
+    "forwardDeclare": true,
+    "functions": [
+      {
+        "cFunctionName": "git_blame_init_options",
+        "ignore": false,
+        "description": "<p>Initializes a <code>git_blame_options</code> with default values. Equivalent to\n creating an instance with GIT_BLAME_OPTIONS_INIT.</p>\n",
+        "cppFunctionName": "InitOptions",
+        "jsFunctionName": "initOptions",
+        "return": {
+          "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "opts",
+            "cType": "git_blame_options *",
+            "cppClassName": "Integer",
+            "jsClassName": "Number",
+            "comment": "The `git_blame_options` struct to initialize",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "version",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Version of struct; pass `GIT_BLAME_OPTIONS_VERSION`",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blame_get_hunk_count",
+        "ignore": false,
+        "description": "<p>Gets the number of hunks that exist in the blame structure.</p>\n",
+        "cppFunctionName": "GetHunkCount",
+        "jsFunctionName": "getHunkCount",
+        "return": {
+          "cType": "uint32_t",
+          "comment": null,
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blame",
+            "cType": "git_blame *",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": null,
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blame_get_hunk_byindex",
+        "ignore": false,
+        "description": "<p>Gets the blame hunk at the given index.</p>\n",
+        "cppFunctionName": "GetHunkByindex",
+        "jsFunctionName": "getHunkByindex",
+        "return": {
+          "cType": "const git_blame_hunk *",
+          "comment": " the hunk at the given index, or NULL on error",
+          "cppClassName": "GitBlameHunk",
+          "jsClassName": "BlameHunk"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blame",
+            "cType": "git_blame *",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": "the blame structure to query",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "index",
+            "cType": "uint32_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "index of the hunk to retrieve",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blame_get_hunk_byline",
+        "ignore": false,
+        "description": "<p>Gets the hunk that relates to the given line number in the newest commit.</p>\n",
+        "cppFunctionName": "GetHunkByline",
+        "jsFunctionName": "getHunkByline",
+        "return": {
+          "cType": "const git_blame_hunk *",
+          "comment": " the hunk that contains the given line, or NULL on error",
+          "cppClassName": "GitBlameHunk",
+          "jsClassName": "BlameHunk"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "blame",
+            "cType": "git_blame *",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": "the blame structure to query",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "lineno",
+            "cType": "uint32_t",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "the (1-based) line number to find a hunk for",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blame_file",
+        "ignore": false,
+        "description": "<p>Get the blame for a single file.</p>\n",
+        "cppFunctionName": "File",
+        "jsFunctionName": "file",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, or an error code. (use giterr_last for information\n         about the error.)",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_blame **",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": "pointer that will receive the blame object",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "repository whose history is to be walked",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "path",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "path to file to consider",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "options",
+            "cType": "git_blame_options *",
+            "cppClassName": "Integer",
+            "jsClassName": "Number",
+            "comment": "options for the blame operation.  If NULL, this is treated as\n                though GIT_BLAME_OPTIONS_INIT were passed.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_blame_buffer",
+        "ignore": false,
+        "description": "<p>Get blame data for a file that has been modified in memory. The <code>reference</code>\n parameter is a pre-calculated blame for the in-odb history of the file. This\n means that once a file blame is completed (which can be expensive), updating\n the buffer blame is very fast.</p>\n",
+        "cppFunctionName": "Buffer",
+        "jsFunctionName": "buffer",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, or an error code. (use giterr_last for information\n         about the error)",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_blame **",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": "pointer that will receive the resulting blame data",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "reference",
+            "cType": "git_blame *",
+            "cppClassName": "GitBlame",
+            "jsClassName": "Blame",
+            "comment": "cached blame from the history of the file (usually the output\n                  from git_blame_file)",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "buffer",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "the (possibly) modified contents of the file",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "buffer_len",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "number of valid bytes in the buffer",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>Lines that differ between the buffer and the committed version are marked as\n having a zero OID for their final_commit_id.</p>\n"
+      }
+    ],
     "filename": "blame.h",
     "ignore": false,
     "cppClassName": "GitBlame",
     "jsClassName": "Blame",
-    "cType": "git_blame",
     "description": "",
     "freeFunctionName": "git_blame_free",
     "dependencies": [
       "../include/blame.h",
       "../include/repository.h"
     ],
-    "fields": [],
-    "functions": []
+    "fields": []
   },
   {
     "dependencies": [
@@ -539,6 +807,7 @@
     "cType": "git_blob",
     "description": " In-memory representation of a blob object. ",
     "freeFunctionName": "git_blob_free",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -776,6 +1045,7 @@
     "cppClassName": "GitCheckoutOptions",
     "jsClassName": "CheckoutOptions",
     "description": " Checkout options structure",
+    "hasConstructor": true,
     "functions": []
   },
   {
@@ -932,7 +1202,6 @@
   {
     "cType": "git_clone_options",
     "isStruct": true,
-    "isPublicStruct": true,
     "dependencies": [
       "../include/checkout_options.h",
       "../include/remote_callbacks.h"
@@ -952,7 +1221,9 @@
         "cppFunctionName": "RemoteCallbacks",
         "jsFunctionName": "remoteCallbacks",
         "cppClassName": "GitRemoteCallbacks",
-        "jsClassName": "RemoteCallbacks"
+        "jsClassName": "RemoteCallbacks",
+        "hasConstructor": true,
+        "isEnum": false
       },
       {
         "name": "bare",
@@ -992,6 +1263,7 @@
     "cppClassName": "GitCloneOptions",
     "jsClassName": "CloneOptions",
     "description": " Clone options structure",
+    "hasConstructor": true,
     "functions": []
   },
   {
@@ -1455,6 +1727,7 @@
     "cType": "git_commit",
     "description": " Parsed representation of a commit object. ",
     "freeFunctionName": "git_commit_free",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -1475,6 +1748,7 @@
     "cType": "git_config",
     "description": " Memory representation of a set of config files ",
     "freeFunctionName": "git_config_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/config.h"
     ],
@@ -1521,7 +1795,9 @@
         "cppFunctionName": "Status",
         "jsFunctionName": "status",
         "cppClassName": "Int32",
-        "jsClassName": "Number"
+        "jsClassName": "Number",
+        "hasConstructor": false,
+        "isEnum": true
       },
       {
         "name": "flags",
@@ -1553,7 +1829,9 @@
         "cppFunctionName": "OldFile",
         "jsFunctionName": "oldFile",
         "cppClassName": "GitDiffFile",
-        "jsClassName": "DiffFile"
+        "jsClassName": "DiffFile",
+        "hasConstructor": false,
+        "isEnum": false
       },
       {
         "name": "new_file",
@@ -1561,7 +1839,9 @@
         "cppFunctionName": "NewFile",
         "jsFunctionName": "newFile",
         "cppClassName": "GitDiffFile",
-        "jsClassName": "DiffFile"
+        "jsClassName": "DiffFile",
+        "hasConstructor": false,
+        "isEnum": false
       }
     ],
     "filename": "delta.h",
@@ -1735,6 +2015,7 @@
     "cType": "git_diff",
     "description": " The diff object that contains all individual file deltas.",
     "freeFunctionName": "git_diff_free",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -1750,6 +2031,7 @@
     "cppClassName": "GitDiffFile",
     "jsClassName": "DiffFile",
     "description": " Description of one side of a delta.",
+    "hasConstructor": false,
     "fields": [
       {
         "type": "git_oid",
@@ -1759,7 +2041,9 @@
         "cppFunctionName": "Id",
         "jsFunctionName": "id",
         "cppClassName": "GitOid",
-        "jsClassName": "Oid"
+        "jsClassName": "Oid",
+        "hasConstructor": false,
+        "isEnum": false
       },
       {
         "type": "const char *",
@@ -1875,6 +2159,7 @@
     "cppClassName": "GitDiffLine",
     "jsClassName": "DiffLine",
     "description": " Structure describing a line (or data span) of a diff.",
+    "hasConstructor": false,
     "functions": []
   },
   {
@@ -1907,7 +2192,9 @@
         "cppFunctionName": "IgnoreSubmodules",
         "jsFunctionName": "ignoreSubmodules",
         "cppClassName": "Number",
-        "jsClassName": "Number"
+        "jsClassName": "Number",
+        "hasConstructor": false,
+        "isEnum": true
       },
       {
         "name": "context_lines",
@@ -1955,6 +2242,7 @@
     "cppClassName": "GitDiffOptions",
     "jsClassName": "DiffOptions",
     "description": " Structure describing options about how the diff should be executed.",
+    "hasConstructor": true,
     "functions": []
   },
   {
@@ -1976,6 +2264,7 @@
     "jsClassName": "Filter",
     "cType": "git_filter",
     "description": " Filter structure used to register custom filters.",
+    "hasConstructor": false,
     "dependencies": [
       "../include/repository.h",
       "../include/blob.h"
@@ -2014,6 +2303,7 @@
     "cType": "git_index",
     "description": " Memory representation of an index file. ",
     "freeFunctionName": "git_index_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/index.h",
       "../include/oid.h",
@@ -2105,6 +2395,7 @@
     "cType": "git_object",
     "description": " Representation of a generic object in a repository ",
     "freeFunctionName": "git_object_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/object.h",
       "../include/repository.h"
@@ -2120,6 +2411,7 @@
     "cType": "git_odb",
     "description": " An open object database handle. ",
     "freeFunctionName": "git_odb_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/odb.h",
       "../include/oid.h",
@@ -2135,6 +2427,7 @@
     "jsClassName": "OdbBackend",
     "cType": "git_odb",
     "description": " An open object database handle. ",
+    "hasConstructor": false,
     "dependencies": [
       "../include/odb_backend.h"
     ],
@@ -2220,6 +2513,7 @@
     "jsClassName": "Oid",
     "cType": "git_oid",
     "description": " Unique identity of any object (commit, tree, blob, tag). ",
+    "hasConstructor": false,
     "dependencies": [
       "../include/oid.h"
     ]
@@ -2460,6 +2754,7 @@
     "jsClassName": "Patch",
     "cType": "git_patch",
     "description": " The diff patch is used to store all the text diffs for a delta.",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -2470,6 +2765,7 @@
     "cType": "git_pathspec",
     "description": " Compiled pathspec",
     "freeFunctionName": "git_pathspec_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/pathspec.h",
       "../include/repository.h",
@@ -2503,6 +2799,7 @@
     "cType": "git_refdb",
     "description": " An open refs database handle. ",
     "freeFunctionName": "git_refdb_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/refdb.h",
       "../include/repository.h"
@@ -2644,6 +2941,7 @@
     "cType": "git_reflog",
     "description": " Representation of a reference log ",
     "freeFunctionName": "git_reflog_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/reflog.h",
       "../include/repository.h"
@@ -3012,6 +3310,7 @@
     "cppClassName": "GitRemoteCallbacks",
     "jsClassName": "RemoteCallbacks",
     "description": " The callback settings structure",
+    "hasConstructor": true,
     "dependencies": [],
     "functions": []
   },
@@ -3262,6 +3561,7 @@
     "cType": "git_repository",
     "description": " Representation of an existing git repository,\n including all its object contents",
     "freeFunctionName": "git_repository_free",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -3273,6 +3573,7 @@
     "cppClassName": "GitRepositoryInitOptions",
     "jsClassName": "RepositoryInitOptions",
     "description": " Extended options structure for `git_repository_init_ext`.",
+    "hasConstructor": true,
     "dependencies": [],
     "functions": []
   },
@@ -3536,6 +3837,7 @@
     "cType": "git_revwalk",
     "description": " Representation of an in-progress walk through the commits in a repo ",
     "freeFunctionName": "git_revwalk_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/revwalk.h",
       "../include/repository.h",
@@ -3645,7 +3947,9 @@
         "cppFunctionName": "When",
         "jsFunctionName": "when",
         "cppClassName": "GitTime",
-        "jsClassName": "Time"
+        "jsClassName": "Time",
+        "hasConstructor": false,
+        "isEnum": false
       }
     ],
     "filename": "signature.h",
@@ -3654,7 +3958,8 @@
     "jsClassName": "Signature",
     "cType": "git_signature",
     "description": " An action signature (e.g. for committers, taggers, etc) ",
-    "freeFunctionName": "git_signature_free"
+    "freeFunctionName": "git_signature_free",
+    "hasConstructor": false
   },
   {
     "cType": null,
@@ -3715,6 +4020,7 @@
     "jsClassName": "Strarray",
     "description": " Array of strings ",
     "freeFunctionName": "git_strarray_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/strarray.h"
     ],
@@ -3750,6 +4056,7 @@
     "cType": "git_submodule",
     "description": " Opaque structure representing a submodule.",
     "freeFunctionName": "git_submodule_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/submodule.h",
       "../include/repository.h"
@@ -3765,6 +4072,7 @@
     "cType": "git_tag",
     "description": " Parsed representation of a tag object. ",
     "freeFunctionName": "git_tag_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/tag.h",
       "../include/repository.h",
@@ -3830,6 +4138,7 @@
     "cppClassName": "GitTime",
     "jsClassName": "Time",
     "description": " Time in a signature ",
+    "hasConstructor": false,
     "dependencies": [],
     "functions": []
   },
@@ -4116,6 +4425,7 @@
     "cType": "git_tree",
     "description": " Representation of a tree object. ",
     "freeFunctionName": "git_tree_free",
+    "hasConstructor": false,
     "dependencies": [
       "../include/tree.h",
       "../include/repository.h",
@@ -4341,6 +4651,7 @@
     "cppClassName": "GitTreebuilder",
     "jsClassName": "Treebuilder",
     "description": " Constructor for in-memory trees ",
+    "hasConstructor": false,
     "fields": []
   },
   {
@@ -4375,7 +4686,9 @@
         "cppFunctionName": "Oid",
         "jsFunctionName": "oid",
         "cppClassName": "GitOid",
-        "jsClassName": "Oid"
+        "jsClassName": "Oid",
+        "hasConstructor": false,
+        "isEnum": false
       },
       {
         "name": "filename_len",
@@ -4401,6 +4714,7 @@
     "cppClassName": "GitTreeEntry",
     "jsClassName": "TreeEntry",
     "description": " Representation of each one of the entries in a tree object. ",
+    "hasConstructor": false,
     "functions": []
   },
   {
