@@ -71,29 +71,31 @@
 
     var children = listApi.find("a");
 
-    $(document).on("scroll ready", _.throttle(function() {
-      var doc = $(this);
+    //$(document).on("scroll ready", _.throttle(function() {
+    //  var doc = $(this);
 
-      elms.each(function() {
-        var pos = doc.scrollTop();
-        var el = $(this);
+    //  elms.each(function() {
+    //    var pos = doc.scrollTop();
+    //    var el = $(this);
 
-        if (el.data("top") > pos && el.data("top") < pos + (windowHeight / 2)) {
-          children.removeClass("active");
+    //    if (el.data("top") > pos && el.data("top") < pos + (windowHeight / 2)) {
+    //      children.removeClass("active");
 
-          var active = children.filter("[href='" + el.data("url") + "']");
+    //      var active = children.filter("[href='" + el.data("url") + "']");
 
-          active.addClass("active").parents(elms).addClass("active");
-        }
-      });
-    }, 50));
+    //      active.addClass("active").parents(elms).addClass("active");
+    //    }
+    //  });
+    //}, 50));
 
     // Highlight the new code blocks.
     Prism.highlightAll();
 
     listApi.on("click", "a", function(ev) {
+      ev.stopPropagation();
       listApi.find("a").removeClass("active");
       $(this).addClass("active");
+      $(this).parents("a").addClass("active");
     });
   });
 })(this);

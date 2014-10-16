@@ -54,21 +54,24 @@ select {
   margin-left: 20px;
 }
 
+.search {
+  background: #F1595F;
+}
+
 input[type=search] {
   width: 100%;
-  color: #FFF;
   outline: none;
   border: none;
   padding: 10px;
   padding-left: 20px;
-  background: #383838;
   font-size: 13px;
+  margin: 0;
 }
 
 .brand {
   color: rgba(0, 0, 0, 0);
   margin: 0;
-  height: 120px;
+  height: 100px;
 }
 
 .brand:before {
@@ -79,7 +82,8 @@ input[type=search] {
   background: url(../img/nodegit.svg);
   margin: auto;
   position: relative;
-  top: 50%;
+  top: 30px;
+  left: 12px;
   margin-top: -20px;
   background-size: 164px 64px;
   background-repeat: no-repeat;
@@ -160,7 +164,7 @@ footer a {
   margin-left: 15px;
   color: #FFF;
   padding-bottom: 0;
-  padding-top: 54px;
+  padding-top: 55px;
 }
 
 .about p {

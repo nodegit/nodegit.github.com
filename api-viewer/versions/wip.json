@@ -811,16 +811,561 @@
     "fields": []
   },
   {
-    "cType": null,
+    "cType": "git_reference",
+    "altType": "git_branch",
+    "dependencies": [
+      "../include/wrapper.h",
+      "../include/commit.h",
+      "../include/refs.h",
+      "node_buffer.h",
+      "../include/repository.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_branch_create",
+        "ignore": false,
+        "description": "<p>Create a new branch pointing at a target commit</p>\n",
+        "cppFunctionName": "Create",
+        "jsFunctionName": "create",
+        "return": {
+          "cType": "int",
+          "comment": " 0, GIT_EINVALIDSPEC or an error code.\n A proper reference is written in the refs/heads namespace\n pointing to the provided target commit.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "Pointer where to store the underlying reference.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": null,
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "branch_name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Name for the branch; this name is\n validated for consistency. It should also not conflict with\n an already existing branch name.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "target",
+            "cType": "const git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "Commit to which this branch should point. This object\n must belong to the given `repo`.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "force",
+            "cType": "int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Overwrite existing branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "signature",
+            "cType": "const git_signature *",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "The identity that will used to populate the reflog entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "log_message",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The one line long message to be appended to the reflog.\n If NULL, the default is \"Branch: created\"; if you want something more\n useful, provide a message.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>A new direct reference will be created pointing to\n this target commit. If <code>force</code> is true and a reference\n already exists with the given name, it&#39;ll be replaced.</p>\n\n<p>The returned reference must be freed by the user.</p>\n\n<p>The branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
+      },
+      {
+        "cFunctionName": "git_branch_delete",
+        "ignore": false,
+        "description": "<p>Delete an existing branch reference.</p>\n",
+        "cppFunctionName": "Delete",
+        "jsFunctionName": "delete",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, or an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "branch",
+            "cType": "git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "A valid reference representing a branch",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>If the branch is successfully deleted, the passed reference\n object will be invalidated. The reference must be freed manually\n by the user.</p>\n"
+      },
+      {
+        "cFunctionName": "git_branch_iterator_new",
+        "ignore": true,
+        "description": "<p>Create an iterator which loops over the requested branches.</p>\n",
+        "cppFunctionName": "IteratorNew",
+        "jsFunctionName": "iteratorNew",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success  or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_branch_iterator **",
+            "cppClassName": "BranchIterator",
+            "jsClassName": "Iterator",
+            "comment": "the iterator",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "Repository where to find the branches.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "list_flags",
+            "cType": "git_branch_t",
+            "cppClassName": "Int32",
+            "jsClassName": "Number",
+            "comment": "Filtering flags for the branch\n listing. Valid values are GIT_BRANCH_LOCAL, GIT_BRANCH_REMOTE\n or GIT_BRANCH_ALL.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_branch_next",
+        "ignore": true,
+        "description": "<p>Retrieve the next branch from the iterator</p>\n",
+        "cppFunctionName": "Next",
+        "jsFunctionName": "next",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, GIT_ITEROVER if there are no more branches or an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "the reference",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "out_type",
+            "cType": "git_branch_t *",
+            "cppClassName": "GitBranch",
+            "jsClassName": "Branch",
+            "comment": "the type of branch (local or remote-tracking)",
+            "isReturn": false,
+            "isSelf": true,
+            "shouldAlloc": false
+          },
+          {
+            "name": "iter",
+            "cType": "git_branch_iterator *",
+            "cppClassName": "BranchIterator",
+            "jsClassName": "Iterator",
+            "comment": "the branch iterator",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_branch_iterator_free",
+        "ignore": true,
+        "description": "<p>Free a branch iterator</p>\n",
+        "cppFunctionName": "IteratorFree",
+        "jsFunctionName": "iteratorFree",
+        "return": {
+          "cType": "void",
+          "comment": null,
+          "cppClassName": "void",
+          "jsClassName": "void"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "iter",
+            "cType": "git_branch_iterator *",
+            "cppClassName": "BranchIterator",
+            "jsClassName": "Iterator",
+            "comment": "the iterator to free",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_branch_move",
+        "ignore": false,
+        "description": "<p>Move/rename an existing local branch reference.</p>\n",
+        "cppFunctionName": "Move",
+        "jsFunctionName": "move",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, GIT_EINVALIDSPEC or an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": null,
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "branch",
+            "cType": "git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "Current underlying reference of the branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "new_branch_name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Target name of the branch once the move\n is performed; this name is validated for consistency.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "force",
+            "cType": "int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Overwrite existing branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "signature",
+            "cType": "const git_signature *",
+            "cppClassName": "GitSignature",
+            "jsClassName": "Signature",
+            "comment": "The identity that will used to populate the reflog entry",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "log_message",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "The one line long message to be appended to the reflog",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The new branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
+      },
+      {
+        "cFunctionName": "git_branch_lookup",
+        "ignore": false,
+        "description": "<p>Lookup a branch by its name in a repository.</p>\n",
+        "cppFunctionName": "Lookup",
+        "jsFunctionName": "lookup",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success; GIT_ENOTFOUND when no matching branch\n exists, GIT_EINVALIDSPEC, otherwise an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": true,
+        "isPrototypeMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "pointer to the looked-up branch reference",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository to look up the branch",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "branch_name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "Name of the branch to be looked-up;\n this name is validated for consistency.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "branch_type",
+            "cType": "git_branch_t",
+            "cppClassName": "Int32",
+            "jsClassName": "Number",
+            "comment": "Type of the considered branch. This should\n be valued with either GIT_BRANCH_LOCAL or GIT_BRANCH_REMOTE.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The generated reference must be freed by the user.</p>\n\n<p>The branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
+      },
+      {
+        "cFunctionName": "git_branch_name",
+        "ignore": false,
+        "description": "<p>Return the name of the given local or remote branch.</p>\n",
+        "cppFunctionName": "Name",
+        "jsFunctionName": "name",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success; otherwise an error code (e.g., if the\n  ref is no local or remote branch).",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "const char **",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "where the pointer of branch name is stored;\n this is valid as long as the ref is not freed.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "ref",
+            "cType": "const git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "the reference ideally pointing to a branch",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The name of the branch matches the definition of the name\n for git_branch_lookup. That is, if the returned name is given\n to git_branch_lookup() then the reference is returned that\n was given to this function.</p>\n"
+      },
+      {
+        "cFunctionName": "git_branch_upstream",
+        "ignore": false,
+        "description": "<p>Return the reference supporting the remote tracking branch,\n given a local branch reference.</p>\n",
+        "cppFunctionName": "Upstream",
+        "jsFunctionName": "upstream",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success; GIT_ENOTFOUND when no remote tracking\n reference exists, otherwise an error code.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_reference **",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "Pointer where to store the retrieved\n reference.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "branch",
+            "cType": "const git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "Current underlying reference of the branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_branch_set_upstream",
+        "ignore": false,
+        "description": "<p>Set the upstream configuration for a given local branch</p>\n",
+        "cppFunctionName": "SetUpstream",
+        "jsFunctionName": "setUpstream",
+        "return": {
+          "cType": "int",
+          "comment": " 0 or an error code",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "branch",
+            "cType": "git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "the branch to configure",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "upstream_name",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "remote-tracking or local branch to set as\n upstream. Pass NULL to unset.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_branch_is_head",
+        "ignore": false,
+        "description": "<p>Determine if the current local branch is pointed at by HEAD.</p>\n",
+        "cppFunctionName": "IsHead",
+        "jsFunctionName": "isHead",
+        "return": {
+          "cType": "int",
+          "comment": " 1 if HEAD points at the branch, 0 if it isn't,\n error code otherwise.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "branch",
+            "cType": "const git_reference *",
+            "cppClassName": "GitRefs",
+            "jsClassName": "Reference",
+            "comment": "Current underlying reference of the branch.",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      }
+    ],
     "filename": "branch.h",
     "ignore": false,
     "cppClassName": "GitBranch",
     "jsClassName": "Branch",
-    "dependencies": [
-      "../include/repository.h"
-    ],
-    "fields": [],
-    "functions": []
+    "description": " In-memory representation of a reference. ",
+    "fields": []
   },
   {
     "filename": "buffer.h",

@@ -2,7 +2,7 @@
   color: #FFF;
   list-style: none;
   padding-left: 0px;
-  width: 240px;
+  width: 242px;
   margin: 0;
   position: fixed;
   left: 0;
@@ -35,22 +35,27 @@
   color: #8D8D8D;
 }
 
+#list-api a.active .subnav a {
+  background: transparent;
+  color: #FFB4B4;
+  padding: 0;
+}
+
+#list-api a.active .subnav a.active {
+  color: #FFF;
+}
+
 #list-api a.active .subnav a:first-child {
   margin-top: 10px;
 }
 
 #list-api a.active .subnav li {
-  background: #333333;
   padding: 10px;
   margin-right: 10px;
 }
 
-#list-api a.active .subnav a {
-  padding: 0;
-}
-
 #list-api a:hover, #list-api a.active {
-  background: #353535;
+  background: #F1595F;
   color: #FFF;
 }
 
