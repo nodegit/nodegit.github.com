@@ -1750,6 +1750,215 @@
     "functions": []
   },
   {
+    "cType": "git_commit",
+    "altType": "git_cherry_pick",
+    "trim": false,
+    "dependencies": [
+      "../include/cherry_pick_options.h",
+      "../include/merge_options.h",
+      "../include/index.h",
+      "../include/repository.h",
+      "../include/commit.h",
+      "../include/cherry_pick_options.h",
+      "../include/index.h",
+      "../include/repository.h",
+      "../include/commit.h"
+    ],
+    "functions": [
+      {
+        "cFunctionName": "git_cherry_pick_init_options",
+        "ignore": false,
+        "description": "<p>Initializes a <code>git_cherry_pick_options</code> with default values. Equivalent to\n creating an instance with GIT_CHERRY_PICK_OPTIONS_INIT.</p>\n",
+        "cppFunctionName": "CherryPickInitOptions",
+        "jsFunctionName": "cherryPickInitOptions",
+        "return": {
+          "cType": "int",
+          "comment": " Zero on success; -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "opts",
+            "cType": "git_cherry_pick_options *",
+            "cppClassName": "GitCherryPickOptions",
+            "jsClassName": "CherryPickOptions",
+            "comment": "the `git_cherry_pick_options` struct to initialize",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "version",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "Version of struct; pass `GIT_CHERRY_PICK_OPTIONS_VERSION`",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      },
+      {
+        "cFunctionName": "git_cherry_pick_commit",
+        "ignore": false,
+        "description": "<p>Cherry-picks the given commit against the given &quot;our&quot; commit, producing an\n index that reflects the result of the cherry-pick.</p>\n",
+        "cppFunctionName": "CherryPickCommit",
+        "jsFunctionName": "cherryPickCommit",
+        "return": {
+          "cType": "int",
+          "comment": " zero on success, -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_index **",
+            "cppClassName": "GitIndex",
+            "jsClassName": "Index",
+            "comment": "pointer to store the index result in",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository that contains the given commits",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "cherry_pick_commit",
+            "cType": "git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "the commit to cherry-pick",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "our_commit",
+            "cType": "git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "the commit to revert against (eg, HEAD)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "mainline",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number",
+            "comment": "the parent of the revert commit, if it is a merge",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "merge_options",
+            "cType": "const git_merge_options *",
+            "cppClassName": "GitMergeOptions",
+            "jsClassName": "MergeOptions",
+            "comment": "the merge options (or null for defaults)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>The returned index must be freed explicitly with <code>git_index_free</code>.</p>\n"
+      },
+      {
+        "cFunctionName": "git_cherry_pick",
+        "ignore": false,
+        "description": "<p>Cherry-pick the given commit, producing changes in the index and working directory.</p>\n",
+        "cppFunctionName": "CherryPick",
+        "jsFunctionName": "cherryPick",
+        "return": {
+          "cType": "int",
+          "comment": " zero on success, -1 on failure.",
+          "cppClassName": "Number",
+          "jsClassName": "Number"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "repo",
+            "cType": "git_repository *",
+            "cppClassName": "GitRepository",
+            "jsClassName": "Repository",
+            "comment": "the repository to cherry-pick",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "commit",
+            "cType": "git_commit *",
+            "cppClassName": "GitCommit",
+            "jsClassName": "Commit",
+            "comment": "the commit to cherry-pick",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "cherry_pick_options",
+            "cType": "const git_cherry_pick_options *",
+            "cppClassName": "GitCherryPickOptions",
+            "jsClassName": "CherryPickOptions",
+            "comment": "the cherry-pick options (or null for defaults)",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      }
+    ],
+    "filename": "cherrypick.h",
+    "ignore": false,
+    "cppClassName": "GitCherrypick",
+    "jsClassName": "Cherrypick",
+    "description": " Parsed representation of a commit object. ",
+    "fields": []
+  },
+  {
+    "cType": "git_cherry_pick_options",
+    "isStruct": true,
+    "dependencies": [
+      "../include/functions/copy.h",
+      "../include/cherry_pick_options.h",
+      "../include/checkout_options.h"
+    ],
+    "fields": [],
+    "filename": "cherry_pick_options.h",
+    "ignore": false,
+    "cppClassName": "GitCherryPickOptions",
+    "jsClassName": "CherryPickOptions",
+    "description": " \n\n git2/cherrypick.h\n ",
+    "hasConstructor": true,
+    "functions": []
+  },
+  {
     "cType": null,
     "trim": false,
     "dependencies": [
@@ -2432,16 +2641,6 @@
     "fields": []
   },
   {
-    "cType": null,
-    "filename": "common.h",
-    "ignore": false,
-    "cppClassName": "GitCommon",
-    "jsClassName": "Common",
-    "dependencies": [],
-    "fields": [],
-    "functions": []
-  },
-  {
     "filename": "config.h",
     "ignore": false,
     "cppClassName": "GitConfig",
@@ -2458,13 +2657,13 @@
     "functions": []
   },
   {
+    "cType": "git_cred",
     "isStruct": true,
     "filename": "cred.h",
     "ignore": false,
     "cppClassName": "GitCred",
     "jsClassName": "Cred",
-    "cType": "git_diff",
-    "description": " The diff object that contains all individual file deltas.",
+    "description": "",
     "dependencies": [],
     "fields": [],
     "functions": []
@@ -2949,13 +3148,39 @@
     "functions": []
   },
   {
-    "cType": null,
-    "filename": "errors.h",
+    "cType": "git_error",
+    "altType": "giterr",
+    "filename": "error.h",
     "ignore": false,
-    "cppClassName": "GitErrors",
-    "jsClassName": "Errors",
-    "dependencies": [],
-    "fields": [],
+    "cppClassName": "GitError",
+    "jsClassName": "Error",
+    "description": " Structure to store extra details of the last error that occurred.",
+    "hasConstructor": false,
+    "dependencies": [
+      "../include/buf.h"
+    ],
+    "fields": [
+      {
+        "type": "char *",
+        "name": "message",
+        "comments": "",
+        "cType": "char *",
+        "cppFunctionName": "Message",
+        "jsFunctionName": "message",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "type": "int",
+        "name": "klass",
+        "comments": "",
+        "cType": "int",
+        "cppFunctionName": "Klass",
+        "jsFunctionName": "klass",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      }
+    ],
     "functions": []
   },
   {
@@ -3038,7 +3263,7 @@
     "cppClassName": "GitInttypes",
     "jsClassName": "Inttypes",
     "dependencies": [
-      "../include/odb_backend.h"
+      "../include/oid.h"
     ],
     "fields": [],
     "functions": []
@@ -3050,10 +3275,23 @@
     "cppClassName": "GitMerge",
     "jsClassName": "Merge",
     "dependencies": [
+      "../include/merge_options.h",
       "../include/repository.h",
       "../include/oid.h",
       "../include/index.h"
     ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": "git_merge_options",
+    "isStruct": true,
+    "filename": "merge_options.h",
+    "ignore": false,
+    "cppClassName": "GitMergeOptions",
+    "jsClassName": "MergeOptions",
+    "description": "",
+    "dependencies": [],
     "fields": [],
     "functions": []
   },
@@ -4294,7 +4532,13 @@
     "ignore": false,
     "cppClassName": "GitReset",
     "jsClassName": "Reset",
-    "dependencies": [],
+    "dependencies": [
+      "../include/tag.h",
+      "../include/repository.h",
+      "../include/object.h",
+      "../include/oid.h",
+      "../include/strarray.h"
+    ],
     "fields": [],
     "functions": []
   },
@@ -4693,33 +4937,6 @@
     "dependencies": [
       "../include/repository.h"
     ],
-    "fields": [],
-    "functions": []
-  },
-  {
-    "cType": null,
-    "filename": "stdint.h",
-    "ignore": false,
-    "cppClassName": "GitStdint",
-    "jsClassName": "Stdint",
-    "dependencies": [
-      "../include/tree.h",
-      "../include/repository.h",
-      "../include/tree_entry.h",
-      "../include/object.h",
-      "../include/treebuilder.h",
-      "../include/oid.h"
-    ],
-    "fields": [],
-    "functions": []
-  },
-  {
-    "cType": null,
-    "filename": "stdarray.h",
-    "ignore": false,
-    "cppClassName": "GitStdarray",
-    "jsClassName": "Stdarray",
-    "dependencies": [],
     "fields": [],
     "functions": []
   },
