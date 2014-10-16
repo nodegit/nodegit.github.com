@@ -599,6 +599,7 @@
       "node_buffer.h",
       "../include/blob.h",
       "../include/repository.h",
+      "../include/buf.h",
       "../include/oid.h"
     ],
     "functions": [
@@ -1368,15 +1369,170 @@
     "fields": []
   },
   {
-    "filename": "buffer.h",
-    "ignore": false,
-    "cppClassName": "GitBuffer",
-    "jsClassName": "Buffer",
     "cType": "git_buf",
+    "functions": [
+      {
+        "cFunctionName": "git_buf_free",
+        "ignore": true,
+        "description": "<p>Free the memory referred to by the git_buf.</p>\n",
+        "cppFunctionName": "Free",
+        "jsFunctionName": "free",
+        "return": {
+          "cType": "void",
+          "comment": null,
+          "cppClassName": "void",
+          "jsClassName": "void"
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "buffer",
+            "cType": "git_buf *",
+            "cppClassName": "GitBuf",
+            "jsClassName": "Buf",
+            "comment": "The buffer to deallocate",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          }
+        ],
+        "isAsync": false,
+        "comment": "<p>Note that this does not free the <code>git_buf</code> itself, just the memory\n pointed to by <code>buffer-&gt;ptr</code>.  This will not free the memory if it looks\n like it was not allocated internally, but it will clear the buffer back\n to the empty state.</p>\n"
+      },
+      {
+        "cFunctionName": "git_buf_grow",
+        "ignore": false,
+        "description": "<p>Resize the buffer allocation to make more space.</p>\n",
+        "cppFunctionName": "Grow",
+        "jsFunctionName": "grow",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, -1 on allocation failure",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "buffer",
+            "cType": "git_buf *",
+            "cppClassName": "GitBuf",
+            "jsClassName": "Buf",
+            "comment": "The buffer to be resized; may or may not be allocated yet",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "target_size",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "The desired available size",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": "<p>This will attempt to grow the buffer to accomodate the target size.</p>\n\n<p>If the buffer refers to memory that was not allocated by libgit2 (i.e.\n the <code>asize</code> field is zero), then <code>ptr</code> will be replaced with a newly\n allocated block of data.  Be careful so that memory allocated by the\n caller is not lost.  As a special variant, if you pass <code>target_size</code> as\n 0 and the memory is not allocated by libgit2, this will allocate a new\n buffer of size <code>size</code> and copy the external data into it.</p>\n\n<p>Currently, this will never shrink a buffer, only expand it.</p>\n\n<p>If the allocation fails, this will return an error and the buffer will be\n marked as invalid for future operations, invaliding the contents.</p>\n"
+      },
+      {
+        "cFunctionName": "git_buf_set",
+        "ignore": false,
+        "description": "<p>Set buffer to a copy of some raw data.</p>\n",
+        "cppFunctionName": "Set",
+        "jsFunctionName": "set",
+        "return": {
+          "cType": "int",
+          "comment": " 0 on success, -1 on allocation failure",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "isPrototypeMethod": true,
+        "args": [
+          {
+            "name": "buffer",
+            "cType": "git_buf *",
+            "cppClassName": "GitBuf",
+            "jsClassName": "Buf",
+            "comment": "The buffer to set",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": true
+          },
+          {
+            "name": "data",
+            "cType": "const void *",
+            "cppClassName": "Buffer",
+            "jsClassName": "Buffer",
+            "comment": "The data to copy into the buffer",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "datalen",
+            "cType": "size_t",
+            "cppClassName": "Uint32",
+            "jsClassName": "Number",
+            "comment": "The length of the data to copy into the buffer",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": true,
+        "comment": ""
+      }
+    ],
+    "filename": "buf.h",
+    "ignore": false,
+    "cppClassName": "GitBuf",
+    "jsClassName": "Buf",
     "description": " A data buffer for exporting data from libgit2",
-    "dependencies": [],
-    "fields": [],
-    "functions": []
+    "freeFunctionName": "git_buf_free",
+    "hasConstructor": false,
+    "dependencies": [
+      "../include/buf.h"
+    ],
+    "fields": [
+      {
+        "type": "char *",
+        "name": "ptr",
+        "comments": "",
+        "cType": "char *",
+        "cppFunctionName": "Ptr",
+        "jsFunctionName": "ptr",
+        "cppClassName": "String",
+        "jsClassName": "String"
+      },
+      {
+        "type": "size_t",
+        "name": "asize",
+        "comments": "",
+        "cType": "size_t",
+        "cppFunctionName": "Asize",
+        "jsFunctionName": "asize",
+        "cppClassName": "Uint32",
+        "jsClassName": "Number"
+      },
+      {
+        "type": "size_t",
+        "name": "size",
+        "comments": "",
+        "cType": "size_t",
+        "cppFunctionName": "Size",
+        "jsFunctionName": "size",
+        "cppClassName": "Uint32",
+        "jsClassName": "Number"
+      }
+    ]
   },
   {
     "cType": null,
@@ -2295,6 +2451,7 @@
     "freeFunctionName": "git_config_free",
     "hasConstructor": false,
     "dependencies": [
+      "../include/buf.h",
       "../include/config.h"
     ],
     "fields": [],
@@ -2409,6 +2566,7 @@
       "../include/repository.h",
       "../include/tree.h",
       "../include/index.h",
+      "../include/buf.h",
       "../include/commit.h"
     ],
     "functions": [
@@ -2812,7 +2970,8 @@
     "hasConstructor": false,
     "dependencies": [
       "../include/repository.h",
-      "../include/blob.h"
+      "../include/blob.h",
+      "../include/buf.h"
     ],
     "functions": []
   },
@@ -2904,7 +3063,9 @@
     "ignore": false,
     "cppClassName": "GitMessage",
     "jsClassName": "Message",
-    "dependencies": [],
+    "dependencies": [
+      "../include/buf.h"
+    ],
     "fields": [],
     "functions": []
   },
@@ -2943,7 +3104,8 @@
     "hasConstructor": false,
     "dependencies": [
       "../include/object.h",
-      "../include/repository.h"
+      "../include/repository.h",
+      "../include/buf.h"
     ],
     "fields": [],
     "functions": []
@@ -3501,7 +3663,9 @@
     "jsClassName": "Refspec",
     "cType": "git_refspec",
     "description": "",
-    "dependencies": [],
+    "dependencies": [
+      "../include/buf.h"
+    ],
     "fields": [],
     "functions": []
   },
@@ -3516,7 +3680,8 @@
       "../include/repository.h",
       "../include/strarray.h",
       "../include/transport.h",
-      "../include/remote_callbacks.h"
+      "../include/remote_callbacks.h",
+      "../include/buf.h"
     ],
     "functions": [
       {
@@ -3872,6 +4037,7 @@
       "../include/repository_init_options.h",
       "../include/repository.h",
       "../include/odb.h",
+      "../include/buf.h",
       "../include/repository_init_options.h",
       "../include/config.h",
       "../include/refdb.h",
