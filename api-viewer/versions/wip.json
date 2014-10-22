@@ -311,287 +311,19 @@
     "fields": []
   },
   {
-    "cType": "git_blame",
-    "forwardDeclare": true,
-    "functions": [
-      {
-        "cFunctionName": "git_blame_init_options",
-        "ignore": false,
-        "description": "<p>Initializes a <code>git_blame_options</code> with default values. Equivalent to\n creating an instance with GIT_BLAME_OPTIONS_INIT.</p>\n",
-        "cppFunctionName": "InitOptions",
-        "jsFunctionName": "initOptions",
-        "return": {
-          "cType": "int",
-          "comment": " Zero on success; -1 on failure.",
-          "cppClassName": "Number",
-          "jsClassName": "Number"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "opts",
-            "cType": "git_blame_options *",
-            "cppClassName": "Integer",
-            "jsClassName": "Number",
-            "comment": "The `git_blame_options` struct to initialize",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "version",
-            "cType": "unsigned int",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "Version of struct; pass `GIT_BLAME_OPTIONS_VERSION`",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_blame_get_hunk_count",
-        "ignore": false,
-        "description": "<p>Gets the number of hunks that exist in the blame structure.</p>\n",
-        "cppFunctionName": "GetHunkCount",
-        "jsFunctionName": "getHunkCount",
-        "return": {
-          "cType": "uint32_t",
-          "comment": null,
-          "cppClassName": "Number",
-          "jsClassName": "Number"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "blame",
-            "cType": "git_blame *",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": null,
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_blame_get_hunk_byindex",
-        "ignore": false,
-        "description": "<p>Gets the blame hunk at the given index.</p>\n",
-        "cppFunctionName": "GetHunkByindex",
-        "jsFunctionName": "getHunkByindex",
-        "return": {
-          "cType": "const git_blame_hunk *",
-          "comment": " the hunk at the given index, or NULL on error",
-          "cppClassName": "GitBlameHunk",
-          "jsClassName": "BlameHunk"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "blame",
-            "cType": "git_blame *",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": "the blame structure to query",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          },
-          {
-            "name": "index",
-            "cType": "uint32_t",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "index of the hunk to retrieve",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_blame_get_hunk_byline",
-        "ignore": false,
-        "description": "<p>Gets the hunk that relates to the given line number in the newest commit.</p>\n",
-        "cppFunctionName": "GetHunkByline",
-        "jsFunctionName": "getHunkByline",
-        "return": {
-          "cType": "const git_blame_hunk *",
-          "comment": " the hunk that contains the given line, or NULL on error",
-          "cppClassName": "GitBlameHunk",
-          "jsClassName": "BlameHunk"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "blame",
-            "cType": "git_blame *",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": "the blame structure to query",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          },
-          {
-            "name": "lineno",
-            "cType": "uint32_t",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "the (1-based) line number to find a hunk for",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_blame_file",
-        "ignore": false,
-        "description": "<p>Get the blame for a single file.</p>\n",
-        "cppFunctionName": "File",
-        "jsFunctionName": "file",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, or an error code. (use giterr_last for information\n         about the error.)",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_blame **",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": "pointer that will receive the blame object",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": "repository whose history is to be walked",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "path",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "path to file to consider",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "options",
-            "cType": "git_blame_options *",
-            "cppClassName": "Integer",
-            "jsClassName": "Number",
-            "comment": "options for the blame operation.  If NULL, this is treated as\n                though GIT_BLAME_OPTIONS_INIT were passed.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_blame_buffer",
-        "ignore": false,
-        "description": "<p>Get blame data for a file that has been modified in memory. The <code>reference</code>\n parameter is a pre-calculated blame for the in-odb history of the file. This\n means that once a file blame is completed (which can be expensive), updating\n the buffer blame is very fast.</p>\n",
-        "cppFunctionName": "Buffer",
-        "jsFunctionName": "buffer",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, or an error code. (use giterr_last for information\n         about the error)",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_blame **",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": "pointer that will receive the resulting blame data",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "reference",
-            "cType": "git_blame *",
-            "cppClassName": "GitBlame",
-            "jsClassName": "Blame",
-            "comment": "cached blame from the history of the file (usually the output\n                  from git_blame_file)",
-            "isReturn": false,
-            "isSelf": true,
-            "shouldAlloc": false
-          },
-          {
-            "name": "buffer",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "the (possibly) modified contents of the file",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "buffer_len",
-            "cType": "size_t",
-            "cppClassName": "Uint32",
-            "jsClassName": "Number",
-            "comment": "number of valid bytes in the buffer",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>Lines that differ between the buffer and the committed version are marked as\n having a zero OID for their final_commit_id.</p>\n"
-      }
-    ],
     "filename": "blame.h",
     "ignore": false,
     "cppClassName": "GitBlame",
     "jsClassName": "Blame",
+    "cType": "git_blame",
     "description": "",
     "freeFunctionName": "git_blame_free",
     "dependencies": [
       "../include/blame.h",
       "../include/repository.h"
     ],
-    "fields": []
+    "fields": [],
+    "functions": []
   },
   {
     "dependencies": [
@@ -599,7 +331,6 @@
       "node_buffer.h",
       "../include/blob.h",
       "../include/repository.h",
-      "../include/buf.h",
       "../include/oid.h"
     ],
     "functions": [
@@ -812,727 +543,27 @@
     "fields": []
   },
   {
-    "cType": "git_reference",
-    "altType": "git_branch",
-    "dependencies": [
-      "../include/wrapper.h",
-      "../include/commit.h",
-      "../include/refs.h",
-      "node_buffer.h",
-      "../include/repository.h"
-    ],
-    "functions": [
-      {
-        "cFunctionName": "git_branch_create",
-        "ignore": false,
-        "description": "<p>Create a new branch pointing at a target commit</p>\n",
-        "cppFunctionName": "Create",
-        "jsFunctionName": "create",
-        "return": {
-          "cType": "int",
-          "comment": " 0, GIT_EINVALIDSPEC or an error code.\n A proper reference is written in the refs/heads namespace\n pointing to the provided target commit.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": true,
-        "isPrototypeMethod": false,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_reference **",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "Pointer where to store the underlying reference.",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": null,
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "branch_name",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "Name for the branch; this name is\n validated for consistency. It should also not conflict with\n an already existing branch name.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "target",
-            "cType": "const git_commit *",
-            "cppClassName": "GitCommit",
-            "jsClassName": "Commit",
-            "comment": "Commit to which this branch should point. This object\n must belong to the given `repo`.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "force",
-            "cType": "int",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "Overwrite existing branch.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "signature",
-            "cType": "const git_signature *",
-            "cppClassName": "GitSignature",
-            "jsClassName": "Signature",
-            "comment": "The identity that will used to populate the reflog entry",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "log_message",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "The one line long message to be appended to the reflog.\n If NULL, the default is \"Branch: created\"; if you want something more\n useful, provide a message.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>A new direct reference will be created pointing to\n this target commit. If <code>force</code> is true and a reference\n already exists with the given name, it&#39;ll be replaced.</p>\n\n<p>The returned reference must be freed by the user.</p>\n\n<p>The branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
-      },
-      {
-        "cFunctionName": "git_branch_delete",
-        "ignore": false,
-        "description": "<p>Delete an existing branch reference.</p>\n",
-        "cppFunctionName": "Delete",
-        "jsFunctionName": "delete",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, or an error code.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "branch",
-            "cType": "git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "A valid reference representing a branch",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>If the branch is successfully deleted, the passed reference\n object will be invalidated. The reference must be freed manually\n by the user.</p>\n"
-      },
-      {
-        "cFunctionName": "git_branch_iterator_new",
-        "ignore": true,
-        "description": "<p>Create an iterator which loops over the requested branches.</p>\n",
-        "cppFunctionName": "IteratorNew",
-        "jsFunctionName": "iteratorNew",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success  or an error code",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_branch_iterator **",
-            "cppClassName": "BranchIterator",
-            "jsClassName": "Iterator",
-            "comment": "the iterator",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": "Repository where to find the branches.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "list_flags",
-            "cType": "git_branch_t",
-            "cppClassName": "Int32",
-            "jsClassName": "Number",
-            "comment": "Filtering flags for the branch\n listing. Valid values are GIT_BRANCH_LOCAL, GIT_BRANCH_REMOTE\n or GIT_BRANCH_ALL.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_branch_next",
-        "ignore": true,
-        "description": "<p>Retrieve the next branch from the iterator</p>\n",
-        "cppFunctionName": "Next",
-        "jsFunctionName": "next",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, GIT_ITEROVER if there are no more branches or an error code.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_reference **",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "the reference",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "out_type",
-            "cType": "git_branch_t *",
-            "cppClassName": "GitBranch",
-            "jsClassName": "Branch",
-            "comment": "the type of branch (local or remote-tracking)",
-            "isReturn": false,
-            "isSelf": true,
-            "shouldAlloc": false
-          },
-          {
-            "name": "iter",
-            "cType": "git_branch_iterator *",
-            "cppClassName": "BranchIterator",
-            "jsClassName": "Iterator",
-            "comment": "the branch iterator",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_branch_iterator_free",
-        "ignore": true,
-        "description": "<p>Free a branch iterator</p>\n",
-        "cppFunctionName": "IteratorFree",
-        "jsFunctionName": "iteratorFree",
-        "return": {
-          "cType": "void",
-          "comment": null,
-          "cppClassName": "void",
-          "jsClassName": "void"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "iter",
-            "cType": "git_branch_iterator *",
-            "cppClassName": "BranchIterator",
-            "jsClassName": "Iterator",
-            "comment": "the iterator to free",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_branch_move",
-        "ignore": false,
-        "description": "<p>Move/rename an existing local branch reference.</p>\n",
-        "cppFunctionName": "Move",
-        "jsFunctionName": "move",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, GIT_EINVALIDSPEC or an error code.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_reference **",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": null,
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "branch",
-            "cType": "git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "Current underlying reference of the branch.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "new_branch_name",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "Target name of the branch once the move\n is performed; this name is validated for consistency.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "force",
-            "cType": "int",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "Overwrite existing branch.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "signature",
-            "cType": "const git_signature *",
-            "cppClassName": "GitSignature",
-            "jsClassName": "Signature",
-            "comment": "The identity that will used to populate the reflog entry",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "log_message",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "The one line long message to be appended to the reflog",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>The new branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
-      },
-      {
-        "cFunctionName": "git_branch_lookup",
-        "ignore": false,
-        "description": "<p>Lookup a branch by its name in a repository.</p>\n",
-        "cppFunctionName": "Lookup",
-        "jsFunctionName": "lookup",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success; GIT_ENOTFOUND when no matching branch\n exists, GIT_EINVALIDSPEC, otherwise an error code.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": true,
-        "isPrototypeMethod": false,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_reference **",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "pointer to the looked-up branch reference",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": "the repository to look up the branch",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "branch_name",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "Name of the branch to be looked-up;\n this name is validated for consistency.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "branch_type",
-            "cType": "git_branch_t",
-            "cppClassName": "Int32",
-            "jsClassName": "Number",
-            "comment": "Type of the considered branch. This should\n be valued with either GIT_BRANCH_LOCAL or GIT_BRANCH_REMOTE.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>The generated reference must be freed by the user.</p>\n\n<p>The branch name will be checked for validity.\n See <code>git_tag_create()</code> for rules about valid names.</p>\n"
-      },
-      {
-        "cFunctionName": "git_branch_name",
-        "ignore": false,
-        "description": "<p>Return the name of the given local or remote branch.</p>\n",
-        "cppFunctionName": "Name",
-        "jsFunctionName": "name",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success; otherwise an error code (e.g., if the\n  ref is no local or remote branch).",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "const char **",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "where the pointer of branch name is stored;\n this is valid as long as the ref is not freed.",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "ref",
-            "cType": "const git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "the reference ideally pointing to a branch",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>The name of the branch matches the definition of the name\n for git_branch_lookup. That is, if the returned name is given\n to git_branch_lookup() then the reference is returned that\n was given to this function.</p>\n"
-      },
-      {
-        "cFunctionName": "git_branch_upstream",
-        "ignore": false,
-        "description": "<p>Return the reference supporting the remote tracking branch,\n given a local branch reference.</p>\n",
-        "cppFunctionName": "Upstream",
-        "jsFunctionName": "upstream",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success; GIT_ENOTFOUND when no remote tracking\n reference exists, otherwise an error code.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_reference **",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "Pointer where to store the retrieved\n reference.",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "branch",
-            "cType": "const git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "Current underlying reference of the branch.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_branch_set_upstream",
-        "ignore": false,
-        "description": "<p>Set the upstream configuration for a given local branch</p>\n",
-        "cppFunctionName": "SetUpstream",
-        "jsFunctionName": "setUpstream",
-        "return": {
-          "cType": "int",
-          "comment": " 0 or an error code",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "branch",
-            "cType": "git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "the branch to configure",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "upstream_name",
-            "cType": "const char *",
-            "cppClassName": "String",
-            "jsClassName": "String",
-            "comment": "remote-tracking or local branch to set as\n upstream. Pass NULL to unset.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_branch_is_head",
-        "ignore": false,
-        "description": "<p>Determine if the current local branch is pointed at by HEAD.</p>\n",
-        "cppFunctionName": "IsHead",
-        "jsFunctionName": "isHead",
-        "return": {
-          "cType": "int",
-          "comment": " 1 if HEAD points at the branch, 0 if it isn't,\n error code otherwise.",
-          "cppClassName": "Number",
-          "jsClassName": "Number"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "branch",
-            "cType": "const git_reference *",
-            "cppClassName": "GitRefs",
-            "jsClassName": "Reference",
-            "comment": "Current underlying reference of the branch.",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      }
-    ],
+    "cType": null,
     "filename": "branch.h",
     "ignore": false,
     "cppClassName": "GitBranch",
     "jsClassName": "Branch",
-    "description": " In-memory representation of a reference. ",
-    "fields": []
+    "dependencies": [
+      "../include/repository.h"
+    ],
+    "fields": [],
+    "functions": []
   },
   {
-    "cType": "git_buf",
-    "functions": [
-      {
-        "cFunctionName": "git_buf_free",
-        "ignore": true,
-        "description": "<p>Free the memory referred to by the git_buf.</p>\n",
-        "cppFunctionName": "Free",
-        "jsFunctionName": "free",
-        "return": {
-          "cType": "void",
-          "comment": null,
-          "cppClassName": "void",
-          "jsClassName": "void"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "buffer",
-            "cType": "git_buf *",
-            "cppClassName": "GitBuf",
-            "jsClassName": "Buf",
-            "comment": "The buffer to deallocate",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          }
-        ],
-        "isAsync": false,
-        "comment": "<p>Note that this does not free the <code>git_buf</code> itself, just the memory\n pointed to by <code>buffer-&gt;ptr</code>.  This will not free the memory if it looks\n like it was not allocated internally, but it will clear the buffer back\n to the empty state.</p>\n"
-      },
-      {
-        "cFunctionName": "git_buf_grow",
-        "ignore": false,
-        "description": "<p>Resize the buffer allocation to make more space.</p>\n",
-        "cppFunctionName": "Grow",
-        "jsFunctionName": "grow",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, -1 on allocation failure",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "buffer",
-            "cType": "git_buf *",
-            "cppClassName": "GitBuf",
-            "jsClassName": "Buf",
-            "comment": "The buffer to be resized; may or may not be allocated yet",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          },
-          {
-            "name": "target_size",
-            "cType": "size_t",
-            "cppClassName": "Uint32",
-            "jsClassName": "Number",
-            "comment": "The desired available size",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>This will attempt to grow the buffer to accomodate the target size.</p>\n\n<p>If the buffer refers to memory that was not allocated by libgit2 (i.e.\n the <code>asize</code> field is zero), then <code>ptr</code> will be replaced with a newly\n allocated block of data.  Be careful so that memory allocated by the\n caller is not lost.  As a special variant, if you pass <code>target_size</code> as\n 0 and the memory is not allocated by libgit2, this will allocate a new\n buffer of size <code>size</code> and copy the external data into it.</p>\n\n<p>Currently, this will never shrink a buffer, only expand it.</p>\n\n<p>If the allocation fails, this will return an error and the buffer will be\n marked as invalid for future operations, invaliding the contents.</p>\n"
-      },
-      {
-        "cFunctionName": "git_buf_set",
-        "ignore": false,
-        "description": "<p>Set buffer to a copy of some raw data.</p>\n",
-        "cppFunctionName": "Set",
-        "jsFunctionName": "set",
-        "return": {
-          "cType": "int",
-          "comment": " 0 on success, -1 on allocation failure",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "buffer",
-            "cType": "git_buf *",
-            "cppClassName": "GitBuf",
-            "jsClassName": "Buf",
-            "comment": "The buffer to set",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": true
-          },
-          {
-            "name": "data",
-            "cType": "const void *",
-            "cppClassName": "Buffer",
-            "jsClassName": "Buffer",
-            "comment": "The data to copy into the buffer",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "datalen",
-            "cType": "size_t",
-            "cppClassName": "Uint32",
-            "jsClassName": "Number",
-            "comment": "The length of the data to copy into the buffer",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": ""
-      }
-    ],
-    "filename": "buf.h",
+    "filename": "buffer.h",
     "ignore": false,
-    "cppClassName": "GitBuf",
-    "jsClassName": "Buf",
+    "cppClassName": "GitBuffer",
+    "jsClassName": "Buffer",
+    "cType": "git_buf",
     "description": " A data buffer for exporting data from libgit2",
-    "freeFunctionName": "git_buf_free",
-    "hasConstructor": false,
-    "dependencies": [
-      "../include/buf.h"
-    ],
-    "fields": [
-      {
-        "type": "char *",
-        "name": "ptr",
-        "comments": "",
-        "cType": "char *",
-        "cppFunctionName": "Ptr",
-        "jsFunctionName": "ptr",
-        "cppClassName": "String",
-        "jsClassName": "String"
-      },
-      {
-        "type": "size_t",
-        "name": "asize",
-        "comments": "",
-        "cType": "size_t",
-        "cppFunctionName": "Asize",
-        "jsFunctionName": "asize",
-        "cppClassName": "Uint32",
-        "jsClassName": "Number"
-      },
-      {
-        "type": "size_t",
-        "name": "size",
-        "comments": "",
-        "cType": "size_t",
-        "cppFunctionName": "Size",
-        "jsFunctionName": "size",
-        "cppClassName": "Uint32",
-        "jsClassName": "Number"
-      }
-    ]
+    "dependencies": [],
+    "fields": [],
+    "functions": []
   },
   {
     "cType": null,
@@ -1746,215 +777,6 @@
     "cppClassName": "GitCheckoutOptions",
     "jsClassName": "CheckoutOptions",
     "description": " Checkout options structure",
-    "hasConstructor": true,
-    "functions": []
-  },
-  {
-    "cType": "git_commit",
-    "altType": "git_cherry_pick",
-    "trim": false,
-    "dependencies": [
-      "../include/cherry_pick_options.h",
-      "../include/merge_options.h",
-      "../include/index.h",
-      "../include/repository.h",
-      "../include/commit.h",
-      "../include/cherry_pick_options.h",
-      "../include/index.h",
-      "../include/repository.h",
-      "../include/commit.h"
-    ],
-    "functions": [
-      {
-        "cFunctionName": "git_cherry_pick_init_options",
-        "ignore": false,
-        "description": "<p>Initializes a <code>git_cherry_pick_options</code> with default values. Equivalent to\n creating an instance with GIT_CHERRY_PICK_OPTIONS_INIT.</p>\n",
-        "cppFunctionName": "CherryPickInitOptions",
-        "jsFunctionName": "cherryPickInitOptions",
-        "return": {
-          "cType": "int",
-          "comment": " Zero on success; -1 on failure.",
-          "cppClassName": "Number",
-          "jsClassName": "Number"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "opts",
-            "cType": "git_cherry_pick_options *",
-            "cppClassName": "GitCherryPickOptions",
-            "jsClassName": "CherryPickOptions",
-            "comment": "the `git_cherry_pick_options` struct to initialize",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "version",
-            "cType": "unsigned int",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "Version of struct; pass `GIT_CHERRY_PICK_OPTIONS_VERSION`",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      },
-      {
-        "cFunctionName": "git_cherry_pick_commit",
-        "ignore": false,
-        "description": "<p>Cherry-picks the given commit against the given &quot;our&quot; commit, producing an\n index that reflects the result of the cherry-pick.</p>\n",
-        "cppFunctionName": "CherryPickCommit",
-        "jsFunctionName": "cherryPickCommit",
-        "return": {
-          "cType": "int",
-          "comment": " zero on success, -1 on failure.",
-          "cppClassName": "Number",
-          "jsClassName": "Number",
-          "isErrorCode": true
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "out",
-            "cType": "git_index **",
-            "cppClassName": "GitIndex",
-            "jsClassName": "Index",
-            "comment": "pointer to store the index result in",
-            "isReturn": true,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": "the repository that contains the given commits",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "cherry_pick_commit",
-            "cType": "git_commit *",
-            "cppClassName": "GitCommit",
-            "jsClassName": "Commit",
-            "comment": "the commit to cherry-pick",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "our_commit",
-            "cType": "git_commit *",
-            "cppClassName": "GitCommit",
-            "jsClassName": "Commit",
-            "comment": "the commit to revert against (eg, HEAD)",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "mainline",
-            "cType": "unsigned int",
-            "cppClassName": "Number",
-            "jsClassName": "Number",
-            "comment": "the parent of the revert commit, if it is a merge",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "merge_options",
-            "cType": "const git_merge_options *",
-            "cppClassName": "GitMergeOptions",
-            "jsClassName": "MergeOptions",
-            "comment": "the merge options (or null for defaults)",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": true,
-        "comment": "<p>The returned index must be freed explicitly with <code>git_index_free</code>.</p>\n"
-      },
-      {
-        "cFunctionName": "git_cherry_pick",
-        "ignore": false,
-        "description": "<p>Cherry-pick the given commit, producing changes in the index and working directory.</p>\n",
-        "cppFunctionName": "CherryPick",
-        "jsFunctionName": "cherryPick",
-        "return": {
-          "cType": "int",
-          "comment": " zero on success, -1 on failure.",
-          "cppClassName": "Number",
-          "jsClassName": "Number"
-        },
-        "isConstructorMethod": false,
-        "isPrototypeMethod": true,
-        "args": [
-          {
-            "name": "repo",
-            "cType": "git_repository *",
-            "cppClassName": "GitRepository",
-            "jsClassName": "Repository",
-            "comment": "the repository to cherry-pick",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "commit",
-            "cType": "git_commit *",
-            "cppClassName": "GitCommit",
-            "jsClassName": "Commit",
-            "comment": "the commit to cherry-pick",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          },
-          {
-            "name": "cherry_pick_options",
-            "cType": "const git_cherry_pick_options *",
-            "cppClassName": "GitCherryPickOptions",
-            "jsClassName": "CherryPickOptions",
-            "comment": "the cherry-pick options (or null for defaults)",
-            "isReturn": false,
-            "isSelf": false,
-            "shouldAlloc": false
-          }
-        ],
-        "isAsync": false,
-        "comment": ""
-      }
-    ],
-    "filename": "cherrypick.h",
-    "ignore": false,
-    "cppClassName": "GitCherrypick",
-    "jsClassName": "Cherrypick",
-    "description": " Parsed representation of a commit object. ",
-    "fields": []
-  },
-  {
-    "cType": "git_cherry_pick_options",
-    "isStruct": true,
-    "dependencies": [
-      "../include/functions/copy.h",
-      "../include/cherry_pick_options.h",
-      "../include/checkout_options.h"
-    ],
-    "fields": [],
-    "filename": "cherry_pick_options.h",
-    "ignore": false,
-    "cppClassName": "GitCherryPickOptions",
-    "jsClassName": "CherryPickOptions",
-    "description": " \n\n git2/cherrypick.h\n ",
     "hasConstructor": true,
     "functions": []
   },
@@ -2641,6 +1463,16 @@
     "fields": []
   },
   {
+    "cType": null,
+    "filename": "common.h",
+    "ignore": false,
+    "cppClassName": "GitCommon",
+    "jsClassName": "Common",
+    "dependencies": [],
+    "fields": [],
+    "functions": []
+  },
+  {
     "filename": "config.h",
     "ignore": false,
     "cppClassName": "GitConfig",
@@ -2650,23 +1482,62 @@
     "freeFunctionName": "git_config_free",
     "hasConstructor": false,
     "dependencies": [
-      "../include/buf.h",
       "../include/config.h"
     ],
     "fields": [],
     "functions": []
   },
   {
-    "cType": "git_cred",
     "isStruct": true,
+    "cType": "git_cred",
+    "functions": [
+      {
+        "cFunctionName": "git_cred_ssh_key_from_agent",
+        "ignore": false,
+        "description": "<p>Create a new ssh key credential object used for querying an ssh-agent.\n The supplied credential parameter will be internally duplicated.</p>\n",
+        "cppFunctionName": "SshKeyFromAgent",
+        "jsFunctionName": "sshKeyFromAgent",
+        "return": {
+          "cType": "int",
+          "comment": " 0 for success or an error code for failure",
+          "cppClassName": "Number",
+          "jsClassName": "Number",
+          "isErrorCode": true
+        },
+        "isConstructorMethod": false,
+        "args": [
+          {
+            "name": "out",
+            "cType": "git_cred **",
+            "cppClassName": "GitCred",
+            "jsClassName": "Cred",
+            "comment": "The newly created credential object.",
+            "isReturn": true,
+            "isSelf": false,
+            "shouldAlloc": false
+          },
+          {
+            "name": "username",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String",
+            "comment": "username to use to authenticate",
+            "isReturn": false,
+            "isSelf": false,
+            "shouldAlloc": false
+          }
+        ],
+        "isAsync": false,
+        "comment": ""
+      }
+    ],
     "filename": "cred.h",
     "ignore": false,
     "cppClassName": "GitCred",
     "jsClassName": "Cred",
     "description": "",
     "dependencies": [],
-    "fields": [],
-    "functions": []
+    "fields": []
   },
   {
     "filename": "cred_helpers.h",
@@ -2765,7 +1636,6 @@
       "../include/repository.h",
       "../include/tree.h",
       "../include/index.h",
-      "../include/buf.h",
       "../include/commit.h"
     ],
     "functions": [
@@ -3148,39 +2018,13 @@
     "functions": []
   },
   {
-    "cType": "git_error",
-    "altType": "giterr",
-    "filename": "error.h",
+    "cType": null,
+    "filename": "errors.h",
     "ignore": false,
-    "cppClassName": "GitError",
-    "jsClassName": "Error",
-    "description": " Structure to store extra details of the last error that occurred.",
-    "hasConstructor": false,
-    "dependencies": [
-      "../include/buf.h"
-    ],
-    "fields": [
-      {
-        "type": "char *",
-        "name": "message",
-        "comments": "",
-        "cType": "char *",
-        "cppFunctionName": "Message",
-        "jsFunctionName": "message",
-        "cppClassName": "String",
-        "jsClassName": "String"
-      },
-      {
-        "type": "int",
-        "name": "klass",
-        "comments": "",
-        "cType": "int",
-        "cppFunctionName": "Klass",
-        "jsFunctionName": "klass",
-        "cppClassName": "Number",
-        "jsClassName": "Number"
-      }
-    ],
+    "cppClassName": "GitErrors",
+    "jsClassName": "Errors",
+    "dependencies": [],
+    "fields": [],
     "functions": []
   },
   {
@@ -3195,8 +2039,7 @@
     "hasConstructor": false,
     "dependencies": [
       "../include/repository.h",
-      "../include/blob.h",
-      "../include/buf.h"
+      "../include/blob.h"
     ],
     "functions": []
   },
@@ -3263,7 +2106,7 @@
     "cppClassName": "GitInttypes",
     "jsClassName": "Inttypes",
     "dependencies": [
-      "../include/oid.h"
+      "../include/odb_backend.h"
     ],
     "fields": [],
     "functions": []
@@ -3275,23 +2118,10 @@
     "cppClassName": "GitMerge",
     "jsClassName": "Merge",
     "dependencies": [
-      "../include/merge_options.h",
       "../include/repository.h",
       "../include/oid.h",
       "../include/index.h"
     ],
-    "fields": [],
-    "functions": []
-  },
-  {
-    "cType": "git_merge_options",
-    "isStruct": true,
-    "filename": "merge_options.h",
-    "ignore": false,
-    "cppClassName": "GitMergeOptions",
-    "jsClassName": "MergeOptions",
-    "description": "",
-    "dependencies": [],
     "fields": [],
     "functions": []
   },
@@ -3301,9 +2131,7 @@
     "ignore": false,
     "cppClassName": "GitMessage",
     "jsClassName": "Message",
-    "dependencies": [
-      "../include/buf.h"
-    ],
+    "dependencies": [],
     "fields": [],
     "functions": []
   },
@@ -3342,8 +2170,7 @@
     "hasConstructor": false,
     "dependencies": [
       "../include/object.h",
-      "../include/repository.h",
-      "../include/buf.h"
+      "../include/repository.h"
     ],
     "fields": [],
     "functions": []
@@ -3901,9 +2728,7 @@
     "jsClassName": "Refspec",
     "cType": "git_refspec",
     "description": "",
-    "dependencies": [
-      "../include/buf.h"
-    ],
+    "dependencies": [],
     "fields": [],
     "functions": []
   },
@@ -3918,8 +2743,7 @@
       "../include/repository.h",
       "../include/strarray.h",
       "../include/transport.h",
-      "../include/remote_callbacks.h",
-      "../include/buf.h"
+      "../include/remote_callbacks.h"
     ],
     "functions": [
       {
@@ -4252,14 +3076,80 @@
   {
     "isStruct": true,
     "cType": "git_remote_callbacks",
-    "fields": [],
+    "dependencies": [
+      "../include/cred.h"
+    ],
+    "fields": [
+      {
+        "name": "version",
+        "cType": "int",
+        "cppFunctionName": "Version",
+        "jsFunctionName": "version",
+        "cppClassName": "Number",
+        "jsClassName": "Number"
+      },
+      {
+        "name": "credentials",
+        "cType": "git_cred_acquire_cb",
+        "isFunction": true,
+        "args": [
+          {
+            "name": "cred",
+            "cType": "git_cred **",
+            "isReturn": true,
+            "cppClassName": "GitCred",
+            "jsClassName": "Cred"
+          },
+          {
+            "name": "url",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String"
+          },
+          {
+            "name": "username_from_url",
+            "cType": "const char *",
+            "cppClassName": "String",
+            "jsClassName": "String"
+          },
+          {
+            "name": "allowed_types",
+            "cType": "unsigned int",
+            "cppClassName": "Number",
+            "jsClassName": "Number"
+          },
+          {
+            "name": "payload",
+            "cType": "void *",
+            "cppClassName": "Function",
+            "jsClassName": "Function"
+          }
+        ],
+        "returnType": "int",
+        "returnNoResults": 1,
+        "returnSuccess": 0,
+        "returnError": -1,
+        "cppFunctionName": "Credentials",
+        "jsFunctionName": "credentials",
+        "cppClassName": "GitCredAcquireCb",
+        "jsClassName": "CredAcquireCb"
+      },
+      {
+        "name": "payload",
+        "cType": "void *",
+        "payloadFor": "*",
+        "cppFunctionName": "Payload",
+        "jsFunctionName": "payload",
+        "cppClassName": "Function",
+        "jsClassName": "Function"
+      }
+    ],
     "filename": "remote_callbacks.h",
     "ignore": false,
     "cppClassName": "GitRemoteCallbacks",
     "jsClassName": "RemoteCallbacks",
     "description": " The callback settings structure",
     "hasConstructor": true,
-    "dependencies": [],
     "functions": []
   },
   {
@@ -4275,7 +3165,6 @@
       "../include/repository_init_options.h",
       "../include/repository.h",
       "../include/odb.h",
-      "../include/buf.h",
       "../include/repository_init_options.h",
       "../include/config.h",
       "../include/refdb.h",
@@ -4532,13 +3421,7 @@
     "ignore": false,
     "cppClassName": "GitReset",
     "jsClassName": "Reset",
-    "dependencies": [
-      "../include/tag.h",
-      "../include/repository.h",
-      "../include/object.h",
-      "../include/oid.h",
-      "../include/strarray.h"
-    ],
+    "dependencies": [],
     "fields": [],
     "functions": []
   },
@@ -4937,6 +3820,33 @@
     "dependencies": [
       "../include/repository.h"
     ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "stdint.h",
+    "ignore": false,
+    "cppClassName": "GitStdint",
+    "jsClassName": "Stdint",
+    "dependencies": [
+      "../include/tree.h",
+      "../include/repository.h",
+      "../include/tree_entry.h",
+      "../include/object.h",
+      "../include/treebuilder.h",
+      "../include/oid.h"
+    ],
+    "fields": [],
+    "functions": []
+  },
+  {
+    "cType": null,
+    "filename": "stdarray.h",
+    "ignore": false,
+    "cppClassName": "GitStdarray",
+    "jsClassName": "Stdarray",
+    "dependencies": [],
     "fields": [],
     "functions": []
   },
