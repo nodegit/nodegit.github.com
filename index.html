@@ -160,7 +160,7 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     {%each functions as function%}
                   <ul class="functions inner-block">
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
-{%if function.isConstructorMethod%}
+{%if not function.isPrototypeMethod%}
                       <strong class="cName">{{jsClassName}}.</strong><strong class="name">{{function.jsFunctionName}}</strong>
                       <p>{{{ function.description }}}</p>
 <pre class="function language-javascript"><code>{{ jsClassName }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i}}{%endeach%});</code></pre>
