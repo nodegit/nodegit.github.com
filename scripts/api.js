@@ -56,13 +56,8 @@
         ctor.functions = ctor.functions || ctor.fields;
       }
 
-      (ctor.functions||[]).forEach(function(func) {
+      (ctor.functions||[]).filter(Boolean).forEach(function(func) {
         var isPrototype = func.isPrototypeMethod ? "#" : ".";
-        anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
-      });
-
-      (ctor.fields||[]).forEach(function(field) {
-        var isPrototype = "#";
         anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
       });
     });
