@@ -126,7 +126,9 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
 
                   <h4>Properties:</h4>
                   <ul class="properties inner-block">
-                    {%if not fields.length%}
+                    {%if not fields%}
+                    <li>No properties available.</li>
+                    {%elsif not fields.length%}
                     <li>No properties available.</li>
                     {%else%}
                     <li>
