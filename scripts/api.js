@@ -37,7 +37,9 @@
       return value[0].toLowerCase() + value.slice(1);
     });
 
-    resp.forEach(function(ctor) {
+    resp.filter(function(ctor) {
+      return ctor.jsClassName;
+    }).forEach(function(ctor) {
       // Add nav entry.
       var anchor = $("<a href='#" + ctor.jsClassName + "'><li>" + ctor.jsClassName + "</li><ul class='subnav'></ul></a>").appendTo(scrollable);
 
@@ -46,7 +48,7 @@
 
       content.append(contentOutput);
 
-      ctor.functions.forEach(function(func) {
+      (ctor.functions||[]).forEach(function(func) {
         var isPrototype = func.isPrototypeMethod ? "#" : ".";
         anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
       });
