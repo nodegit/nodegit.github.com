@@ -153,7 +153,11 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                   </ul>
 
                   <h4>Functions:</h4>
-                    {%if not functions.length%}
+                    {%if not functions%}
+                  <ul class="functions inner-block">
+                    <li>No functions available.</li>
+                  </ul>
+                    {%elsif not functions.length%}
                   <ul class="functions inner-block">
                     <li>No functions available.</li>
                   </ul>
