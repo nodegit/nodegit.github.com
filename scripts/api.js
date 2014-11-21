@@ -48,8 +48,21 @@
 
       content.append(contentOutput);
 
+      // Join the fields and functions (they are both functions).
+      if (ctor.fields && ctor.functions) {
+        ctor.functions.push.apply(ctor.functions, ctor.fields);
+      }
+      else {
+        ctor.functions = ctor.functions || ctor.fields;
+      }
+
       (ctor.functions||[]).forEach(function(func) {
         var isPrototype = func.isPrototypeMethod ? "#" : ".";
+        anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
+      });
+
+      (ctor.fields||[]).forEach(function(field) {
+        var isPrototype = "#";
         anchor.find(".subnav").append("<a href='#" + ctor.jsClassName + "/function/" + func.jsFunctionName + "'><li>" + ctor.jsClassName + isPrototype + func.jsFunctionName + "</li></a>");
       });
     });

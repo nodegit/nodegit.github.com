@@ -124,34 +124,6 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     -->
                   </div>
 
-                  <h4>Properties:</h4>
-                  <ul class="properties inner-block">
-                    {%if not fields%}
-                    <li>No properties available.</li>
-                    {%elsif not fields.length%}
-                    <li>No properties available.</li>
-                    {%else%}
-                    <li>
-                      <table class="pure-table">
-                        <thead>
-                          <tr>
-                            <th><sub>Name</sub></th>
-                            <th><sub>Type</sub></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {%each fields as field%}
-                          <tr id="{{jsClassName}}/field/{{field.name}}">
-                            <td><strong>{{field.name}}</strong></td>
-                            <td>{{ field.jsClassName }}</td>
-                          </tr>
-                          {%endeach%}
-                        </tbody>
-                      </table>
-                    </li>
-                    {%endif%}
-                  </ul>
-
                   <h4>Functions:</h4>
                     {%if not functions%}
                   <ul class="functions inner-block">
