@@ -119,7 +119,6 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                   <pre class="const language-javascript">
 <code>var {{ jsClassName }} = require("nodegit").{{ jsClassName }};</code></pre>
                   <div class="header">
-                    <strong class="{%if not ignore%}is{%else%}not{%endif%} added">in API</strong>
                     <!--
                     <strong class="deps">Depends on: <a class="ref">Repository</a></strong>
                     -->
@@ -162,10 +161,12 @@ clone("git://github.com/nodegit/nodegit", "tmp").then(function(repo) {
                     <li id="{{jsClassName}}/function/{{function.jsFunctionName}}">
 {%if not function.isPrototypeMethod%}
                       <strong class="cName">{{jsClassName}}.</strong><strong class="name">{{function.jsFunctionName}}</strong>
+                      <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">in API</strong>
                       <p>{{{ function.description }}}</p>
 <pre class="function language-javascript"><code>{{ jsClassName }}.{{ function.jsFunctionName }}({%each function.args|realArgs as arg%}{{arg.name|addComma arg i}}{%endeach%});</code></pre>
 {%else%}
                       <strong class="cName">{{jsClassName}}#</strong><strong class="name">{{function.jsFunctionName}}</strong>
+                      <strong class="{%if not function.ignore%}is{%else%}not{%endif%} added">in API</strong>
                       <p>{{{ function.description }}}</p>
 <pre class="function language-javascript">
 <code>var {{ jsClassName|toCamelCase }} = new {{ jsClassName }}();
