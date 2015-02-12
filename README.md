@@ -1,2 +1,2 @@
-`bower install`
-`http-server`
+`script/bootstrap`
+`script/server`
