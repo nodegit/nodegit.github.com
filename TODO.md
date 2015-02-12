@@ -1,1 +1,0 @@
-- [ ] Start demo with HELP displayed so that available commands are known.
