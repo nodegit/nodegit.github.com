@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+body {
+  font-family:$font-family;
+  font-size:$font-size;
+  line-height:$line-height;
+  color:$text-color;
+}
+
+h1, h2, h3, h4, h5, nav, .version, .version-menu, .buttons {
+  font-family: Bitter, $font-family;
+  line-height:1;
+}
+
+h1, h2, h3, h4, h5 {
+  color:$headline-color;
+}
+
+h2 {
+  font-size:$font-size * 2;
+  margin-top:$spacing-unit;
+
+  &:first-child {
+    margin-top:0;
+  }
+}
+
+h3 {
+  font-size:$font-size * 1.2;
+}
+
+.version, .version-menu {
+  font-size:$font-size*0.8;
+}
+
+a {
+  text-decoration:none;
+  color:$key-color;
+
+  &:hover {
+    color:darken($key-color, 20%);
+  }
+}
+
+.outline {
+  font-weight:500;
+
+  a {
+    color:$text-color;
+
+    &:hover {
+      color:$headline-color;
+    }
+
+    &.selected {
+      color:$key-color;
+    }
+  }
+}

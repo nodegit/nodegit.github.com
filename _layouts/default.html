@@ -9,7 +9,16 @@
 
     <div class="page-content">
       <div class="wrapper">
-        {{ content }}
+        <div class="outline">
+          <ul>
+            {% for section_hash in page.sections %}
+            <li><a href="{{section_hash[1]}}">{{section_hash[0]}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="main">
+          {{ content }}
+        </div>
       </div>
     </div>
 

@@ -1,9 +1,15 @@
 # Site settings
 title: NodeGit
 description: Asynchronous native Node bindings to libgit2
-url: "http://nodegit.org" # the base hostname & protocol for your site
+url: "http://nodegit.org"
 date_format: "ordinal"
+current_nodegit_version: 0.3.0
+other_nodegit_versions:
+  - HEAD
+  - 0.2.7
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 highlighter: pygments
+permalink: pretty
+exclude: ["node_modules","generate","package.json","README.md"]
