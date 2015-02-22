@@ -3,11 +3,15 @@
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3,
 p, blockquote, pre,
 ul, ol, dl, figure, .highlight
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
+}
+
+html, body {
+  background:#fff;
 }
 
 body {
@@ -25,6 +29,7 @@ body {
 
 header {
   display:block;
+  background:#fff;
   overflow:hidden;
 
   .site-info {
@@ -212,15 +217,103 @@ header {
 
   .outline {
     float:right;
-    width:180px;
+    width:220px;
     padding:0 0 0 $spacing-unit;
     font-size:$font-size * 0.9;
     display:block;
+
+    ul {
+      border:none;
+    }
   }
 
   .main {
     overflow:hidden;
     width:auto;
+
+    table {
+      a {
+        color:$text-color;
+        font-weight:500;
+
+        span {
+          font-weight:normal;
+        }
+
+        &:hover {
+          color:$headline-color;
+        }
+      }
+
+      .tags {
+        position:relative;
+        top:-2px;
+        right:-12px;
+
+        span {
+          padding-top:2px;
+          padding-bottom:2px;
+        }
+      }
+    }
+  }
+}
+
+span.tags {
+  margin:0 0 0 6px;
+  position:relative;
+  top:-0.23em;
+
+  span {
+    font-size:12px;
+    display:inline-block;
+    padding:6px 8px;
+    border-radius:3px;
+    text-transform:uppercase;
+    color:#fff;
+    margin:0 8px 0 0;
+    font-family:$font-family;
+    font-weight:500;
+
+    &.enum {
+      background:#92D4D3;
+    }
+
+    &.sync {
+      background:#FD8487;
+    }
+
+    &.async {
+      background:#77D971;
+    }
+
+    &.experimental {
+      background:#FFBB85;
+    }
+  }
+}
+
+table {
+  border-collapse:collapse;
+  width:100%;
+  margin:0 0 $spacing-unit/2;
+
+  th {
+    font-weight:500;
+    color:#aaa;
+  }
+
+  td {
+    border-top:1px solid #ededed;
+  }
+
+  th, td {
+    padding:8px $spacing-unit/2;
+    text-align:left;
+
+    span {
+      color:#aaa;
+    }
   }
 }
 
