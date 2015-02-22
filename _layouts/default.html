@@ -10,11 +10,6 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="outline">
-          {% if page.return_to %}
-          {% for section_hash in page.return_to %}
-          <h5><a href="{{section_hash[1]}}">{{section_hash[0]}}</a></h5>
-          {% endfor %}
-          {% endif %}
           <ul>
             {% for section_hash in page.sections %}
             <li><a href="{{section_hash[1]}}">{{section_hash[0]}}</a></li>

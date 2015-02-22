@@ -10,8 +10,6 @@ other_nodegit_versions:
 
 # Build settings
 markdown: redcarpet
-redcarpet:
-  extensions: [tables, no_intra_emphasis, autolink]
 highlighter: pygments
 permalink: pretty
 exclude: ["node_modules","generate","package.json","README.md"]
