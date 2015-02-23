@@ -9,6 +9,8 @@ return_to:
 sections:
   "addSetup": "#addSetup"
   "lookup": "#lookup"
+  "reloadAll": "#reloadAll"
+  "resolveUrl": "#resolveUrl"
   "#addFinalize": "#addFinalize"
   "#addToIndex": "#addToIndex"
   "#branch": "#branch"
@@ -75,12 +77,45 @@ Submodule.lookup(repo, name).then(function(submodule) {
 | --- | --- |
 | [Submodule](/api/submodule/) | Output ptr to submodule; pass NULL to just get return code |
 
+## <a name="reloadAll"></a><span>Submodule.</span>reloadAll <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.reloadAll(repo, force);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repository to reload submodule data for |
+| force | Number | Force full reload even if the data doesn't seem out of date |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, 
+<
+0 on error |
+
+## <a name="resolveUrl"></a><span>Submodule.</span>resolveUrl <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+Submodule.resolveUrl(repo, url).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Pointer to repository object |
+| url | String | Relative url |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | buffer to store the absolute submodule url in |
+
 ## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = submodule.addFinalize();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -108,17 +143,15 @@ var result = submodule.addToIndex(write_index);
 var string = submodule.branch();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| String |  Pointer to the submodule branch |
+| String |  |
 
 ## <a name="fetchRecurseSubmodules"></a><span>Submodule#</span>fetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = submodule.fetchRecurseSubmodules();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -130,17 +163,15 @@ var result = submodule.fetchRecurseSubmodules();
 var oid = submodule.headId();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Oid](/api/oid/) |  Pointer to git_oid or NULL if submodule is not in the HEAD. |
+| [Oid](/api/oid/) |  |
 
 ## <a name="ignore"></a><span>Submodule#</span>ignore <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = submodule.ignore();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -153,10 +184,9 @@ var result = submodule.ignore();
 var oid = submodule.indexId();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Oid](/api/oid/) |  Pointer to git_oid or NULL if submodule is not in index. |
+| [Oid](/api/oid/) |  |
 
 ## <a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -180,10 +210,9 @@ var result = submodule.init(overwrite);
 var string = submodule.name();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| String |  Pointer to the submodule name |
+| String |  |
 
 ## <a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -207,10 +236,9 @@ var result = submodule.open(repo);
 var repository = submodule.owner();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) |  Pointer to `git_repository` |
+| [Repository](/api/repository/) |  |
 
 ## <a name="path"></a><span>Submodule#</span>path <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -218,10 +246,9 @@ var repository = submodule.owner();
 var string = submodule.path();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| String |  Pointer to the submodule path |
+| String |  |
 
 ## <a name="reload"></a><span>Submodule#</span>reload <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -253,14 +280,13 @@ submodule.repoInit(use_gitlink).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | Output pointer to the created git repository. |
+| [Repository](/api/repository/) |  |
 
 ## <a name="save"></a><span>Submodule#</span>save <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = submodule.save();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -332,7 +358,6 @@ var result = submodule.setUrl(url);
 var result = submodule.sync();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  |
@@ -360,7 +385,6 @@ var result = submodule.update(init, options);
 var result = submodule.updateStrategy();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  The current git_submodule_update_t value that will be used
@@ -372,10 +396,9 @@ var result = submodule.updateStrategy();
 var string = submodule.url();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| String |  Pointer to the submodule url |
+| String |  |
 
 ## <a name="wdId"></a><span>Submodule#</span>wdId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -383,10 +406,9 @@ var string = submodule.url();
 var oid = submodule.wdId();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Oid](/api/oid/) |  Pointer to git_oid or NULL if submodule is not checked out. |
+| [Oid](/api/oid/) |  |
 
 ## <a name="IGNORE"></a><span>Submodule.</span>IGNORE <span class="tags"><span class="enum">ENUM</span></span>
 

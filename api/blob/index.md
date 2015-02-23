@@ -7,6 +7,9 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "createFromBuffer": "#createFromBuffer"
+  "createFromDisk": "#createFromDisk"
+  "createFromWorkdir": "#createFromWorkdir"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#content": "#content"
@@ -19,10 +22,61 @@ sections:
   "#toString": "#toString"
 ---
 
-## <a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Blob.lookup(repo, id, callback);
+var result = Blob.createFromBuffer(id, repo, buffer, len);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) | return the id of the written blob |
+| repo | [Repository](/api/repository/) | repository where to blob will be written |
+| buffer | Buffer | data to be written into the blob |
+| len | Number | length of the data |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="createFromDisk"></a><span>Blob.</span>createFromDisk <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Blob.createFromDisk(id, repo, path);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) | return the id of the written blob |
+| repo | [Repository](/api/repository/) | repository where the blob will be written. this repository can be bare or not |
+| path | String | file from which the blob will be created |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Blob.createFromWorkdir(id, repo, relative_path);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) | return the id of the written blob |
+| repo | [Repository](/api/repository/) | repository where the blob will be written. this repository cannot be bare |
+| relative_path | String | file from which the blob will be created, relative to the repository's working dir |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="async">Async</span></span>
+
+```js
+Blob.lookup(repo, id).then(function(blob) {
+  // Use blob
+});
 ```
 
 Retrieves the blob pointed to by the oid
@@ -31,7 +85,11 @@ Retrieves the blob pointed to by the oid
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repo that the blob lives in |
 | id | String, [Oid](/api/oid/), [Blob](/api/blob/) | The blob to lookup |
-| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| [Blob](/api/blob/) |  |
+
 ## <a name="lookupPrefix"></a><span>Blob.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -48,32 +106,39 @@ Blob.lookupPrefix(repo, id, len).then(function(blob) {
 
 | Returns |  |
 | --- | --- |
-| [Blob](/api/blob/) | pointer to the looked up blob |
+| [Blob](/api/blob/) |  |
 
 ## <a name="content"></a><span>Blob#</span>content <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-blob.content();
+var buffer = blob.content();
 ```
 
 Retrieve the content of the Blob.
 
 
+| Returns |  |
+| --- | --- |
+| Buffer | Contents as a buffer. |
+
 ## <a name="filemode"></a><span>Blob#</span>filemode <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-blob.filemode();
+var number = blob.filemode();
 ```
 
 Retrieve the Blob's type.
 
+
+| Returns |  |
+| --- | --- |
+| Number | The filemode of the blob. |
 
 ## <a name="id"></a><span>Blob#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = blob.id();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -84,7 +149,6 @@ var oid = blob.id();
 ```js
 var result = blob.isBinary();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -97,7 +161,6 @@ var result = blob.isBinary();
 var repository = blob.owner();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) |  Repository that contains this blob. |
@@ -108,17 +171,15 @@ var repository = blob.owner();
 var buffer = blob.rawcontent();
 ```
 
-
 | Returns |  |
 | --- | --- |
-| Buffer |  the pointer |
+| Buffer |  |
 
 ## <a name="rawsize"></a><span>Blob#</span>rawsize <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = blob.rawsize();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -127,9 +188,13 @@ var result = blob.rawsize();
 ## <a name="toString"></a><span>Blob#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-blob.toString();
+var string = blob.toString();
 ```
 
 Retrieve the Blob's content as String.
 
+
+| Returns |  |
+| --- | --- |
+| String | Contents as a string. |
 

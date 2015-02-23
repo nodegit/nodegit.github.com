@@ -7,10 +7,88 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "file": "#file"
+  "foreach": "#foreach"
+  "foreachExt": "#foreachExt"
+  "shouldIgnore": "#shouldIgnore"
   "OPT": "#OPT"
   "SHOW": "#SHOW"
   "STATUS": "#STATUS"
 ---
+
+## <a name="file"></a><span>Status.</span>file <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Status.file(status_flags, repo, path);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| status_flags | Number | Output combination of git_status_t values for file |
+| repo | [Repository](/api/repository/) | A repository object |
+| path | String | The exact path to retrieve status for relative to the repository working directory |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, GIT_ENOTFOUND if the file is not found in the HEAD,
+      index, and work tree, GIT_EAMBIGUOUS if `path` matches multiple files
+      or if it refers to a folder, and -1 on other errors. |
+
+## <a name="foreach"></a><span>Status.</span>foreach <span class="tags"><span class="async">Async</span></span>
+
+```js
+Status.foreach(repo, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | A repository object |
+| callback | StatusCb | The function to call on each file |
+| payload | Void | Pointer to pass through to callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, non-zero callback return value, or error code |
+
+## <a name="foreachExt"></a><span>Status.</span>foreachExt <span class="tags"><span class="async">Async</span></span>
+
+```js
+Status.foreachExt(repo, opts, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository object |
+| opts | [StatusOptions](/api/status_options/) | Status options structure |
+| callback | StatusCb | The function to call on each file |
+| payload | Void | Pointer to pass through to callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, non-zero callback return value, or error code |
+
+## <a name="shouldIgnore"></a><span>Status.</span>shouldIgnore <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Status.shouldIgnore(ignored, repo, path);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| ignored | Number | Boolean returning 0 if the file is not ignored, 1 if it is |
+| repo | [Repository](/api/repository/) | A repository object |
+| path | String | The file to check ignores for, rooted at the repo's workdir. |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 if ignore rules could be processed for the file (regardless
+         of whether it exists or not), or an error 
+<
+ 0 if they could not. |
 
 ## <a name="OPT"></a><span>Status.</span>OPT <span class="tags"><span class="enum">ENUM</span></span>
 

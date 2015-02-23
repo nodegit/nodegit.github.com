@@ -23,7 +23,6 @@ sections:
 var oid = packbuilder.hash();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) |  |
@@ -77,7 +76,6 @@ var result = packbuilder.insertTree(id);
 var result = packbuilder.objectCount();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the number of objects in the packfile |
@@ -101,7 +99,6 @@ var result = packbuilder.setThreads(n);
 ```js
 var result = packbuilder.written();
 ```
-
 
 | Returns |  |
 | --- | --- |

@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "entryStage": "#entryStage"
   "open": "#open"
   "#add": "#add"
   "#addByPath": "#addByPath"
@@ -35,6 +36,20 @@ sections:
   "CAP": "#CAP"
 ---
 
+## <a name="entryStage"></a><span>Index.</span>entryStage <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Index.entryStage(entry);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| entry | [IndexEntry](/api/index_entry/) | The entry |
+
+| Returns |  |
+| --- | --- |
+| Number |  the stage number |
+
 ## <a name="open"></a><span>Index.</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -49,7 +64,7 @@ Index.open(index_path).then(function(index) {
 
 | Returns |  |
 | --- | --- |
-| [Index](/api/index/) | the pointer for the new index |
+| [Index](/api/index/) |  |
 
 ## <a name="add"></a><span>Index#</span>add <span class="tags"><span class="sync">Sync</span></span>
 
@@ -85,7 +100,6 @@ var result = index.addByPath(path);
 var result = index.caps();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  A combination of GIT_INDEXCAP values |
@@ -95,7 +109,6 @@ var result = index.caps();
 ```js
 var result = index.clear();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -125,7 +138,6 @@ var result = index.conflictAdd(ancestor_entry, our_entry, their_entry);
 var result = index.conflictCleanup();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
@@ -147,17 +159,20 @@ var result = index.conflictRemove(path);
 ## <a name="entries"></a><span>Index#</span>entries <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-index.entries();
+var arrayIndexEntry = index.entries();
 ```
 
 Return an array of the entries in this index.
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[IndexEntry](/api/index_entry/)&gt; | an array of IndexEntrys |
 
 ## <a name="entryCount"></a><span>Index#</span>entryCount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = index.entryCount();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -198,7 +213,6 @@ var indexEntry = index.getByPath(path, stage);
 var result = index.hasConflicts();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  1 if at least one conflict is found, 0 otherwise. |
@@ -209,7 +223,6 @@ var result = index.hasConflicts();
 var repository = index.owner();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) |  the repository |
@@ -219,7 +232,6 @@ var repository = index.owner();
 ```js
 var string = index.path();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -317,7 +329,6 @@ var result = index.setCaps(caps);
 var result = index.write();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
@@ -329,7 +340,6 @@ index.writeTree().then(function(oid) {
   // Use oid
 });
 ```
-
 
 | Returns |  |
 | --- | --- |

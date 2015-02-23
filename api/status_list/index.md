@@ -25,14 +25,13 @@ var statusList = StatusList.create(repo, opts);
 
 | Returns |  |
 | --- | --- |
-| [StatusList](/api/status_list/) | Pointer to store the status results in |
+| [StatusList](/api/status_list/) |  |
 
 ## <a name="entrycount"></a><span>StatusList#</span>entrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = statusList.entrycount();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -45,7 +44,6 @@ statusList.getPerfdata().then(function(diffPerfdata) {
   // Use diffPerfdata
 });
 ```
-
 
 | Returns |  |
 | --- | --- |

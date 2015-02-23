@@ -37,7 +37,6 @@ var oid = Oid.fromString(str);
 var result = oid.cmp();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  
@@ -52,7 +51,6 @@ var result = oid.cmp();
 var result = oid.equal();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  true if equal, false otherwise |
@@ -62,7 +60,6 @@ var result = oid.equal();
 ```js
 var result = oid.iszero();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -118,7 +115,6 @@ var result = oid.streq(str);
 ```js
 var string = oid.tostrS();
 ```
-
 
 | Returns |  |
 | --- | --- |

@@ -20,7 +20,6 @@ sections:
 var result = buf.containsNul();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  1 if buffer contains a NUL byte |
@@ -46,7 +45,6 @@ buf.grow(target_size).then(function(buf) {
 ```js
 var result = buf.isBinary();
 ```
-
 
 | Returns |  |
 | --- | --- |

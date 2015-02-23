@@ -6,7 +6,8 @@ var removePointerReferences = function(text) {
   if (!text) return '';
   text = text.replace(/a pointer to /ig, '');
   text = text.replace(/pointer where to store /ig, '');
-  return text
+  text = text.match(/pointer/i) ? '' : text; // Better to ignore pointer text
+  return text;
 }
 
 var sanitizeArgName = function(className, comment) {
@@ -37,6 +38,7 @@ var generatedData = function(path, missingTestsPath) {
         item.functions.forEach(function(func) {
           data = {
             params: [],
+            fires: [],
             return: {
               type: func.return.jsClassName,
               name: sanitizeArgName(func.return.jsClassName, func.return.comment),
@@ -44,11 +46,11 @@ var generatedData = function(path, missingTestsPath) {
             },
             isAsync: func.isAsync,
             description: "",
-            experimental: false
+            experimental: false,
           }
 
           if (missingTests) {
-            if (missingTests[item.filename].testFileMissing === false) {
+            if (!missingTests[item.filename] || missingTests[item.filename].testFileMissing === false) {
               data.experimental = true;
             } else {
               if (missingTests[item.filename].functions.indexOf(item.jsClassName) != -1) {
@@ -76,7 +78,7 @@ var generatedData = function(path, missingTestsPath) {
 
           if (func.isPrototypeMethod) {
             obj.prototypes[func.jsFunctionName] = data
-          } else if (func.isConstructorMethod) {
+          } else {
             obj.constructors[func.jsFunctionName] = data
           }
         });

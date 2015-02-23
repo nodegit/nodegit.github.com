@@ -9,6 +9,10 @@ return_to:
 sections:
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
+  "size": "#size"
+  "string2type": "#string2type"
+  "type2string": "#type2string"
+  "typeisloose": "#typeisloose"
   "#dup": "#dup"
   "#id": "#id"
   "#lookupByPath": "#lookupByPath"
@@ -35,7 +39,7 @@ Object.lookup(repo, id, type).then(function(object) {
 
 | Returns |  |
 | --- | --- |
-| [Object](/api/object/) | pointer to the looked-up object |
+| [Object](/api/object/) |  |
 
 ## <a name="lookupPrefix"></a><span>Object.</span>lookupPrefix <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -56,6 +60,63 @@ Object.lookupPrefix(repo, id, len, type).then(function(object) {
 | --- | --- |
 | [Object](/api/object/) | the looked-up object |
 
+## <a name="size"></a><span>Object.</span>size <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Object.size(type);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| type | Number | object type to get its size |
+
+| Returns |  |
+| --- | --- |
+| Number |  size in bytes of the object |
+
+## <a name="string2type"></a><span>Object.</span>string2type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Object.string2type(str);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| str | String | the string to convert. |
+
+| Returns |  |
+| --- | --- |
+| Number |  the corresponding git_otype. |
+
+## <a name="type2string"></a><span>Object.</span>type2string <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = Object.type2string(type);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| type | Number | object type to convert. |
+
+| Returns |  |
+| --- | --- |
+| String |  the corresponding string representation. |
+
+## <a name="typeisloose"></a><span>Object.</span>typeisloose <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Object.typeisloose(type);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| type | Number | object type to test. |
+
+| Returns |  |
+| --- | --- |
+| Number |  true if the type represents a valid loose object type,
+ false otherwise. |
+
 ## <a name="dup"></a><span>Object#</span>dup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
@@ -64,17 +125,15 @@ object.dup().then(function(object) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Object](/api/object/) | Pointer to store the copy of the object |
+| [Object](/api/object/) |  |
 
 ## <a name="id"></a><span>Object#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var oid = object.id();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -104,7 +163,6 @@ object.lookupByPath(path, type).then(function(object) {
 var repository = object.owner();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) |  the repository who owns this object |
@@ -123,7 +181,7 @@ object.peel(target_type).then(function(object) {
 
 | Returns |  |
 | --- | --- |
-| [Object](/api/object/) | Pointer to the peeled git_object |
+| [Object](/api/object/) |  |
 
 ## <a name="shortId"></a><span>Object#</span>shortId <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -132,7 +190,6 @@ object.shortId().then(function(buf) {
   // Use buf
 });
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -143,7 +200,6 @@ object.shortId().then(function(buf) {
 ```js
 var result = object.type();
 ```
-
 
 | Returns |  |
 | --- | --- |

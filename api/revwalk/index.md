@@ -40,24 +40,29 @@ var revwalk = Revwalk.create(repo);
 
 | Returns |  |
 | --- | --- |
-| [Revwalk](/api/revwalk/) | pointer to the new revision walker |
+| [Revwalk](/api/revwalk/) |  |
 
 ## <a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-revwalk.getCommits(count);
+var arrayCommit = revwalk.getCommits(count);
 ```
 
-Get some of commits.
+Get a number of commits.
 
 
 | Parameters | Type |
 | --- | --- | --- |
 | count | Number | (default: 10) |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[Commit](/api/commit/)&gt; |  |
+
 ## <a name="getCommitsUntil"></a><span>Revwalk#</span>getCommitsUntil <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-revwalk.getCommitsUntil(checkFn);
+var array = revwalk.getCommitsUntil(checkFn);
 ```
 
 Walk the history grabbing commits until the checkFn called with the
@@ -66,7 +71,12 @@ current commit returns false.
 
 | Parameters | Type |
 | --- | --- | --- |
-| checkFn | Function |  |
+| checkFn | Function | function returns false to stop walking |
+
+| Returns |  |
+| --- | --- |
+| Array |  |
+
 ## <a name="hide"></a><span>Revwalk#</span>hide <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -101,7 +111,6 @@ var result = revwalk.hideGlob(glob);
 var result = revwalk.hideHead();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
@@ -127,7 +136,6 @@ revwalk.next().then(function(oid) {
   // Use oid
 });
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -167,7 +175,6 @@ var result = revwalk.pushGlob(glob);
 var result = revwalk.pushHead();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
@@ -206,7 +213,6 @@ var result = revwalk.pushRef(refname);
 var repository = revwalk.repository();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) |  the repository being walked |
@@ -236,10 +242,11 @@ like `revwalk.sorting(NodeGit.RevWalk.Topological, NodeGit.RevWalk.Reverse).`
 | Parameters | Type |
 | --- | --- | --- |
 | sort | Number |  |
+
 ## <a name="walk"></a><span>Revwalk#</span>walk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-revwalk.walk(oid, callback);
+var commit = revwalk.walk(oid, callback);
 ```
 
 Walk the history from the given oid. The callback is invoked for each commit;
@@ -250,6 +257,11 @@ When the walk is over, the callback is invoked with `(null, null)`.
 | --- | --- | --- |
 | oid | [Oid](/api/oid/) |  |
 | callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
+
 ## <a name="SORT"></a><span>Revwalk.</span>SORT <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |

@@ -7,6 +7,8 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "create": "#create"
+  "createV": "#createV"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#amend": "#amend"
@@ -14,6 +16,7 @@ sections:
   "#committer": "#committer"
   "#date": "#date"
   "#getEntry": "#getEntry"
+  "#getParents": "#getParents"
   "#getTree": "#getTree"
   "#history": "#history"
   "#id": "#id"
@@ -36,10 +39,56 @@ sections:
   "#treeId": "#treeId"
 ---
 
-## <a name="lookup"></a><span>Commit.</span>lookup <span class="tags"><span class="sync">Sync</span></span>
+## <a name="create"></a><span>Commit.</span>create <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Commit.lookup(repo, id, callback);
+var oid = Commit.create(repo, update_ref, author, committer, message_encoding, message, tree, parent_count, parents);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository where to store the commit |
+| update_ref | String | If not NULL, name of the reference that will be updated to point to this commit. If the reference is not direct, it will be resolved to a direct reference. Use "HEAD" to update the HEAD of the current branch and make it point to this commit. If the reference doesn't exist yet, it will be created. If it does exist, the first parent must be the tip of this branch. |
+| author | [Signature](/api/signature/) | Signature with author and author time of commit |
+| committer | [Signature](/api/signature/) | Signature with committer and * commit time of commit |
+| message_encoding | String | The encoding for the message in the commit, represented with a standard encoding name. E.g. "UTF-8". If NULL, no encoding header is written and UTF-8 is assumed. |
+| message | String | Full message for this commit |
+| tree | [Tree](/api/tree/) | An instance of a `git_tree` object that will be used as the tree for the commit. This tree object must also be owned by the given `repo`. |
+| parent_count | Number | Number of parents for this commit |
+| parents | Array | Array of `parent_count` pointers to `git_commit` objects that will be used as the parents for this commit. This array may be NULL if `parent_count` is 0 (root commit). All the given commits must be owned by the `repo`. |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  |
+
+## <a name="createV"></a><span>Commit.</span>createV <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Commit.createV(id, repo, update_ref, author, committer, message_encoding, message, tree, parent_count);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) |  |
+| repo | [Repository](/api/repository/) |  |
+| update_ref | String |  |
+| author | [Signature](/api/signature/) |  |
+| committer | [Signature](/api/signature/) |  |
+| message_encoding | String |  |
+| message | String |  |
+| tree | [Tree](/api/tree/) |  |
+| parent_count | Number |  |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="lookup"></a><span>Commit.</span>lookup <span class="tags"><span class="async">Async</span></span>
+
+```js
+Commit.lookup(repo, id).then(function(commit) {
+  // Use commit
+});
 ```
 
 Retrieves the commit pointed to by the oid
@@ -48,7 +97,11 @@ Retrieves the commit pointed to by the oid
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repo that the commit lives in |
 | id | String, [Oid](/api/oid/), [Commit](/api/commit/) | The commit to lookup |
-| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
+
 ## <a name="lookupPrefix"></a><span>Commit.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -65,7 +118,7 @@ Commit.lookupPrefix(repo, id, len).then(function(commit) {
 
 | Returns |  |
 | --- | --- |
-| [Commit](/api/commit/) | pointer to the looked up commit |
+| [Commit](/api/commit/) |  |
 
 ## <a name="amend"></a><span>Commit#</span>amend <span class="tags"><span class="sync">Sync</span></span>
 
@@ -93,7 +146,6 @@ var result = commit.amend(id, update_ref, author, committer, message_encoding, m
 var signature = commit.author();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the author of a commit |
@@ -104,7 +156,6 @@ var signature = commit.author();
 var signature = commit.committer();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the committer of a commit |
@@ -112,15 +163,21 @@ var signature = commit.committer();
 ## <a name="date"></a><span>Commit#</span>date <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-commit.date();
+var date = commit.date();
 ```
 
 Retrieve the commit time as a Date object.
 
-## <a name="getEntry"></a><span>Commit#</span>getEntry <span class="tags"><span class="sync">Sync</span></span>
+| Returns |  |
+| --- | --- |
+| Date |  |
+
+## <a name="getEntry"></a><span>Commit#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 
 ```js
-commit.getEntry(path, callback);
+commit.getEntry(path).then(function(treeEntry) {
+  // Use treeEntry
+});
 ```
 
 Retrieve the entry represented by path for this commit.
@@ -130,37 +187,88 @@ Path must be relative to repository root.
 | Parameters | Type |
 | --- | --- | --- |
 | path | String |  |
-| callback | Function |  |
-## <a name="getTree"></a><span>Commit#</span>getTree <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [TreeEntry](/api/tree_entry/) |  |
+
+## <a name="getParents"></a><span>Commit#</span>getParents <span class="tags"><span class="async">Async</span></span>
 
 ```js
-commit.getTree(callback);
+commit.getParents(limit, callback).then(function(arrayCommit) {
+  // Use arrayCommit
+});
+```
+
+Retrieve the commit's parents as commit objects.
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| limit | number | Optional amount of parents to return. |
+| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[Commit](/api/commit/)&gt; | array of commits |
+
+## <a name="getTree"></a><span>Commit#</span>getTree <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.getTree().then(function(tree) {
+  // Use tree
+});
 ```
 
 Get the tree associated with this commit.
 
 
-| Parameters | Type |
-| --- | --- | --- |
-| callback | Function |  |
+| Returns |  |
+| --- | --- |
+| [Tree](/api/tree/) |  |
+
 ## <a name="history"></a><span>Commit#</span>history <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-commit.history();
+var eventEmitter = commit.history();
+
+eventEmitter.on('commit', function(commit) {
+  // Use commit
+});
+
+eventEmitter.on('end', function(commits) {
+  // Use commits
+});
+
+eventEmitter.on('error', function(error) {
+  // Use error
+});
+
+eventEmitter.start()
 ```
 
 Walk the history from this commit backwards.
+
 An EventEmitter is returned that will emit a "commit" event for each
 commit in the history, and one "end" event when the walk is completed.
-Don"t forget to call `start()` on the returned event.
+Don't forget to call `start()` on the returned event.
 
+
+| Fires | Sends |
+| --- | --- |
+| commit | [Commit](/api/commit/) |
+| end | Array&lt;[Commit](/api/commit/)&gt; |
+| error | Error  |
+
+| Returns |  |
+| --- | --- |
+| EventEmitter |  |
 
 ## <a name="id"></a><span>Commit#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = commit.id();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -172,7 +280,6 @@ var oid = commit.id();
 var string = commit.message();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | String |  the message of a commit |
@@ -183,7 +290,6 @@ var string = commit.message();
 var string = commit.messageEncoding();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | String |  NULL, or the encoding |
@@ -193,7 +299,6 @@ var string = commit.messageEncoding();
 ```js
 var string = commit.messageRaw();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -220,7 +325,6 @@ commit.nthGenAncestor(n).then(function(commit) {
 ```js
 var repository = commit.owner();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -262,7 +366,6 @@ var oid = commit.parentId(n);
 var result = commit.parentcount();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  integer of count of parents |
@@ -270,7 +373,7 @@ var result = commit.parentcount();
 ## <a name="parents"></a><span>Commit#</span>parents <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-commit.parents(callback);
+var arrayOids = commit.parents(callback);
 ```
 
 Retrieve the commit"s parent shas.
@@ -279,12 +382,16 @@ Retrieve the commit"s parent shas.
 | Parameters | Type |
 | --- | --- | --- |
 | callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;Oids&gt; | array of oids |
+
 ## <a name="rawHeader"></a><span>Commit#</span>rawHeader <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = commit.rawHeader();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -293,17 +400,20 @@ var string = commit.rawHeader();
 ## <a name="sha"></a><span>Commit#</span>sha <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-commit.sha();
+var string = commit.sha();
 ```
 
 Retrieve the SHA.
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="summary"></a><span>Commit#</span>summary <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = commit.summary();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -315,7 +425,6 @@ var string = commit.summary();
 var result = commit.time();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the time of a commit |
@@ -323,17 +432,20 @@ var result = commit.time();
 ## <a name="timeMs"></a><span>Commit#</span>timeMs <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-commit.timeMs();
+var number = commit.timeMs();
 ```
 
 Retrieve the commit time as a unix timestamp.
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="timeOffset"></a><span>Commit#</span>timeOffset <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = commit.timeOffset();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -358,7 +470,6 @@ var result = commit.tree(tree_out);
 ```js
 var oid = commit.treeId();
 ```
-
 
 | Returns |  |
 | --- | --- |

@@ -31,7 +31,6 @@ var result = indexer.commit(stats);
 var oid = indexer.hash();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) |  |

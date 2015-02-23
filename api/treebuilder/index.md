@@ -45,7 +45,6 @@ treebuilder.clear();
 var result = treebuilder.entrycount();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the number of entries in the treebuilder |
@@ -62,7 +61,7 @@ var treeEntry = treebuilder.get(filename);
 
 | Returns |  |
 | --- | --- |
-| [TreeEntry](/api/tree_entry/) |  pointer to the entry; NULL if not found |
+| [TreeEntry](/api/tree_entry/) |  |
 
 ## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -80,7 +79,7 @@ treebuilder.insert(filename, id, filemode).then(function(treeEntry) {
 
 | Returns |  |
 | --- | --- |
-| [TreeEntry](/api/tree_entry/) | Pointer to store the entry (optional) |
+| [TreeEntry](/api/tree_entry/) |  |
 
 ## <a name="remove"></a><span>Treebuilder#</span>remove <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

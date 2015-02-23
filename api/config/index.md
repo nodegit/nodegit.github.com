@@ -68,10 +68,9 @@ config.snapshot().then(function(config) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Config](/api/config/) | pointer in which to store the snapshot config object |
+| [Config](/api/config/) |  |
 
 ## <a name="LEVEL"></a><span>Config.</span>LEVEL <span class="tags"><span class="enum">ENUM</span></span>
 

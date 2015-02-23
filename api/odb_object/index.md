@@ -20,7 +20,6 @@ sections:
 var buffer = odbObject.data();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Buffer |  the data |
@@ -33,7 +32,6 @@ odbObject.dup().then(function(odbObject) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [OdbObject](/api/odb_object/) | the copy |
@@ -43,7 +41,6 @@ odbObject.dup().then(function(odbObject) {
 ```js
 var oid = odbObject.id();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -55,7 +52,6 @@ var oid = odbObject.id();
 var result = odbObject.size();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the size |
@@ -65,7 +61,6 @@ var result = odbObject.size();
 ```js
 var result = odbObject.type();
 ```
-
 
 | Returns |  |
 | --- | --- |

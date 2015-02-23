@@ -25,6 +25,8 @@ sections:
   "#getNamespace": "#getNamespace"
   "#getReference": "#getReference"
   "#getReferenceCommit": "#getReferenceCommit"
+  "#getReferenceNames": "#getReferenceNames"
+  "#getReferences": "#getReferences"
   "#getTag": "#getTag"
   "#getTagByName": "#getTagByName"
   "#getTree": "#getTree"
@@ -67,7 +69,7 @@ Repository.init(path, is_bare).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | pointer to the repo which will be created or reinitialized |
+| [Repository](/api/repository/) |  |
 
 ## <a name="initExt"></a><span>Repository.</span>initExt <span class="tags"><span class="async">Async</span></span>
 
@@ -84,7 +86,7 @@ Repository.initExt(repo_path, opts).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | Pointer to the repo which will be created or reinitialized. |
+| [Repository](/api/repository/) |  |
 
 ## <a name="open"></a><span>Repository.</span>open <span class="tags"><span class="async">Async</span></span>
 
@@ -100,7 +102,7 @@ Repository.open(path).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | pointer to the repo which will be opened |
+| [Repository](/api/repository/) |  |
 
 ## <a name="openBare"></a><span>Repository.</span>openBare <span class="tags"><span class="async">Async</span></span>
 
@@ -116,7 +118,7 @@ Repository.openBare(bare_path).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | Pointer to the repo which will be opened. |
+| [Repository](/api/repository/) |  |
 
 ## <a name="openExt"></a><span>Repository.</span>openExt <span class="tags"><span class="async">Async</span></span>
 
@@ -134,9 +136,7 @@ Repository.openExt(path, flags, ceiling_dirs).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | Pointer to the repo which will be opened.  This can
-        actually be NULL if you only want to use the error code to
-        see if a repo at this path could be opened. |
+| [Repository](/api/repository/) |  |
 
 ## <a name="wrapOdb"></a><span>Repository.</span>wrapOdb <span class="tags"><span class="async">Async</span></span>
 
@@ -152,7 +152,7 @@ Repository.wrapOdb(odb).then(function(repository) {
 
 | Returns |  |
 | --- | --- |
-| [Repository](/api/repository/) | pointer to the repo |
+| [Repository](/api/repository/) |  |
 
 ## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>
 
@@ -162,10 +162,9 @@ repository.config().then(function(config) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Config](/api/config/) | Pointer to store the loaded configuration |
+| [Config](/api/config/) |  |
 
 ## <a name="configSnapshot"></a><span>Repository#</span>configSnapshot <span class="tags"><span class="async">Async</span></span>
 
@@ -175,15 +174,14 @@ repository.configSnapshot().then(function(config) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Config](/api/config/) | Pointer to store the loaded configuration |
+| [Config](/api/config/) |  |
 
 ## <a name="createRevWalk"></a><span>Repository#</span>createRevWalk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.createRevWalk(String, callback);
+var revWalk = repository.createRevWalk(String);
 ```
 
 Instantiate a new revision walker for browsing the Repository"s history.
@@ -193,7 +191,11 @@ See also `Commit.prototype.history()`
 | Parameters | Type |
 | --- | --- | --- |
 | String | String, [Oid](/api/oid/) | sha or Oid |
-| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| RevWalk |  |
+
 ## <a name="detachHead"></a><span>Repository#</span>detachHead <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -210,10 +212,12 @@ var result = repository.detachHead(signature, reflog_message);
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
 
-## <a name="getBlob"></a><span>Repository#</span>getBlob <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getBlob"></a><span>Repository#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getBlob(String, callback);
+repository.getBlob(String).then(function(blob) {
+  // Use blob
+});
 ```
 
 Retrieve the blob represented by the oid.
@@ -222,11 +226,17 @@ Retrieve the blob represented by the oid.
 | Parameters | Type |
 | --- | --- | --- |
 | String | String, [Oid](/api/oid/) | sha or Oid |
-| callback | Function |  |
-## <a name="getBranch"></a><span>Repository#</span>getBranch <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Blob](/api/blob/) |  |
+
+## <a name="getBranch"></a><span>Repository#</span>getBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getBranch(name, callback);
+repository.getBranch(name).then(function(ref) {
+  // Use ref
+});
 ```
 
 Look up a branch. Alias for `getReference`
@@ -235,11 +245,17 @@ Look up a branch. Alias for `getReference`
 | Parameters | Type |
 | --- | --- | --- |
 | name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
-| callback | Function |  |
-## <a name="getBranchCommit"></a><span>Repository#</span>getBranchCommit <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| Ref |  |
+
+## <a name="getBranchCommit"></a><span>Repository#</span>getBranchCommit <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getBranchCommit(name, callback);
+repository.getBranchCommit(name).then(function(commit) {
+  // Use commit
+});
 ```
 
 Look up a branch's most recent commit. Alias to `getReferenceCommit`
@@ -248,11 +264,17 @@ Look up a branch's most recent commit. Alias to `getReferenceCommit`
 | Parameters | Type |
 | --- | --- | --- |
 | name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
-| callback | Function |  |
-## <a name="getCommit"></a><span>Repository#</span>getCommit <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
+
+## <a name="getCommit"></a><span>Repository#</span>getCommit <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getCommit(String, callback);
+repository.getCommit(String).then(function(commit) {
+  // Use commit
+});
 ```
 
 Retrieve the commit identified by oid.
@@ -261,15 +283,25 @@ Retrieve the commit identified by oid.
 | Parameters | Type |
 | --- | --- | --- |
 | String | String, [Oid](/api/oid/) | sha or Oid |
-| callback | Function |  |
-## <a name="getCurrentBranch"></a><span>Repository#</span>getCurrentBranch <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
+
+## <a name="getCurrentBranch"></a><span>Repository#</span>getCurrentBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getCurrentBranch();
+repository.getCurrentBranch().then(function(reference) {
+  // Use reference
+});
 ```
 
 Gets the branch that HEAD currently points to
 Is an alias to head()
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) |  |
 
 ## <a name="getNamespace"></a><span>Repository#</span>getNamespace <span class="tags"><span class="sync">Sync</span></span>
 
@@ -277,15 +309,16 @@ Is an alias to head()
 var string = repository.getNamespace();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | String |  the active namespace, or NULL if there isn't one |
 
-## <a name="getReference"></a><span>Repository#</span>getReference <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getReference"></a><span>Repository#</span>getReference <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getReference(name, callback);
+repository.getReference(name).then(function(reference) {
+  // Use reference
+});
 ```
 
 Lookup the reference with the given name.
@@ -294,11 +327,17 @@ Lookup the reference with the given name.
 | Parameters | Type |
 | --- | --- | --- |
 | name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
-| callback | Function |  |
-## <a name="getReferenceCommit"></a><span>Repository#</span>getReferenceCommit <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) |  |
+
+## <a name="getReferenceCommit"></a><span>Repository#</span>getReferenceCommit <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getReferenceCommit(name, callback);
+repository.getReferenceCommit(name).then(function(commit) {
+  // Use commit
+});
 ```
 
 Look up a refs's commit.
@@ -307,11 +346,55 @@ Look up a refs's commit.
 | Parameters | Type |
 | --- | --- | --- |
 | name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
-| callback | Function |  |
-## <a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
+
+## <a name="getReferenceNames"></a><span>Repository#</span>getReferenceNames <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getTag(String, callback);
+repository.getReferenceNames(type).then(function(arrayString) {
+  // Use arrayString
+});
+```
+
+Lookup reference names for a repository.
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| type | [Reference.TYPE](/api/reference/#TYPE) | Type of reference to look up |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;String&gt; |  |
+
+## <a name="getReferences"></a><span>Repository#</span>getReferences <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.getReferences(type).then(function(arrayReference) {
+  // Use arrayReference
+});
+```
+
+Lookup references for a repository.
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| type | [Reference.TYPE](/api/reference/#TYPE) | Type of reference to look up |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[Reference](/api/reference/)&gt; |  |
+
+## <a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.getTag(String).then(function(tag) {
+  // Use tag
+});
 ```
 
 Retrieve the tag represented by the oid.
@@ -320,11 +403,17 @@ Retrieve the tag represented by the oid.
 | Parameters | Type |
 | --- | --- | --- |
 | String | String, [Oid](/api/oid/) | sha or Oid |
-| callback | Function |  |
-## <a name="getTagByName"></a><span>Repository#</span>getTagByName <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Tag](/api/tag/) |  |
+
+## <a name="getTagByName"></a><span>Repository#</span>getTagByName <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getTagByName(Short, callback);
+repository.getTagByName(Short).then(function(tag) {
+  // Use tag
+});
 ```
 
 Retrieve the tag represented by the tag name.
@@ -333,11 +422,17 @@ Retrieve the tag represented by the tag name.
 | Parameters | Type |
 | --- | --- | --- |
 | Short | String | or full tag name |
-| callback | Function |  |
-## <a name="getTree"></a><span>Repository#</span>getTree <span class="tags"><span class="sync">Sync</span></span>
+
+| Returns |  |
+| --- | --- |
+| [Tag](/api/tag/) |  |
+
+## <a name="getTree"></a><span>Repository#</span>getTree <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getTree(String, callback);
+repository.getTree(String).then(function(tree) {
+  // Use tree
+});
 ```
 
 Retrieve the tree represented by the oid.
@@ -346,7 +441,11 @@ Retrieve the tree represented by the oid.
 | Parameters | Type |
 | --- | --- | --- |
 | String | String, [Oid](/api/oid/) | sha or Oid |
-| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| [Tree](/api/tree/) |  |
+
 ## <a name="head"></a><span>Repository#</span>head <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -355,17 +454,15 @@ repository.head().then(function(reference) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Reference](/api/reference/) | pointer to the reference which will be retrieved |
+| [Reference](/api/reference/) |  |
 
 ## <a name="headDetached"></a><span>Repository#</span>headDetached <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = repository.headDetached();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -377,7 +474,6 @@ var result = repository.headDetached();
 ```js
 var result = repository.headUnborn();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -392,17 +488,15 @@ repository.index().then(function(index) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Index](/api/index/) | Pointer to store the loaded index |
+| [Index](/api/index/) |  |
 
 ## <a name="isBare"></a><span>Repository#</span>isBare <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = repository.isBare();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -413,7 +507,6 @@ var result = repository.isBare();
 ```js
 var result = repository.isEmpty();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -426,7 +519,6 @@ var result = repository.isEmpty();
 var result = repository.isShallow();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  1 if shallow, zero if not |
@@ -436,7 +528,6 @@ var result = repository.isShallow();
 ```js
 var result = repository.messageRemove();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -450,17 +541,15 @@ repository.odb().then(function(odb) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Odb](/api/odb/) | Pointer to store the loaded ODB |
+| [Odb](/api/odb/) |  |
 
 ## <a name="path"></a><span>Repository#</span>path <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = repository.path();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -474,10 +563,9 @@ repository.refdb().then(function(refdb) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| [Refdb](/api/refdb/) | Pointer to store the loaded refdb |
+| [Refdb](/api/refdb/) |  |
 
 ## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="sync">Sync</span></span>
 
@@ -546,7 +634,6 @@ var result = repository.setWorkdir(workdir, update_gitlink);
 var result = repository.state();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  The state of the repository |
@@ -557,7 +644,6 @@ var result = repository.state();
 var result = repository.stateCleanup();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, or error |
@@ -567,7 +653,6 @@ var result = repository.stateCleanup();
 ```js
 var string = repository.workdir();
 ```
-
 
 | Returns |  |
 | --- | --- |

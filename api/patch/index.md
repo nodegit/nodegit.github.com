@@ -80,7 +80,6 @@ var patch = Patch.fromDiff(diff, idx);
 var diffDelta = patch.getDelta();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  |
@@ -119,7 +118,6 @@ var diffLine = patch.getLineInHunk(hunk_idx, line_of_hunk);
 ```js
 var result = patch.numHunks();
 ```
-
 
 | Returns |  |
 | --- | --- |

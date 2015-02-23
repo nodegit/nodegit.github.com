@@ -17,7 +17,6 @@ sections:
 var result = strarray.copy();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, 

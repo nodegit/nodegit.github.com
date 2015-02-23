@@ -54,7 +54,6 @@ Hashsig.createFromFile(path, opts).then(function(hashsig) {
 var result = hashsig.compare();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  

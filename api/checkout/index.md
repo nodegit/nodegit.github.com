@@ -8,15 +8,18 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "head": "#head"
+  "initOptions": "#initOptions"
   "tree": "#tree"
   "NOTIFY": "#NOTIFY"
   "STRATEGY": "#STRATEGY"
 ---
 
-## <a name="head"></a><span>Checkout.</span>head <span class="tags"><span class="sync">Sync</span></span>
+## <a name="head"></a><span>Checkout.</span>head <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Checkout.head(, );
+Checkout.head(repo, [options]).then(function() {
+  // checkout complete
+});
 ```
 
 Patch head checkout to automatically coerce objects.
@@ -24,12 +27,30 @@ Patch head checkout to automatically coerce objects.
 
 | Parameters | Type |   |
 | --- | --- | --- |
-|  | r |  |
-|  | ption |  |
-## <a name="tree"></a><span>Checkout.</span>tree <span class="tags"><span class="sync">Sync</span></span>
+| repo | [Repository](/api/repository/) | The repo to checkout head |
+| [options] | [CheckoutOptions](/api/checkout_options/) | Options for the checkout |
+
+## <a name="initOptions"></a><span>Checkout.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Checkout.tree(, , );
+var result = Checkout.initOptions(opts, version);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| opts | [CheckoutOptions](/api/checkout_options/) | the `git_checkout_options` struct to initialize. |
+| version | Number | Version of struct; pass `GIT_CHECKOUT_OPTIONS_VERSION` |
+
+| Returns |  |
+| --- | --- |
+| Number |  Zero on success; -1 on failure. |
+
+## <a name="tree"></a><span>Checkout.</span>tree <span class="tags"><span class="async">Async</span></span>
+
+```js
+Checkout.tree(repo, treeish, [options]).then(function() {
+  // checkout complete
+});
 ```
 
 Patch tree checkout to automatically coerce objects.
@@ -37,9 +58,10 @@ Patch tree checkout to automatically coerce objects.
 
 | Parameters | Type |   |
 | --- | --- | --- |
-|  | ep |  |
-|  | reeis |  |
-|  | ption |  |
+| repo | [Repository](/api/repository/) |  |
+| treeish | [Oid](/api/oid/), [Tree](/api/tree/), [Commit](/api/commit/), [Reference](/api/reference/) |  |
+| [options] | [CheckoutOptions](/api/checkout_options/) |  |
+
 ## <a name="NOTIFY"></a><span>Checkout.</span>NOTIFY <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |

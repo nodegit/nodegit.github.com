@@ -20,6 +20,12 @@
 
   pre {
     margin:0;
+
+    code {
+      border:none;
+      background:none;
+      padding:0;
+    }
   }
 }
 .highlight .hll { background-color: #d6d6d6 }

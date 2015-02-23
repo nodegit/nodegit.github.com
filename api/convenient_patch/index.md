@@ -26,112 +26,168 @@ sections:
 ## <a name="hunks"></a><span>ConvenientPatch#</span>hunks <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.hunks();
+var convenientHunk = convenientPatch.hunks();
 ```
 
 The hunks in this patch
 
+| Returns |  |
+| --- | --- |
+| [ConvenientHunk](/api/convenient_hunk/) | an array of ConvenientHunks |
+
 ## <a name="isAdded"></a><span>ConvenientPatch#</span>isAdded <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isAdded();
+var boolean = convenientPatch.isAdded();
 ```
 
 Is this an added patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isCopied"></a><span>ConvenientPatch#</span>isCopied <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isCopied();
+var boolean = convenientPatch.isCopied();
 ```
 
 Is this a copied patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isDeleted"></a><span>ConvenientPatch#</span>isDeleted <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isDeleted();
+var boolean = convenientPatch.isDeleted();
 ```
 
 Is this a deleted patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isIgnored"></a><span>ConvenientPatch#</span>isIgnored <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isIgnored();
+var boolean = convenientPatch.isIgnored();
 ```
 
 Is this an ignored patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isModified"></a><span>ConvenientPatch#</span>isModified <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isModified();
+var boolean = convenientPatch.isModified();
 ```
 
 Is this an modified patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isRenamed"></a><span>ConvenientPatch#</span>isRenamed <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isRenamed();
+var boolean = convenientPatch.isRenamed();
 ```
 
 Is this a renamed patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isTypeChange"></a><span>ConvenientPatch#</span>isTypeChange <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isTypeChange();
+var boolean = convenientPatch.isTypeChange();
 ```
 
 Is this a type change?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isUnmodified"></a><span>ConvenientPatch#</span>isUnmodified <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isUnmodified();
+var boolean = convenientPatch.isUnmodified();
 ```
 
 Is this an unmodified patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isUntracked"></a><span>ConvenientPatch#</span>isUntracked <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.isUntracked();
+var boolean = convenientPatch.isUntracked();
 ```
 
 Is this an untracked patch?
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="newFile"></a><span>ConvenientPatch#</span>newFile <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.newFile();
+var string = convenientPatch.newFile();
 ```
 
 New name of the file
 
+| Returns |  |
+| --- | --- |
+| String |  |
+
 ## <a name="oldFile"></a><span>ConvenientPatch#</span>oldFile <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.oldFile();
+var string = convenientPatch.oldFile();
 ```
 
 Old name of the file
 
+| Returns |  |
+| --- | --- |
+| String |  |
+
 ## <a name="size"></a><span>ConvenientPatch#</span>size <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.size();
+var number = convenientPatch.size();
 ```
 
 The number of hunks in this patch
 
+| Returns |  |
+| --- | --- |
+| Number |  |
+
 ## <a name="status"></a><span>ConvenientPatch#</span>status <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-convenientPatch.status();
+var number = convenientPatch.status();
 ```
 
 The status of this patch (unmodified, added, deleted)
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 

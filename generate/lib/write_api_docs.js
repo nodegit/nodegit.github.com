@@ -22,11 +22,49 @@ var writeApiDocs = function(apiData, path) {
   }
 
   var crossLink = function(text) {
-    if (apiData[text]) {
-      return "[" + text + "](" + path + "api/" + changeCase.snakeCase(text) + "/)";
-    } else {
-      return text;
+    var link = function(text) {
+      var matches = text.match(/(.+)\.(.+)/i),
+          className = text,
+          hash = '';
+
+      if (matches) {
+        className = matches[1];
+        hash = matches[2];
+      }
+
+      if (apiData[className]) {
+        return "[" + text + "](" + path + "api/" + changeCase.snakeCase(className) + "/" + (hash ? "#" + hash : "") + ")";
+      } else {
+        return text;
+      }
     }
+
+    var arrayMatches = text.match(/Array\.?<(.*)>/i);
+
+    if (arrayMatches) {
+      return "Array&lt;" + link(arrayMatches[1]) + "&gt;";
+    } else {
+      return link(text);
+    }
+  }
+
+  var getReturnVariable = function(data) {
+    var returnName = '';
+    if (data.return && data.return.type &&
+        data.return.name != 'undefined' && data.return.name != 'void') {
+      returnName = convertReturnVariable(data.return.name);
+    }
+
+    return returnName;
+  }
+
+  var convertReturnVariable = function(text) {
+    var returnName = changeCase.camelCase(text.replace(/^\s+|\s+$/, '')), matches;
+    if (matches = text.match(/Array\.?<(.*)>/i)) {
+      returnName = changeCase.camelCase(matches[1]) + 's';
+    }
+
+    return returnName;
   }
 
   Object.keys(apiData).sort().forEach(function(item) {
@@ -71,17 +109,18 @@ var writeApiDocs = function(apiData, path) {
         pageBody += tags + "\n\n";
         pageBody += "```js\n";
 
-        var returnName = null;
-        if (fdata.return && fdata.return.type &&
-            fdata.return.name != 'undefined' && fdata.return.name != 'void') {
-          returnName = fdata.return.name;
-        }
+        var returnName = getReturnVariable(fdata);
 
         if (fdata.isAsync) {
-          returnName = returnName || 'data';
           pageBody += item + "." + obj + "(" + fdata.params.map(function(param) {return param.name})
             .join(", ") + ").then(function(" + returnName + ") {\n";
-          pageBody += "  // Use " + returnName + "\n";
+          if (returnName) {
+            pageBody += "  // Use " + returnName + "\n";
+          } else if (fdata.return.description) {
+            pageBody += "  // " + fdata.return.description + "\n";
+          } else {
+            pageBody += "  // method complete"
+          }
           pageBody += "});\n";
         } else {
           if (returnName) {
@@ -107,10 +146,20 @@ var writeApiDocs = function(apiData, path) {
             pageBody += "| " + param.name + " | " + types.join(', ') + " | " +
               (param.description || '').replace(/\n/g, '').replace(/\s+/g, ' ') + " |\n";
           });
+          pageBody += "\n";
         }
 
-        if (returnName) {
-          pageBody += "\n| Returns |  |\n";
+        if (fdata.fires.length) {
+          pageBody += "| Fires | Sends |\n";
+          pageBody += "| --- | --- |\n";
+          fdata.fires.forEach(function(fire) {
+            pageBody += "| " + fire.name + " | " + crossLink(fire.sends) + " |\n";
+          });
+          pageBody += "\n";
+        }
+
+        if (returnName && fdata.return) {
+          pageBody += "| Returns |  |\n";
           pageBody += "| --- | --- |\n";
           pageBody += "| " + crossLink(fdata.return.type) + " | " + fdata.return.description + " |\n\n";
         }
@@ -145,17 +194,18 @@ var writeApiDocs = function(apiData, path) {
 
         homeBody += "| " + linkToEntry(method, item, obj) + " | " + tags + " |\n";
 
-        var returnName = null;
-        if (fdata.return && fdata.return.type &&
-            fdata.return.name != 'undefined' && fdata.return.name != 'void') {
-          returnName = fdata.return.name;
-        }
+        var returnName = getReturnVariable(fdata);
 
         if (fdata.isAsync) {
-          returnName = returnName || 'data';
           pageBody += changeCase.camelCase(item) + "." + obj + "(" + fdata.params.map(function(param) {return param.name})
             .join(", ") + ").then(function(" + returnName + ") {\n";
-          pageBody += "  // Use " + returnName + "\n";
+            if (returnName) {
+              pageBody += "  // Use " + returnName + "\n";
+            } else if (fdata.return.description) {
+              pageBody += "  // " + fdata.return.description + "\n";
+            } else {
+              pageBody += "  // method complete"
+            }
           pageBody += "});\n";
         } else {
           if (returnName) {
@@ -163,6 +213,18 @@ var writeApiDocs = function(apiData, path) {
           }
           pageBody += changeCase.camelCase(item) + "." + obj + "(" + fdata.params.map(function(param) {return param.name})
             .join(", ") + ");\n";
+
+          if (fdata.fires.length) {
+            fdata.fires.forEach(function(fire) {
+              pageBody += "\n" + returnName + ".on('" + fire.name + "', function(" + convertReturnVariable(fire.sends) + ") {\n";
+              pageBody += "  // Use " + convertReturnVariable(fire.sends) + "\n";
+              pageBody += "});\n"
+            });
+
+            if (fdata.start) {
+              pageBody += "\n" + returnName + "." + fdata.start + "\n";
+            }
+          }
         }
         pageBody += "```\n\n";
 
@@ -180,10 +242,20 @@ var writeApiDocs = function(apiData, path) {
             pageBody += "| " + param.name + " | " + types.join(', ') + " | " +
               (param.description || '').replace(/\n/g, '').replace(/\s+/g, ' ') + " |\n";
           });
+          pageBody += "\n";
         }
 
-        if (returnName) {
-          pageBody += "\n| Returns |  |\n";
+        if (fdata.fires.length) {
+          pageBody += "| Fires | Sends |\n";
+          pageBody += "| --- | --- |\n";
+          fdata.fires.forEach(function(fire) {
+            pageBody += "| " + fire.name + " | " + crossLink(fire.sends) + " |\n";
+          });
+          pageBody += "\n";
+        }
+
+        if (returnName && fdata.return) {
+          pageBody += "| Returns |  |\n";
           pageBody += "| --- | --- |\n";
           pageBody += "| " + crossLink(fdata.return.type) + " | " + fdata.return.description + " |\n\n";
         }
@@ -249,7 +321,6 @@ var writeApiDocs = function(apiData, path) {
       pageContent += "---\n\n";
       pageContent += pageBody;
 
-      console.log("- Writing " + item);
       fs.outputFileSync('api/' + changeCase.snakeCase(item) + '/index.md', pageContent);
     }
   });
@@ -265,7 +336,6 @@ var writeApiDocs = function(apiData, path) {
   homeContent += "---\n\n";
   homeContent += homeBody;
 
-  console.log("- Writing API Index")
   fs.outputFileSync('.' + path + 'api/index.md', homeContent);
 
 

@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "file": "#file"
+  "initOptions": "#initOptions"
   "#buffer": "#buffer"
   "#getHunkByIndex": "#getHunkByIndex"
   "#getHunkByLine": "#getHunkByLine"
@@ -31,7 +32,22 @@ Blame.file(repo, path, options).then(function(blame) {
 
 | Returns |  |
 | --- | --- |
-| [Blame](/api/blame/) | pointer that will receive the blame object |
+| [Blame](/api/blame/) |  |
+
+## <a name="initOptions"></a><span>Blame.</span>initOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Blame.initOptions(opts, version);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| opts | [BlameOptions](/api/blame_options/) | The `git_blame_options` struct to initialize |
+| version | Number | Version of struct; pass `GIT_BLAME_OPTIONS_VERSION` |
+
+| Returns |  |
+| --- | --- |
+| Number |  Zero on success; -1 on failure. |
 
 ## <a name="buffer"></a><span>Blame#</span>buffer <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -48,7 +64,7 @@ blame.buffer(buffer, buffer_len).then(function(blame) {
 
 | Returns |  |
 | --- | --- |
-| [Blame](/api/blame/) | pointer that will receive the resulting blame data |
+| [Blame](/api/blame/) |  |
 
 ## <a name="getHunkByIndex"></a><span>Blame#</span>getHunkByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -83,7 +99,6 @@ var blameHunk = blame.getHunkByLine(lineno);
 ```js
 var result = blame.getHunkCount();
 ```
-
 
 | Returns |  |
 | --- | --- |

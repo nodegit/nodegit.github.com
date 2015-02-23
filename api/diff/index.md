@@ -42,7 +42,7 @@ Diff.indexToWorkdir(repo, index, opts).then(function(diff) {
 
 | Returns |  |
 | --- | --- |
-| [Diff](/api/diff/) | Output pointer to a git_diff pointer to be allocated. |
+| [Diff](/api/diff/) |  |
 
 ## <a name="treeToIndex"></a><span>Diff.</span>treeToIndex <span class="tags"><span class="async">Async</span></span>
 
@@ -61,7 +61,7 @@ Diff.treeToIndex(repo, old_tree, index, opts).then(function(diff) {
 
 | Returns |  |
 | --- | --- |
-| [Diff](/api/diff/) | Output pointer to a git_diff pointer to be allocated. |
+| [Diff](/api/diff/) |  |
 
 ## <a name="treeToTree"></a><span>Diff.</span>treeToTree <span class="tags"><span class="async">Async</span></span>
 
@@ -80,7 +80,7 @@ Diff.treeToTree(repo, old_tree, new_tree, opts).then(function(diff) {
 
 | Returns |  |
 | --- | --- |
-| [Diff](/api/diff/) | Output pointer to a git_diff pointer to be allocated. |
+| [Diff](/api/diff/) |  |
 
 ## <a name="treeToWorkdir"></a><span>Diff.</span>treeToWorkdir <span class="tags"><span class="async">Async</span></span>
 
@@ -98,7 +98,7 @@ Diff.treeToWorkdir(repo, old_tree, opts).then(function(diff) {
 
 | Returns |  |
 | --- | --- |
-| [Diff](/api/diff/) | a git_diff pointer that will be allocated. |
+| [Diff](/api/diff/) |  |
 
 ## <a name="treeToWorkdirWithIndex"></a><span>Diff.</span>treeToWorkdirWithIndex <span class="tags"><span class="async">Async</span></span>
 
@@ -116,7 +116,7 @@ Diff.treeToWorkdirWithIndex(repo, old_tree, opts).then(function(diff) {
 
 | Returns |  |
 | --- | --- |
-| [Diff](/api/diff/) | a git_diff pointer that will be allocated. |
+| [Diff](/api/diff/) |  |
 
 ## <a name="getDelta"></a><span>Diff#</span>getDelta <span class="tags"><span class="sync">Sync</span></span>
 
@@ -130,7 +130,7 @@ var diffDelta = diff.getDelta(idx);
 
 | Returns |  |
 | --- | --- |
-| [DiffDelta](/api/diff_delta/) |  Pointer to git_diff_delta (or NULL if `idx` out of range) |
+| [DiffDelta](/api/diff_delta/) |  |
 
 ## <a name="getPerfdata"></a><span>Diff#</span>getPerfdata <span class="tags"><span class="async">Async</span></span>
 
@@ -139,7 +139,6 @@ diff.getPerfdata().then(function(diffPerfdata) {
   // Use diffPerfdata
 });
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -151,7 +150,6 @@ diff.getPerfdata().then(function(diffPerfdata) {
 var result = diff.numDeltas();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  Count of number of deltas in the list |
@@ -159,11 +157,15 @@ var result = diff.numDeltas();
 ## <a name="patches"></a><span>Diff#</span>patches <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-diff.patches();
+var convenientPatch = diff.patches();
 ```
 
 Retrieve patches in this difflist
 
+
+| Returns |  |
+| --- | --- |
+| [ConvenientPatch](/api/convenient_patch/) | an array of ConvenientPatches |
 
 ## <a name="DELTA"></a><span>Diff.</span>DELTA <span class="tags"><span class="enum">ENUM</span></span>
 

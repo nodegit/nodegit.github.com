@@ -25,15 +25,13 @@ Refdb.open(repo).then(function(refdb) {
 
 | Returns |  |
 | --- | --- |
-| [Refdb](/api/refdb/) | location to store the database pointer, if opened.
-			Set to NULL if the open failed. |
+| [Refdb](/api/refdb/) |  |
 
 ## <a name="compress"></a><span>Refdb#</span>compress <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
 var result = refdb.compress();
 ```
-
 
 | Returns |  |
 | --- | --- |

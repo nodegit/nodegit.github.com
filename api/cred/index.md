@@ -22,7 +22,6 @@ sections:
 var cred = Cred.defaultNew();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Cred](/api/cred/) |  |
@@ -94,7 +93,6 @@ var cred = Cred.userpassPlaintextNew(username, password);
 ```js
 var result = cred.hasUsername();
 ```
-
 
 | Returns |  |
 | --- | --- |

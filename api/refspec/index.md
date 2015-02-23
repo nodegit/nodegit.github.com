@@ -21,7 +21,6 @@ sections:
 var result = refspec.direction();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  GIT_DIRECTION_FETCH or GIT_DIRECTION_PUSH |
@@ -31,7 +30,6 @@ var result = refspec.direction();
 ```js
 var string = refspec.dst();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -57,7 +55,6 @@ var result = refspec.dstMatches(refname);
 var result = refspec.force();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  1 if force update has been set, 0 otherwise |
@@ -67,7 +64,6 @@ var result = refspec.force();
 ```js
 var string = refspec.src();
 ```
-
 
 | Returns |  |
 | --- | --- |

@@ -20,69 +20,105 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
-## <a name="getBlob"></a><span>TreeEntry#</span>getBlob <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getBlob"></a><span>TreeEntry#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 
 ```js
-treeEntry.getBlob();
+treeEntry.getBlob().then(function(blob) {
+  // Use blob
+});
 ```
 
 Retrieve the tree for this entry. Make sure to call `isTree` first!
 
-## <a name="getTree"></a><span>TreeEntry#</span>getTree <span class="tags"><span class="sync">Sync</span></span>
+| Returns |  |
+| --- | --- |
+| [Blob](/api/blob/) |  |
+
+## <a name="getTree"></a><span>TreeEntry#</span>getTree <span class="tags"><span class="async">Async</span></span>
 
 ```js
-treeEntry.getTree();
+treeEntry.getTree().then(function(tree) {
+  // Use tree
+});
 ```
 
 Retrieve the tree for this entry. Make sure to call `isTree` first!
+
+| Returns |  |
+| --- | --- |
+| [Tree](/api/tree/) |  |
 
 ## <a name="isBlob"></a><span>TreeEntry#</span>isBlob <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.isBlob();
+var boolean = treeEntry.isBlob();
 ```
 
 Is this TreeEntry a blob? Alias for `isFile`
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isDirectory"></a><span>TreeEntry#</span>isDirectory <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.isDirectory();
+var boolean = treeEntry.isDirectory();
 ```
 
 Is this TreeEntry a directory? Alias for `isTree`
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isFile"></a><span>TreeEntry#</span>isFile <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.isFile();
+var boolean = treeEntry.isFile();
 ```
 
 Is this TreeEntry a blob? (i.e., a file)
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isTree"></a><span>TreeEntry#</span>isTree <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.isTree();
+var boolean = treeEntry.isTree();
 ```
 
 Is this TreeEntry a tree? (i.e., a directory)
 
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="path"></a><span>TreeEntry#</span>path <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.path();
+var string = treeEntry.path();
 ```
 
 Returns the path for this entry.
 
+| Returns |  |
+| --- | --- |
+| String |  |
+
 ## <a name="sha"></a><span>TreeEntry#</span>sha <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treeEntry.sha();
+var string = treeEntry.sha();
 ```
 
 Retrieve the SHA for this TreeEntry.
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="toString"></a><span>TreeEntry#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 

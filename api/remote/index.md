@@ -10,6 +10,10 @@ sections:
   "create": "#create"
   "createAnonymous": "#createAnonymous"
   "createWithFetchspec": "#createWithFetchspec"
+  "delete": "#delete"
+  "initCallbacks": "#initCallbacks"
+  "isValidName": "#isValidName"
+  "list": "#list"
   "lookup": "#lookup"
   "#addFetch": "#addFetch"
   "#addPush": "#addPush"
@@ -82,7 +86,7 @@ Remote.createAnonymous(repo, url, fetch).then(function(remote) {
 
 | Returns |  |
 | --- | --- |
-| [Remote](/api/remote/) | pointer to the new remote object |
+| [Remote](/api/remote/) |  |
 
 ## <a name="createWithFetchspec"></a><span>Remote.</span>createWithFetchspec <span class="tags"><span class="async">Async</span></span>
 
@@ -103,10 +107,72 @@ Remote.createWithFetchspec(repo, name, url, fetch).then(function(remote) {
 | --- | --- |
 | [Remote](/api/remote/) | the resulting remote |
 
-## <a name="lookup"></a><span>Remote.</span>lookup <span class="tags"><span class="sync">Sync</span></span>
+## <a name="delete"></a><span>Remote.</span>delete <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Remote.lookup(repo, name, callback);
+var result = Remote.delete(repo, name);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to act |
+| name | String | the name of the remove to delete |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, or an error code. |
+
+## <a name="initCallbacks"></a><span>Remote.</span>initCallbacks <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.initCallbacks(opts, version);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| opts | [RemoteCallbacks](/api/remote_callbacks/) | the `git_remote_callbacks` struct to initialize |
+| version | Number | Version of struct; pass `GIT_REMOTE_CALLBACKS_VERSION` |
+
+| Returns |  |
+| --- | --- |
+| Number |  Zero on success; -1 on failure. |
+
+## <a name="isValidName"></a><span>Remote.</span>isValidName <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.isValidName(remote_name);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| remote_name | String | name to be checked. |
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if the reference name is acceptable; 0 if it isn't |
+
+## <a name="list"></a><span>Remote.</span>list <span class="tags"><span class="async">Async</span></span>
+
+```js
+Remote.list(repo).then(function(array) {
+  // Use array
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to query |
+
+| Returns |  |
+| --- | --- |
+| Array | a string array which receives the names of the remotes |
+
+## <a name="lookup"></a><span>Remote.</span>lookup <span class="tags"><span class="async">Async</span></span>
+
+```js
+Remote.lookup(repo, name, callback).then(function(remote) {
+  // Use remote
+});
 ```
 
 Retrieves the remote by name
@@ -116,6 +182,11 @@ Retrieves the remote by name
 | repo | [Repository](/api/repository/) | The repo that the remote lives in |
 | name | String, [Remote](/api/remote/) | The remote to lookup |
 | callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| [Remote](/api/remote/) |  |
+
 ## <a name="addFetch"></a><span>Remote#</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -150,7 +221,6 @@ var result = remote.addPush(refspec);
 var result = remote.autotag();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the auto-follow setting |
@@ -183,7 +253,6 @@ remote.connect(direction).then(function(result) {
 var result = remote.connected();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  1 if it's connected, 0 otherwise. |
@@ -191,15 +260,9 @@ var result = remote.connected();
 ## <a name="disconnect"></a><span>Remote#</span>disconnect <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.disconnect().then(function(data) {
-  // Use data
-});
+remote.disconnect().then(function() {
+  // method complete});
 ```
-
-
-| Returns |  |
-| --- | --- |
-| Void |  |
 
 ## <a name="download"></a><span>Remote#</span>download <span class="tags"><span class="async">Async</span></span>
 
@@ -224,7 +287,6 @@ remote.dup().then(function(remote) {
   // Use remote
 });
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -254,7 +316,6 @@ remote.fetch(refspecs, signature, reflog_message).then(function(result) {
 var remoteCallbacks = remote.getCallbacks();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [RemoteCallbacks](/api/remote_callbacks/) |  the callbacks structure |
@@ -267,10 +328,9 @@ remote.getFetchRefspecs().then(function(array) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| Array | pointer to the array in which to store the strings |
+| Array |  |
 
 ## <a name="getPushRefspecs"></a><span>Remote#</span>getPushRefspecs <span class="tags"><span class="async">Async</span></span>
 
@@ -280,10 +340,9 @@ remote.getPushRefspecs().then(function(array) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
-| Array | pointer to the array in which to store the strings |
+| Array |  |
 
 ## <a name="getRefspec"></a><span>Remote#</span>getRefspec <span class="tags"><span class="sync">Sync</span></span>
 
@@ -305,7 +364,6 @@ var refspec = remote.getRefspec(n);
 var string = remote.name();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | String |  the name or NULL for in-memory remotes |
@@ -315,7 +373,6 @@ var string = remote.name();
 ```js
 var repository = remote.owner();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -327,7 +384,6 @@ var repository = remote.owner();
 var result = remote.prune();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
@@ -337,7 +393,6 @@ var result = remote.prune();
 ```js
 var result = remote.pruneRefs();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -366,7 +421,6 @@ var result = remote.push(refspecs, opts, signature, reflog_message);
 var string = remote.pushurl();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | String |  the url or NULL if no special url for pushing is set |
@@ -377,7 +431,6 @@ var string = remote.pushurl();
 var result = remote.refspecCount();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  the amount of refspecs configured in this remote |
@@ -387,7 +440,6 @@ var result = remote.refspecCount();
 ```js
 var result = remote.save();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -402,6 +454,7 @@ remote.setAutotag(value);
 | Parameters | Type |
 | --- | --- | --- |
 | value | Number | a GIT_REMOTE_DOWNLOAD_TAGS value |
+
 ## <a name="setCallbacks"></a><span>Remote#</span>setCallbacks <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -439,6 +492,7 @@ remote.setUpdateFetchhead(value);
 | Parameters | Type |
 | --- | --- | --- |
 | value | Number | 0 to disable updating FETCH_HEAD |
+
 ## <a name="setUrl"></a><span>Remote#</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -459,7 +513,6 @@ var result = remote.setUrl(url);
 var transferProgress = remote.stats();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [TransferProgress](/api/transfer_progress/) |  |
@@ -475,7 +528,6 @@ remote.stop();
 ```js
 var result = remote.updateFetchhead();
 ```
-
 
 | Returns |  |
 | --- | --- |
@@ -516,7 +568,6 @@ var result = remote.upload(refspecs, opts);
 ```js
 var string = remote.url();
 ```
-
 
 | Returns |  |
 | --- | --- |

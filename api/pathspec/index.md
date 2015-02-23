@@ -7,6 +7,11 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "matchListDiffEntry": "#matchListDiffEntry"
+  "matchListEntry": "#matchListEntry"
+  "matchListEntrycount": "#matchListEntrycount"
+  "matchListFailedEntry": "#matchListFailedEntry"
+  "matchListFailedEntrycount": "#matchListFailedEntrycount"
   "#matchDiff": "#matchDiff"
   "#matchIndex": "#matchIndex"
   "#matchTree": "#matchTree"
@@ -14,6 +19,79 @@ sections:
   "#matchesPath": "#matchesPath"
   "FLAG": "#FLAG"
 ---
+
+## <a name="matchListDiffEntry"></a><span>Pathspec.</span>matchListDiffEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var diffDelta = Pathspec.matchListDiffEntry(m, pos);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| m | [PathspecMatchList](/api/pathspec_match_list/) | The git_pathspec_match_list object |
+| pos | Number | The index into the list |
+
+| Returns |  |
+| --- | --- |
+| [DiffDelta](/api/diff_delta/) |  The filename of the match |
+
+## <a name="matchListEntry"></a><span>Pathspec.</span>matchListEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = Pathspec.matchListEntry(m, pos);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| m | [PathspecMatchList](/api/pathspec_match_list/) | The git_pathspec_match_list object |
+| pos | Number | The index into the list |
+
+| Returns |  |
+| --- | --- |
+| String |  The filename of the match |
+
+## <a name="matchListEntrycount"></a><span>Pathspec.</span>matchListEntrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Pathspec.matchListEntrycount(m);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| m | [PathspecMatchList](/api/pathspec_match_list/) | The git_pathspec_match_list object |
+
+| Returns |  |
+| --- | --- |
+| Number |  Number of items in match list |
+
+## <a name="matchListFailedEntry"></a><span>Pathspec.</span>matchListFailedEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = Pathspec.matchListFailedEntry(m, pos);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| m | [PathspecMatchList](/api/pathspec_match_list/) | The git_pathspec_match_list object |
+| pos | Number | The index into the failed items |
+
+| Returns |  |
+| --- | --- |
+| String |  The pathspec pattern that didn't match anything |
+
+## <a name="matchListFailedEntrycount"></a><span>Pathspec.</span>matchListFailedEntrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Pathspec.matchListFailedEntrycount(m);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| m | [PathspecMatchList](/api/pathspec_match_list/) | The git_pathspec_match_list object |
+
+| Returns |  |
+| --- | --- |
+| Number |  Number of items in original pathspec that had no matches |
 
 ## <a name="matchDiff"></a><span>Pathspec#</span>matchDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

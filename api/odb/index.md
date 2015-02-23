@@ -28,8 +28,7 @@ Odb.open(objects_dir).then(function(odb) {
 
 | Returns |  |
 | --- | --- |
-| [Odb](/api/odb/) | location to store the database pointer, if opened.
-			Set to NULL if the open failed. |
+| [Odb](/api/odb/) |  |
 
 ## <a name="addDiskAlternate"></a><span>Odb#</span>addDiskAlternate <span class="tags"><span class="sync">Sync</span></span>
 
@@ -77,7 +76,7 @@ odb.write(data, len, type).then(function(oid) {
 
 | Returns |  |
 | --- | --- |
-| [Oid](/api/oid/) | pointer to store the OID result of the write |
+| [Oid](/api/oid/) |  |
 
 ## <a name="STREAM"></a><span>Odb.</span>STREAM <span class="tags"><span class="enum">ENUM</span></span>
 

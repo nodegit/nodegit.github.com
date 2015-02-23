@@ -69,7 +69,6 @@ signature.dup().then(function(signature) {
 });
 ```
 
-
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) | the copy |
@@ -77,11 +76,15 @@ signature.dup().then(function(signature) {
 ## <a name="toString"></a><span>Signature#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-signature.toString();
+var string = signature.toString();
 ```
 
 Standard string representation of an author.
 
+
+| Returns |  |
+| --- | --- |
+| string | Representation of the author. |
 
 ## <a name="ivars"></a>Instance Variables
 

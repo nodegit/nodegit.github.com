@@ -7,8 +7,24 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "drop": "#drop"
   "FLAGS": "#FLAGS"
 ---
+
+## <a name="drop"></a><span>Stash.</span>drop <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Stash.drop(repo, index);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The owning repository. |
+| index | Number | The position within the stash list. 0 points to the most recent stashed state. |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, or error code |
 
 ## <a name="FLAGS"></a><span>Stash.</span>FLAGS <span class="tags"><span class="enum">ENUM</span></span>
 

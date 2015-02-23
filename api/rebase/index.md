@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "init": "#init"
+  "initOptions": "#initOptions"
   "open": "#open"
   "#abort": "#abort"
   "#commit": "#commit"
@@ -36,7 +37,22 @@ Rebase.init(repo, branch, upstream, onto, signature, opts).then(function(rebase)
 
 | Returns |  |
 | --- | --- |
-| [Rebase](/api/rebase/) | Pointer to store the rebase object |
+| [Rebase](/api/rebase/) |  |
+
+## <a name="initOptions"></a><span>Rebase.</span>initOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Rebase.initOptions(opts, version);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| opts | [RebaseOptions](/api/rebase_options/) | the `git_rebase_options` instance to initialize. |
+| version | Number | the version of the struct; you should pass `GIT_REBASE_OPTIONS_VERSION` here. |
+
+| Returns |  |
+| --- | --- |
+| Number |  Zero on success; -1 on failure. |
 
 ## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -52,7 +68,7 @@ Rebase.open(repo).then(function(rebase) {
 
 | Returns |  |
 | --- | --- |
-| [Rebase](/api/rebase/) | Pointer to store the rebase object |
+| [Rebase](/api/rebase/) |  |
 
 ## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -125,7 +141,6 @@ var rebaseOperation = rebase.operationByIndex(idx);
 var result = rebase.operationCurrent();
 ```
 
-
 | Returns |  |
 | --- | --- |
 | Number |  The index of the rebase operation currently being applied. |
@@ -135,7 +150,6 @@ var result = rebase.operationCurrent();
 ```js
 var result = rebase.operationEntrycount();
 ```
-
 
 | Returns |  |
 | --- | --- |

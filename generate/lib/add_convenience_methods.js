@@ -16,6 +16,7 @@ var addConvenienceMethods = function(apiData) {
 
       var data = {
         params: [],
+        fires: [],
         return: null,
         isAsync: false,
         description: doc.description.full
@@ -33,15 +34,26 @@ var addConvenienceMethods = function(apiData) {
             break;
           case 'return':
             data.return = {
-              name: tag.name,
+              name: changeCase.camelCase(tag.types[0]),
               type: tag.types[0],
-              description: tag.description || null
+              description: tag.description
             };
             break;
-          case 'isAsync':
-            if (tag.value == 'true') {
-              data.isAsync = true;
-            }
+          case 'async':
+            data.isAsync = true;
+            break;
+          case 'fires':
+            matches = tag.string.match(/.+#(.+) (.+)/)
+            data.fires.push({
+              name: matches[1],
+              sends: matches[2]
+            });
+            break;
+          case 'start':
+            data.start = tag.string;
+            break;
+          case 'log':
+            console.log(JSON.stringify(doc, 0, 4));
             break;
         }
       });

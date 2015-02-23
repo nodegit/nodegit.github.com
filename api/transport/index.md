@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "sshWithPaths": "#sshWithPaths"
+  "unregister": "#unregister"
   "#init": "#init"
   "FLAGS": "#FLAGS"
 ---
@@ -28,6 +29,20 @@ Transport.sshWithPaths(owner, payload).then(function(transport) {
 | Returns |  |
 | --- | --- |
 | [Transport](/api/transport/) | the resulting transport |
+
+## <a name="unregister"></a><span>Transport.</span>unregister <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Transport.unregister(prefix);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| prefix | String | From the previous call to git_transport_register |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
 
 ## <a name="init"></a><span>Transport#</span>init <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
