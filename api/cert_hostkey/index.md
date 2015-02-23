@@ -14,8 +14,8 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="cert_type"></a>cert_type | Number |
-| <a name="hash_md5"></a>hash_md5 | Char [16] |
-| <a name="hash_sha1"></a>hash_sha1 | Char [20] |
+| <a name="certType"></a>certType | Number |
+| <a name="hashMd5"></a>hashMd5 | Char [16] |
+| <a name="hashSha1"></a>hashSha1 | Char [20] |
 | <a name="type"></a>type | Number |
 

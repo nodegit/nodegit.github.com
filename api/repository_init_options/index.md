@@ -20,10 +20,10 @@ var repositoryInitOptions = new RepositoryInitOptions();
 | --- | --- |
 | <a name="description"></a>description | String |
 | <a name="flags"></a>flags | Number |
-| <a name="initial_head"></a>initial_head | String |
+| <a name="initialHead"></a>initialHead | String |
 | <a name="mode"></a>mode | Number |
-| <a name="origin_url"></a>origin_url | String |
-| <a name="template_path"></a>template_path | String |
+| <a name="originUrl"></a>originUrl | String |
+| <a name="templatePath"></a>templatePath | String |
 | <a name="version"></a>version | Number |
-| <a name="workdir_path"></a>workdir_path | String |
+| <a name="workdirPath"></a>workdirPath | String |
 

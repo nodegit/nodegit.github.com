@@ -82,9 +82,8 @@ var generatedData = function(path, missingTestsPath) {
             obj.constructors[func.jsFunctionName] = data
           }
         });
-
         item.fields.forEach(function(field) {
-          obj.fields[field.name] = field.jsClassName;
+          obj.fields[field.jsFunctionName] = field.jsClassName;
         });
         break;
       case 'enum':

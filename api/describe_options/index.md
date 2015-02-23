@@ -14,10 +14,10 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="describe_strategy"></a>describe_strategy | Number |
-| <a name="max_candidates_tags"></a>max_candidates_tags | Number |
-| <a name="only_follow_first_parent"></a>only_follow_first_parent | Number |
+| <a name="describeStrategy"></a>describeStrategy | Number |
+| <a name="maxCandidatesTags"></a>maxCandidatesTags | Number |
+| <a name="onlyFollowFirstParent"></a>onlyFollowFirstParent | Number |
 | <a name="pattern"></a>pattern | String |
-| <a name="show_commit_oid_as_fallback"></a>show_commit_oid_as_fallback | Number |
+| <a name="showCommitOidAsFallback"></a>showCommitOidAsFallback | Number |
 | <a name="version"></a>version | Number |
 

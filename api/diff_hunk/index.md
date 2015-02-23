@@ -15,9 +15,9 @@ sections:
 | Variable | Type |
 | --- | --- |
 | <a name="header"></a>header | String |
-| <a name="header_len"></a>header_len | Number |
-| <a name="new_lines"></a>new_lines | Number |
-| <a name="new_start"></a>new_start | Number |
-| <a name="old_lines"></a>old_lines | Number |
-| <a name="old_start"></a>old_start | Number |
+| <a name="headerLen"></a>headerLen | Number |
+| <a name="newLines"></a>newLines | Number |
+| <a name="newStart"></a>newStart | Number |
+| <a name="oldLines"></a>oldLines | Number |
+| <a name="oldStart"></a>oldStart | Number |
 

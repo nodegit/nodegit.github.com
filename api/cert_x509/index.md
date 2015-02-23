@@ -14,7 +14,7 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="cert_type"></a>cert_type | Number |
+| <a name="certType"></a>certType | Number |
 | <a name="data"></a>data | Buffer |
 | <a name="len"></a>len | Number |
 

@@ -16,9 +16,9 @@ sections:
 | --- | --- |
 | <a name="ctime"></a>ctime | IndexTime |
 | <a name="dev"></a>dev | Number |
-| <a name="file_size"></a>file_size | Number |
+| <a name="fileSize"></a>fileSize | Number |
 | <a name="flags"></a>flags | Number |
-| <a name="flags_extended"></a>flags_extended | Number |
+| <a name="flagsExtended"></a>flagsExtended | Number |
 | <a name="gid"></a>gid | Number |
 | <a name="id"></a>id | Oid |
 | <a name="ino"></a>ino | Number |

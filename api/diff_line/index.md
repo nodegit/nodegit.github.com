@@ -15,10 +15,10 @@ sections:
 | Variable | Type |
 | --- | --- |
 | <a name="content"></a>content | String |
-| <a name="content_len"></a>content_len | Number |
-| <a name="content_offset"></a>content_offset | Number |
-| <a name="new_lineno"></a>new_lineno | Number |
-| <a name="num_lines"></a>num_lines | Number |
-| <a name="old_lineno"></a>old_lineno | Number |
+| <a name="contentLen"></a>contentLen | Number |
+| <a name="contentOffset"></a>contentOffset | Number |
+| <a name="newLineno"></a>newLineno | Number |
+| <a name="numLines"></a>numLines | Number |
+| <a name="oldLineno"></a>oldLineno | Number |
 | <a name="origin"></a>origin | Number |
 

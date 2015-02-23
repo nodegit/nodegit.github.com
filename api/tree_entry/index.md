@@ -145,6 +145,6 @@ Alias for `path`
 | --- | --- |
 | <a name="attr"></a>attr | Number |
 | <a name="filename"></a>filename | String |
-| <a name="filename_len"></a>filename_len | Number |
+| <a name="filenameLen"></a>filenameLen | Number |
 | <a name="oid"></a>oid | Oid |
 

@@ -152,14 +152,14 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>BlameHunk#</span>final_commit_id](/api/blame_hunk/#final_commit_id) |  |
-| [<span>BlameHunk#</span>final_signature](/api/blame_hunk/#final_signature) |  |
-| [<span>BlameHunk#</span>final_start_line_number](/api/blame_hunk/#final_start_line_number) |  |
-| [<span>BlameHunk#</span>lines_in_hunk](/api/blame_hunk/#lines_in_hunk) |  |
-| [<span>BlameHunk#</span>orig_commit_id](/api/blame_hunk/#orig_commit_id) |  |
-| [<span>BlameHunk#</span>orig_path](/api/blame_hunk/#orig_path) |  |
-| [<span>BlameHunk#</span>orig_signature](/api/blame_hunk/#orig_signature) |  |
-| [<span>BlameHunk#</span>orig_start_line_number](/api/blame_hunk/#orig_start_line_number) |  |
+| [<span>BlameHunk#</span>finalCommitId](/api/blame_hunk/#finalCommitId) |  |
+| [<span>BlameHunk#</span>finalSignature](/api/blame_hunk/#finalSignature) |  |
+| [<span>BlameHunk#</span>finalStartLineNumber](/api/blame_hunk/#finalStartLineNumber) |  |
+| [<span>BlameHunk#</span>linesInHunk](/api/blame_hunk/#linesInHunk) |  |
+| [<span>BlameHunk#</span>origCommitId](/api/blame_hunk/#origCommitId) |  |
+| [<span>BlameHunk#</span>origPath](/api/blame_hunk/#origPath) |  |
+| [<span>BlameHunk#</span>origSignature](/api/blame_hunk/#origSignature) |  |
+| [<span>BlameHunk#</span>origStartLineNumber](/api/blame_hunk/#origStartLineNumber) |  |
 
 
 ## <a name='BlameOptions'></a>[BlameOptions](/api/blame_options/)
@@ -167,11 +167,11 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>BlameOptions#</span>flags](/api/blame_options/#flags) |  |
-| [<span>BlameOptions#</span>max_line](/api/blame_options/#max_line) |  |
-| [<span>BlameOptions#</span>min_line](/api/blame_options/#min_line) |  |
-| [<span>BlameOptions#</span>min_match_characters](/api/blame_options/#min_match_characters) |  |
-| [<span>BlameOptions#</span>newest_commit](/api/blame_options/#newest_commit) |  |
-| [<span>BlameOptions#</span>oldest_commit](/api/blame_options/#oldest_commit) |  |
+| [<span>BlameOptions#</span>maxLine](/api/blame_options/#maxLine) |  |
+| [<span>BlameOptions#</span>minLine](/api/blame_options/#minLine) |  |
+| [<span>BlameOptions#</span>minMatchCharacters](/api/blame_options/#minMatchCharacters) |  |
+| [<span>BlameOptions#</span>newestCommit](/api/blame_options/#newestCommit) |  |
+| [<span>BlameOptions#</span>oldestCommit](/api/blame_options/#oldestCommit) |  |
 | [<span>BlameOptions#</span>version](/api/blame_options/#version) |  |
 
 
@@ -242,16 +242,16 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>Cert#</span>cert_type](/api/cert/#cert_type) |  |
+| [<span>Cert#</span>certType](/api/cert/#certType) |  |
 
 
 ## <a name='CertHostkey'></a>[CertHostkey](/api/cert_hostkey/)
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CertHostkey#</span>cert_type](/api/cert_hostkey/#cert_type) |  |
-| [<span>CertHostkey#</span>hash_md5](/api/cert_hostkey/#hash_md5) |  |
-| [<span>CertHostkey#</span>hash_sha1](/api/cert_hostkey/#hash_sha1) |  |
+| [<span>CertHostkey#</span>certType](/api/cert_hostkey/#certType) |  |
+| [<span>CertHostkey#</span>hashMd5](/api/cert_hostkey/#hashMd5) |  |
+| [<span>CertHostkey#</span>hashSha1](/api/cert_hostkey/#hashSha1) |  |
 | [<span>CertHostkey#</span>type](/api/cert_hostkey/#type) |  |
 
 
@@ -259,7 +259,7 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CertX509#</span>cert_type](/api/cert_x509/#cert_type) |  |
+| [<span>CertX509#</span>certType](/api/cert_x509/#certType) |  |
 | [<span>CertX509#</span>data](/api/cert_x509/#data) |  |
 | [<span>CertX509#</span>len](/api/cert_x509/#len) |  |
 
@@ -282,22 +282,22 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CheckoutOptions#</span>ancestor_label](/api/checkout_options/#ancestor_label) |  |
+| [<span>CheckoutOptions#</span>ancestorLabel](/api/checkout_options/#ancestorLabel) |  |
 | [<span>CheckoutOptions#</span>baseline](/api/checkout_options/#baseline) |  |
-| [<span>CheckoutOptions#</span>checkout_strategy](/api/checkout_options/#checkout_strategy) |  |
-| [<span>CheckoutOptions#</span>dir_mode](/api/checkout_options/#dir_mode) |  |
-| [<span>CheckoutOptions#</span>disable_filters](/api/checkout_options/#disable_filters) |  |
-| [<span>CheckoutOptions#</span>file_mode](/api/checkout_options/#file_mode) |  |
-| [<span>CheckoutOptions#</span>file_open_flags](/api/checkout_options/#file_open_flags) |  |
-| [<span>CheckoutOptions#</span>notify_cb](/api/checkout_options/#notify_cb) |  |
-| [<span>CheckoutOptions#</span>notify_flags](/api/checkout_options/#notify_flags) |  |
-| [<span>CheckoutOptions#</span>notify_payload](/api/checkout_options/#notify_payload) |  |
-| [<span>CheckoutOptions#</span>our_label](/api/checkout_options/#our_label) |  |
+| [<span>CheckoutOptions#</span>checkoutStrategy](/api/checkout_options/#checkoutStrategy) |  |
+| [<span>CheckoutOptions#</span>dirMode](/api/checkout_options/#dirMode) |  |
+| [<span>CheckoutOptions#</span>disableFilters](/api/checkout_options/#disableFilters) |  |
+| [<span>CheckoutOptions#</span>fileMode](/api/checkout_options/#fileMode) |  |
+| [<span>CheckoutOptions#</span>fileOpenFlags](/api/checkout_options/#fileOpenFlags) |  |
+| [<span>CheckoutOptions#</span>notifyCb](/api/checkout_options/#notifyCb) |  |
+| [<span>CheckoutOptions#</span>notifyFlags](/api/checkout_options/#notifyFlags) |  |
+| [<span>CheckoutOptions#</span>notifyPayload](/api/checkout_options/#notifyPayload) |  |
+| [<span>CheckoutOptions#</span>ourLabel](/api/checkout_options/#ourLabel) |  |
 | [<span>CheckoutOptions#</span>paths](/api/checkout_options/#paths) |  |
-| [<span>CheckoutOptions#</span>progress_cb](/api/checkout_options/#progress_cb) |  |
-| [<span>CheckoutOptions#</span>progress_payload](/api/checkout_options/#progress_payload) |  |
-| [<span>CheckoutOptions#</span>target_directory](/api/checkout_options/#target_directory) |  |
-| [<span>CheckoutOptions#</span>their_label](/api/checkout_options/#their_label) |  |
+| [<span>CheckoutOptions#</span>progressCb](/api/checkout_options/#progressCb) |  |
+| [<span>CheckoutOptions#</span>progressPayload](/api/checkout_options/#progressPayload) |  |
+| [<span>CheckoutOptions#</span>targetDirectory](/api/checkout_options/#targetDirectory) |  |
+| [<span>CheckoutOptions#</span>theirLabel](/api/checkout_options/#theirLabel) |  |
 | [<span>CheckoutOptions#</span>version](/api/checkout_options/#version) |  |
 
 
@@ -314,9 +314,9 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CherrypickOptions#</span>checkout_opts](/api/cherrypick_options/#checkout_opts) |  |
+| [<span>CherrypickOptions#</span>checkoutOpts](/api/cherrypick_options/#checkoutOpts) |  |
 | [<span>CherrypickOptions#</span>mainline](/api/cherrypick_options/#mainline) |  |
-| [<span>CherrypickOptions#</span>merge_opts](/api/cherrypick_options/#merge_opts) |  |
+| [<span>CherrypickOptions#</span>mergeOpts](/api/cherrypick_options/#mergeOpts) |  |
 | [<span>CherrypickOptions#</span>version](/api/cherrypick_options/#version) |  |
 
 
@@ -337,12 +337,12 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>CloneOptions#</span>bare](/api/clone_options/#bare) |  |
-| [<span>CloneOptions#</span>checkout_branch](/api/clone_options/#checkout_branch) |  |
-| [<span>CloneOptions#</span>checkout_opts](/api/clone_options/#checkout_opts) |  |
+| [<span>CloneOptions#</span>checkoutBranch](/api/clone_options/#checkoutBranch) |  |
+| [<span>CloneOptions#</span>checkoutOpts](/api/clone_options/#checkoutOpts) |  |
 | [<span>CloneOptions#</span>local](/api/clone_options/#local) |  |
-| [<span>CloneOptions#</span>remote_callbacks](/api/clone_options/#remote_callbacks) |  |
-| [<span>CloneOptions#</span>remote_cb_payload](/api/clone_options/#remote_cb_payload) |  |
-| [<span>CloneOptions#</span>repository_cb_payload](/api/clone_options/#repository_cb_payload) |  |
+| [<span>CloneOptions#</span>remoteCallbacks](/api/clone_options/#remoteCallbacks) |  |
+| [<span>CloneOptions#</span>remoteCbPayload](/api/clone_options/#remoteCbPayload) |  |
+| [<span>CloneOptions#</span>repositoryCbPayload](/api/clone_options/#repositoryCbPayload) |  |
 | [<span>CloneOptions#</span>signature](/api/clone_options/#signature) |  |
 | [<span>CloneOptions#</span>version](/api/clone_options/#version) |  |
 
@@ -478,18 +478,18 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CvarMap#</span>cvar_type](/api/cvar_map/#cvar_type) |  |
-| [<span>CvarMap#</span>map_value](/api/cvar_map/#map_value) |  |
-| [<span>CvarMap#</span>str_match](/api/cvar_map/#str_match) |  |
+| [<span>CvarMap#</span>cvarType](/api/cvar_map/#cvarType) |  |
+| [<span>CvarMap#</span>mapValue](/api/cvar_map/#mapValue) |  |
+| [<span>CvarMap#</span>strMatch](/api/cvar_map/#strMatch) |  |
 
 
 ## <a name='DescribeFormatOptions'></a>[DescribeFormatOptions](/api/describe_format_options/)
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>DescribeFormatOptions#</span>abbreviated_size](/api/describe_format_options/#abbreviated_size) |  |
-| [<span>DescribeFormatOptions#</span>always_use_long_format](/api/describe_format_options/#always_use_long_format) |  |
-| [<span>DescribeFormatOptions#</span>dirty_suffix](/api/describe_format_options/#dirty_suffix) |  |
+| [<span>DescribeFormatOptions#</span>abbreviatedSize](/api/describe_format_options/#abbreviatedSize) |  |
+| [<span>DescribeFormatOptions#</span>alwaysUseLongFormat](/api/describe_format_options/#alwaysUseLongFormat) |  |
+| [<span>DescribeFormatOptions#</span>dirtySuffix](/api/describe_format_options/#dirtySuffix) |  |
 | [<span>DescribeFormatOptions#</span>version](/api/describe_format_options/#version) |  |
 
 
@@ -497,11 +497,11 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>DescribeOptions#</span>describe_strategy](/api/describe_options/#describe_strategy) |  |
-| [<span>DescribeOptions#</span>max_candidates_tags](/api/describe_options/#max_candidates_tags) |  |
-| [<span>DescribeOptions#</span>only_follow_first_parent](/api/describe_options/#only_follow_first_parent) |  |
+| [<span>DescribeOptions#</span>describeStrategy](/api/describe_options/#describeStrategy) |  |
+| [<span>DescribeOptions#</span>maxCandidatesTags](/api/describe_options/#maxCandidatesTags) |  |
+| [<span>DescribeOptions#</span>onlyFollowFirstParent](/api/describe_options/#onlyFollowFirstParent) |  |
 | [<span>DescribeOptions#</span>pattern](/api/describe_options/#pattern) |  |
-| [<span>DescribeOptions#</span>show_commit_oid_as_fallback](/api/describe_options/#show_commit_oid_as_fallback) |  |
+| [<span>DescribeOptions#</span>showCommitOidAsFallback](/api/describe_options/#showCommitOidAsFallback) |  |
 | [<span>DescribeOptions#</span>version](/api/describe_options/#version) |  |
 
 
@@ -539,9 +539,9 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>DiffDelta#</span>flags](/api/diff_delta/#flags) |  |
-| [<span>DiffDelta#</span>new_file](/api/diff_delta/#new_file) |  |
+| [<span>DiffDelta#</span>newFile](/api/diff_delta/#newFile) |  |
 | [<span>DiffDelta#</span>nfiles](/api/diff_delta/#nfiles) |  |
-| [<span>DiffDelta#</span>old_file](/api/diff_delta/#old_file) |  |
+| [<span>DiffDelta#</span>oldFile](/api/diff_delta/#oldFile) |  |
 | [<span>DiffDelta#</span>similarity](/api/diff_delta/#similarity) |  |
 | [<span>DiffDelta#</span>status](/api/diff_delta/#status) |  |
 
@@ -562,11 +562,11 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>DiffHunk#</span>header](/api/diff_hunk/#header) |  |
-| [<span>DiffHunk#</span>header_len](/api/diff_hunk/#header_len) |  |
-| [<span>DiffHunk#</span>new_lines](/api/diff_hunk/#new_lines) |  |
-| [<span>DiffHunk#</span>new_start](/api/diff_hunk/#new_start) |  |
-| [<span>DiffHunk#</span>old_lines](/api/diff_hunk/#old_lines) |  |
-| [<span>DiffHunk#</span>old_start](/api/diff_hunk/#old_start) |  |
+| [<span>DiffHunk#</span>headerLen](/api/diff_hunk/#headerLen) |  |
+| [<span>DiffHunk#</span>newLines](/api/diff_hunk/#newLines) |  |
+| [<span>DiffHunk#</span>newStart](/api/diff_hunk/#newStart) |  |
+| [<span>DiffHunk#</span>oldLines](/api/diff_hunk/#oldLines) |  |
+| [<span>DiffHunk#</span>oldStart](/api/diff_hunk/#oldStart) |  |
 
 
 ## <a name='DiffLine'></a>[DiffLine](/api/diff_line/)
@@ -574,11 +574,11 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>DiffLine#</span>content](/api/diff_line/#content) |  |
-| [<span>DiffLine#</span>content_len](/api/diff_line/#content_len) |  |
-| [<span>DiffLine#</span>content_offset](/api/diff_line/#content_offset) |  |
-| [<span>DiffLine#</span>new_lineno](/api/diff_line/#new_lineno) |  |
-| [<span>DiffLine#</span>num_lines](/api/diff_line/#num_lines) |  |
-| [<span>DiffLine#</span>old_lineno](/api/diff_line/#old_lineno) |  |
+| [<span>DiffLine#</span>contentLen](/api/diff_line/#contentLen) |  |
+| [<span>DiffLine#</span>contentOffset](/api/diff_line/#contentOffset) |  |
+| [<span>DiffLine#</span>newLineno](/api/diff_line/#newLineno) |  |
+| [<span>DiffLine#</span>numLines](/api/diff_line/#numLines) |  |
+| [<span>DiffLine#</span>oldLineno](/api/diff_line/#oldLineno) |  |
 | [<span>DiffLine#</span>origin](/api/diff_line/#origin) |  |
 
 
@@ -586,16 +586,16 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>DiffOptions#</span>context_lines](/api/diff_options/#context_lines) |  |
+| [<span>DiffOptions#</span>contextLines](/api/diff_options/#contextLines) |  |
 | [<span>DiffOptions#</span>flags](/api/diff_options/#flags) |  |
-| [<span>DiffOptions#</span>id_abbrev](/api/diff_options/#id_abbrev) |  |
-| [<span>DiffOptions#</span>ignore_submodules](/api/diff_options/#ignore_submodules) |  |
-| [<span>DiffOptions#</span>interhunk_lines](/api/diff_options/#interhunk_lines) |  |
-| [<span>DiffOptions#</span>max_size](/api/diff_options/#max_size) |  |
-| [<span>DiffOptions#</span>new_prefix](/api/diff_options/#new_prefix) |  |
-| [<span>DiffOptions#</span>notify_cb](/api/diff_options/#notify_cb) |  |
-| [<span>DiffOptions#</span>notify_payload](/api/diff_options/#notify_payload) |  |
-| [<span>DiffOptions#</span>old_prefix](/api/diff_options/#old_prefix) |  |
+| [<span>DiffOptions#</span>idAbbrev](/api/diff_options/#idAbbrev) |  |
+| [<span>DiffOptions#</span>ignoreSubmodules](/api/diff_options/#ignoreSubmodules) |  |
+| [<span>DiffOptions#</span>interhunkLines](/api/diff_options/#interhunkLines) |  |
+| [<span>DiffOptions#</span>maxSize](/api/diff_options/#maxSize) |  |
+| [<span>DiffOptions#</span>newPrefix](/api/diff_options/#newPrefix) |  |
+| [<span>DiffOptions#</span>notifyCb](/api/diff_options/#notifyCb) |  |
+| [<span>DiffOptions#</span>notifyPayload](/api/diff_options/#notifyPayload) |  |
+| [<span>DiffOptions#</span>oldPrefix](/api/diff_options/#oldPrefix) |  |
 | [<span>DiffOptions#</span>pathspec](/api/diff_options/#pathspec) |  |
 | [<span>DiffOptions#</span>version](/api/diff_options/#version) |  |
 
@@ -604,8 +604,8 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>DiffPerfdata#</span>oid_calculations](/api/diff_perfdata/#oid_calculations) |  |
-| [<span>DiffPerfdata#</span>stat_calls](/api/diff_perfdata/#stat_calls) |  |
+| [<span>DiffPerfdata#</span>oidCalculations](/api/diff_perfdata/#oidCalculations) |  |
+| [<span>DiffPerfdata#</span>statCalls](/api/diff_perfdata/#statCalls) |  |
 | [<span>DiffPerfdata#</span>version](/api/diff_perfdata/#version) |  |
 
 
@@ -747,9 +747,9 @@ sections:
 | --- | ---: |
 | [<span>IndexEntry#</span>ctime](/api/index_entry/#ctime) |  |
 | [<span>IndexEntry#</span>dev](/api/index_entry/#dev) |  |
-| [<span>IndexEntry#</span>file_size](/api/index_entry/#file_size) |  |
+| [<span>IndexEntry#</span>fileSize](/api/index_entry/#fileSize) |  |
 | [<span>IndexEntry#</span>flags](/api/index_entry/#flags) |  |
-| [<span>IndexEntry#</span>flags_extended](/api/index_entry/#flags_extended) |  |
+| [<span>IndexEntry#</span>flagsExtended](/api/index_entry/#flagsExtended) |  |
 | [<span>IndexEntry#</span>gid](/api/index_entry/#gid) |  |
 | [<span>IndexEntry#</span>id](/api/index_entry/#id) |  |
 | [<span>IndexEntry#</span>ino](/api/index_entry/#ino) |  |
@@ -826,11 +826,11 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>MergeFileOptions#</span>ancestor_label](/api/merge_file_options/#ancestor_label) |  |
+| [<span>MergeFileOptions#</span>ancestorLabel](/api/merge_file_options/#ancestorLabel) |  |
 | [<span>MergeFileOptions#</span>favor](/api/merge_file_options/#favor) |  |
 | [<span>MergeFileOptions#</span>flags](/api/merge_file_options/#flags) |  |
-| [<span>MergeFileOptions#</span>our_label](/api/merge_file_options/#our_label) |  |
-| [<span>MergeFileOptions#</span>their_label](/api/merge_file_options/#their_label) |  |
+| [<span>MergeFileOptions#</span>ourLabel](/api/merge_file_options/#ourLabel) |  |
+| [<span>MergeFileOptions#</span>theirLabel](/api/merge_file_options/#theirLabel) |  |
 | [<span>MergeFileOptions#</span>version](/api/merge_file_options/#version) |  |
 
 
@@ -849,10 +849,10 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>MergeOptions#</span>file_favor](/api/merge_options/#file_favor) |  |
+| [<span>MergeOptions#</span>fileFavor](/api/merge_options/#fileFavor) |  |
 | [<span>MergeOptions#</span>flags](/api/merge_options/#flags) |  |
-| [<span>MergeOptions#</span>rename_threshold](/api/merge_options/#rename_threshold) |  |
-| [<span>MergeOptions#</span>target_limit](/api/merge_options/#target_limit) |  |
+| [<span>MergeOptions#</span>renameThreshold](/api/merge_options/#renameThreshold) |  |
+| [<span>MergeOptions#</span>targetLimit](/api/merge_options/#targetLimit) |  |
 | [<span>MergeOptions#</span>version](/api/merge_options/#version) |  |
 
 
@@ -1035,7 +1035,7 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>PushOptions#</span>pb_parallelism](/api/push_options/#pb_parallelism) |  |
+| [<span>PushOptions#</span>pbParallelism](/api/push_options/#pbParallelism) |  |
 | [<span>PushOptions#</span>version](/api/push_options/#version) |  |
 
 
@@ -1075,7 +1075,7 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>RebaseOptions#</span>quiet](/api/rebase_options/#quiet) |  |
-| [<span>RebaseOptions#</span>rewrite_notes_ref](/api/rebase_options/#rewrite_notes_ref) |  |
+| [<span>RebaseOptions#</span>rewriteNotesRef](/api/rebase_options/#rewriteNotesRef) |  |
 | [<span>RebaseOptions#</span>version](/api/rebase_options/#version) |  |
 
 
@@ -1233,7 +1233,7 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>RemoteCallbacks#</span>certificate_check](/api/remote_callbacks/#certificate_check) |  |
+| [<span>RemoteCallbacks#</span>certificateCheck](/api/remote_callbacks/#certificateCheck) |  |
 | [<span>RemoteCallbacks#</span>credentials](/api/remote_callbacks/#credentials) |  |
 | [<span>RemoteCallbacks#</span>payload](/api/remote_callbacks/#payload) |  |
 | [<span>RemoteCallbacks#</span>version](/api/remote_callbacks/#version) |  |
@@ -1302,12 +1302,12 @@ sections:
 | --- | ---: |
 | [<span>RepositoryInitOptions#</span>description](/api/repository_init_options/#description) |  |
 | [<span>RepositoryInitOptions#</span>flags](/api/repository_init_options/#flags) |  |
-| [<span>RepositoryInitOptions#</span>initial_head](/api/repository_init_options/#initial_head) |  |
+| [<span>RepositoryInitOptions#</span>initialHead](/api/repository_init_options/#initialHead) |  |
 | [<span>RepositoryInitOptions#</span>mode](/api/repository_init_options/#mode) |  |
-| [<span>RepositoryInitOptions#</span>origin_url](/api/repository_init_options/#origin_url) |  |
-| [<span>RepositoryInitOptions#</span>template_path](/api/repository_init_options/#template_path) |  |
+| [<span>RepositoryInitOptions#</span>originUrl](/api/repository_init_options/#originUrl) |  |
+| [<span>RepositoryInitOptions#</span>templatePath](/api/repository_init_options/#templatePath) |  |
 | [<span>RepositoryInitOptions#</span>version](/api/repository_init_options/#version) |  |
-| [<span>RepositoryInitOptions#</span>workdir_path](/api/repository_init_options/#workdir_path) |  |
+| [<span>RepositoryInitOptions#</span>workdirPath](/api/repository_init_options/#workdirPath) |  |
 
 
 ## <a name='Reset'></a>[Reset](/api/reset/)
@@ -1333,9 +1333,9 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>RevertOptions#</span>checkout_opts](/api/revert_options/#checkout_opts) |  |
+| [<span>RevertOptions#</span>checkoutOpts](/api/revert_options/#checkoutOpts) |  |
 | [<span>RevertOptions#</span>mainline](/api/revert_options/#mainline) |  |
-| [<span>RevertOptions#</span>merge_opts](/api/revert_options/#merge_opts) |  |
+| [<span>RevertOptions#</span>mergeOpts](/api/revert_options/#mergeOpts) |  |
 | [<span>RevertOptions#</span>version](/api/revert_options/#version) |  |
 
 
@@ -1512,9 +1512,9 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>SubmoduleUpdateOptions#</span>checkout_opts](/api/submodule_update_options/#checkout_opts) |  |
-| [<span>SubmoduleUpdateOptions#</span>clone_checkout_strategy](/api/submodule_update_options/#clone_checkout_strategy) |  |
-| [<span>SubmoduleUpdateOptions#</span>remote_callbacks](/api/submodule_update_options/#remote_callbacks) |  |
+| [<span>SubmoduleUpdateOptions#</span>checkoutOpts](/api/submodule_update_options/#checkoutOpts) |  |
+| [<span>SubmoduleUpdateOptions#</span>cloneCheckoutStrategy](/api/submodule_update_options/#cloneCheckoutStrategy) |  |
+| [<span>SubmoduleUpdateOptions#</span>remoteCallbacks](/api/submodule_update_options/#remoteCallbacks) |  |
 | [<span>SubmoduleUpdateOptions#</span>signature](/api/submodule_update_options/#signature) |  |
 | [<span>SubmoduleUpdateOptions#</span>version](/api/submodule_update_options/#version) |  |
 
@@ -1566,13 +1566,13 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
-| [<span>TransferProgress#</span>indexed_deltas](/api/transfer_progress/#indexed_deltas) |  |
-| [<span>TransferProgress#</span>indexed_objects](/api/transfer_progress/#indexed_objects) |  |
-| [<span>TransferProgress#</span>local_objects](/api/transfer_progress/#local_objects) |  |
-| [<span>TransferProgress#</span>received_bytes](/api/transfer_progress/#received_bytes) |  |
-| [<span>TransferProgress#</span>received_objects](/api/transfer_progress/#received_objects) |  |
-| [<span>TransferProgress#</span>total_deltas](/api/transfer_progress/#total_deltas) |  |
-| [<span>TransferProgress#</span>total_objects](/api/transfer_progress/#total_objects) |  |
+| [<span>TransferProgress#</span>indexedDeltas](/api/transfer_progress/#indexedDeltas) |  |
+| [<span>TransferProgress#</span>indexedObjects](/api/transfer_progress/#indexedObjects) |  |
+| [<span>TransferProgress#</span>localObjects](/api/transfer_progress/#localObjects) |  |
+| [<span>TransferProgress#</span>receivedBytes](/api/transfer_progress/#receivedBytes) |  |
+| [<span>TransferProgress#</span>receivedObjects](/api/transfer_progress/#receivedObjects) |  |
+| [<span>TransferProgress#</span>totalDeltas](/api/transfer_progress/#totalDeltas) |  |
+| [<span>TransferProgress#</span>totalObjects](/api/transfer_progress/#totalObjects) |  |
 
 
 ## <a name='Transport'></a>[Transport](/api/transport/)
@@ -1650,7 +1650,7 @@ sections:
 | --- | ---: |
 | [<span>TreeEntry#</span>attr](/api/tree_entry/#attr) |  |
 | [<span>TreeEntry#</span>filename](/api/tree_entry/#filename) |  |
-| [<span>TreeEntry#</span>filename_len](/api/tree_entry/#filename_len) |  |
+| [<span>TreeEntry#</span>filenameLen](/api/tree_entry/#filenameLen) |  |
 | [<span>TreeEntry#</span>oid](/api/tree_entry/#oid) |  |
 
 

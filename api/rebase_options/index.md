@@ -19,6 +19,6 @@ var rebaseOptions = new RebaseOptions();
 | Variable | Type |
 | --- | --- |
 | <a name="quiet"></a>quiet | Number |
-| <a name="rewrite_notes_ref"></a>rewrite_notes_ref | String |
+| <a name="rewriteNotesRef"></a>rewriteNotesRef | String |
 | <a name="version"></a>version | Number |
 

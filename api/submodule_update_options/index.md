@@ -14,9 +14,9 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="checkout_opts"></a>checkout_opts | CheckoutOptions |
-| <a name="clone_checkout_strategy"></a>clone_checkout_strategy | Number |
-| <a name="remote_callbacks"></a>remote_callbacks | RemoteCallbacks |
+| <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |
+| <a name="cloneCheckoutStrategy"></a>cloneCheckoutStrategy | Number |
+| <a name="remoteCallbacks"></a>remoteCallbacks | RemoteCallbacks |
 | <a name="signature"></a>signature | Signature |
 | <a name="version"></a>version | Number |
 

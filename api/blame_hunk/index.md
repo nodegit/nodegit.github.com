@@ -14,12 +14,12 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="final_commit_id"></a>final_commit_id | Oid |
-| <a name="final_signature"></a>final_signature | Signature |
-| <a name="final_start_line_number"></a>final_start_line_number | Number |
-| <a name="lines_in_hunk"></a>lines_in_hunk | Number |
-| <a name="orig_commit_id"></a>orig_commit_id | Oid |
-| <a name="orig_path"></a>orig_path | String |
-| <a name="orig_signature"></a>orig_signature | Signature |
-| <a name="orig_start_line_number"></a>orig_start_line_number | Number |
+| <a name="finalCommitId"></a>finalCommitId | Oid |
+| <a name="finalSignature"></a>finalSignature | Signature |
+| <a name="finalStartLineNumber"></a>finalStartLineNumber | Number |
+| <a name="linesInHunk"></a>linesInHunk | Number |
+| <a name="origCommitId"></a>origCommitId | Oid |
+| <a name="origPath"></a>origPath | String |
+| <a name="origSignature"></a>origSignature | Signature |
+| <a name="origStartLineNumber"></a>origStartLineNumber | Number |
 

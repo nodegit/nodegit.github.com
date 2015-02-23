@@ -15,9 +15,9 @@ sections:
 | Variable | Type |
 | --- | --- |
 | <a name="flags"></a>flags | Number |
-| <a name="new_file"></a>new_file | DiffFile |
+| <a name="newFile"></a>newFile | DiffFile |
 | <a name="nfiles"></a>nfiles | Number |
-| <a name="old_file"></a>old_file | DiffFile |
+| <a name="oldFile"></a>oldFile | DiffFile |
 | <a name="similarity"></a>similarity | Number |
 | <a name="status"></a>status | Number |
 

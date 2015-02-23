@@ -14,11 +14,11 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="indexed_deltas"></a>indexed_deltas | Number |
-| <a name="indexed_objects"></a>indexed_objects | Number |
-| <a name="local_objects"></a>local_objects | Number |
-| <a name="received_bytes"></a>received_bytes | Number |
-| <a name="received_objects"></a>received_objects | Number |
-| <a name="total_deltas"></a>total_deltas | Number |
-| <a name="total_objects"></a>total_objects | Number |
+| <a name="indexedDeltas"></a>indexedDeltas | Number |
+| <a name="indexedObjects"></a>indexedObjects | Number |
+| <a name="localObjects"></a>localObjects | Number |
+| <a name="receivedBytes"></a>receivedBytes | Number |
+| <a name="receivedObjects"></a>receivedObjects | Number |
+| <a name="totalDeltas"></a>totalDeltas | Number |
+| <a name="totalObjects"></a>totalObjects | Number |
 

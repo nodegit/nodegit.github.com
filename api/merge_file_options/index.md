@@ -18,10 +18,10 @@ var mergeFileOptions = new MergeFileOptions();
 
 | Variable | Type |
 | --- | --- |
-| <a name="ancestor_label"></a>ancestor_label | String |
+| <a name="ancestorLabel"></a>ancestorLabel | String |
 | <a name="favor"></a>favor | Number |
 | <a name="flags"></a>flags | Number |
-| <a name="our_label"></a>our_label | String |
-| <a name="their_label"></a>their_label | String |
+| <a name="ourLabel"></a>ourLabel | String |
+| <a name="theirLabel"></a>theirLabel | String |
 | <a name="version"></a>version | Number |
 

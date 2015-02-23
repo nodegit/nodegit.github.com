@@ -18,8 +18,8 @@ var cherrypickOptions = new CherrypickOptions();
 
 | Variable | Type |
 | --- | --- |
-| <a name="checkout_opts"></a>checkout_opts | CheckoutOptions |
+| <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |
 | <a name="mainline"></a>mainline | Number |
-| <a name="merge_opts"></a>merge_opts | MergeOptions |
+| <a name="mergeOpts"></a>mergeOpts | MergeOptions |
 | <a name="version"></a>version | Number |
 

@@ -30,5 +30,5 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="cert_type"></a>cert_type | Number |
+| <a name="certType"></a>certType | Number |
 

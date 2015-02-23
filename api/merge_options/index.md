@@ -18,9 +18,9 @@ var mergeOptions = new MergeOptions();
 
 | Variable | Type |
 | --- | --- |
-| <a name="file_favor"></a>file_favor | Number |
+| <a name="fileFavor"></a>fileFavor | Number |
 | <a name="flags"></a>flags | Number |
-| <a name="rename_threshold"></a>rename_threshold | Number |
-| <a name="target_limit"></a>target_limit | Number |
+| <a name="renameThreshold"></a>renameThreshold | Number |
+| <a name="targetLimit"></a>targetLimit | Number |
 | <a name="version"></a>version | Number |
 

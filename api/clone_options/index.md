@@ -19,12 +19,12 @@ var cloneOptions = new CloneOptions();
 | Variable | Type |
 | --- | --- |
 | <a name="bare"></a>bare | Number |
-| <a name="checkout_branch"></a>checkout_branch | String |
-| <a name="checkout_opts"></a>checkout_opts | CheckoutOptions |
+| <a name="checkoutBranch"></a>checkoutBranch | String |
+| <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |
 | <a name="local"></a>local | Number |
-| <a name="remote_callbacks"></a>remote_callbacks | RemoteCallbacks |
-| <a name="remote_cb_payload"></a>remote_cb_payload | Void |
-| <a name="repository_cb_payload"></a>repository_cb_payload | Void |
+| <a name="remoteCallbacks"></a>remoteCallbacks | RemoteCallbacks |
+| <a name="remoteCbPayload"></a>remoteCbPayload | Void |
+| <a name="repositoryCbPayload"></a>repositoryCbPayload | Void |
 | <a name="signature"></a>signature | Signature |
 | <a name="version"></a>version | Number |
 

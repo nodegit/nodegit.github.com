@@ -18,16 +18,16 @@ var diffOptions = new DiffOptions();
 
 | Variable | Type |
 | --- | --- |
-| <a name="context_lines"></a>context_lines | Number |
+| <a name="contextLines"></a>contextLines | Number |
 | <a name="flags"></a>flags | Number |
-| <a name="id_abbrev"></a>id_abbrev | Number |
-| <a name="ignore_submodules"></a>ignore_submodules | Number |
-| <a name="interhunk_lines"></a>interhunk_lines | Number |
-| <a name="max_size"></a>max_size | Number |
-| <a name="new_prefix"></a>new_prefix | String |
-| <a name="notify_cb"></a>notify_cb | DiffNotifyCb |
-| <a name="notify_payload"></a>notify_payload | Void |
-| <a name="old_prefix"></a>old_prefix | String |
+| <a name="idAbbrev"></a>idAbbrev | Number |
+| <a name="ignoreSubmodules"></a>ignoreSubmodules | Number |
+| <a name="interhunkLines"></a>interhunkLines | Number |
+| <a name="maxSize"></a>maxSize | Number |
+| <a name="newPrefix"></a>newPrefix | String |
+| <a name="notifyCb"></a>notifyCb | DiffNotifyCb |
+| <a name="notifyPayload"></a>notifyPayload | Void |
+| <a name="oldPrefix"></a>oldPrefix | String |
 | <a name="pathspec"></a>pathspec | Strarray |
 | <a name="version"></a>version | Number |
 

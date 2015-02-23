@@ -18,6 +18,6 @@ var pushOptions = new PushOptions();
 
 | Variable | Type |
 | --- | --- |
-| <a name="pb_parallelism"></a>pb_parallelism | Number |
+| <a name="pbParallelism"></a>pbParallelism | Number |
 | <a name="version"></a>version | Number |
 

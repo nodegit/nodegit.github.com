@@ -19,10 +19,10 @@ var blameOptions = new BlameOptions();
 | Variable | Type |
 | --- | --- |
 | <a name="flags"></a>flags | Number |
-| <a name="max_line"></a>max_line | Number |
-| <a name="min_line"></a>min_line | Number |
-| <a name="min_match_characters"></a>min_match_characters | Number |
-| <a name="newest_commit"></a>newest_commit | Oid |
-| <a name="oldest_commit"></a>oldest_commit | Oid |
+| <a name="maxLine"></a>maxLine | Number |
+| <a name="minLine"></a>minLine | Number |
+| <a name="minMatchCharacters"></a>minMatchCharacters | Number |
+| <a name="newestCommit"></a>newestCommit | Oid |
+| <a name="oldestCommit"></a>oldestCommit | Oid |
 | <a name="version"></a>version | Number |
 

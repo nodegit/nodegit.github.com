@@ -14,8 +14,8 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="abbreviated_size"></a>abbreviated_size | Number |
-| <a name="always_use_long_format"></a>always_use_long_format | Number |
-| <a name="dirty_suffix"></a>dirty_suffix | String |
+| <a name="abbreviatedSize"></a>abbreviatedSize | Number |
+| <a name="alwaysUseLongFormat"></a>alwaysUseLongFormat | Number |
+| <a name="dirtySuffix"></a>dirtySuffix | String |
 | <a name="version"></a>version | Number |
 

@@ -14,7 +14,7 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="cvar_type"></a>cvar_type | Number |
-| <a name="map_value"></a>map_value | Number |
-| <a name="str_match"></a>str_match | String |
+| <a name="cvarType"></a>cvarType | Number |
+| <a name="mapValue"></a>mapValue | Number |
+| <a name="strMatch"></a>strMatch | String |
 

@@ -14,7 +14,7 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="oid_calculations"></a>oid_calculations | Number |
-| <a name="stat_calls"></a>stat_calls | Number |
+| <a name="oidCalculations"></a>oidCalculations | Number |
+| <a name="statCalls"></a>statCalls | Number |
 | <a name="version"></a>version | Number |
 
