@@ -2,8 +2,10 @@
 layout: default
 menu_item: getting_started
 sections:
+  "About": "#about"
   "Installing NodeGit": "#installing-nodegit"
   "Cloning a Repository": "#cloning-a-repository"
+  "Used by...": "#used-by"
 
 ---
 
