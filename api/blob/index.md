@@ -14,6 +14,7 @@ sections:
   "lookupPrefix": "#lookupPrefix"
   "#content": "#content"
   "#filemode": "#filemode"
+  "#free": "#free"
   "#id": "#id"
   "#isBinary": "#isBinary"
   "#owner": "#owner"
@@ -25,19 +26,18 @@ sections:
 ## <a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = Blob.createFromBuffer(id, repo, buffer, len);
+var oid = Blob.createFromBuffer(repo, buffer, len);
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| id | [Oid](/api/oid/) | return the id of the written blob |
 | repo | [Repository](/api/repository/) | repository where to blob will be written |
 | buffer | Buffer | data to be written into the blob |
 | len | Number | length of the data |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Oid](/api/oid/) | return the id of the written blob |
 
 ## <a name="createFromDisk"></a><span>Blob.</span>createFromDisk <span class="tags"><span class="sync">Sync</span></span>
 
@@ -133,6 +133,12 @@ Retrieve the Blob's type.
 | Returns |  |
 | --- | --- |
 | Number | The filemode of the blob. |
+
+## <a name="free"></a><span>Blob#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+blob.free();
+```
 
 ## <a name="id"></a><span>Blob#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

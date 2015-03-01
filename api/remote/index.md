@@ -25,6 +25,7 @@ sections:
   "#download": "#download"
   "#dup": "#dup"
   "#fetch": "#fetch"
+  "#free": "#free"
   "#getCallbacks": "#getCallbacks"
   "#getFetchRefspecs": "#getFetchRefspecs"
   "#getPushRefspecs": "#getPushRefspecs"
@@ -310,6 +311,12 @@ remote.fetch(refspecs, signature, reflog_message).then(function(result) {
 | --- | --- |
 | Number |  0 or an error code |
 
+## <a name="free"></a><span>Remote#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+remote.free();
+```
+
 ## <a name="getCallbacks"></a><span>Remote#</span>getCallbacks <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -398,10 +405,12 @@ var result = remote.pruneRefs();
 | --- | --- |
 | Number |  the ref-prune setting |
 
-## <a name="push"></a><span>Remote#</span>push <span class="tags"><span class="sync">Sync</span></span>
+## <a name="push"></a><span>Remote#</span>push <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = remote.push(refspecs, opts, signature, reflog_message);
+remote.push(refspecs, opts, signature, reflog_message).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |

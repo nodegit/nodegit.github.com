@@ -18,6 +18,7 @@ sections:
   "#drop": "#drop"
   "#entryByIndex": "#entryByIndex"
   "#entrycount": "#entrycount"
+  "#free": "#free"
   "#write": "#write"
 ---
 
@@ -180,6 +181,12 @@ var result = reflog.entrycount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of log entries |
+
+## <a name="free"></a><span>Reflog#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+reflog.free();
+```
 
 ## <a name="write"></a><span>Reflog#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

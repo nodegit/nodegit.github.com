@@ -15,6 +15,7 @@ sections:
   "remove": "#remove"
   "#author": "#author"
   "#committer": "#committer"
+  "#free": "#free"
   "#id": "#id"
   "#message": "#message"
 ---
@@ -146,6 +147,12 @@ var signature = note.committer();
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the committer |
+
+## <a name="free"></a><span>Note#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+note.free();
+```
 
 ## <a name="id"></a><span>Note#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

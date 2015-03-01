@@ -8,13 +8,16 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "default": "#default"
+  "reset": "#reset"
   "TYPE": "#TYPE"
 ---
 
-## <a name="default"></a><span>Reset.</span>default <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="default"></a><span>Reset.</span>default <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Reset.default(repo, target, pathspecs);
+Reset.default(repo, target, pathspecs).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -28,6 +31,27 @@ var result = Reset.default(repo, target, pathspecs);
 | Number |  0 on success or an error code 
 <
  0 |
+
+## <a name="reset"></a><span>Reset.</span>reset <span class="tags"><span class="async">Async</span></span>
+
+```js
+Reset.reset(repo, target, reset_type, checkout_opts, signature, log_message).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) |  |
+| target | [Object](/api/object/) |  |
+| reset_type | Number |  |
+| checkout_opts | [CheckoutOptions](/api/checkout_options/) |  |
+| signature | [Signature](/api/signature/) |  |
+| log_message | String |  |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="TYPE"></a><span>Reset.</span>TYPE <span class="tags"><span class="enum">ENUM</span></span>
 

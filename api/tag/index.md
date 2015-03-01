@@ -9,13 +9,13 @@ return_to:
 sections:
   "annotationCreate": "#annotationCreate"
   "create": "#create"
-  "createFromBuffer": "#createFromBuffer"
   "createLightweight": "#createLightweight"
   "delete": "#delete"
   "list": "#list"
   "listMatch": "#listMatch"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
+  "#free": "#free"
   "#id": "#id"
   "#message": "#message"
   "#name": "#name"
@@ -27,15 +27,16 @@ sections:
   "#targetType": "#targetType"
 ---
 
-## <a name="annotationCreate"></a><span>Tag.</span>annotationCreate <span class="tags"><span class="sync">Sync</span></span>
+## <a name="annotationCreate"></a><span>Tag.</span>annotationCreate <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Tag.annotationCreate(oid, repo, tag_name, target, tagger, message);
+Tag.annotationCreate(repo, tag_name, target, tagger, message).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| oid | [Oid](/api/oid/) | Pointer where to store the OID of the newly created tag |
 | repo | [Repository](/api/repository/) | Repository where to store the tag |
 | tag_name | String | Name for the tag |
 | target | [Object](/api/object/) | Object to which this tag points. This object must belong to the given `repo`. |
@@ -44,17 +45,19 @@ var result = Tag.annotationCreate(oid, repo, tag_name, target, tagger, message);
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success or an error code |
+| [Oid](/api/oid/) | the OID of the
+ newly created tag |
 
-## <a name="create"></a><span>Tag.</span>create <span class="tags"><span class="sync">Sync</span></span>
+## <a name="create"></a><span>Tag.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Tag.create(oid, repo, tag_name, target, tagger, message, force);
+Tag.create(repo, tag_name, target, tagger, message, force).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| oid | [Oid](/api/oid/) | Pointer where to store the OID of the newly created tag. If the tag already exists, this parameter will be the oid of the existing tag, and the function will return a GIT_EEXISTS error code. |
 | repo | [Repository](/api/repository/) | Repository where to store the tag |
 | tag_name | String | Name for the tag; this name is validated for consistency. It should also not conflict with an already existing tag name |
 | target | [Object](/api/object/) | Object to which this tag points. This object must belong to the given `repo`. |
@@ -64,36 +67,21 @@ var result = Tag.create(oid, repo, tag_name, target, tagger, message, force);
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success, GIT_EINVALIDSPEC or an error code
-	A tag object is written to the ODB, and a proper reference
-	is written in the /refs/tags folder, pointing to it |
+| [Oid](/api/oid/) | the OID of the
+ newly created tag. If the tag already exists, this parameter
+ will be the oid of the existing tag, and the function will
+ return a GIT_EEXISTS error code. |
 
-## <a name="createFromBuffer"></a><span>Tag.</span>createFromBuffer <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createLightweight"></a><span>Tag.</span>createLightweight <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Tag.createFromBuffer(oid, repo, buffer, force);
+Tag.createLightweight(repo, tag_name, target, force).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| oid | [Oid](/api/oid/) | Pointer where to store the OID of the newly created tag |
-| repo | [Repository](/api/repository/) | Repository where to store the tag |
-| buffer | String | Raw tag data |
-| force | Number | Overwrite existing tags |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success; error code otherwise |
-
-## <a name="createLightweight"></a><span>Tag.</span>createLightweight <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tag.createLightweight(oid, repo, tag_name, target, force);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| oid | [Oid](/api/oid/) | Pointer where to store the OID of the provided target object. If the tag already exists, this parameter will be filled with the oid of the existing pointed object and the function will return a GIT_EEXISTS error code. |
 | repo | [Repository](/api/repository/) | Repository where to store the lightweight tag |
 | tag_name | String | Name for the tag; this name is validated for consistency. It should also not conflict with an already existing tag name |
 | target | [Object](/api/object/) | Object to which this tag points. This object must belong to the given `repo`. |
@@ -101,14 +89,17 @@ var result = Tag.createLightweight(oid, repo, tag_name, target, force);
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success, GIT_EINVALIDSPEC or an error code
-	A proper reference is written in the /refs/tags folder,
- pointing to the provided target object |
+| [Oid](/api/oid/) | the OID of the provided
+ target object. If the tag already exists, this parameter
+ will be filled with the oid of the existing pointed object
+ and the function will return a GIT_EEXISTS error code. |
 
-## <a name="delete"></a><span>Tag.</span>delete <span class="tags"><span class="sync">Sync</span></span>
+## <a name="delete"></a><span>Tag.</span>delete <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Tag.delete(repo, tag_name);
+Tag.delete(repo, tag_name).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -188,6 +179,12 @@ Tag.lookupPrefix(repo, id, len).then(function(tag) {
 | Returns |  |
 | --- | --- |
 | [Tag](/api/tag/) |  |
+
+## <a name="free"></a><span>Tag#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+tag.free();
+```
 
 ## <a name="id"></a><span>Tag#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

@@ -10,6 +10,7 @@ sections:
   "entryStage": "#entryStage"
   "open": "#open"
   "#add": "#add"
+  "#addAll": "#addAll"
   "#addByPath": "#addByPath"
   "#caps": "#caps"
   "#clear": "#clear"
@@ -26,9 +27,11 @@ sections:
   "#read": "#read"
   "#readTree": "#readTree"
   "#remove": "#remove"
+  "#removeAll": "#removeAll"
   "#removeByPath": "#removeByPath"
   "#removeDirectory": "#removeDirectory"
   "#setCaps": "#setCaps"
+  "#updateAll": "#updateAll"
   "#write": "#write"
   "#writeTree": "#writeTree"
   "#writeTreeTo": "#writeTreeTo"
@@ -79,6 +82,25 @@ var result = index.add(source_entry);
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
+
+## <a name="addAll"></a><span>Index#</span>addAll <span class="tags"><span class="async">Async</span></span>
+
+```js
+index.addAll(pathspec, flags, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| pathspec | [Strarray](/api/strarray/) | array of path patterns |
+| flags | Number | combination of git_index_add_option_t flags |
+| callback | IndexMatchedPathCb | notification callback for each added/updated path (also gets index of matching pathspec entry); can be NULL; return 0 to add, >0 to skip, <0 to abort scan. |
+| payload | Void | payload passed through to callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, negative callback return value, or error code |
 
 ## <a name="addByPath"></a><span>Index#</span>addByPath <span class="tags"><span class="sync">Sync</span></span>
 
@@ -280,6 +302,24 @@ var result = index.remove(path, stage);
 | --- | --- |
 | Number |  0 or an error code |
 
+## <a name="removeAll"></a><span>Index#</span>removeAll <span class="tags"><span class="async">Async</span></span>
+
+```js
+index.removeAll(pathspec, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| pathspec | [Strarray](/api/strarray/) | array of path patterns |
+| callback | IndexMatchedPathCb | notification callback for each removed path (also gets index of matching pathspec entry); can be NULL; return 0 to add, >0 to skip, <0 to abort scan. |
+| payload | Void | payload passed through to callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, negative callback return value, or error code |
+
 ## <a name="removeByPath"></a><span>Index#</span>removeByPath <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -322,6 +362,24 @@ var result = index.setCaps(caps);
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, -1 on failure |
+
+## <a name="updateAll"></a><span>Index#</span>updateAll <span class="tags"><span class="async">Async</span></span>
+
+```js
+index.updateAll(pathspec, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| pathspec | [Strarray](/api/strarray/) | array of path patterns |
+| callback | IndexMatchedPathCb | notification callback for each updated path (also gets index of matching pathspec entry); can be NULL; return 0 to add, >0 to skip, <0 to abort scan. |
+| payload | Void | payload passed through to callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, negative callback return value, or error code |
 
 ## <a name="write"></a><span>Index#</span>write <span class="tags"><span class="sync">Sync</span></span>
 

@@ -21,5 +21,6 @@ var remoteCallbacks = new RemoteCallbacks();
 | <a name="certificateCheck"></a>certificateCheck | TransportCertificateCheckCb |
 | <a name="credentials"></a>credentials | CredAcquireCb |
 | <a name="payload"></a>payload | Void |
+| <a name="transferProgress"></a>transferProgress | TransferProgressCb |
 | <a name="version"></a>version | Number |
 

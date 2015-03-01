@@ -12,6 +12,7 @@ sections:
   "matchListEntrycount": "#matchListEntrycount"
   "matchListFailedEntry": "#matchListFailedEntry"
   "matchListFailedEntrycount": "#matchListFailedEntrycount"
+  "#free": "#free"
   "#matchDiff": "#matchDiff"
   "#matchIndex": "#matchIndex"
   "#matchTree": "#matchTree"
@@ -92,6 +93,12 @@ var result = Pathspec.matchListFailedEntrycount(m);
 | Returns |  |
 | --- | --- |
 | Number |  Number of items in original pathspec that had no matches |
+
+## <a name="free"></a><span>Pathspec#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+pathspec.free();
+```
 
 ## <a name="matchDiff"></a><span>Pathspec#</span>matchDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

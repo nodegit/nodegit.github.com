@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "#free": "#free"
   "#hash": "#hash"
   "#insert": "#insert"
   "#insertCommit": "#insertCommit"
@@ -16,6 +17,12 @@ sections:
   "#written": "#written"
   "STAGE": "#STAGE"
 ---
+
+## <a name="free"></a><span>Packbuilder#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+packbuilder.free();
+```
 
 ## <a name="hash"></a><span>Packbuilder#</span>hash <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

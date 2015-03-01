@@ -15,6 +15,7 @@ sections:
   "#author": "#author"
   "#committer": "#committer"
   "#date": "#date"
+  "#free": "#free"
   "#getEntry": "#getEntry"
   "#getParents": "#getParents"
   "#getTree": "#getTree"
@@ -171,6 +172,12 @@ Retrieve the commit time as a Date object.
 | Returns |  |
 | --- | --- |
 | Date |  |
+
+## <a name="free"></a><span>Commit#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+commit.free();
+```
 
 ## <a name="getEntry"></a><span>Commit#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 

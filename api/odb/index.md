@@ -9,6 +9,7 @@ return_to:
 sections:
   "open": "#open"
   "#addDiskAlternate": "#addDiskAlternate"
+  "#free": "#free"
   "#read": "#read"
   "#write": "#write"
   "STREAM": "#STREAM"
@@ -43,6 +44,12 @@ var result = odb.addDiskAlternate(path);
 | Returns |  |
 | --- | --- |
 | Number |  0 on success; error code otherwise |
+
+## <a name="free"></a><span>Odb#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+odb.free();
+```
 
 ## <a name="read"></a><span>Odb#</span>read <span class="tags"><span class="async">Async</span></span>
 

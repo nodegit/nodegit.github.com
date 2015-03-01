@@ -18,3 +18,9 @@ $key-color: #F1595F;
         "layout",
         "syntax-highlighting"
 ;
+
+// Give quotes a GH-like appearance
+blockquote {
+  border-left: 3px solid #EDEDED;
+  padding-left: 12px;
+}

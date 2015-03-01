@@ -10,6 +10,10 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
+```js
+var indexEntry = new IndexEntry();
+```
+
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type |

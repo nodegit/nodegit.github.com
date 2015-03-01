@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "#copy": "#copy"
+  "#free": "#free"
   "Instance Variables": "#ivars"
 ---
 
@@ -22,6 +23,12 @@ var result = strarray.copy();
 | Number |  0 on success, 
 <
  0 on allocation failure |
+
+## <a name="free"></a><span>Strarray#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+strarray.free();
+```
 
 ## <a name="ivars"></a>Instance Variables
 

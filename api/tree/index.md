@@ -26,6 +26,7 @@ sections:
   "#entryByName": "#entryByName"
   "#entryByPath": "#entryByPath"
   "#entryCount": "#entryCount"
+  "#free": "#free"
   "#getEntry": "#getEntry"
   "#id": "#id"
   "#owner": "#owner"
@@ -320,6 +321,12 @@ var result = tree.entryCount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of entries in the tree |
+
+## <a name="free"></a><span>Tree#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+tree.free();
+```
 
 ## <a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="sync">Sync</span></span>
 

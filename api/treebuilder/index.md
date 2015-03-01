@@ -10,6 +10,7 @@ sections:
   "create": "#create"
   "#clear": "#clear"
   "#entrycount": "#entrycount"
+  "#free": "#free"
   "#get": "#get"
   "#insert": "#insert"
   "#remove": "#remove"
@@ -48,6 +49,12 @@ var result = treebuilder.entrycount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of entries in the treebuilder |
+
+## <a name="free"></a><span>Treebuilder#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+treebuilder.free();
+```
 
 ## <a name="get"></a><span>Treebuilder#</span>get <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

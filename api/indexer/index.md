@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "#commit": "#commit"
+  "#free": "#free"
   "#hash": "#hash"
 ---
 
@@ -24,6 +25,12 @@ var result = indexer.commit(stats);
 | Returns |  |
 | --- | --- |
 | Number |  |
+
+## <a name="free"></a><span>Indexer#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+indexer.free();
+```
 
 ## <a name="hash"></a><span>Indexer#</span>hash <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

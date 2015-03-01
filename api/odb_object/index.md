@@ -9,6 +9,7 @@ return_to:
 sections:
   "#data": "#data"
   "#dup": "#dup"
+  "#free": "#free"
   "#id": "#id"
   "#size": "#size"
   "#type": "#type"
@@ -35,6 +36,12 @@ odbObject.dup().then(function(odbObject) {
 | Returns |  |
 | --- | --- |
 | [OdbObject](/api/odb_object/) | the copy |
+
+## <a name="free"></a><span>OdbObject#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+odbObject.free();
+```
 
 ## <a name="id"></a><span>OdbObject#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

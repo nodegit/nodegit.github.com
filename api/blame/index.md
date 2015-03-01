@@ -10,6 +10,7 @@ sections:
   "file": "#file"
   "initOptions": "#initOptions"
   "#buffer": "#buffer"
+  "#free": "#free"
   "#getHunkByIndex": "#getHunkByIndex"
   "#getHunkByLine": "#getHunkByLine"
   "#getHunkCount": "#getHunkCount"
@@ -65,6 +66,12 @@ blame.buffer(buffer, buffer_len).then(function(blame) {
 | Returns |  |
 | --- | --- |
 | [Blame](/api/blame/) |  |
+
+## <a name="free"></a><span>Blame#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+blame.free();
+```
 
 ## <a name="getHunkByIndex"></a><span>Blame#</span>getHunkByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

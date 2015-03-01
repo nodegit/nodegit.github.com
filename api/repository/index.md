@@ -17,6 +17,7 @@ sections:
   "#configSnapshot": "#configSnapshot"
   "#createRevWalk": "#createRevWalk"
   "#detachHead": "#detachHead"
+  "#free": "#free"
   "#getBlob": "#getBlob"
   "#getBranch": "#getBranch"
   "#getBranchCommit": "#getBranchCommit"
@@ -211,6 +212,12 @@ var result = repository.detachHead(signature, reflog_message);
 | --- | --- |
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
+
+## <a name="free"></a><span>Repository#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+repository.free();
+```
 
 ## <a name="getBlob"></a><span>Repository#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 

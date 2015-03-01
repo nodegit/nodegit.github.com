@@ -15,6 +15,7 @@ sections:
   "#addToIndex": "#addToIndex"
   "#branch": "#branch"
   "#fetchRecurseSubmodules": "#fetchRecurseSubmodules"
+  "#free": "#free"
   "#headId": "#headId"
   "#ignore": "#ignore"
   "#indexId": "#indexId"
@@ -156,6 +157,12 @@ var result = submodule.fetchRecurseSubmodules();
 | Returns |  |
 | --- | --- |
 | Number |  0 if fetchRecurseSubmodules is false, 1 if true |
+
+## <a name="free"></a><span>Submodule#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+submodule.free();
+```
 
 ## <a name="headId"></a><span>Submodule#</span>headId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

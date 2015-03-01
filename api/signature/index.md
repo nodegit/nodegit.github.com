@@ -11,6 +11,7 @@ sections:
   "default": "#default"
   "now": "#now"
   "#dup": "#dup"
+  "#free": "#free"
   "#toString": "#toString"
   "Instance Variables": "#ivars"
 ---
@@ -72,6 +73,12 @@ signature.dup().then(function(signature) {
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) | the copy |
+
+## <a name="free"></a><span>Signature#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+signature.free();
+```
 
 ## <a name="toString"></a><span>Signature#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 

@@ -10,6 +10,7 @@ sections:
   "create": "#create"
   "createFromFile": "#createFromFile"
   "#compare": "#compare"
+  "#free": "#free"
   "OPTION": "#OPTION"
 ---
 
@@ -59,6 +60,12 @@ var result = hashsig.compare();
 | Number |  
 <
 0 for error, [0 to 100] as similarity score |
+
+## <a name="free"></a><span>Hashsig#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+hashsig.free();
+```
 
 ## <a name="OPTION"></a><span>Hashsig.</span>OPTION <span class="tags"><span class="enum">ENUM</span></span>
 

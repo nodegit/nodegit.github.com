@@ -9,6 +9,7 @@ return_to:
 sections:
   "create": "#create"
   "#entrycount": "#entrycount"
+  "#free": "#free"
   "#getPerfdata": "#getPerfdata"
 ---
 
@@ -36,6 +37,12 @@ var result = statusList.entrycount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of status entries |
+
+## <a name="free"></a><span>StatusList#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+statusList.free();
+```
 
 ## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

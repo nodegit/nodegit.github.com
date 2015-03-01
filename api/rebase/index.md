@@ -13,6 +13,7 @@ sections:
   "#abort": "#abort"
   "#commit": "#commit"
   "#finish": "#finish"
+  "#free": "#free"
   "#operationByIndex": "#operationByIndex"
   "#operationCurrent": "#operationCurrent"
   "#operationEntrycount": "#operationEntrycount"
@@ -120,6 +121,12 @@ var result = rebase.finish(signature, opts);
 | Returns |  |
 | --- | --- |
 | Number |  |
+
+## <a name="free"></a><span>Rebase#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+rebase.free();
+```
 
 ## <a name="operationByIndex"></a><span>Rebase#</span>operationByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

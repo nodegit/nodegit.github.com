@@ -14,6 +14,7 @@ sections:
   "type2string": "#type2string"
   "typeisloose": "#typeisloose"
   "#dup": "#dup"
+  "#free": "#free"
   "#id": "#id"
   "#lookupByPath": "#lookupByPath"
   "#owner": "#owner"
@@ -128,6 +129,12 @@ object.dup().then(function(object) {
 | Returns |  |
 | --- | --- |
 | [Object](/api/object/) |  |
+
+## <a name="free"></a><span>Object#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+object.free();
+```
 
 ## <a name="id"></a><span>Object#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
