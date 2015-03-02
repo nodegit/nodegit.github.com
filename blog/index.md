@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: full
 menu_item: blog
 title: Blog
 description: NodeGit talk

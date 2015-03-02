@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: full
 menu_item: guides
 title: HTTP Clone Guide
 description: How to clone with HTTP
@@ -24,13 +24,13 @@ In the guides directory, we like to keep our NodeGit relative to the project
 root.
 
 ``` javascript
-var Git = require('../../../');
+var Git = require("../../../");
 ```
 
 However, in your project you will most likely be using the following command:
 
 ``` javascript
-var Git = require('nodegit');
+var Git = require("nodegit");
 ```
 
 ### Clone URL
@@ -42,7 +42,7 @@ You could easily substitute this with any valid http or https Git repository
 URL.
 
 ``` javascript
-var cloneURL = 'https://github.com/nodegit/test';
+var cloneURL = "https://github.com/nodegit/test";
 ```
 
 ### Clone path
@@ -56,7 +56,7 @@ current working directory in NodeGit, so you will need to normalize it first.
 This is very simple in Node:
 
 ``` javascript
-var localPath = require('path').join(__dirname, 'tmp');
+var localPath = require("path").join(__dirname, "tmp");
 ```
 
 Now this `tmp` directory will be created along side your script, no matter how
@@ -94,7 +94,7 @@ has a static method `clone` that we can use to bring down a repository.
 While it may look a bit verbose, it is symptomatic of a rigid convention.
 
 ``` javascript
-var cloneRepository = Git.Clone.clone(cloneURL, localPath, cloneOptions);
+var cloneRepository = Git.Clone(cloneURL, localPath, cloneOptions);
 ```
 
 Notice how we store the return value from `Clone.clone`.  This is a [Promise]()
@@ -124,6 +124,6 @@ and work with the `Git.Repository` instance result.
 cloneRepository.catch(errorAndAttemptOpen)
   .then(function(repository) {
     // Access any repository methods here.
-    console.log('Is the repository bare? %s', Boolean(repository.isBare()));
+    console.log("Is the repository bare? %s", Boolean(repository.isBare()));
   });
 ```

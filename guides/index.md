@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: full
 menu_item: guides
 title: Guides
 description: Learning NodeGit
