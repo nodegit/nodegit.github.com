@@ -3,63 +3,96 @@ layout: default
 menu_item: getting_started
 sections:
   "About": "#about"
-  "Installing NodeGit": "#installing-nodegit"
+  "Quick install": "#quick-install"
+  "Include library": "#include-library"
   "Cloning a Repository": "#cloning-a-repository"
+  "Opening a Repository": "#opening-a-repository"
+  "Brought to you by...": "#brought-to-you-by"
   "Used by...": "#used-by"
 
 ---
 
-## <a name="installing-nodegit"></a>Installing NodeGit
+## <a name="about"></a>About NodeGit
 
-First, let’s make a directory to experiment with NodeGit.
+If you are working with low-level Git operations and want excellent
+performance, NodeGit is for you.  This project provides well tested, cross
+platform bindings to the [libgit2](https://libgit2.github.com) library for
+Node.
 
-```bash
-$ mkdir ~/start-with-nodegit
-$ cd ~/start-with-nodegit
+### Current stable version: 0.3.0
+
+<table>
+  <thead>
+    <tr>
+      <th>Linux</th>
+      <th>OS X</th>
+      <th>Windows</th>
+      <th>Dependencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2" align="center">
+        <a href="https://travis-ci.org/nodegit/nodegit"><img src="https://travis-ci.org/nodegit/nodegit.svg"></a>
+      </td>
+      <td align="center">
+        <a href="https://ci.appveyor.com/project/timbranyen/nodegit"><img src="https://ci.appveyor.com/api/projects/status/e5a5q75l9yfhnfv2?svg=true"></a>
+      </td>
+      <td align="center">
+        <a href="https://david-dm.org/nodegit/nodegit"><img src="https://david-dm.org/nodegit/nodegit.svg"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## <a name="quick-install"></a>Quick install
+
+NodeGit can be quickly and painlessly installed via NPM:
+
+``` bash
+npm install nodegit
 ```
 
-NodeGit can be installed using npm, the node package manager. If you don’t have node installed on your machine, you can download and install the node binaries for your OS. Once node is installed, open your Terminal and install NodeGit.
+For more comprehensive installation techniques, check out the [Install Guides](
+/guides/install
+)
 
-```bash
-$ npm install nodegit
+## <a name="include-library"></a>Include library
+
+You simply need to require NodeGit in your project to start using it.
+
+``` javascript
+var Git = require("nodegit");
 ```
 
 ## <a name="cloning-a-repository"></a>Cloning a Repository
 
-First, let’s learn how to clone a repository. Let’s create a file named `clone.js`, and input the following code.
+Let's learn how to clone a repository. Create a file named `clone.js`,
+and add the following code:
 
-```js
-var NodeGit = require("nodegit");
+``` javascript
+Git.Clone("https://github.com/nodegit/nodegit", "tmp").then(function(repository) {
 
-// Clone a given repository into a specific folder.
-NodeGit.Clone.clone("https://github.com/nodegit/nodegit", "tmp", null)
-  // Look up this known commit.
-  .then(function(repo) {
-    // Use a known commit sha from this repository.
-    return repo.getCommit("59b20b8d5c6ff8d09518454d4dd8b7b30f095ab5");
-  })
-  // Look up a specific file within that commit.
-  .then(function(commit) {
-    return commit.getEntry("README.md");
-  })
-  // Get the blob contents from the file.
-  .then(function(entry) {
-    // Patch the blob to contain a reference to the entry.
-    return entry.getBlob().then(function(blob) {
-      blob.entry = entry;
-      return blob;
-    });
-  })
-  // Display information about the blob.
-  .then(function(blob) {
-    // Show the name, sha, and filesize in byes.
-    console.log(blob.entry.name() + blob.entry.sha() + blob.size() + "b");
-
-    // Show a spacer.
-    console.log(Array(72).join("=") + "\n\n");
-
-    // Show the entire file.
-    console.log(String(blob));
-  })
-  .catch(function(err) { console.log(err); });
+});
 ```
+
+## <a name="opening-a-repository"></a>Opening a Repository
+
+Let's learn how to open a repository. Create a file named `open.js`,
+and add the following code:
+
+``` javascript
+Git.Repository.open("tmp").then(function(repository) {
+
+});
+```
+
+## <a name="brought-to-you-by"></a>Brought to you by...
+
+A lot of talented developers over the world.  We are proud to be sponsored by
+the following companies to continue work on making NodeGit one of the best
+native node modules around!
+
+<img width=100 src="/img/Axosoft-Logo-Revision_crop.png">
+<img width=100 src="/img/bocoup-horizontal-100.png">
+<img width=100 src="/img/GitHub_Logo.png">
