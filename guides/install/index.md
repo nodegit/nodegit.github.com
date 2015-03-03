@@ -1,11 +1,13 @@
 ---
-layout: default
+layout: full
 menu_item: guides
 title: Install Guide
 description: How to install NodeGit
 ---
 
 [Return to all guides](../)
+
+* * *
 
 From NPM
 --------

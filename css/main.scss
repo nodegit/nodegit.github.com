@@ -19,8 +19,19 @@ $key-color: #F1595F;
         "syntax-highlighting"
 ;
 
-// Give quotes a GH-like appearance
+// Give quotes a GH-like appearance.
 blockquote {
   border-left: 3px solid #EDEDED;
   padding-left: 12px;
+}
+
+// Thin gray line.
+hr {
+  border: none;
+  border-bottom: 1px solid #EDEDED;
+}
+
+// Better separation from HR in Guides.
+.main h3 {
+  margin-top: 15px;
 }

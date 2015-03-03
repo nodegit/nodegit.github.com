@@ -4,9 +4,8 @@
 // var NodeGit = require("nodegit");
 var Git = require("../../../");
 
-// Using the `clone` method from the `Git.Clone` module, bring down the NodeGit
-// test repository from GitHub.
-var cloneURL = "https://github.com/nodegit/test";
+// Set the URL that NodeGit will connect to clone.
+var cloneURL = "git@github.com:nodegit/test";
 
 // Ensure that the `tmp` directory is local to this file and not the CWD.
 var localPath = require("path").join(__dirname, "tmp");
@@ -17,7 +16,14 @@ var cloneOptions = {};
 // This is a required callback for OS X machines.  There is a known issue
 // with libgit2 being able to verify certificates from GitHub.
 cloneOptions.remoteCallbacks = {
-  certificateCheck: function() { return 1; }
+  certificateCheck: function() { return 1; },
+
+  // Credentials are passed two arguments, url and username. We forward the
+  // `userName` argument to the `sshKeyFromAgent` function to validate
+  // authentication.
+  credentials: function(url, userName) {
+    return Git.Cred.sshKeyFromAgent(userName);
+  }
 };
 
 // Invoke the clone operation and store the returned Promise.

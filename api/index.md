@@ -88,6 +88,7 @@ sections:
   "Signature": "#Signature"
   "Stash": "#Stash"
   "Status": "#Status"
+  "StatusEntry": "#StatusEntry"
   "StatusList": "#StatusList"
   "StatusOptions": "#StatusOptions"
   "Strarray": "#Strarray"
@@ -1445,6 +1446,7 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
+| [<span>Status.</span>byIndex <span>(statuslist, idx)</span>](/api/status/#byIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Status.</span>file <span>(status_flags, repo, path)</span>](/api/status/#file) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Status.</span>foreach <span>(repo, callback, payload)</span>](/api/status/#foreach) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Status.</span>foreachExt <span>(repo, opts, callback, payload)</span>](/api/status/#foreachExt) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1457,17 +1459,26 @@ sections:
 | [<span>Status.</span>STATUS](/api/status/#STATUS)|  |
 
 
+## <a name='StatusEntry'></a>[StatusEntry](/api/status_entry/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>StatusEntry#</span>headToIndex](/api/status_entry/#headToIndex) |  |
+| [<span>StatusEntry#</span>indexToWorkdir](/api/status_entry/#indexToWorkdir) |  |
+| [<span>StatusEntry#</span>status](/api/status_entry/#status) |  |
+
+
 ## <a name='StatusList'></a>[StatusList](/api/status_list/)
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>StatusList.</span>create <span>(repo, opts)</span>](/api/status_list/#create) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>StatusList.</span>create <span>(repo, opts)</span>](/api/status_list/#create) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>StatusList#</span>entrycount <span>()</span>](/api/status_list/#entrycount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>StatusList#</span>free <span>()</span>](/api/status_list/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>StatusList#</span>getPerfdata <span>()</span>](/api/status_list/#getPerfdata) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>StatusList#</span>entrycount <span>()</span>](/api/status_list/#entrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>StatusList#</span>free <span>()</span>](/api/status_list/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>StatusList#</span>getPerfdata <span>()</span>](/api/status_list/#getPerfdata) |  <span class="tags"><span class="async">Async</span></span> |
 
 
 ## <a name='StatusOptions'></a>[StatusOptions](/api/status_options/)

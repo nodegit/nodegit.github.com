@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "byIndex": "#byIndex"
   "file": "#file"
   "foreach": "#foreach"
   "foreachExt": "#foreachExt"
@@ -15,6 +16,21 @@ sections:
   "SHOW": "#SHOW"
   "STATUS": "#STATUS"
 ---
+
+## <a name="byIndex"></a><span>Status.</span>byIndex <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var statusEntry = Status.byIndex(statuslist, idx);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| statuslist | [StatusList](/api/status_list/) | Existing status list object |
+| idx | Number | Position of the entry |
+
+| Returns |  |
+| --- | --- |
+| [StatusEntry](/api/status_entry/) |  |
 
 ## <a name="file"></a><span>Status.</span>file <span class="tags"><span class="sync">Sync</span></span>
 

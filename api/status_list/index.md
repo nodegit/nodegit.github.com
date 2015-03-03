@@ -13,10 +13,12 @@ sections:
   "#getPerfdata": "#getPerfdata"
 ---
 
-## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var statusList = StatusList.create(repo, opts);
+StatusList.create(repo, opts).then(function(statusList) {
+  // Use statusList
+});
 ```
 
 | Parameters | Type |   |
@@ -28,7 +30,7 @@ var statusList = StatusList.create(repo, opts);
 | --- | --- |
 | [StatusList](/api/status_list/) |  |
 
-## <a name="entrycount"></a><span>StatusList#</span>entrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entrycount"></a><span>StatusList#</span>entrycount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = statusList.entrycount();
@@ -38,13 +40,13 @@ var result = statusList.entrycount();
 | --- | --- |
 | Number |  the number of status entries |
 
-## <a name="free"></a><span>StatusList#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>StatusList#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 statusList.free();
 ```
 
-## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="async">Async</span></span>
 
 ```js
 statusList.getPerfdata().then(function(diffPerfdata) {
