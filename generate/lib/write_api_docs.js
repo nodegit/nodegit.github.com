@@ -201,7 +201,7 @@ var writeApiDocs = function(apiData, path) {
             .join(", ") + ").then(function(" + returnName + ") {\n";
             if (returnName) {
               pageBody += "  // Use " + returnName + "\n";
-            } else if (fdata.return.description) {
+            } else if (fdata.return && fdata.return.description) {
               pageBody += "  // " + fdata.return.description + "\n";
             } else {
               pageBody += "  // method complete"
