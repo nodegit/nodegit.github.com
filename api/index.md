@@ -36,6 +36,7 @@ sections:
   "Diff": "#Diff"
   "DiffDelta": "#DiffDelta"
   "DiffFile": "#DiffFile"
+  "DiffFindOptions": "#DiffFindOptions"
   "DiffHunk": "#DiffHunk"
   "DiffLine": "#DiffLine"
   "DiffOptions": "#DiffOptions"
@@ -522,6 +523,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Diff#</span>findSimilar <span>(options)</span>](/api/diff/#findSimilar) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff#</span>getDelta <span>(idx)</span>](/api/diff/#getDelta) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Diff#</span>getPerfdata <span>()</span>](/api/diff/#getPerfdata) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff#</span>numDeltas <span>()</span>](/api/diff/#numDeltas) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -560,6 +562,19 @@ sections:
 | [<span>DiffFile#</span>mode](/api/diff_file/#mode) |  |
 | [<span>DiffFile#</span>path](/api/diff_file/#path) |  |
 | [<span>DiffFile#</span>size](/api/diff_file/#size) |  |
+
+
+## <a name='DiffFindOptions'></a>[DiffFindOptions](/api/diff_find_options/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>DiffFindOptions#</span>breakRewriteThreshold](/api/diff_find_options/#breakRewriteThreshold) |  |
+| [<span>DiffFindOptions#</span>copyThreshold](/api/diff_find_options/#copyThreshold) |  |
+| [<span>DiffFindOptions#</span>flags](/api/diff_find_options/#flags) |  |
+| [<span>DiffFindOptions#</span>renameFromRewriteThreshold](/api/diff_find_options/#renameFromRewriteThreshold) |  |
+| [<span>DiffFindOptions#</span>renameLimit](/api/diff_find_options/#renameLimit) |  |
+| [<span>DiffFindOptions#</span>renameThreshold](/api/diff_find_options/#renameThreshold) |  |
+| [<span>DiffFindOptions#</span>version](/api/diff_find_options/#version) |  |
 
 
 ## <a name='DiffHunk'></a>[DiffHunk](/api/diff_hunk/)
@@ -1209,6 +1224,7 @@ sections:
 | [<span>Remote.</span>isValidName <span>(remote_name)</span>](/api/remote/#isValidName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote.</span>list <span>(repo)</span>](/api/remote/#list) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>lookup <span>(repo, name, callback)</span>](/api/remote/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Remote.</span>push <span>(refSpecs, options, signature, message)</span>](/api/remote/#push) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
@@ -1279,7 +1295,10 @@ sections:
 | --- | ---: |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>createLightweightTag <span>(String, name)</span>](/api/repository/#createLightweightTag) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createRevWalk <span>(String)</span>](/api/repository/#createRevWalk) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>createTag <span>(String, name, message)</span>](/api/repository/#createTag) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>deleteTagByName <span>(Short)</span>](/api/repository/#deleteTagByName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>detachHead <span>(signature, reflog_message)</span>](/api/repository/#detachHead) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>free <span>()</span>](/api/repository/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getBlob <span>(String)</span>](/api/repository/#getBlob) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1292,6 +1311,7 @@ sections:
 | [<span>Repository#</span>getReferenceCommit <span>(name)</span>](/api/repository/#getReferenceCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferenceNames <span>(type)</span>](/api/repository/#getReferenceNames) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferences <span>(type)</span>](/api/repository/#getReferences) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getStatusExt <span>(opts)</span>](/api/repository/#getStatusExt) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getTag <span>(String)</span>](/api/repository/#getTag) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTagByName <span>(Short)</span>](/api/repository/#getTagByName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTree <span>(String)</span>](/api/repository/#getTree) |  <span class="tags"><span class="async">Async</span></span> |

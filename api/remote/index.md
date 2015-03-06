@@ -15,6 +15,7 @@ sections:
   "isValidName": "#isValidName"
   "list": "#list"
   "lookup": "#lookup"
+  "push": "#push"
   "#addFetch": "#addFetch"
   "#addPush": "#addPush"
   "#autotag": "#autotag"
@@ -187,6 +188,28 @@ Retrieves the remote by name
 | Returns |  |
 | --- | --- |
 | [Remote](/api/remote/) |  |
+
+## <a name="push"></a><span>Remote.</span>push <span class="tags"><span class="async">Async</span></span>
+
+```js
+Remote.push(refSpecs, options, signature, message).then(function(number) {
+  // Use number
+});
+```
+
+Pushes to a remote
+
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| refSpecs | Array | The ref specs that should be pushed |
+| options | [PushOptions](/api/push_options/) | Options for the checkout |
+| signature | [Signature](/api/signature/) | The identity to use for the reflog of the updated references |
+| message | String | The message to use for the update reflog messages |
+
+| Returns |  |
+| --- | --- |
+| Number | error code |
 
 ## <a name="addFetch"></a><span>Remote#</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
 

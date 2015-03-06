@@ -15,7 +15,10 @@ sections:
   "wrapOdb": "#wrapOdb"
   "#config": "#config"
   "#configSnapshot": "#configSnapshot"
+  "#createLightweightTag": "#createLightweightTag"
   "#createRevWalk": "#createRevWalk"
+  "#createTag": "#createTag"
+  "#deleteTagByName": "#deleteTagByName"
   "#detachHead": "#detachHead"
   "#free": "#free"
   "#getBlob": "#getBlob"
@@ -28,6 +31,7 @@ sections:
   "#getReferenceCommit": "#getReferenceCommit"
   "#getReferenceNames": "#getReferenceNames"
   "#getReferences": "#getReferences"
+  "#getStatusExt": "#getStatusExt"
   "#getTag": "#getTag"
   "#getTagByName": "#getTagByName"
   "#getTree": "#getTree"
@@ -179,6 +183,26 @@ repository.configSnapshot().then(function(config) {
 | --- | --- |
 | [Config](/api/config/) |  |
 
+## <a name="createLightweightTag"></a><span>Repository#</span>createLightweightTag <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.createLightweightTag(String, name).then(function(reference) {
+  // Use reference
+});
+```
+
+Creates a new lightweight tag
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| String | String, [Oid](/api/oid/) | sha or Oid |
+| name | String | the name of the tag |
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) |  |
+
 ## <a name="createRevWalk"></a><span>Repository#</span>createRevWalk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -196,6 +220,41 @@ See also `Commit.prototype.history()`
 | Returns |  |
 | --- | --- |
 | RevWalk |  |
+
+## <a name="createTag"></a><span>Repository#</span>createTag <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.createTag(String, name, message).then(function(tag) {
+  // Use tag
+});
+```
+
+Creates a new annotated tag
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| String | String, [Oid](/api/oid/) | sha or Oid |
+| name | String | the name of the tag |
+| message | String | the description that will be attached to the annotated tag |
+
+| Returns |  |
+| --- | --- |
+| [Tag](/api/tag/) |  |
+
+## <a name="deleteTagByName"></a><span>Repository#</span>deleteTagByName <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.deleteTagByName(Short).then(function() {
+  // method complete});
+```
+
+Deletes a tag from a repository by the tag name.
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| Short | String | or full tag name |
 
 ## <a name="detachHead"></a><span>Repository#</span>detachHead <span class="tags"><span class="sync">Sync</span></span>
 
@@ -395,6 +454,24 @@ Lookup references for a repository.
 | Returns |  |
 | --- | --- |
 | Array&lt;[Reference](/api/reference/)&gt; |  |
+
+## <a name="getStatusExt"></a><span>Repository#</span>getStatusExt <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var arrayStatusEntry = repository.getStatusExt(opts);
+```
+
+Get extended statuses of a repo to it's working directory. Status entries
+have `status`, `headToIndex` delta, and `indexToWorkdir` deltas
+
+
+| Parameters | Type |
+| --- | --- | --- |
+| opts | obj |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[StatusEntry](/api/status_entry/)&gt; |  |
 
 ## <a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="async">Async</span></span>
 

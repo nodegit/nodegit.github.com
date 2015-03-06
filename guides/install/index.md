@@ -1,25 +1,25 @@
 ---
 layout: full
 menu_item: guides
-title: Install Guide
+title: Install Basics
 description: How to install NodeGit
 ---
 
-[Return to all guides](../)
+[Return to install guides](../)
 
 * * *
 
-From NPM
---------
+<a name="with-npm"></a>From NPM
+-------------------------------
 
-To install from NPM you can issue the following command:
+To install from the NPM repository you can issue the following command:
 
 ``` bash
 npm install nodegit
 ```
 
-From GitHub
------------
+<a name="from-github"></a>From GitHub
+-------------------------------------
 
 This is required to contribute or run the examples.
 

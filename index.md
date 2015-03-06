@@ -2,6 +2,7 @@
 layout: default
 menu_item: getting_started
 sections:
+  "Using NodeGit": "#using-nodegit"
   "Using NodeGit": "#clone-a-repository"
 
 ---
@@ -26,7 +27,7 @@ You simply need to require NodeGit in your project to start using it.
 var Git = require("nodegit");
 ```
 
-### <a name="clone-a-repository"></a>Clone a Repository
+## <a name="clone-a-repository"></a>Clone a Repository
 
 Let's learn how to clone a repository. Create a file named `clone.js`,
 and add the following code:

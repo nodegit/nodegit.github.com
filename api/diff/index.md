@@ -12,6 +12,7 @@ sections:
   "treeToTree": "#treeToTree"
   "treeToWorkdir": "#treeToWorkdir"
   "treeToWorkdirWithIndex": "#treeToWorkdirWithIndex"
+  "#findSimilar": "#findSimilar"
   "#getDelta": "#getDelta"
   "#getPerfdata": "#getPerfdata"
   "#numDeltas": "#numDeltas"
@@ -117,6 +118,22 @@ Diff.treeToWorkdirWithIndex(repo, old_tree, opts).then(function(diff) {
 | Returns |  |
 | --- | --- |
 | [Diff](/api/diff/) |  |
+
+## <a name="findSimilar"></a><span>Diff#</span>findSimilar <span class="tags"><span class="async">Async</span></span>
+
+```js
+diff.findSimilar(options).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| options | [DiffFindOptions](/api/diff_find_options/) | Control how detection should be run, NULL for defaults |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, -1 on failure |
 
 ## <a name="getDelta"></a><span>Diff#</span>getDelta <span class="tags"><span class="sync">Sync</span></span>
 
