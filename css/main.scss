@@ -29,14 +29,23 @@ blockquote {
 hr {
   border: none;
   border-bottom: 1px solid #EDEDED;
+  margin-bottom: 20px;
 }
 
 // Better separation from HR in Guides.
 .main h3 {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .date {
   color: #C2C2C2;
   font-size: 80%;
+}
+
+p a:not(:last-child) {
+  margin-right: 20px;
+}
+
+.bocoup {
+  margin-left: 10px;
 }
