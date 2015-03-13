@@ -1,0 +1,51 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$line-height: 1.5;
+$spacing-unit: 30px;
+$headline-color: #222;
+$text-color: #555;
+$key-color: #F1595F;
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "reset",
+        "type",
+        "layout",
+        "syntax-highlighting"
+;
+
+// Give quotes a GH-like appearance.
+blockquote {
+  border-left: 3px solid #EDEDED;
+  padding-left: 12px;
+}
+
+// Thin gray line.
+hr {
+  border: none;
+  border-bottom: 1px solid #EDEDED;
+  margin-bottom: 20px;
+}
+
+// Better separation from HR in Guides.
+.main h3 {
+  margin-top: 25px;
+}
+
+.date {
+  color: #C2C2C2;
+  font-size: 80%;
+}
+
+p a:not(:last-child) {
+  margin-right: 20px;
+}
+
+.bocoup {
+  margin-left: 10px;
+}

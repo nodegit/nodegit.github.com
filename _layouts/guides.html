@@ -1,0 +1,12 @@
+---
+layout: full
+---
+
+{% assign sections = page.content|split:'***' %}
+<div class="guides">
+{% for section in sections %}
+  <div class="document">
+    {{ section | markdownify }}
+  </div>
+{% endfor %}
+</div>

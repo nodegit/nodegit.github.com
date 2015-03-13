@@ -1,0 +1,52 @@
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="{{ site.baseurl }}/"><img src="/img/nodegit.svg" alt="{{ site.title }}" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        {% if page.nodegit_version %}
+          {{ page.nodegit_version }}
+        {% else %}
+          <span>Latest release:</span> {{ site.current_nodegit_version }}
+        {% endif %}
+      </div>
+      <ul class="version-menu">
+        <li><a href="{{ site.baseurl }}/"><span>Latest release:</span> {{ site.current_nodegit_version }}</a></li>
+        {% for version in site.other_nodegit_versions %}
+        <li><a href="{{ site.baseurl }}/{{version}}/">{{ version }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li{% if page.menu_item == 'getting_started' %} class="active"{% endif %}><a href="{{ site.baseurl }}/{% if page.nodegit_version %}{{ page.nodegit_version }}/{% endif %}">Getting Started</a></li>
+        <li{% if page.menu_item == 'guides' %} class="active"{% endif %}><a href="{{ site.baseurl }}/{% if page.nodegit_version %}{{ page.nodegit_version }}/{% endif %}guides/">Guides</a></li>
+        <li{% if page.menu_item == 'api' %} class="active"{% endif %}><a href="{{ site.baseurl }}/{% if page.nodegit_version %}{{ page.nodegit_version }}/{% endif %}api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/{% if page.nodegit_version %}tree/{{ page.nodegit_version }}/{% endif %}">Source</a></li>
+        <!--<li{% if page.menu_item == 'blog' %} class="active"{% endif %}><a href="{{ site.baseurl }}/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  {% if page.url == '/' %}
+    <div class="wrapper hero">
+      <h2>{{ site.description}}</h2>
+      <div class="buttons">
+        <a href="{{ site.baseurl }}/guides/">Read the NodeGit Guides</a>
+        <a href="https://github.com/nodegit/nodegit" class="secondary">Fork on GitHub</a>
+      </div>
+      <p>Latest release: {{ site.current_nodegit_version }} &mdash; <a href="{{ site.baseurl }}/changelog/">Changelog</a></p>
+    </div>
+  {% else %}
+    <div class="wrapper">
+      <h2>{{ page.title }}</h2>
+      <p>{{ page.description }}</p>
+    </div>
+  {% endif %}
+</div>

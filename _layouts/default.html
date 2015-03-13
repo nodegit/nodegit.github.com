@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          {% if page.return_to %}
+          {% for section_hash in page.return_to %}
+          <h5><a href="{{section_hash[1]}}">{{section_hash[0]}}</a></h5>
+          {% endfor %}
+          {% endif %}
+          <ul>
+            {% for section_hash in page.sections %}
+            <li><a href="{{section_hash[1]}}">{{section_hash[0]}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="main">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

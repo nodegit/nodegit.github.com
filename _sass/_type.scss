@@ -1,0 +1,96 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+body {
+  font-family:$font-family;
+  font-size:$font-size;
+  line-height:$line-height;
+  color:$text-color;
+}
+
+h1, h2, h3, nav, .version, .version-menu, .buttons {
+  font-family: Bitter, $font-family;
+  line-height:1;
+}
+
+h1, h2, h3, h4, h5 {
+  color:$headline-color;
+}
+
+h2 {
+  font-size:$font-size * 2;
+  margin-top:$spacing-unit;
+
+  span {
+    color:#aaa;
+  }
+
+  &:first-child {
+    margin-top:0;
+  }
+}
+
+h3 {
+  font-size:$font-size * 1.2;
+}
+
+h4 {
+  font-weight:500;
+  color:#999;
+}
+
+h5 {
+  border-bottom:1px solid #ededed;
+  padding:0 0 $spacing-unit/4;
+  margin:0 0 $spacing-unit/3;
+}
+
+.version, .version-menu {
+  font-size:$font-size*0.8;
+}
+
+strong {
+  font-weight:bold;
+  color:#222;
+}
+
+a {
+  text-decoration:none;
+  color:$key-color;
+
+  span {
+    color:#aaa;
+  }
+
+  &:hover {
+    color:darken($key-color, 20%);
+
+    span {
+      color:#727272;
+    }
+  }
+}
+
+.outline {
+  font-weight:500;
+
+  a {
+    color:$text-color;
+
+    &:hover {
+      color:$headline-color;
+    }
+
+    &.selected {
+      color:$key-color;
+    }
+  }
+}
+
+code {
+  font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  background:#f8f8f8;
+  padding:4px;
+  border:1px solid #ededed;
+  border-radius:3px;
+  font-size:13px;
+}

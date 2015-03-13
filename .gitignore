@@ -1,2 +1,4 @@
-/api-viewer/bower_components/
-/api-viewer/node_modules/
+_site
+.sass-cache
+generate/nodegit
+node_modules/

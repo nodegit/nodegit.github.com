@@ -1,0 +1,118 @@
+---
+layout: default
+menu_item: api
+title: Treebuilder
+description: Version 0.3.0
+menu_item: api
+return_to:
+  "API Documentation Index": /api/
+sections:
+  "create": "#create"
+  "#clear": "#clear"
+  "#entrycount": "#entrycount"
+  "#free": "#free"
+  "#get": "#get"
+  "#insert": "#insert"
+  "#remove": "#remove"
+  "#write": "#write"
+---
+
+## <a name="create"></a><span>Treebuilder.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+Treebuilder.create(repo, source).then(function(treebuilder) {
+  // Use treebuilder
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository in which to store the object |
+| source | [Tree](/api/tree/) | Source tree to initialize the builder (optional) |
+
+| Returns |  |
+| --- | --- |
+| [Treebuilder](/api/treebuilder/) | the tree builder |
+
+## <a name="clear"></a><span>Treebuilder#</span>clear <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+treebuilder.clear();
+```
+
+## <a name="entrycount"></a><span>Treebuilder#</span>entrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = treebuilder.entrycount();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  the number of entries in the treebuilder |
+
+## <a name="free"></a><span>Treebuilder#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+treebuilder.free();
+```
+
+## <a name="get"></a><span>Treebuilder#</span>get <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var treeEntry = treebuilder.get(filename);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| filename | String | Name of the entry |
+
+| Returns |  |
+| --- | --- |
+| [TreeEntry](/api/tree_entry/) |  |
+
+## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+treebuilder.insert(filename, id, filemode).then(function(treeEntry) {
+  // Use treeEntry
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| filename | String | Filename of the entry |
+| id | [Oid](/api/oid/) | SHA1 oid of the entry |
+| filemode | Number | Folder attributes of the entry. This parameter must be valued with one of the following entries: 0040000, 0100644, 0100755, 0120000 or 0160000. |
+
+| Returns |  |
+| --- | --- |
+| [TreeEntry](/api/tree_entry/) |  |
+
+## <a name="remove"></a><span>Treebuilder#</span>remove <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = treebuilder.remove(filename);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| filename | String | Filename of the entry to remove |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = treebuilder.write(id);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) | Pointer to store the OID of the newly written tree |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
