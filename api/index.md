@@ -1038,20 +1038,21 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Pathspec.</span>matchListDiffEntry <span>(m, pos)</span>](/api/pathspec/#matchListDiffEntry) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec.</span>matchListEntry <span>(m, pos)</span>](/api/pathspec/#matchListEntry) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec.</span>matchListEntrycount <span>(m)</span>](/api/pathspec/#matchListEntrycount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec.</span>matchListFailedEntry <span>(m, pos)</span>](/api/pathspec/#matchListFailedEntry) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec.</span>matchListFailedEntrycount <span>(m)</span>](/api/pathspec/#matchListFailedEntrycount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Pathspec.</span>create <span>(pathspec)</span>](/api/pathspec/#create) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Pathspec.</span>matchListDiffEntry <span>(m, pos)</span>](/api/pathspec/#matchListDiffEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Pathspec.</span>matchListEntry <span>(m, pos)</span>](/api/pathspec/#matchListEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Pathspec.</span>matchListEntrycount <span>(m)</span>](/api/pathspec/#matchListEntrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Pathspec.</span>matchListFailedEntry <span>(m, pos)</span>](/api/pathspec/#matchListFailedEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Pathspec.</span>matchListFailedEntrycount <span>(m)</span>](/api/pathspec/#matchListFailedEntrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Pathspec#</span>free <span>()</span>](/api/pathspec/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec#</span>matchDiff <span>(diff, flags)</span>](/api/pathspec/#matchDiff) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec#</span>matchIndex <span>(index, flags)</span>](/api/pathspec/#matchIndex) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec#</span>matchTree <span>(tree, flags)</span>](/api/pathspec/#matchTree) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec#</span>matchWorkdir <span>(repo, flags)</span>](/api/pathspec/#matchWorkdir) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Pathspec#</span>matchesPath <span>(flags, path)</span>](/api/pathspec/#matchesPath) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Pathspec#</span>free <span>()</span>](/api/pathspec/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Pathspec#</span>matchDiff <span>(diff, flags)</span>](/api/pathspec/#matchDiff) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Pathspec#</span>matchIndex <span>(index, flags)</span>](/api/pathspec/#matchIndex) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Pathspec#</span>matchTree <span>(tree, flags)</span>](/api/pathspec/#matchTree) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Pathspec#</span>matchWorkdir <span>(repo, flags)</span>](/api/pathspec/#matchWorkdir) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Pathspec#</span>matchesPath <span>(flags, path)</span>](/api/pathspec/#matchesPath) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -1224,7 +1225,6 @@ sections:
 | [<span>Remote.</span>isValidName <span>(remote_name)</span>](/api/remote/#isValidName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote.</span>list <span>(repo)</span>](/api/remote/#list) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>lookup <span>(repo, name, callback)</span>](/api/remote/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Remote.</span>push <span>(refSpecs, options, signature, message)</span>](/api/remote/#push) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
@@ -1243,11 +1243,12 @@ sections:
 | [<span>Remote#</span>getFetchRefspecs <span>()</span>](/api/remote/#getFetchRefspecs) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>getPushRefspecs <span>()</span>](/api/remote/#getPushRefspecs) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>getRefspec <span>(n)</span>](/api/remote/#getRefspec) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Remote#</span>ls <span>(size)</span>](/api/remote/#ls) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>name <span>()</span>](/api/remote/#name) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>owner <span>()</span>](/api/remote/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>prune <span>()</span>](/api/remote/#prune) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>pruneRefs <span>()</span>](/api/remote/#pruneRefs) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>push <span>(refspecs, opts, signature, reflog_message)</span>](/api/remote/#push) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Remote#</span>push <span>(refSpecs, options, signature, message)</span>](/api/remote/#push) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>pushurl <span>()</span>](/api/remote/#pushurl) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>refspecCount <span>()</span>](/api/remote/#refspecCount) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>save <span>()</span>](/api/remote/#save) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1293,6 +1294,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Repository#</span>checkoutBranch <span>(branch, opts)</span>](/api/repository/#checkoutBranch) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createLightweightTag <span>(String, name)</span>](/api/repository/#createLightweightTag) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1326,7 +1328,7 @@ sections:
 | [<span>Repository#</span>odb <span>()</span>](/api/repository/#odb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>path <span>()</span>](/api/repository/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>refdb <span>()</span>](/api/repository/#refdb) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>setHead <span>(refname, signature, log_message)</span>](/api/repository/#setHead) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>setHead <span>(refname, signature, log_message)</span>](/api/repository/#setHead) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHeadDetached <span>(commitish, signature, log_message)</span>](/api/repository/#setHeadDetached) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>setNamespace <span>(nmspace)</span>](/api/repository/#setNamespace) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>setWorkdir <span>(workdir, update_gitlink)</span>](/api/repository/#setWorkdir) |  <span class="tags"><span class="sync">Sync</span></span> |

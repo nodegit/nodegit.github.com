@@ -15,7 +15,6 @@ sections:
   "isValidName": "#isValidName"
   "list": "#list"
   "lookup": "#lookup"
-  "push": "#push"
   "#addFetch": "#addFetch"
   "#addPush": "#addPush"
   "#autotag": "#autotag"
@@ -31,6 +30,7 @@ sections:
   "#getFetchRefspecs": "#getFetchRefspecs"
   "#getPushRefspecs": "#getPushRefspecs"
   "#getRefspec": "#getRefspec"
+  "#ls": "#ls"
   "#name": "#name"
   "#owner": "#owner"
   "#prune": "#prune"
@@ -188,28 +188,6 @@ Retrieves the remote by name
 | Returns |  |
 | --- | --- |
 | [Remote](/api/remote/) |  |
-
-## <a name="push"></a><span>Remote.</span>push <span class="tags"><span class="async">Async</span></span>
-
-```js
-Remote.push(refSpecs, options, signature, message).then(function(number) {
-  // Use number
-});
-```
-
-Pushes to a remote
-
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| refSpecs | Array | The ref specs that should be pushed |
-| options | [PushOptions](/api/push_options/) | Options for the checkout |
-| signature | [Signature](/api/signature/) | The identity to use for the reflog of the updated references |
-| message | String | The message to use for the update reflog messages |
-
-| Returns |  |
-| --- | --- |
-| Number | error code |
 
 ## <a name="addFetch"></a><span>Remote#</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
 
@@ -388,6 +366,22 @@ var refspec = remote.getRefspec(n);
 | --- | --- |
 | [Refspec](/api/refspec/) |  the nth refspec |
 
+## <a name="ls"></a><span>Remote#</span>ls <span class="tags"><span class="async">Async</span></span>
+
+```js
+remote.ls(size).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| size | Number | the number of remote heads |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, or an error code |
+
 ## <a name="name"></a><span>Remote#</span>name <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -431,21 +425,24 @@ var result = remote.pruneRefs();
 ## <a name="push"></a><span>Remote#</span>push <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.push(refspecs, opts, signature, reflog_message).then(function(result) {
-  // Use result
+remote.push(refSpecs, options, signature, message).then(function(number) {
+  // Use number
 });
 ```
 
+Pushes to a remote
+
+
 | Parameters | Type |
 | --- | --- | --- |
-| refspecs | [Strarray](/api/strarray/) | the refspecs to use for pushing. If none are passed, the configured refspecs will be used |
-| opts | [PushOptions](/api/push_options/) | the options |
-| signature | [Signature](/api/signature/) | signature to use for the reflog of updated references |
-| reflog_message | String | message to use for the reflog of upated references |
+| refSpecs | Array | The ref specs that should be pushed |
+| options | [PushOptions](/api/push_options/) | Options for the checkout |
+| signature | [Signature](/api/signature/) | The identity to use for the reflog of the updated references |
+| message | String | The message to use for the update reflog messages |
 
 | Returns |  |
 | --- | --- |
-| Number |  |
+| Number | error code |
 
 ## <a name="pushurl"></a><span>Remote#</span>pushurl <span class="tags"><span class="sync">Sync</span></span>
 

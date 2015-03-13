@@ -13,6 +13,7 @@ sections:
   "openBare": "#openBare"
   "openExt": "#openExt"
   "wrapOdb": "#wrapOdb"
+  "#checkoutBranch": "#checkoutBranch"
   "#config": "#config"
   "#configSnapshot": "#configSnapshot"
   "#createLightweightTag": "#createLightweightTag"
@@ -158,6 +159,21 @@ Repository.wrapOdb(odb).then(function(repository) {
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) |  |
+
+## <a name="checkoutBranch"></a><span>Repository#</span>checkoutBranch <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+repository.checkoutBranch(branch, opts);
+```
+
+This will set the HEAD to point to the local branch and then attempt
+to update the index and working tree to match the content of the
+latest commit on that branch
+
+| Parameters | Type |
+| --- | --- | --- |
+| branch | String, [Reference](/api/reference/) | the branch to checkout |
+| opts | [Object](/api/object/), [CheckoutOptions](/api/checkout_options/) | the options to use for the checkout |
 
 ## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>
 
@@ -651,10 +667,12 @@ repository.refdb().then(function(refdb) {
 | --- | --- |
 | [Refdb](/api/refdb/) |  |
 
-## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = repository.setHead(refname, signature, log_message);
+repository.setHead(refname, signature, log_message).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |

@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "create": "#create"
   "matchListDiffEntry": "#matchListDiffEntry"
   "matchListEntry": "#matchListEntry"
   "matchListEntrycount": "#matchListEntrycount"
@@ -21,7 +22,23 @@ sections:
   "FLAG": "#FLAG"
 ---
 
-## <a name="matchListDiffEntry"></a><span>Pathspec.</span>matchListDiffEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="create"></a><span>Pathspec.</span>create <span class="tags"><span class="async">Async</span></span>
+
+```js
+Pathspec.create(pathspec).then(function(pathspec) {
+  // Use pathspec
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| pathspec | [Strarray](/api/strarray/) | A git_strarray of the paths to match |
+
+| Returns |  |
+| --- | --- |
+| [Pathspec](/api/pathspec/) | Output of the compiled pathspec |
+
+## <a name="matchListDiffEntry"></a><span>Pathspec.</span>matchListDiffEntry <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var diffDelta = Pathspec.matchListDiffEntry(m, pos);
@@ -36,7 +53,7 @@ var diffDelta = Pathspec.matchListDiffEntry(m, pos);
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  The filename of the match |
 
-## <a name="matchListEntry"></a><span>Pathspec.</span>matchListEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="matchListEntry"></a><span>Pathspec.</span>matchListEntry <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = Pathspec.matchListEntry(m, pos);
@@ -51,7 +68,7 @@ var string = Pathspec.matchListEntry(m, pos);
 | --- | --- |
 | String |  The filename of the match |
 
-## <a name="matchListEntrycount"></a><span>Pathspec.</span>matchListEntrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="matchListEntrycount"></a><span>Pathspec.</span>matchListEntrycount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Pathspec.matchListEntrycount(m);
@@ -65,7 +82,7 @@ var result = Pathspec.matchListEntrycount(m);
 | --- | --- |
 | Number |  Number of items in match list |
 
-## <a name="matchListFailedEntry"></a><span>Pathspec.</span>matchListFailedEntry <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="matchListFailedEntry"></a><span>Pathspec.</span>matchListFailedEntry <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = Pathspec.matchListFailedEntry(m, pos);
@@ -80,7 +97,7 @@ var string = Pathspec.matchListFailedEntry(m, pos);
 | --- | --- |
 | String |  The pathspec pattern that didn't match anything |
 
-## <a name="matchListFailedEntrycount"></a><span>Pathspec.</span>matchListFailedEntrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="matchListFailedEntrycount"></a><span>Pathspec.</span>matchListFailedEntrycount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Pathspec.matchListFailedEntrycount(m);
@@ -94,13 +111,13 @@ var result = Pathspec.matchListFailedEntrycount(m);
 | --- | --- |
 | Number |  Number of items in original pathspec that had no matches |
 
-## <a name="free"></a><span>Pathspec#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Pathspec#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 pathspec.free();
 ```
 
-## <a name="matchDiff"></a><span>Pathspec#</span>matchDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="matchDiff"></a><span>Pathspec#</span>matchDiff <span class="tags"><span class="async">Async</span></span>
 
 ```js
 pathspec.matchDiff(diff, flags).then(function(pathspecMatchList) {
@@ -117,7 +134,7 @@ pathspec.matchDiff(diff, flags).then(function(pathspecMatchList) {
 | --- | --- |
 | [PathspecMatchList](/api/pathspec_match_list/) | Output list of matches; pass NULL to just get return value |
 
-## <a name="matchIndex"></a><span>Pathspec#</span>matchIndex <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="matchIndex"></a><span>Pathspec#</span>matchIndex <span class="tags"><span class="async">Async</span></span>
 
 ```js
 pathspec.matchIndex(index, flags).then(function(pathspecMatchList) {
@@ -134,7 +151,7 @@ pathspec.matchIndex(index, flags).then(function(pathspecMatchList) {
 | --- | --- |
 | [PathspecMatchList](/api/pathspec_match_list/) | Output list of matches; pass NULL to just get return value |
 
-## <a name="matchTree"></a><span>Pathspec#</span>matchTree <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="matchTree"></a><span>Pathspec#</span>matchTree <span class="tags"><span class="async">Async</span></span>
 
 ```js
 pathspec.matchTree(tree, flags).then(function(pathspecMatchList) {
@@ -151,7 +168,7 @@ pathspec.matchTree(tree, flags).then(function(pathspecMatchList) {
 | --- | --- |
 | [PathspecMatchList](/api/pathspec_match_list/) | Output list of matches; pass NULL to just get return value |
 
-## <a name="matchWorkdir"></a><span>Pathspec#</span>matchWorkdir <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="matchWorkdir"></a><span>Pathspec#</span>matchWorkdir <span class="tags"><span class="async">Async</span></span>
 
 ```js
 pathspec.matchWorkdir(repo, flags).then(function(pathspecMatchList) {
@@ -168,7 +185,7 @@ pathspec.matchWorkdir(repo, flags).then(function(pathspecMatchList) {
 | --- | --- |
 | [PathspecMatchList](/api/pathspec_match_list/) | Output list of matches; pass NULL to just get return value |
 
-## <a name="matchesPath"></a><span>Pathspec#</span>matchesPath <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="matchesPath"></a><span>Pathspec#</span>matchesPath <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = pathspec.matchesPath(flags, path);
