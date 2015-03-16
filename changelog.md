@@ -3,6 +3,7 @@ layout: default
 title: Changelog
 description: What's changed between releases
 sections:
+  "v0.3.1": "#v0-3-1"
   "v0.3.0": "#v0-3-0"
   "v0.2.7": "#v0-2-7"
   "v0.2.6": "#v0-2-6"
@@ -32,6 +33,10 @@ sections:
   "v0.0.2": "#v0-0-2"
   "v0.0.1": "#v0-0-1"
 ---
+
+## <a name="v0-3-1" href="#v0-3-1">v0.3.1</a> (2015-03-14)
+
+- Fixes issues with downloading prebuilt and building from NPM source.
 
 ## <a name="v0-3-0" href="#v0-3-0">v0.3.0</a> (2015-03-13)
 
