@@ -3,7 +3,7 @@ title: NodeGit
 description: Asynchronous native Node bindings to libgit2
 url: "http://nodegit.org"
 date_format: "ordinal"
-current_nodegit_version: 0.3.0
+current_nodegit_version: 0.3.1
 other_nodegit_versions:
   - HEAD
   - 0.2.7
@@ -14,4 +14,4 @@ redcarpet:
   extensions: [tables, no_intra_emphasis, autolink]
 highlighter: pygments
 permalink: pretty
-exclude: ["node_modules","generate","package.json","README.md"]
+exclude: ["node_modules","generate","package.json","README.md", "CNAME", "Gemfile", "Gemfile.lock"]

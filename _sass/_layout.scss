@@ -66,6 +66,7 @@ header {
   }
 
   .version {
+    display:none; // Remove this once versions are implemented
     float:left;
     position:relative;
     cursor:pointer;
@@ -238,6 +239,10 @@ header {
     overflow:hidden;
     width:auto;
 
+    p {
+      max-width:720px;
+    }
+
     table {
       a {
         color:$text-color;
@@ -322,6 +327,73 @@ header {
         clear:left;
       }
     }
+  }
+}
+
+.home {
+  .page-content {
+    .wrapper {
+      max-width:720px;
+    }
+
+    h2 {
+      text-align:center;
+      font-size:43px;
+    }
+
+    hr {
+      margin:$spacing-unit 0;
+    }
+  }
+}
+
+.columns {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:flex;
+  width:100%;
+
+  .columns {
+    margin:0;
+  }
+
+  .column {
+    text-align:center;
+    padding:0 $spacing-unit/2;
+  }
+
+  h3 {
+    color:#999;
+  }
+}
+
+.compatibility {
+  img {
+    width:64px;
+    height:64px;
+    display:block;
+  }
+}
+
+.logos {
+  img {
+    height:64px;
+  }
+}
+
+footer {
+  display:block;
+  text-align:center;
+
+  p {
+    max-width:520px;
+    margin:0 auto $spacing-unit;
+  }
+
+  a {
+    color:#727272;
   }
 }
 
@@ -452,6 +524,31 @@ table {
 
   h2 {
     font-size:$font-size * 1.5;
+  }
+
+  .columns {
+    display:block;
+
+    .column {
+      text-align:center;
+    }
+
+    .columns {
+      width:100%;
+      display:-webkit-box;
+      display:-webkit-flex;
+      display:-moz-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-justify-content:center;
+      -moz-justify-content:center;
+      -ms-justify-content:center;
+      justify-content:center;
+
+      .column {
+        padding:0 $spacing-unit;
+      }
+    }
   }
 
   .banner {

@@ -30,7 +30,6 @@ sections:
   "#getFetchRefspecs": "#getFetchRefspecs"
   "#getPushRefspecs": "#getPushRefspecs"
   "#getRefspec": "#getRefspec"
-  "#ls": "#ls"
   "#name": "#name"
   "#owner": "#owner"
   "#prune": "#prune"
@@ -365,22 +364,6 @@ var refspec = remote.getRefspec(n);
 | Returns |  |
 | --- | --- |
 | [Refspec](/api/refspec/) |  the nth refspec |
-
-## <a name="ls"></a><span>Remote#</span>ls <span class="tags"><span class="async">Async</span></span>
-
-```js
-remote.ls(size).then(function(result) {
-  // Use result
-});
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| size | Number | the number of remote heads |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, or an error code |
 
 ## <a name="name"></a><span>Remote#</span>name <span class="tags"><span class="sync">Sync</span></span>
 

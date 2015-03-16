@@ -5,7 +5,6 @@ title: API Docs
 description: Version 0.3.0
 menu_item: api
 sections:
-  "Annotated": "#Annotated"
   "Attr": "#Attr"
   "Blame": "#Blame"
   "BlameHunk": "#BlameHunk"
@@ -104,16 +103,6 @@ sections:
   "TreeEntry": "#TreeEntry"
   "Treebuilder": "#Treebuilder"
 ---
-
-## <a name='Annotated'></a>[Annotated](/api/annotated/)
-
-| Class Methods |  |
-| --- | ---: |
-| [<span>Annotated.</span>commitFromFetchhead <span>(repo, branch_name, remote_url, id)</span>](/api/annotated/#commitFromFetchhead) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Annotated.</span>commitFromRef <span>(repo, ref)</span>](/api/annotated/#commitFromRef) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Annotated.</span>commitId <span>(commit)</span>](/api/annotated/#commitId) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Annotated.</span>commitLookup <span>(repo, id)</span>](/api/annotated/#commitLookup) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-
 
 
 ## <a name='Attr'></a>[Attr](/api/attr/)
@@ -1243,7 +1232,6 @@ sections:
 | [<span>Remote#</span>getFetchRefspecs <span>()</span>](/api/remote/#getFetchRefspecs) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>getPushRefspecs <span>()</span>](/api/remote/#getPushRefspecs) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>getRefspec <span>(n)</span>](/api/remote/#getRefspec) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>ls <span>(size)</span>](/api/remote/#ls) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>name <span>()</span>](/api/remote/#name) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>owner <span>()</span>](/api/remote/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>prune <span>()</span>](/api/remote/#prune) |  <span class="tags"><span class="sync">Sync</span></span> |
