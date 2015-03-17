@@ -24,12 +24,18 @@ npm install nodegit
     <div class="columns">
       <div class="column">
         <a href="http://github.com/atom/atom-shell">
-          <img src="/img/atom.png"/> Atom
+          <img src="/img/atom.png"/>
+        </a>
+        <a href="/guides/install/atom-shell/">
+        Atom
         </a>
       </div>
       <div class="column">
         <a href="http://nwjs.io">
-          <img src="/img/nwjs.png"/> nw.js
+          <img src="/img/nwjs.png"/>
+        </a>
+        <a href="/guides/install/nw.js/">
+        nw.js
         </a>
       </div>
     </div>
