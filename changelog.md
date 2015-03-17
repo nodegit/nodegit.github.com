@@ -40,6 +40,16 @@ sections:
 
 - Ensures that all devDependencies are downloaded and Atom Shell builds.
 
+## <a name="v0-3-3" href="#v0-3-3">v0.3.3</a> (2015-03-14)
+
+- Fixes issues with some dev dependencies not being downloaded prior to build.
+
+
+## <a name="v0-3-2" href="#v0-3-2">v0.3.2</a> (2015-03-14)
+
+- Fixes issues with installing for atom-shell and nw.js in node 0.12.
+
+
 ## <a name="v0-3-1" href="#v0-3-1">v0.3.1</a> (2015-03-14)
 
 - Fixes issues with downloading prebuilt and building from NPM source.
