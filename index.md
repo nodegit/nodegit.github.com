@@ -87,6 +87,8 @@ Let's learn how to clone a repository. Create a file named `clone.js`,
 and add the following code:
 
 ``` javascript
+var Git = require("nodegit");
+
 Git.Clone("https://github.com/nodegit/nodegit", "nodegit").then(function(repository) {
   // Work with the repository object here.
 });
@@ -100,6 +102,8 @@ Let's learn how to open a repository. Create a file named `open.js`,
 and add the following code:
 
 ``` javascript
+var Git = require("nodegit");
+
 var getMostRecentCommit = function(repository) {
   return repository.getBranchCommit("master");
 };
