@@ -87,10 +87,12 @@ Let's learn how to clone a repository. Create a file named `clone.js`,
 and add the following code:
 
 ``` javascript
-Git.Clone("https://github.com/nodegit/nodegit", "tmp").then(function(repository) {
-
+Git.Clone("https://github.com/nodegit/nodegit", "nodegit").then(function(repository) {
+  // Work with the repository object here.
 });
 ```
+
+This will clone our repository into a folder named `nodegit`.
 
 ### <a name="open-a-repository"></a>Open a Repository
 
@@ -98,10 +100,23 @@ Let's learn how to open a repository. Create a file named `open.js`,
 and add the following code:
 
 ``` javascript
-Git.Repository.open("tmp").then(function(repository) {
+var getMostRecentCommit = function(repository) {
+  return repository.getBranchCommit("master");
+};
 
-});
+var getCommitMessage = function(commit) {
+  return commit.message();
+};
+
+Git.Repository.open("nodegit")
+  .then(getMostRecentCommit)
+  .then(getCommitMessage)
+  .then(function(message) {
+    console.log(message);
+  });
 ```
+
+This will open our cloned repository and read out the latest commit's message from master.
 
 * * *
 

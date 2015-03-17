@@ -36,6 +36,9 @@ sections:
   "v0.0.1": "#v0-0-1"
 ---
 ## <a name="v0-3-3" href="#v0-3-3">v0.3.3</a> (2015-03-16)
+
+- Layering on to 0.3.2, provided further necessary fixes.
+
 ## <a name="v0-3-2" href="#v0-3-2">v0.3.2</a> (2015-03-16)
 
 - Ensures that all devDependencies are downloaded and Atom Shell builds.
