@@ -128,6 +128,12 @@ Git.Repository.open("nodegit")
 
 This will open our cloned repository and read out the latest commit's message from master.
 
+Have a problem? Come chat with us!
+
+<a href="https://gitter.im/nodegit/nodegit">
+  <img src="/img/gitterbadge.svg"/>
+</a>
+
 * * *
 
 ## <a name="brought-to-you-by"></a>Brought to you by
