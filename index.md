@@ -23,11 +23,11 @@ npm install nodegit
     <h3>Native Shells</h3>
     <div class="columns">
       <div class="column">
-        <a href="http://github.com/atom/atom-shell">
+        <a href="http://github.com/atom/electron">
           <img src="/img/atom.png"/>
         </a>
-        <a href="/guides/install/atom-shell/">
-        Atom
+        <a href="/guides/install/electron/">
+        Electron
         </a>
       </div>
       <div class="column">
