@@ -24,7 +24,7 @@ npm install nodegit
     <div class="columns">
       <div class="column">
         <a href="http://github.com/atom/electron">
-          <img src="/img/atom.png"/>
+          <img src="/img/electron.svg"/>
         </a>
         <a href="/guides/install/electron/">
         Electron
