@@ -35,17 +35,162 @@ sections:
   "v0.0.2": "#v0-0-2"
   "v0.0.1": "#v0-0-1"
 ---
+
+## <a name="v0-4-0" href="#v0-4-0">v0.4.0</a> (2015-05-07)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.3...v0.4.0)
+
+**Closed issues:**
+
+- Error installing nodegit as dependency of an atom-shell app [\#556](https://github.com/nodegit/nodegit/issues/556)
+
+- New version of nan is breaking compile [\#554](https://github.com/nodegit/nodegit/issues/554)
+
+- Install error from openssl [\#551](https://github.com/nodegit/nodegit/issues/551)
+
+- How to get Tag instance by tag\_name? [\#543](https://github.com/nodegit/nodegit/issues/543)
+
+- ELIFECYCLE Error on install [\#540](https://github.com/nodegit/nodegit/issues/540)
+
+- Remote.delete returns -3 [\#539](https://github.com/nodegit/nodegit/issues/539)
+
+- Repository.init should accept boolean value for is\_bare [\#538](https://github.com/nodegit/nodegit/issues/538)
+
+- getStatus hangs [\#537](https://github.com/nodegit/nodegit/issues/537)
+
+- Unable to compile or install with npm install nodegit [\#536](https://github.com/nodegit/nodegit/issues/536)
+
+- `options` not reusable, nodegit destroys it [\#533](https://github.com/nodegit/nodegit/issues/533)
+
+- 'Error: 'directory' exists and is not an empty directory' \(but it doesn't exist\) [\#530](https://github.com/nodegit/nodegit/issues/530)
+
+- hey !:-\) problem with Branch.iteratorNew  \(support\) [\#528](https://github.com/nodegit/nodegit/issues/528)
+
+- hey !:-\) problem with Branch.iteratorNew [\#527](https://github.com/nodegit/nodegit/issues/527)
+
+- hey !:-\) problem with Branch.iteratorNew [\#526](https://github.com/nodegit/nodegit/issues/526)
+
+- hey !:-\) problem with Branch.iteratorNew [\#525](https://github.com/nodegit/nodegit/issues/525)
+
+- Error: Reference 'refs/remotes/user/foo/HEAD' not found [\#523](https://github.com/nodegit/nodegit/issues/523)
+
+- Path issues windows [\#522](https://github.com/nodegit/nodegit/issues/522)
+
+- Issues on scientific linux 6.6 [\#521](https://github.com/nodegit/nodegit/issues/521)
+
+- It's looking for node-typ under `/Users/johnh/.node-gyp` [\#518](https://github.com/nodegit/nodegit/issues/518)
+
+- Not working with iojs [\#516](https://github.com/nodegit/nodegit/issues/516)
+
+- Cred.sshKeyNew not working: Too many redirects or authentication replays [\#511](https://github.com/nodegit/nodegit/issues/511)
+
+- Open a Repo from a subfolder [\#509](https://github.com/nodegit/nodegit/issues/509)
+
+- Create git-like CLI [\#508](https://github.com/nodegit/nodegit/issues/508)
+
+- Cannot create an instance of Packbuilder [\#507](https://github.com/nodegit/nodegit/issues/507)
+
+- Cannot find module '../build/Debug/nodegit' [\#506](https://github.com/nodegit/nodegit/issues/506)
+
+- Bug with oid implicit cast inside C++ [\#501](https://github.com/nodegit/nodegit/issues/501)
+
+- Failed to `require` on Ubuntu 12.04LTS [\#493](https://github.com/nodegit/nodegit/issues/493)
+
+- Enable `git\_config`  [\#449](https://github.com/nodegit/nodegit/issues/449)
+
+- Pull example doesn't fully update the index [\#389](https://github.com/nodegit/nodegit/issues/389)
+
+**Merged pull requests:**
+
+- There is an incompatibility with NaN 1.8.x, keeping 1.7.x for now. [\#552](https://github.com/nodegit/nodegit/pull/552) ([wiggzz](https://github.com/wiggzz))
+
+- A wrapper for git\_diff\_blob\_to\_buffer [\#550](https://github.com/nodegit/nodegit/pull/550) ([bleathem](https://github.com/bleathem))
+
+- A wrapper for git\_diff\_blob\_to\_buffer [\#549](https://github.com/nodegit/nodegit/pull/549) ([bleathem](https://github.com/bleathem))
+
+- Removed the superflous "line" argument [\#547](https://github.com/nodegit/nodegit/pull/547) ([bleathem](https://github.com/bleathem))
+
+- This fixes polling sync promises in callbacks. [\#546](https://github.com/nodegit/nodegit/pull/546) ([johnhaley81](https://github.com/johnhaley81))
+
+- Add get/set config string methods and tests [\#545](https://github.com/nodegit/nodegit/pull/545) ([johnhaley81](https://github.com/johnhaley81))
+
+- Make `Remote.delete` async and return error messages correctly [\#544](https://github.com/nodegit/nodegit/pull/544) ([johnhaley81](https://github.com/johnhaley81))
+
+- Bump "nodegit-promise" version [\#542](https://github.com/nodegit/nodegit/pull/542) ([johnhaley81](https://github.com/johnhaley81))
+
+- Introduced a new ConvenientLine class to wrap the lines returned from ConvenientHunk. [\#541](https://github.com/nodegit/nodegit/pull/541) ([bleathem](https://github.com/bleathem))
+
+- Fix some things missed by the generating scripts [\#535](https://github.com/nodegit/nodegit/pull/535) ([johnhaley81](https://github.com/johnhaley81))
+
+- Attempt remove the delete keyword [\#534](https://github.com/nodegit/nodegit/pull/534) ([tbranyen](https://github.com/tbranyen))
+
+- Fix freeing a `GitOid` that was passed as a string [\#531](https://github.com/nodegit/nodegit/pull/531) ([johnhaley81](https://github.com/johnhaley81))
+
+- fix typo: "byes" [\#529](https://github.com/nodegit/nodegit/pull/529) ([rutsky](https://github.com/rutsky))
+
+- Add convenience methods to status file [\#524](https://github.com/nodegit/nodegit/pull/524) ([maxkorp](https://github.com/maxkorp))
+
+- Lots of complaints of missing build/Debug/nodegit [\#520](https://github.com/nodegit/nodegit/pull/520) ([tbranyen](https://github.com/tbranyen))
+
+- Add `Graph.aheadBehind` and tests [\#517](https://github.com/nodegit/nodegit/pull/517) ([johnhaley81](https://github.com/johnhaley81))
+
+- Update to use libgit2 v0.22.2 [\#515](https://github.com/nodegit/nodegit/pull/515) ([johnhaley81](https://github.com/johnhaley81))
+
+- Add `Repository.prototype.fetchheadForeach` and tests [\#514](https://github.com/nodegit/nodegit/pull/514) ([johnhaley81](https://github.com/johnhaley81))
+
+- Converted create methods to be synchronous [\#513](https://github.com/nodegit/nodegit/pull/513) ([tbranyen](https://github.com/tbranyen))
+
+- Fix atom-shell build on windows [\#512](https://github.com/nodegit/nodegit/pull/512) ([johnhaley81](https://github.com/johnhaley81))
+
+- Update Checkout and Merge [\#505](https://github.com/nodegit/nodegit/pull/505) ([orderedlist](https://github.com/orderedlist))
+
+- Add note tests [\#504](https://github.com/nodegit/nodegit/pull/504) ([tbranyen](https://github.com/tbranyen))
+
+- Revert "Guide navigation is currently confusing" [\#503](https://github.com/nodegit/nodegit/pull/503) ([thgaskell](https://github.com/thgaskell))
+
+- Improve coverage [\#502](https://github.com/nodegit/nodegit/pull/502) ([tbranyen](https://github.com/tbranyen))
+
+- Adds in CPP code coverage and joined JS [\#499](https://github.com/nodegit/nodegit/pull/499) ([tbranyen](https://github.com/tbranyen))
+
+- Add twitter username to README.md [\#498](https://github.com/nodegit/nodegit/pull/498) ([johnhaley81](https://github.com/johnhaley81))
+
+- Fix symbolic reference handling in getReferences [\#496](https://github.com/nodegit/nodegit/pull/496) ([billt2006](https://github.com/billt2006))
+
+- Enable `git\_stash\_foreach` [\#495](https://github.com/nodegit/nodegit/pull/495) ([johnhaley81](https://github.com/johnhaley81))
+
+- Guide navigation is currently confusing [\#494](https://github.com/nodegit/nodegit/pull/494) ([tbranyen](https://github.com/tbranyen))
+
+- Fix gitter badge for npm [\#492](https://github.com/nodegit/nodegit/pull/492) ([billt2006](https://github.com/billt2006))
+
+- Add automatically generated change log file. [\#465](https://github.com/nodegit/nodegit/pull/465) ([skywinder](https://github.com/skywinder))
+
 ## <a name="v0-3-3" href="#v0-3-3">v0.3.3</a> (2015-03-16)
 
-- Layering on to 0.3.2, provided further necessary fixes.
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.2...v0.3.3)
+
+**Merged pull requests:**
+
+- Download all dev dependencies before build [\#491](https://github.com/nodegit/nodegit/pull/491) ([johnhaley81](https://github.com/johnhaley81))
 
 ## <a name="v0-3-2" href="#v0-3-2">v0.3.2</a> (2015-03-16)
 
-- Ensures that all devDependencies are downloaded and Atom Shell builds.
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.1...v0.3.2)
+
+**Closed issues:**
+
+- Amazon S3 CDN link is broken [\#482](https://github.com/nodegit/nodegit/issues/482)
+
+**Merged pull requests:**
+
+- Confirm builder exists before building [\#490](https://github.com/nodegit/nodegit/pull/490) ([johnhaley81](https://github.com/johnhaley81))
 
 ## <a name="v0-3-1" href="#v0-3-1">v0.3.1</a> (2015-03-14)
 
-- Fixes issues with downloading prebuilt and building from NPM source.
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.0...v0.3.1)
+
+**Merged pull requests:**
+
+- Revert node-pre-gyp to install not build [\#486](https://github.com/nodegit/nodegit/pull/486) ([tbranyen](https://github.com/tbranyen))
 
 ## <a name="v0-3-0" href="#v0-3-0">v0.3.0</a> (2015-03-13)
 
