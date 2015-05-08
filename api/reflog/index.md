@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reflog
-description: Version 0.3.0
+description: Version 0.4.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
