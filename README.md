@@ -1,6 +1,9 @@
-`script/bootstrap`
-`script/server`
-`open http://localhost:4000`
+```
+script/bootstrap
+script/server
+
+open http://localhost:4000
+```
 
 ## Generating the site
 

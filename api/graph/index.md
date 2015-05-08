@@ -7,10 +7,29 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "aheadBehind": "#aheadBehind"
   "descendantOf": "#descendantOf"
 ---
 
-## <a name="descendantOf"></a><span>Graph.</span>descendantOf <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="aheadBehind"></a><span>Graph.</span>aheadBehind <span class="tags"><span class="async">Async</span></span>
+
+```js
+Graph.aheadBehind(repo, local, upstream).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository where the commits exist |
+| local | [Oid](/api/oid/) | the commit for local |
+| upstream | [Oid](/api/oid/) | the commit for upstream |
+
+| Returns |  |
+| --- | --- |
+| Number | number of unique from commits in `local` |
+
+## <a name="descendantOf"></a><span>Graph.</span>descendantOf <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Graph.descendantOf(repo, commit, ancestor);

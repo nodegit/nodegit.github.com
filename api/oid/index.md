@@ -9,6 +9,7 @@ return_to:
 sections:
   "fromString": "#fromString"
   "#cmp": "#cmp"
+  "#cpy": "#cpy"
   "#equal": "#equal"
   "#iszero": "#iszero"
   "#ncmp": "#ncmp"
@@ -44,6 +45,16 @@ var result = oid.cmp();
 0, 0, >0 if a 
 <
  b, a == b, a > b. |
+
+## <a name="cpy"></a><span>Oid#</span>cpy <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = oid.cpy();
+```
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | oid structure the result is written into. |
 
 ## <a name="equal"></a><span>Oid#</span>equal <span class="tags"><span class="sync">Sync</span></span>
 

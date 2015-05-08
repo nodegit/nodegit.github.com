@@ -53,12 +53,10 @@ sections:
   "COMPLETION_TYPE": "#COMPLETION_TYPE"
 ---
 
-## <a name="create"></a><span>Remote.</span>create <span class="tags"><span class="async">Async</span></span>
+## <a name="create"></a><span>Remote.</span>create <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Remote.create(repo, name, url).then(function(remote) {
-  // Use remote
-});
+var remote = Remote.create(repo, name, url);
 ```
 
 | Parameters | Type |   |
@@ -108,10 +106,12 @@ Remote.createWithFetchspec(repo, name, url, fetch).then(function(remote) {
 | --- | --- |
 | [Remote](/api/remote/) | the resulting remote |
 
-## <a name="delete"></a><span>Remote.</span>delete <span class="tags"><span class="sync">Sync</span></span>
+## <a name="delete"></a><span>Remote.</span>delete <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Remote.delete(repo, name);
+Remote.delete(repo, name).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |

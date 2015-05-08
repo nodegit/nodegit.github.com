@@ -13,12 +13,10 @@ sections:
   "#getPerfdata": "#getPerfdata"
 ---
 
-## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="async">Async</span></span>
+## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-StatusList.create(repo, opts).then(function(statusList) {
-  // Use statusList
-});
+var statusList = StatusList.create(repo, opts);
 ```
 
 | Parameters | Type |   |

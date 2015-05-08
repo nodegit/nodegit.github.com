@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "blobToBuffer": "#blobToBuffer"
   "indexToWorkdir": "#indexToWorkdir"
   "treeToIndex": "#treeToIndex"
   "treeToTree": "#treeToTree"
@@ -26,6 +27,31 @@ sections:
   "OPTION": "#OPTION"
   "STATS_FORMAT": "#STATS_FORMAT"
 ---
+
+## <a name="blobToBuffer"></a><span>Diff.</span>blobToBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, options, file_cb, hunk_cb, line_cb, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| old_blob | [Blob](/api/blob/) | Blob for old side of diff, or NULL for empty blob |
+| old_as_path | String | Treat old blob as if it had this filename; can be NULL |
+| buffer | String | Raw data for new side of diff, or NULL for empty |
+| buffer_len | Number | Length of raw data for new side of diff |
+| buffer_as_path | String | Treat buffer as if it had this filename; can be NULL |
+| options | [DiffOptions](/api/diff_options/) | Options for diff, or NULL for default options |
+| file_cb | DiffFileCb | Callback for "file"; made once if there is a diff; can be NULL |
+| hunk_cb | DiffHunkCb | Callback for each hunk in diff; can be NULL |
+| line_cb | DiffLineCb | Callback for each line in diff; can be NULL |
+| payload | Void | Payload passed to each callback function |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, non-zero callback return value, or error code |
 
 ## <a name="indexToWorkdir"></a><span>Diff.</span>indexToWorkdir <span class="tags"><span class="async">Async</span></span>
 

@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "create": "#create"
   "#free": "#free"
   "#hash": "#hash"
   "#insert": "#insert"
@@ -18,13 +19,27 @@ sections:
   "STAGE": "#STAGE"
 ---
 
-## <a name="free"></a><span>Packbuilder#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="create"></a><span>Packbuilder.</span>create <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var packbuilder = Packbuilder.create(repo);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repository |
+
+| Returns |  |
+| --- | --- |
+| [Packbuilder](/api/packbuilder/) | The new packbuilder object |
+
+## <a name="free"></a><span>Packbuilder#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 packbuilder.free();
 ```
 
-## <a name="hash"></a><span>Packbuilder#</span>hash <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="hash"></a><span>Packbuilder#</span>hash <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = packbuilder.hash();
@@ -34,7 +49,7 @@ var oid = packbuilder.hash();
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="insert"></a><span>Packbuilder#</span>insert <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="insert"></a><span>Packbuilder#</span>insert <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.insert(id, name);
@@ -49,7 +64,7 @@ var result = packbuilder.insert(id, name);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="insertCommit"></a><span>Packbuilder#</span>insertCommit <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="insertCommit"></a><span>Packbuilder#</span>insertCommit <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.insertCommit(id);
@@ -63,7 +78,7 @@ var result = packbuilder.insertCommit(id);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="insertTree"></a><span>Packbuilder#</span>insertTree <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="insertTree"></a><span>Packbuilder#</span>insertTree <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.insertTree(id);
@@ -77,7 +92,7 @@ var result = packbuilder.insertTree(id);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="objectCount"></a><span>Packbuilder#</span>objectCount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="objectCount"></a><span>Packbuilder#</span>objectCount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.objectCount();
@@ -87,7 +102,7 @@ var result = packbuilder.objectCount();
 | --- | --- |
 | Number |  the number of objects in the packfile |
 
-## <a name="setThreads"></a><span>Packbuilder#</span>setThreads <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setThreads"></a><span>Packbuilder#</span>setThreads <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.setThreads(n);
@@ -101,7 +116,7 @@ var result = packbuilder.setThreads(n);
 | --- | --- |
 | Number |  number of actual threads to be used |
 
-## <a name="written"></a><span>Packbuilder#</span>written <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="written"></a><span>Packbuilder#</span>written <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = packbuilder.written();

@@ -35,20 +35,17 @@ var statusEntry = Status.byIndex(statuslist, idx);
 ## <a name="file"></a><span>Status.</span>file <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = Status.file(status_flags, repo, path);
+var result = Status.file(repo, path);
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| status_flags | Number | Output combination of git_status_t values for file |
 | repo | [Repository](/api/repository/) | A repository object |
 | path | String | The exact path to retrieve status for relative to the repository working directory |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success, GIT_ENOTFOUND if the file is not found in the HEAD,
-      index, and work tree, GIT_EAMBIGUOUS if `path` matches multiple files
-      or if it refers to a folder, and -1 on other errors. |
+| Number | Output combination of git_status_t values for file |
 
 ## <a name="foreach"></a><span>Status.</span>foreach <span class="tags"><span class="async">Async</span></span>
 

@@ -22,12 +22,10 @@ sections:
   "FLAG": "#FLAG"
 ---
 
-## <a name="create"></a><span>Pathspec.</span>create <span class="tags"><span class="async">Async</span></span>
+## <a name="create"></a><span>Pathspec.</span>create <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Pathspec.create(pathspec).then(function(pathspec) {
-  // Use pathspec
-});
+var pathspec = Pathspec.create(pathspec);
 ```
 
 | Parameters | Type |   |

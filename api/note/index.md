@@ -9,6 +9,7 @@ return_to:
 sections:
   "create": "#create"
   "defaultRef": "#defaultRef"
+  "foreach": "#foreach"
   "iteratorNew": "#iteratorNew"
   "next": "#next"
   "read": "#read"
@@ -20,7 +21,7 @@ sections:
   "#message": "#message"
 ---
 
-## <a name="create"></a><span>Note.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="create"></a><span>Note.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Note.create(repo, notes_ref, author, committer, oid, note, force).then(function(oid) {
@@ -42,7 +43,7 @@ Note.create(repo, notes_ref, author, committer, oid, note, force).then(function(
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="defaultRef"></a><span>Note.</span>defaultRef <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="defaultRef"></a><span>Note.</span>defaultRef <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Note.defaultRef(repo).then(function(string) {
@@ -58,7 +59,26 @@ Note.defaultRef(repo).then(function(string) {
 | --- | --- |
 | String |  |
 
-## <a name="iteratorNew"></a><span>Note.</span>iteratorNew <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="foreach"></a><span>Note.</span>foreach <span class="tags"><span class="async">Async</span></span>
+
+```js
+Note.foreach(repo, notes_ref, note_cb, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository where to find the notes. |
+| notes_ref | String | Reference to read from (optional); defaults to "refs/notes/commits". |
+| note_cb | NoteForeachCb | Callback to invoke per found annotation. Return non-zero to stop looping. |
+| payload | Void | Extra parameter to callback function. |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, non-zero callback return value, or error code |
+
+## <a name="iteratorNew"></a><span>Note.</span>iteratorNew <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Note.iteratorNew(repo, notes_ref).then(function(noteIterator) {
@@ -75,7 +95,7 @@ Note.iteratorNew(repo, notes_ref).then(function(noteIterator) {
 | --- | --- |
 | [NoteIterator](/api/note_iterator/) |  |
 
-## <a name="next"></a><span>Note.</span>next <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="next"></a><span>Note.</span>next <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Note.next(note_id, annotated_id, it);
@@ -92,7 +112,7 @@ var result = Note.next(note_id, annotated_id, it);
 | Number |  0 (no error), GIT_ITEROVER (iteration is done) or an error code
          (negative value) |
 
-## <a name="read"></a><span>Note.</span>read <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="read"></a><span>Note.</span>read <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Note.read(repo, notes_ref, oid).then(function(note) {
@@ -110,10 +130,12 @@ Note.read(repo, notes_ref, oid).then(function(note) {
 | --- | --- |
 | [Note](/api/note/) |  |
 
-## <a name="remove"></a><span>Note.</span>remove <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="remove"></a><span>Note.</span>remove <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Note.remove(repo, notes_ref, author, committer, oid);
+Note.remove(repo, notes_ref, author, committer, oid).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -128,7 +150,7 @@ var result = Note.remove(repo, notes_ref, author, committer, oid);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="author"></a><span>Note#</span>author <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="author"></a><span>Note#</span>author <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var signature = note.author();
@@ -138,7 +160,7 @@ var signature = note.author();
 | --- | --- |
 | [Signature](/api/signature/) |  the author |
 
-## <a name="committer"></a><span>Note#</span>committer <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="committer"></a><span>Note#</span>committer <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var signature = note.committer();
@@ -148,13 +170,13 @@ var signature = note.committer();
 | --- | --- |
 | [Signature](/api/signature/) |  the committer |
 
-## <a name="free"></a><span>Note#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Note#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 note.free();
 ```
 
-## <a name="id"></a><span>Note#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="id"></a><span>Note#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = note.id();
@@ -164,7 +186,7 @@ var oid = note.id();
 | --- | --- |
 | [Oid](/api/oid/) |  the note object's id |
 
-## <a name="message"></a><span>Note#</span>message <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="message"></a><span>Note#</span>message <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = note.message();

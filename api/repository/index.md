@@ -21,6 +21,7 @@ sections:
   "#createTag": "#createTag"
   "#deleteTagByName": "#deleteTagByName"
   "#detachHead": "#detachHead"
+  "#fetchheadForeach": "#fetchheadForeach"
   "#free": "#free"
   "#getBlob": "#getBlob"
   "#getBranch": "#getBranch"
@@ -287,6 +288,17 @@ var result = repository.detachHead(signature, reflog_message);
 | --- | --- |
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
+
+## <a name="fetchheadForeach"></a><span>Repository#</span>fetchheadForeach <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.fetchheadForeach(callback).then(function() {
+  // method complete});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| callback | FetchheadForeachCb | The callback function to be called on each entry |
 
 ## <a name="free"></a><span>Repository#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
