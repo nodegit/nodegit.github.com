@@ -143,7 +143,7 @@ NodeGit is brought to you by the work of [many contributors](https://github.com/
 <div class="columns logos">
   <div class="column">
     <a class="axosoft" target="_blank" href="https://axosoft.com">
-      <img src="/img/axosoft.svg">
+      <img src="/img/axosoft.png">
     </a>
   </div>
   <div class="column">
