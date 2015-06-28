@@ -25,17 +25,19 @@ of the diff. Something like `@@ -169,14 +167,12 @@ ...`
 | --- | --- |
 | String |  |
 
-## <a name="lines"></a><span>ConvenientHunk#</span>lines <span class="tags"><span class="sync">Sync</span></span>
+## <a name="lines"></a><span>ConvenientHunk#</span>lines <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var string = convenientHunk.lines();
+convenientHunk.lines().then(function(arrayConvenientLine) {
+  // Use arrayConvenientLine
+});
 ```
 
 The lines in this hunk
 
 | Returns |  |
 | --- | --- |
-| String | array of strings |
+| Array&lt;[ConvenientLine](/api/convenient_line/)&gt; | a promise that resolves to an array of                                      ConvenientLines |
 
 ## <a name="size"></a><span>ConvenientHunk#</span>size <span class="tags"><span class="sync">Sync</span></span>
 

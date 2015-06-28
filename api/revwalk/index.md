@@ -50,7 +50,6 @@ var arrayCommit = revwalk.getCommits(count);
 
 Get a number of commits.
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | count | Number | (default: 10) |
@@ -67,7 +66,6 @@ var array = revwalk.getCommitsUntil(checkFn);
 
 Walk the history grabbing commits until the checkFn called with the
 current commit returns false.
-
 
 | Parameters | Type |
 | --- | --- | --- |
@@ -238,7 +236,6 @@ revwalk.sorting(sort);
 Set the sort order for the revwalk. This function takes variable arguments
 like `revwalk.sorting(NodeGit.RevWalk.Topological, NodeGit.RevWalk.Reverse).`
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | sort | Number |  |
@@ -251,7 +248,6 @@ var commit = revwalk.walk(oid, callback);
 
 Walk the history from the given oid. The callback is invoked for each commit;
 When the walk is over, the callback is invoked with `(null, null)`.
-
 
 | Parameters | Type |
 | --- | --- | --- |

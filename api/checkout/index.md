@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "head": "#head"
+  "index": "#index"
   "initOptions": "#initOptions"
   "tree": "#tree"
   "NOTIFY": "#NOTIFY"
@@ -24,10 +25,25 @@ Checkout.head(repo, [options]).then(function() {
 
 Patch head checkout to automatically coerce objects.
 
-
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repo to checkout head |
+| [options] | [CheckoutOptions](/api/checkout_options/) | Options for the checkout |
+
+## <a name="index"></a><span>Checkout.</span>index <span class="tags"><span class="async">Async</span></span>
+
+```js
+Checkout.index(repo, The, [options]).then(function() {
+  // checkout complete
+});
+```
+
+Patch index checkout to automatically coerce objects.
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo to checkout an index |
+| The | [Index](/api/index/) | index to checkout |
 | [options] | [CheckoutOptions](/api/checkout_options/) | Options for the checkout |
 
 ## <a name="initOptions"></a><span>Checkout.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
@@ -54,7 +70,6 @@ Checkout.tree(repo, treeish, [options]).then(function() {
 ```
 
 Patch tree checkout to automatically coerce objects.
-
 
 | Parameters | Type |   |
 | --- | --- | --- |

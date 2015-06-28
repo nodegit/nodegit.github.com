@@ -13,13 +13,13 @@ sections:
   "#abort": "#abort"
   "#commit": "#commit"
   "#finish": "#finish"
-  "#free": "#free"
+  "#next": "#next"
   "#operationByIndex": "#operationByIndex"
   "#operationCurrent": "#operationCurrent"
   "#operationEntrycount": "#operationEntrycount"
 ---
 
-## <a name="init"></a><span>Rebase.</span>init <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="init"></a><span>Rebase.</span>init <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Rebase.init(repo, branch, upstream, onto, signature, opts).then(function(rebase) {
@@ -40,7 +40,7 @@ Rebase.init(repo, branch, upstream, onto, signature, opts).then(function(rebase)
 | --- | --- |
 | [Rebase](/api/rebase/) |  |
 
-## <a name="initOptions"></a><span>Rebase.</span>initOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="initOptions"></a><span>Rebase.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Rebase.initOptions(opts, version);
@@ -55,7 +55,7 @@ var result = Rebase.initOptions(opts, version);
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
 
-## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Rebase.open(repo).then(function(rebase) {
@@ -71,7 +71,7 @@ Rebase.open(repo).then(function(rebase) {
 | --- | --- |
 | [Rebase](/api/rebase/) |  |
 
-## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = rebase.abort(signature);
@@ -86,15 +86,14 @@ var result = rebase.abort(signature);
 | Number |  Zero on success; GIT_ENOTFOUND if a rebase is not in progress,
          -1 on other errors. |
 
-## <a name="commit"></a><span>Rebase#</span>commit <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="commit"></a><span>Rebase#</span>commit <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = rebase.commit(id, author, committer, message_encoding, message);
+var oid = rebase.commit(author, committer, message_encoding, message);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| id | [Oid](/api/oid/) | Pointer in which to store the OID of the newly created commit |
 | author | [Signature](/api/signature/) | The author of the updated commit, or NULL to keep the author from the original commit |
 | committer | [Signature](/api/signature/) | The committer of the rebase |
 | message_encoding | String | The encoding for the message in the commit, represented with a standard encoding name. If message is NULL, this should also be NULL, and the encoding from the original commit will be maintained. If message is specified, this may be NULL to indicate that "UTF-8" is to be used. |
@@ -102,12 +101,9 @@ var result = rebase.commit(id, author, committer, message_encoding, message);
 
 | Returns |  |
 | --- | --- |
-| Number |  Zero on success, GIT_EUNMERGED if there are unmerged changes in
-        the index, GIT_EAPPLIED if the current commit has already
-        been applied to the upstream and there is nothing to commit,
-        -1 on failure. |
+| [Oid](/api/oid/) |  |
 
-## <a name="finish"></a><span>Rebase#</span>finish <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="finish"></a><span>Rebase#</span>finish <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = rebase.finish(signature, opts);
@@ -122,13 +118,23 @@ var result = rebase.finish(signature, opts);
 | --- | --- |
 | Number |  |
 
-## <a name="free"></a><span>Rebase#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="next"></a><span>Rebase#</span>next <span class="tags"><span class="async">Async</span></span>
 
 ```js
-rebase.free();
+rebase.next(checkout_opts).then(function(rebaseOperation) {
+  // Use rebaseOperation
+});
 ```
 
-## <a name="operationByIndex"></a><span>Rebase#</span>operationByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+| Parameters | Type |
+| --- | --- | --- |
+| checkout_opts | [CheckoutOptions](/api/checkout_options/) |  |
+
+| Returns |  |
+| --- | --- |
+| [RebaseOperation](/api/rebase_operation/) |  |
+
+## <a name="operationByIndex"></a><span>Rebase#</span>operationByIndex <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var rebaseOperation = rebase.operationByIndex(idx);
@@ -142,7 +148,7 @@ var rebaseOperation = rebase.operationByIndex(idx);
 | --- | --- |
 | [RebaseOperation](/api/rebase_operation/) |  The rebase operation or NULL if `idx` was out of bounds |
 
-## <a name="operationCurrent"></a><span>Rebase#</span>operationCurrent <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="operationCurrent"></a><span>Rebase#</span>operationCurrent <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = rebase.operationCurrent();
@@ -152,7 +158,7 @@ var result = rebase.operationCurrent();
 | --- | --- |
 | Number |  The index of the rebase operation currently being applied. |
 
-## <a name="operationEntrycount"></a><span>Rebase#</span>operationEntrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="operationEntrycount"></a><span>Rebase#</span>operationEntrycount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = rebase.operationEntrycount();

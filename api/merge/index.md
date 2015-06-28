@@ -12,6 +12,7 @@ sections:
   "commits": "#commits"
   "fileInitInput": "#fileInitInput"
   "initOptions": "#initOptions"
+  "merge": "#merge"
   "trees": "#trees"
   "ANALYSIS": "#ANALYSIS"
   "FILE_FAVOR": "#FILE_FAVOR"
@@ -65,7 +66,6 @@ Merge.commits(repo, ourCommit, theirCommit, [options]);
 Merge 2 commits together and create an new index that can
 be used to create a merge commit.
 
-
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | Repository that contains the given commits |
@@ -102,6 +102,21 @@ var result = Merge.initOptions(opts, version);
 | Returns |  |
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
+
+## <a name="merge"></a><span>Merge.</span>merge <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+Merge.merge(repo, theirHead, [mergeOpts], [checkoutOpts]);
+```
+
+Merge a commit into HEAD and writes the results to the working directory.
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository that contains the given commits |
+| theirHead | [Commit](/api/commit/) | The annotated to merge into HEAD |
+| [mergeOpts] | [MergeOptions](/api/merge_options/) | The merge tree options (null for default) |
+| [checkoutOpts] | [CheckoutOptions](/api/checkout_options/) | The checkout options (null for default) |
 
 ## <a name="trees"></a><span>Merge.</span>trees <span class="tags"><span class="async">Async</span></span>
 

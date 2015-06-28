@@ -12,43 +12,50 @@ sections:
   "initOptions": "#initOptions"
 ---
 
-## <a name="cherrypick"></a><span>Cherrypick.</span>cherrypick <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="cherrypick"></a><span>Cherrypick.</span>cherrypick <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Cherrypick.cherrypick(repo, commit, cherrypick_options);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | the repository to cherry-pick |
-| commit | [Commit](/api/commit/) | the commit to cherry-pick |
-| cherrypick_options | [CherrypickOptions](/api/cherrypick_options/) | the cherry-pick options (or null for defaults) |
-
-| Returns |  |
-| --- | --- |
-| Number |  zero on success, -1 on failure. |
-
-## <a name="commit"></a><span>Cherrypick.</span>commit <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
-
-```js
-Cherrypick.commit(repo, cherrypick_commit, our_commit, mainline, merge_options).then(function(index) {
-  // Use index
+Cherrypick.cherrypick(repo, commit, [options]).then(function(int) {
+  // Use int
 });
 ```
 
+Cherrypick a commit and, changing the index and working directory
+
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) | the repository that contains the given commits |
-| cherrypick_commit | [Commit](/api/commit/) | the commit to cherry-pick |
-| our_commit | [Commit](/api/commit/) | the commit to revert against (eg, HEAD) |
-| mainline | Number | the parent of the revert commit, if it is a merge |
-| merge_options | [MergeOptions](/api/merge_options/) | the merge options (or null for defaults) |
+| repo | [Repository](/api/repository/) | The repo to checkout head |
+| commit | [Commit](/api/commit/) | The commit to cherrypick |
+| [options] | [CherrypickOptions](/api/cherrypick_options/) | Options for the cherrypick |
 
 | Returns |  |
 | --- | --- |
-| [Index](/api/index/) |  |
+| int | 0 on success, -1 on failure |
 
-## <a name="initOptions"></a><span>Cherrypick.</span>initOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="commit"></a><span>Cherrypick.</span>commit <span class="tags"><span class="async">Async</span></span>
+
+```js
+Cherrypick.commit(repo, cherrypick_commit, our_commit, mainline, [merge_options]).then(function(int) {
+  // Use int
+});
+```
+
+Cherrypicks the given commit against "our" commit, producing an index that
+reflects the result of the cherrypick. The index is not backed by a repo.
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo to cherrypick commits |
+| cherrypick_commit | [Commit](/api/commit/) | The commit to cherrypick |
+| our_commit | [Commit](/api/commit/) | The commit to revert against |
+| mainline | int | The parent of the revert commit (1 or 2) if it's a merge, 0 otherwise |
+| [merge_options] | [MergeOptions](/api/merge_options/) | Merge options for the cherrypick |
+
+| Returns |  |
+| --- | --- |
+| int | 0 on success, -1 on failure |
+
+## <a name="initOptions"></a><span>Cherrypick.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Cherrypick.initOptions(opts, version);

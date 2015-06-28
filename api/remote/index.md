@@ -415,7 +415,6 @@ remote.push(refSpecs, options, signature, message).then(function(number) {
 
 Pushes to a remote
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | refSpecs | Array | The ref specs that should be pushed |

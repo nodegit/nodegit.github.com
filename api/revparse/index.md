@@ -12,7 +12,7 @@ sections:
   "MODE": "#MODE"
 ---
 
-## <a name="ext"></a><span>Revparse.</span>ext <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="ext"></a><span>Revparse.</span>ext <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Revparse.ext(object_out, reference_out, repo, spec);
@@ -30,7 +30,7 @@ var result = Revparse.ext(object_out, reference_out, repo, spec);
 | Number |  0 on success, GIT_ENOTFOUND, GIT_EAMBIGUOUS, GIT_EINVALIDSPEC
  or an error code |
 
-## <a name="single"></a><span>Revparse.</span>single <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="single"></a><span>Revparse.</span>single <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Revparse.single(repo, spec).then(function(object) {

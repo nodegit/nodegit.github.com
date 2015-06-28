@@ -59,10 +59,12 @@ Patch.fromBlobs(old_blob, old_as_path, new_blob, new_as_path, opts).then(functio
 | --- | --- |
 | [Patch](/api/patch/) | The generated patch; NULL on error |
 
-## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-var patch = Patch.fromDiff(diff, idx);
+Patch.fromDiff(diff, idx).then(function(patch) {
+  // Use patch
+});
 ```
 
 | Parameters | Type |   |
@@ -84,10 +86,12 @@ var diffDelta = patch.getDelta();
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  |
 
-## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = patch.getHunk(hunk_idx);
+patch.getHunk(hunk_idx).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -98,10 +102,12 @@ var result = patch.getHunk(hunk_idx);
 | --- | --- |
 | Number | Output count of total lines in this hunk |
 
-## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-var diffLine = patch.getLineInHunk(hunk_idx, line_of_hunk);
+patch.getLineInHunk(hunk_idx, line_of_hunk).then(function(diffLine) {
+  // Use diffLine
+});
 ```
 
 | Parameters | Type |
