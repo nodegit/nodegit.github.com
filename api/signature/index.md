@@ -88,7 +88,6 @@ var string = signature.toString();
 
 Standard string representation of an author.
 
-
 | Returns |  |
 | --- | --- |
 | string | Representation of the author. |

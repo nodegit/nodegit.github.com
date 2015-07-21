@@ -22,7 +22,6 @@ Clone.clone(url, local_path, [options]).then(function(repository) {
 
 Patch repository cloning to automatically coerce objects.
 
-
 | Parameters | Type |   |
 | --- | --- | --- |
 | url | String | url of the repository |

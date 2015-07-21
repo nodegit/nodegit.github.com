@@ -23,17 +23,19 @@ sections:
   "#status": "#status"
 ---
 
-## <a name="hunks"></a><span>ConvenientPatch#</span>hunks <span class="tags"><span class="sync">Sync</span></span>
+## <a name="hunks"></a><span>ConvenientPatch#</span>hunks <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var convenientHunk = convenientPatch.hunks();
+convenientPatch.hunks().then(function(arrayConvenientHunk) {
+  // Use arrayConvenientHunk
+});
 ```
 
 The hunks in this patch
 
 | Returns |  |
 | --- | --- |
-| [ConvenientHunk](/api/convenient_hunk/) | an array of ConvenientHunks |
+| Array&lt;[ConvenientHunk](/api/convenient_hunk/)&gt; | a promise that resolves to an array of                                      ConvenientHunks |
 
 ## <a name="isAdded"></a><span>ConvenientPatch#</span>isAdded <span class="tags"><span class="sync">Sync</span></span>
 

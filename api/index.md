@@ -5,6 +5,7 @@ title: API Docs
 description: Version 0.4.0
 menu_item: api
 sections:
+  "AnnotatedCommit": "#AnnotatedCommit"
   "Attr": "#Attr"
   "Blame": "#Blame"
   "BlameHunk": "#BlameHunk"
@@ -104,6 +105,19 @@ sections:
   "TreeEntry": "#TreeEntry"
   "Treebuilder": "#Treebuilder"
 ---
+
+## <a name='AnnotatedCommit'></a>[AnnotatedCommit](/api/annotated_commit/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>AnnotatedCommit.</span>fromFetchhead <span>(repo, branch_name, remote_url, id)</span>](/api/annotated_commit/#fromFetchhead) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>AnnotatedCommit.</span>fromRef <span>(repo, ref)</span>](/api/annotated_commit/#fromRef) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>AnnotatedCommit.</span>lookup <span>(repo, id)</span>](/api/annotated_commit/#lookup) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>AnnotatedCommit#</span>free <span>()</span>](/api/annotated_commit/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>AnnotatedCommit#</span>id <span>()</span>](/api/annotated_commit/#id) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
 
 ## <a name='Attr'></a>[Attr](/api/attr/)
@@ -264,6 +278,7 @@ sections:
 | Class Methods |  |
 | --- | ---: |
 | [<span>Checkout.</span>head <span>(repo, [options])</span>](/api/checkout/#head) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Checkout.</span>index <span>(repo, The, [options])</span>](/api/checkout/#index) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Checkout.</span>initOptions <span>(opts, version)</span>](/api/checkout/#initOptions) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Checkout.</span>tree <span>(repo, treeish, [options])</span>](/api/checkout/#tree) |  <span class="tags"><span class="async">Async</span></span> |
 
@@ -300,9 +315,9 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Cherrypick.</span>cherrypick <span>(repo, commit, cherrypick_options)</span>](/api/cherrypick/#cherrypick) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Cherrypick.</span>commit <span>(repo, cherrypick_commit, our_commit, mainline, merge_options)</span>](/api/cherrypick/#commit) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Cherrypick.</span>initOptions <span>(opts, version)</span>](/api/cherrypick/#initOptions) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Cherrypick.</span>cherrypick <span>(repo, commit, [options])</span>](/api/cherrypick/#cherrypick) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Cherrypick.</span>commit <span>(repo, cherrypick_commit, our_commit, mainline, [merge_options])</span>](/api/cherrypick/#commit) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Cherrypick.</span>initOptions <span>(opts, version)</span>](/api/cherrypick/#initOptions) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
 ## <a name='CherrypickOptions'></a>[CherrypickOptions](/api/cherrypick_options/)
@@ -358,6 +373,7 @@ sections:
 | [<span>Commit#</span>committer <span>()</span>](/api/commit/#committer) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>date <span>()</span>](/api/commit/#date) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>free <span>()</span>](/api/commit/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit#</span>getDiff <span>(callback)</span>](/api/commit/#getDiff) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>getEntry <span>(path)</span>](/api/commit/#getEntry) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>getParents <span>(limit, callback)</span>](/api/commit/#getParents) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>getTree <span>()</span>](/api/commit/#getTree) |  <span class="tags"><span class="async">Async</span></span> |
@@ -378,6 +394,7 @@ sections:
 | [<span>Commit#</span>time <span>()</span>](/api/commit/#time) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>timeMs <span>()</span>](/api/commit/#timeMs) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>timeOffset <span>()</span>](/api/commit/#timeOffset) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit#</span>toString <span>()</span>](/api/commit/#toString) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>tree <span>(tree_out)</span>](/api/commit/#tree) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>treeId <span>()</span>](/api/commit/#treeId) |  <span class="tags"><span class="sync">Sync</span></span> |
 
@@ -415,7 +432,7 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>ConvenientHunk#</span>header <span>()</span>](/api/convenient_hunk/#header) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientHunk#</span>lines <span>()</span>](/api/convenient_hunk/#lines) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientHunk#</span>lines <span>()</span>](/api/convenient_hunk/#lines) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>ConvenientHunk#</span>size <span>()</span>](/api/convenient_hunk/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
@@ -437,7 +454,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>ConvenientPatch#</span>hunks <span>()</span>](/api/convenient_patch/#hunks) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>hunks <span>()</span>](/api/convenient_patch/#hunks) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>ConvenientPatch#</span>isAdded <span>()</span>](/api/convenient_patch/#isAdded) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>ConvenientPatch#</span>isCopied <span>()</span>](/api/convenient_patch/#isCopied) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>ConvenientPatch#</span>isDeleted <span>()</span>](/api/convenient_patch/#isDeleted) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -537,7 +554,7 @@ sections:
 | [<span>Diff#</span>getDelta <span>(idx)</span>](/api/diff/#getDelta) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Diff#</span>getPerfdata <span>()</span>](/api/diff/#getPerfdata) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff#</span>numDeltas <span>()</span>](/api/diff/#numDeltas) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Diff#</span>patches <span>()</span>](/api/diff/#patches) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Diff#</span>patches <span>()</span>](/api/diff/#patches) |  <span class="tags"><span class="async">Async</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -749,6 +766,7 @@ sections:
 | [<span>Index#</span>clear <span>()</span>](/api/index/#clear) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Index#</span>conflictAdd <span>(ancestor_entry, our_entry, their_entry)</span>](/api/index/#conflictAdd) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Index#</span>conflictCleanup <span>()</span>](/api/index/#conflictCleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Index#</span>conflictGet <span>(path)</span>](/api/index/#conflictGet) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Index#</span>conflictRemove <span>(path)</span>](/api/index/#conflictRemove) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Index#</span>entries <span>()</span>](/api/index/#entries) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Index#</span>entryCount <span>()</span>](/api/index/#entryCount) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -836,6 +854,7 @@ sections:
 | [<span>Merge.</span>commits <span>(repo, ourCommit, theirCommit, [options])</span>](/api/merge/#commits) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Merge.</span>fileInitInput <span>(opts, version)</span>](/api/merge/#fileInitInput) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Merge.</span>initOptions <span>(opts, version)</span>](/api/merge/#initOptions) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Merge.</span>merge <span>(repo, theirHead, [mergeOpts], [checkoutOpts])</span>](/api/merge/#merge) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Merge.</span>trees <span>(repo, ancestor_tree, our_tree, their_tree, opts)</span>](/api/merge/#trees) |  <span class="tags"><span class="async">Async</span></span> |
 
 | ENUMS |  |
@@ -1039,13 +1058,13 @@ sections:
 | --- | ---: |
 | [<span>Patch.</span>fromBlobAndBuffer <span>(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, opts)</span>](/api/patch/#fromBlobAndBuffer) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Patch.</span>fromBlobs <span>(old_blob, old_as_path, new_blob, new_as_path, opts)</span>](/api/patch/#fromBlobs) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Patch.</span>fromDiff <span>(diff, idx)</span>](/api/patch/#fromDiff) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Patch.</span>fromDiff <span>(diff, idx)</span>](/api/patch/#fromDiff) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Patch#</span>getDelta <span>()</span>](/api/patch/#getDelta) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Patch#</span>getHunk <span>(hunk_idx)</span>](/api/patch/#getHunk) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Patch#</span>getLineInHunk <span>(hunk_idx, line_of_hunk)</span>](/api/patch/#getLineInHunk) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Patch#</span>getHunk <span>(hunk_idx)</span>](/api/patch/#getHunk) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Patch#</span>getLineInHunk <span>(hunk_idx, line_of_hunk)</span>](/api/patch/#getLineInHunk) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Patch#</span>numHunks <span>()</span>](/api/patch/#numHunks) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Patch#</span>numLinesInHunk <span>(hunk_idx)</span>](/api/patch/#numLinesInHunk) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Patch#</span>size <span>(include_context, include_hunk_headers, include_file_headers)</span>](/api/patch/#size) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
@@ -1096,19 +1115,19 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Rebase.</span>init <span>(repo, branch, upstream, onto, signature, opts)</span>](/api/rebase/#init) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase.</span>initOptions <span>(opts, version)</span>](/api/rebase/#initOptions) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase.</span>open <span>(repo)</span>](/api/rebase/#open) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Rebase.</span>init <span>(repo, branch, upstream, onto, signature, opts)</span>](/api/rebase/#init) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Rebase.</span>initOptions <span>(opts, version)</span>](/api/rebase/#initOptions) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase.</span>open <span>(repo)</span>](/api/rebase/#open) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Rebase#</span>abort <span>(signature)</span>](/api/rebase/#abort) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>commit <span>(id, author, committer, message_encoding, message)</span>](/api/rebase/#commit) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>finish <span>(signature, opts)</span>](/api/rebase/#finish) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>free <span>()</span>](/api/rebase/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>operationByIndex <span>(idx)</span>](/api/rebase/#operationByIndex) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>operationCurrent <span>()</span>](/api/rebase/#operationCurrent) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Rebase#</span>operationEntrycount <span>()</span>](/api/rebase/#operationEntrycount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Rebase#</span>abort <span>(signature)</span>](/api/rebase/#abort) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>commit <span>(author, committer, message_encoding, message)</span>](/api/rebase/#commit) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>finish <span>(signature, opts)</span>](/api/rebase/#finish) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>next <span>(checkout_opts)</span>](/api/rebase/#next) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Rebase#</span>operationByIndex <span>(idx)</span>](/api/rebase/#operationByIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>operationCurrent <span>()</span>](/api/rebase/#operationCurrent) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>operationEntrycount <span>()</span>](/api/rebase/#operationEntrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
 ## <a name='RebaseOperation'></a>[RebaseOperation](/api/rebase_operation/)
@@ -1313,11 +1332,19 @@ sections:
 | [<span>Repository#</span>checkoutBranch <span>(branch, opts)</span>](/api/repository/#checkoutBranch) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>continueRebase <span>(signature)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>createBlobFromBuffer <span>(buffer)</span>](/api/repository/#createBlobFromBuffer) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>createBranch <span>(name, commit, force, signature, logMessage)</span>](/api/repository/#createBranch) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>createCommit <span>(updateRef, author, committer, message, Tree, parents)</span>](/api/repository/#createCommit) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>createCommitOnHead <span>(filesToAdd, author, committer, message)</span>](/api/repository/#createCommitOnHead) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createLightweightTag <span>(String, name)</span>](/api/repository/#createLightweightTag) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createRevWalk <span>(String)</span>](/api/repository/#createRevWalk) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>createTag <span>(String, name, message)</span>](/api/repository/#createTag) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>defaultSignature <span>()</span>](/api/repository/#defaultSignature) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>deleteTagByName <span>(Short)</span>](/api/repository/#deleteTagByName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>detachHead <span>(signature, reflog_message)</span>](/api/repository/#detachHead) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>fetch <span>(remote, remoteCallbacks, set, pruneAfter)</span>](/api/repository/#fetch) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>fetchAll <span>(remoteCallbacks, set, pruneAfter)</span>](/api/repository/#fetchAll) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>fetchheadForeach <span>(callback)</span>](/api/repository/#fetchheadForeach) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>free <span>()</span>](/api/repository/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getBlob <span>(String)</span>](/api/repository/#getBlob) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1325,11 +1352,16 @@ sections:
 | [<span>Repository#</span>getBranchCommit <span>(name)</span>](/api/repository/#getBranchCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getCommit <span>(String)</span>](/api/repository/#getCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getCurrentBranch <span>()</span>](/api/repository/#getCurrentBranch) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getHeadCommit <span>()</span>](/api/repository/#getHeadCommit) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getMasterCommit <span>()</span>](/api/repository/#getMasterCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getNamespace <span>()</span>](/api/repository/#getNamespace) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getReference <span>(name)</span>](/api/repository/#getReference) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferenceCommit <span>(name)</span>](/api/repository/#getReferenceCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferenceNames <span>(type)</span>](/api/repository/#getReferenceNames) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferences <span>(type)</span>](/api/repository/#getReferences) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getRemote <span>(remote, callback)</span>](/api/repository/#getRemote) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>getRemotes <span>(Optional)</span>](/api/repository/#getRemotes) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>getStatus <span>(opts)</span>](/api/repository/#getStatus) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getStatusExt <span>(opts)</span>](/api/repository/#getStatusExt) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>getTag <span>(String)</span>](/api/repository/#getTag) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTagByName <span>(Short)</span>](/api/repository/#getTagByName) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1341,9 +1373,11 @@ sections:
 | [<span>Repository#</span>isBare <span>()</span>](/api/repository/#isBare) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isEmpty <span>()</span>](/api/repository/#isEmpty) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isShallow <span>()</span>](/api/repository/#isShallow) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>mergeBranches <span>(to, from)</span>](/api/repository/#mergeBranches) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>messageRemove <span>()</span>](/api/repository/#messageRemove) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>odb <span>()</span>](/api/repository/#odb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>path <span>()</span>](/api/repository/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>rebaseBranches <span>(branch, upstream, onto, signature)</span>](/api/repository/#rebaseBranches) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>refdb <span>()</span>](/api/repository/#refdb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHead <span>(refname, signature, log_message)</span>](/api/repository/#setHead) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHeadDetached <span>(commitish, signature, log_message)</span>](/api/repository/#setHeadDetached) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1351,6 +1385,7 @@ sections:
 | [<span>Repository#</span>setWorkdir <span>(workdir, update_gitlink)</span>](/api/repository/#setWorkdir) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>state <span>()</span>](/api/repository/#state) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>stateCleanup <span>()</span>](/api/repository/#stateCleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>treeBuilder <span>(tree)</span>](/api/repository/#treeBuilder) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>workdir <span>()</span>](/api/repository/#workdir) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | ENUMS |  |
@@ -1409,8 +1444,8 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Revparse.</span>ext <span>(object_out, reference_out, repo, spec)</span>](/api/revparse/#ext) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Revparse.</span>single <span>(repo, spec)</span>](/api/revparse/#single) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Revparse.</span>ext <span>(object_out, reference_out, repo, spec)</span>](/api/revparse/#ext) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Revparse.</span>single <span>(repo, spec)</span>](/api/revparse/#single) |  <span class="tags"><span class="async">Async</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -1700,7 +1735,7 @@ sections:
 | [<span>Tree#</span>entryByPath <span>(path)</span>](/api/tree/#entryByPath) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Tree#</span>entryCount <span>()</span>](/api/tree/#entryCount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Tree#</span>free <span>()</span>](/api/tree/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree#</span>getEntry <span>(path)</span>](/api/tree/#getEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree#</span>getEntry <span>(filePath)</span>](/api/tree/#getEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>id <span>()</span>](/api/tree/#id) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Tree#</span>owner <span>()</span>](/api/tree/#owner) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Tree#</span>path <span>()</span>](/api/tree/#path) |  <span class="tags"><span class="sync">Sync</span></span> |

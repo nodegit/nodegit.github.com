@@ -239,14 +239,14 @@ Diff two trees
 ## <a name="entries"></a><span>Tree#</span>entries <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var treeEntry = tree.entries();
+var arrayTreeEntry = tree.entries();
 ```
 
 Return an array of the entries in this tree (excluding its children).
 
 | Returns |  |
 | --- | --- |
-| [TreeEntry](/api/tree_entry/) | an array of TreeEntrys |
+| Array&lt;[TreeEntry](/api/tree_entry/)&gt; | an array of TreeEntrys |
 
 ## <a name="entryById"></a><span>Tree#</span>entryById <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -270,7 +270,6 @@ var treeEntry = tree.entryByIndex(i);
 
 Get an entry at the ith position.
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | i | Number |  |
@@ -286,7 +285,6 @@ var treeEntry = tree.entryByName(name);
 ```
 
 Get an entry by name; if the tree is a directory, the name is the filename.
-
 
 | Parameters | Type |
 | --- | --- | --- |
@@ -331,16 +329,15 @@ tree.free();
 ## <a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var treeEntry = tree.getEntry(path);
+var treeEntry = tree.getEntry(filePath);
 ```
 
 Get an entry at a path. Unlike by name, this takes a fully
 qualified path, like `/foo/bar/baz.javascript`
 
-
 | Parameters | Type |
 | --- | --- | --- |
-| path | String |  |
+| filePath | String |  |
 
 | Returns |  |
 | --- | --- |
@@ -399,7 +396,6 @@ eventEmitter.on('error', function(error) {
 Recursively walk the tree in breadth-first order. Fires an event for each
 entry.
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | [blobsOnly | Boolean | = true] True to emit only blob & blob executable entries. |
@@ -408,7 +404,7 @@ entry.
 | --- | --- |
 | entry | [Tree](/api/tree/) |
 | end | Array&lt;[Tree](/api/tree/)&gt; |
-| error | Error  |
+| error | [Error](/api/error/) |
 
 | Returns |  |
 | --- | --- |

@@ -16,6 +16,7 @@ sections:
   "#committer": "#committer"
   "#date": "#date"
   "#free": "#free"
+  "#getDiff": "#getDiff"
   "#getEntry": "#getEntry"
   "#getParents": "#getParents"
   "#getTree": "#getTree"
@@ -36,6 +37,7 @@ sections:
   "#time": "#time"
   "#timeMs": "#timeMs"
   "#timeOffset": "#timeOffset"
+  "#toString": "#toString"
   "#tree": "#tree"
   "#treeId": "#treeId"
 ---
@@ -179,6 +181,25 @@ Retrieve the commit time as a Date object.
 commit.free();
 ```
 
+## <a name="getDiff"></a><span>Commit#</span>getDiff <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.getDiff(callback).then(function(arrayDiff) {
+  // Use arrayDiff
+});
+```
+
+Generate an array of diff trees showing changes between this commit
+and its parent(s).
+
+| Parameters | Type |
+| --- | --- | --- |
+| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[Diff](/api/diff/)&gt; | an array of diffs |
+
 ## <a name="getEntry"></a><span>Commit#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -189,7 +210,6 @@ commit.getEntry(path).then(function(treeEntry) {
 
 Retrieve the entry represented by path for this commit.
 Path must be relative to repository root.
-
 
 | Parameters | Type |
 | --- | --- | --- |
@@ -209,7 +229,6 @@ commit.getParents(limit, callback).then(function(arrayCommit) {
 
 Retrieve the commit's parents as commit objects.
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | limit | number | Optional amount of parents to return. |
@@ -228,7 +247,6 @@ commit.getTree().then(function(tree) {
 ```
 
 Get the tree associated with this commit.
-
 
 | Returns |  |
 | --- | --- |
@@ -260,12 +278,11 @@ An EventEmitter is returned that will emit a "commit" event for each
 commit in the history, and one "end" event when the walk is completed.
 Don't forget to call `start()` on the returned event.
 
-
 | Fires | Sends |
 | --- | --- |
 | commit | [Commit](/api/commit/) |
 | end | Array&lt;[Commit](/api/commit/)&gt; |
-| error | Error  |
+| error | [Error](/api/error/) |
 
 | Returns |  |
 | --- | --- |
@@ -385,7 +402,6 @@ var arrayOids = commit.parents(callback);
 
 Retrieve the commit"s parent shas.
 
-
 | Parameters | Type |
 | --- | --- | --- |
 | callback | Function |  |
@@ -457,6 +473,18 @@ var result = commit.timeOffset();
 | Returns |  |
 | --- | --- |
 | Number |  positive or negative timezone offset, in minutes from UTC |
+
+## <a name="toString"></a><span>Commit#</span>toString <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = commit.toString();
+```
+
+The sha of this commit
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="tree"></a><span>Commit#</span>tree <span class="tags"><span class="sync">Sync</span></span>
 

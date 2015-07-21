@@ -116,7 +116,6 @@ var buffer = blob.content();
 
 Retrieve the content of the Blob.
 
-
 | Returns |  |
 | --- | --- |
 | Buffer | Contents as a buffer. |
@@ -128,7 +127,6 @@ var number = blob.filemode();
 ```
 
 Retrieve the Blob's type.
-
 
 | Returns |  |
 | --- | --- |
@@ -198,7 +196,6 @@ var string = blob.toString();
 ```
 
 Retrieve the Blob's content as String.
-
 
 | Returns |  |
 | --- | --- |

@@ -16,6 +16,7 @@ sections:
   "#clear": "#clear"
   "#conflictAdd": "#conflictAdd"
   "#conflictCleanup": "#conflictCleanup"
+  "#conflictGet": "#conflictGet"
   "#conflictRemove": "#conflictRemove"
   "#entries": "#entries"
   "#entryCount": "#entryCount"
@@ -163,6 +164,22 @@ var result = index.conflictCleanup();
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
+
+## <a name="conflictGet"></a><span>Index#</span>conflictGet <span class="tags"><span class="async">Async</span></span>
+
+```js
+index.conflictGet(path).then(function(indexEntry) {
+  // Use indexEntry
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| path | String | path to search |
+
+| Returns |  |
+| --- | --- |
+| [IndexEntry](/api/index_entry/) |  |
 
 ## <a name="conflictRemove"></a><span>Index#</span>conflictRemove <span class="tags"><span class="sync">Sync</span></span>
 

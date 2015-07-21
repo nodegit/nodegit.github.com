@@ -197,18 +197,19 @@ var result = diff.numDeltas();
 | --- | --- |
 | Number |  Count of number of deltas in the list |
 
-## <a name="patches"></a><span>Diff#</span>patches <span class="tags"><span class="sync">Sync</span></span>
+## <a name="patches"></a><span>Diff#</span>patches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var convenientPatch = diff.patches();
+diff.patches().then(function(arrayConvenientPatch) {
+  // Use arrayConvenientPatch
+});
 ```
 
 Retrieve patches in this difflist
 
-
 | Returns |  |
 | --- | --- |
-| [ConvenientPatch](/api/convenient_patch/) | an array of ConvenientPatches |
+| Array&lt;[ConvenientPatch](/api/convenient_patch/)&gt; | a promise that resolves to an array of                                      ConvenientPatches |
 
 ## <a name="DELTA"></a><span>Diff.</span>DELTA <span class="tags"><span class="enum">ENUM</span></span>
 
