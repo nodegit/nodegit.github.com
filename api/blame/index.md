@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Blame
-description: Version 0.4.0
+description: Version 0.4.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/

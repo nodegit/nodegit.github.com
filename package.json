@@ -4,13 +4,13 @@
   "description": "The nodegit.org website generator",
   "main": "index.js",
   "dependencies": {
-    "bluebird": "^2.9.12",
-    "change-case": "^2.2.0",
+    "bluebird": "^2.9.34",
+    "change-case": "^2.3.0",
     "dive": "^0.4.0",
     "dox": "^0.8.0",
-    "fs-extra": "^0.16.3",
-    "glob": "^4.4.1",
-    "lodash": "^3.3.0"
+    "fs-extra": "^0.22.1",
+    "glob": "^5.0.14",
+    "lodash": "^3.10.0"
   },
   "devDependencies": {},
   "repository": {

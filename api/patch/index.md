@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Patch
-description: Version 0.4.0
+description: Version 0.4.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -59,12 +59,10 @@ Patch.fromBlobs(old_blob, old_as_path, new_blob, new_as_path, opts).then(functio
 | --- | --- |
 | [Patch](/api/patch/) | The generated patch; NULL on error |
 
-## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-Patch.fromDiff(diff, idx).then(function(patch) {
-  // Use patch
-});
+var patch = Patch.fromDiff(diff, idx);
 ```
 
 | Parameters | Type |   |
@@ -86,12 +84,10 @@ var diffDelta = patch.getDelta();
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  |
 
-## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-patch.getHunk(hunk_idx).then(function(result) {
-  // Use result
-});
+var result = patch.getHunk(hunk_idx);
 ```
 
 | Parameters | Type |
@@ -102,12 +98,10 @@ patch.getHunk(hunk_idx).then(function(result) {
 | --- | --- |
 | Number | Output count of total lines in this hunk |
 
-## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-patch.getLineInHunk(hunk_idx, line_of_hunk).then(function(diffLine) {
-  // Use diffLine
-});
+var diffLine = patch.getLineInHunk(hunk_idx, line_of_hunk);
 ```
 
 | Parameters | Type |

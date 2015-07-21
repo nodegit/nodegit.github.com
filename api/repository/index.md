@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.4.0
+description: Version 0.4.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -414,7 +414,7 @@ var result = repository.detachHead(signature, reflog_message);
 ## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.fetch(remote, remoteCallbacks, set, pruneAfter);
+repository.fetch(remote, remoteCallbacks, set, will);
 ```
 
 Fetches from a remote
@@ -423,13 +423,13 @@ Fetches from a remote
 | --- | --- | --- |
 | remote | String, [Remote](/api/remote/) |  |
 | remoteCallbacks | [Object](/api/object/), RemoteCallback | Any custom callbacks needed |
-| set | Bool, autoTag | the AUTO_TAG option for remote |
-| pruneAfter | Bool | will perform a prune after the fetch if true |
+| set | [Remote.AUTOTAG_OPTION](/api/remote/#AUTOTAG_OPTION), autoTag | the auto tag option for remote |
+| will | Bool, pruneAfter | perform a prune after the fetch if true |
 
 ## <a name="fetchAll"></a><span>Repository#</span>fetchAll <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.fetchAll(remoteCallbacks, set, pruneAfter);
+repository.fetchAll(remoteCallbacks, set, will);
 ```
 
 Fetches from all remotes
@@ -437,8 +437,8 @@ Fetches from all remotes
 | Parameters | Type |
 | --- | --- | --- |
 | remoteCallbacks | [Object](/api/object/), RemoteCallback | Any custom callbacks needed |
-| set | Bool, autoTag | the AUTO_TAG option for remotes |
-| pruneAfter | Bool | will perform a prune after the fetch if true |
+| set | [Remote.AUTOTAG_OPTION](/api/remote/#AUTOTAG_OPTION), autoTag | the AUTO_TAG option for remotes |
+| will | Bool, pruneAfter | perform a prune after the fetch if true |
 
 ## <a name="fetchheadForeach"></a><span>Repository#</span>fetchheadForeach <span class="tags"><span class="async">Async</span></span>
 
@@ -854,7 +854,7 @@ var result = repository.isShallow();
 ## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var oid = repository.mergeBranches(to, from);
+var oid = repository.mergeBranches(to, from, signature, mergePreference);
 ```
 
 Merge a branch onto another branch
@@ -863,6 +863,8 @@ Merge a branch onto another branch
 | --- | --- | --- |
 | to | String, Ref |  |
 | from | String, Ref |  |
+| signature | [Signature](/api/signature/) |  |
+| mergePreference | [Merge.PREFERENCE](/api/merge/#PREFERENCE) |  |
 
 | Returns |  |
 | --- | --- |
