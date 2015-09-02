@@ -1261,6 +1261,8 @@ sections:
 | [<span>Remote.</span>isValidName <span>(remote_name)</span>](/api/remote/#isValidName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote.</span>list <span>(repo)</span>](/api/remote/#list) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>lookup <span>(repo, name, callback)</span>](/api/remote/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Remote.</span>setPushurl <span>(repo, name, url)</span>](/api/remote/#setPushurl) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Remote.</span>setUrl <span>(repo, name, url)</span>](/api/remote/#setUrl) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
@@ -1289,9 +1291,7 @@ sections:
 | [<span>Remote#</span>save <span>()</span>](/api/remote/#save) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>setAutotag <span>(value)</span>](/api/remote/#setAutotag) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>setCallbacks <span>(callbacks)</span>](/api/remote/#setCallbacks) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>setPushurl <span>(url)</span>](/api/remote/#setPushurl) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>setUpdateFetchhead <span>(value)</span>](/api/remote/#setUpdateFetchhead) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>setUrl <span>(url)</span>](/api/remote/#setUrl) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stats <span>()</span>](/api/remote/#stats) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stop <span>()</span>](/api/remote/#stop) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>updateFetchhead <span>()</span>](/api/remote/#updateFetchhead) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1787,5 +1787,3 @@ sections:
 | [<span>Treebuilder#</span>insert <span>(filename, id, filemode)</span>](/api/treebuilder/#insert) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Treebuilder#</span>remove <span>(filename)</span>](/api/treebuilder/#remove) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Treebuilder#</span>write <span>(id)</span>](/api/treebuilder/#write) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-
-
