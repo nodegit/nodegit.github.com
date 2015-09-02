@@ -188,6 +188,38 @@ Retrieves the remote by name
 | --- | --- |
 | [Remote](/api/remote/) |  |
 
+## <a name="setUrl"></a><span>Remote.</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.setUrl(repo, name, url);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo that the remote lives in |
+| name | String | The name of the remote to modify |
+| url | String | the url to set |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error value |
+
+## <a name="setPushurl"></a><span>Remote.</span>setPushurl <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.setPushurl(repo, name, url);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo that the remote lives in |
+| name | String | The name of the remote to modify |
+| url | String | the url to set or NULL to clear the pushurl |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error value |
+
 ## <a name="addFetch"></a><span>Remote#</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -480,20 +512,6 @@ var result = remote.setCallbacks(callbacks);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setPushurl"></a><span>Remote#</span>setPushurl <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.setPushurl(url);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| url | String | the url to set or NULL to clear the pushurl |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error value |
-
 ## <a name="setUpdateFetchhead"></a><span>Remote#</span>setUpdateFetchhead <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -503,20 +521,6 @@ remote.setUpdateFetchhead(value);
 | Parameters | Type |
 | --- | --- | --- |
 | value | Number | 0 to disable updating FETCH_HEAD |
-
-## <a name="setUrl"></a><span>Remote#</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.setUrl(url);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| url | String | the url to set |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error value |
 
 ## <a name="stats"></a><span>Remote#</span>stats <span class="tags"><span class="sync">Sync</span></span>
 
@@ -599,4 +603,3 @@ var string = remote.url();
 | <span>Remote.COMPLETION_TYPE.</span>COMPLETION_DOWNLOAD | 0 |
 | <span>Remote.COMPLETION_TYPE.</span>COMPLETION_INDEXING | 1 |
 | <span>Remote.COMPLETION_TYPE.</span>COMPLETION_ERROR | 2 |
-
