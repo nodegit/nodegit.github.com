@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -31,7 +31,7 @@ sections:
 ## <a name="blobToBuffer"></a><span>Diff.</span>blobToBuffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, options, file_cb, hunk_cb, line_cb, payload).then(function(result) {
+Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, options, file_cb, binary_cb, hunk_cb, line_cb, payload).then(function(result) {
   // Use result
 });
 ```
@@ -45,6 +45,7 @@ Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, opt
 | buffer_as_path | String | Treat buffer as if it had this filename; can be NULL |
 | options | [DiffOptions](/api/diff_options/) | Options for diff, or NULL for default options |
 | file_cb | DiffFileCb | Callback for "file"; made once if there is a diff; can be NULL |
+| binary_cb | DiffBinaryCb | Callback for binary files; can be NULL |
 | hunk_cb | DiffHunkCb | Callback for each hunk in diff; can be NULL |
 | line_cb | DiffLineCb | Callback for each line in diff; can be NULL |
 | payload | Void | Payload passed to each callback function |
@@ -225,6 +226,7 @@ Retrieve patches in this difflist
 | <span>Diff.DELTA.</span>UNTRACKED | 7 |
 | <span>Diff.DELTA.</span>TYPECHANGE | 8 |
 | <span>Diff.DELTA.</span>UNREADABLE | 9 |
+| <span>Diff.DELTA.</span>CONFLICTED | 10 |
 
 ## <a name="FIND"></a><span>Diff.</span>FIND <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -254,6 +256,7 @@ Retrieve patches in this difflist
 | <span>Diff.FLAG.</span>BINARY | 1 |
 | <span>Diff.FLAG.</span>NOT_BINARY | 2 |
 | <span>Diff.FLAG.</span>VALID_ID | 4 |
+| <span>Diff.FLAG.</span>EXISTS | 8 |
 
 ## <a name="FORMAT"></a><span>Diff.</span>FORMAT <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -302,6 +305,7 @@ Retrieve patches in this difflist
 | <span>Diff.OPTION.</span>IGNORE_FILEMODE | 256 |
 | <span>Diff.OPTION.</span>IGNORE_SUBMODULES | 512 |
 | <span>Diff.OPTION.</span>IGNORE_CASE | 1024 |
+| <span>Diff.OPTION.</span>INCLUDE_CASECHANGE | 2048 |
 | <span>Diff.OPTION.</span>DISABLE_PATHSPEC_MATCH | 4096 |
 | <span>Diff.OPTION.</span>SKIP_BINARY_CHECK | 8192 |
 | <span>Diff.OPTION.</span>ENABLE_FAST_UNTRACKED_DIRS | 16384 |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: StatusList
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,10 +13,12 @@ sections:
   "#getPerfdata": "#getPerfdata"
 ---
 
-## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="sync">Sync</span></span>
+## <a name="create"></a><span>StatusList.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var statusList = StatusList.create(repo, opts);
+StatusList.create(repo, opts).then(function(statusList) {
+  // Use statusList
+});
 ```
 
 | Parameters | Type |   |

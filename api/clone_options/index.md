@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: CloneOptions
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -21,10 +21,9 @@ var cloneOptions = new CloneOptions();
 | <a name="bare"></a>bare | Number |
 | <a name="checkoutBranch"></a>checkoutBranch | String |
 | <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |
+| <a name="fetchOpts"></a>fetchOpts | FetchOptions |
 | <a name="local"></a>local | Number |
-| <a name="remoteCallbacks"></a>remoteCallbacks | RemoteCallbacks |
 | <a name="remoteCbPayload"></a>remoteCbPayload | Void |
 | <a name="repositoryCbPayload"></a>repositoryCbPayload | Void |
-| <a name="signature"></a>signature | Signature |
 | <a name="version"></a>version | Number |
 

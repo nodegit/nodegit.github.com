@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Packbuilder
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -12,7 +12,9 @@ sections:
   "#hash": "#hash"
   "#insert": "#insert"
   "#insertCommit": "#insertCommit"
+  "#insertRecur": "#insertRecur"
   "#insertTree": "#insertTree"
+  "#insertWalk": "#insertWalk"
   "#objectCount": "#objectCount"
   "#setThreads": "#setThreads"
   "#written": "#written"
@@ -78,6 +80,21 @@ var result = packbuilder.insertCommit(id);
 | --- | --- |
 | Number |  0 or an error code |
 
+## <a name="insertRecur"></a><span>Packbuilder#</span>insertRecur <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = packbuilder.insertRecur(id, name);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| id | [Oid](/api/oid/) | the id of the root object to insert |
+| name | String | optional name for the object |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
 ## <a name="insertTree"></a><span>Packbuilder#</span>insertTree <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -87,6 +104,20 @@ var result = packbuilder.insertTree(id);
 | Parameters | Type |
 | --- | --- | --- |
 | id | [Oid](/api/oid/) | The oid of the root tree |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="insertWalk"></a><span>Packbuilder#</span>insertWalk <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = packbuilder.insertWalk(walk);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| walk | [Revwalk](/api/revwalk/) | the revwalk to use to fill the packbuilder |
 
 | Returns |  |
 | --- | --- |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Rebase
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -22,7 +22,7 @@ sections:
 ## <a name="init"></a><span>Rebase.</span>init <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Rebase.init(repo, branch, upstream, onto, signature, opts).then(function(rebase) {
+Rebase.init(repo, branch, upstream, onto, opts).then(function(rebase) {
   // Use rebase
 });
 ```
@@ -30,11 +30,10 @@ Rebase.init(repo, branch, upstream, onto, signature, opts).then(function(rebase)
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repository to perform the rebase |
-| branch | [AnnotatedCommit](/api/annotated_commit/) | The terminal commit to rebase |
+| branch | [AnnotatedCommit](/api/annotated_commit/) | The terminal commit to rebase, or NULL to rebase the current branch |
 | upstream | [AnnotatedCommit](/api/annotated_commit/) | The commit to begin rebasing from, or NULL to rebase all reachable commits |
 | onto | [AnnotatedCommit](/api/annotated_commit/) | The branch to rebase onto, or NULL to rebase onto the given upstream |
-| signature | [Signature](/api/signature/) | The signature of the rebaser (optional) |
-| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed |
+| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed, or NULL |
 
 | Returns |  |
 | --- | --- |
@@ -58,14 +57,15 @@ var result = Rebase.initOptions(opts, version);
 ## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Rebase.open(repo).then(function(rebase) {
+Rebase.open(repo, opts).then(function(rebase) {
   // Use rebase
 });
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) |  |
+| repo | [Repository](/api/repository/) | The repository that has a rebase in-progress |
+| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed |
 
 | Returns |  |
 | --- | --- |
@@ -74,12 +74,8 @@ Rebase.open(repo).then(function(rebase) {
 ## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = rebase.abort(signature);
+var result = rebase.abort();
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| signature | [Signature](/api/signature/) | The identity that is aborting the rebase |
 
 | Returns |  |
 | --- | --- |
@@ -106,29 +102,24 @@ var oid = rebase.commit(author, committer, message_encoding, message);
 ## <a name="finish"></a><span>Rebase#</span>finish <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = rebase.finish(signature, opts);
+var result = rebase.finish(signature);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
 | signature | [Signature](/api/signature/) | The identity that is finishing the rebase (optional) |
-| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is finished |
 
 | Returns |  |
 | --- | --- |
-| Number |  |
+| Number |  Zero on success; -1 on error |
 
 ## <a name="next"></a><span>Rebase#</span>next <span class="tags"><span class="async">Async</span></span>
 
 ```js
-rebase.next(checkout_opts).then(function(rebaseOperation) {
+rebase.next().then(function(rebaseOperation) {
   // Use rebaseOperation
 });
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| checkout_opts | [CheckoutOptions](/api/checkout_options/) |  |
 
 | Returns |  |
 | --- | --- |

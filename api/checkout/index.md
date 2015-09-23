@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Checkout
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -95,8 +95,8 @@ Patch tree checkout to automatically coerce objects.
 | --- | --- | --- |
 | <span>Checkout.STRATEGY.</span>NONE | 0 |
 | <span>Checkout.STRATEGY.</span>SAFE | 1 |
-| <span>Checkout.STRATEGY.</span>SAFE_CREATE | 2 |
-| <span>Checkout.STRATEGY.</span>FORCE | 4 |
+| <span>Checkout.STRATEGY.</span>FORCE | 2 |
+| <span>Checkout.STRATEGY.</span>RECREATE_MISSING | 4 |
 | <span>Checkout.STRATEGY.</span>ALLOW_CONFLICTS | 16 |
 | <span>Checkout.STRATEGY.</span>REMOVE_UNTRACKED | 32 |
 | <span>Checkout.STRATEGY.</span>REMOVE_IGNORED | 64 |
@@ -111,6 +111,8 @@ Patch tree checkout to automatically coerce objects.
 | <span>Checkout.STRATEGY.</span>DONT_OVERWRITE_IGNORED | 524288 |
 | <span>Checkout.STRATEGY.</span>CONFLICT_STYLE_MERGE | 1048576 |
 | <span>Checkout.STRATEGY.</span>CONFLICT_STYLE_DIFF3 | 2097152 |
+| <span>Checkout.STRATEGY.</span>DONT_REMOVE_EXISTING | 4194304 |
+| <span>Checkout.STRATEGY.</span>DONT_WRITE_INDEX | 8388608 |
 | <span>Checkout.STRATEGY.</span>UPDATE_SUBMODULES | 65536 |
 | <span>Checkout.STRATEGY.</span>UPDATE_SUBMODULES_IF_CHANGED | 131072 |
 

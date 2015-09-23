@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Note
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
-  "defaultRef": "#defaultRef"
   "foreach": "#foreach"
   "iteratorNew": "#iteratorNew"
   "next": "#next"
@@ -42,22 +41,6 @@ Note.create(repo, notes_ref, author, committer, oid, note, force).then(function(
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) |  |
-
-## <a name="defaultRef"></a><span>Note.</span>defaultRef <span class="tags"><span class="async">Async</span></span>
-
-```js
-Note.defaultRef(repo).then(function(string) {
-  // Use string
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | The Git repository |
-
-| Returns |  |
-| --- | --- |
-| String |  |
 
 ## <a name="foreach"></a><span>Note.</span>foreach <span class="tags"><span class="async">Async</span></span>
 

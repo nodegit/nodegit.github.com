@@ -2,17 +2,19 @@
 layout: default
 menu_item: api
 title: Index
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "entryIsConflict": "#entryIsConflict"
   "entryStage": "#entryStage"
   "open": "#open"
   "#add": "#add"
   "#addAll": "#addAll"
   "#addByPath": "#addByPath"
   "#caps": "#caps"
+  "#checksum": "#checksum"
   "#clear": "#clear"
   "#conflictAdd": "#conflictAdd"
   "#conflictCleanup": "#conflictCleanup"
@@ -39,6 +41,20 @@ sections:
   "ADD_OPTION": "#ADD_OPTION"
   "CAP": "#CAP"
 ---
+
+## <a name="entryIsConflict"></a><span>Index.</span>entryIsConflict <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Index.entryIsConflict(entry);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| entry | [IndexEntry](/api/index_entry/) | The entry |
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if the entry is a conflict entry, 0 otherwise |
 
 ## <a name="entryStage"></a><span>Index.</span>entryStage <span class="tags"><span class="sync">Sync</span></span>
 
@@ -126,6 +142,16 @@ var result = index.caps();
 | Returns |  |
 | --- | --- |
 | Number |  A combination of GIT_INDEXCAP values |
+
+## <a name="checksum"></a><span>Index#</span>checksum <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = index.checksum();
+```
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  the checksum of the index |
 
 ## <a name="clear"></a><span>Index#</span>clear <span class="tags"><span class="sync">Sync</span></span>
 

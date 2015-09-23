@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reference
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -50,7 +50,7 @@ sections:
 ## <a name="create"></a><span>Reference.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-Reference.create(repo, name, id, force, signature, log_message).then(function(reference) {
+Reference.create(repo, name, id, force, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -61,7 +61,6 @@ Reference.create(repo, name, id, force, signature, log_message).then(function(re
 | name | String | The name of the reference |
 | id | [Oid](/api/oid/) | The object id pointed to by the reference. |
 | force | Number | Overwrite existing references |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -71,7 +70,7 @@ Reference.create(repo, name, id, force, signature, log_message).then(function(re
 ## <a name="createMatching"></a><span>Reference.</span>createMatching <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-Reference.createMatching(repo, name, id, force, current_id, signature, log_message).then(function(reference) {
+Reference.createMatching(repo, name, id, force, current_id, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -83,7 +82,6 @@ Reference.createMatching(repo, name, id, force, current_id, signature, log_messa
 | id | [Oid](/api/oid/) | The object id pointed to by the reference. |
 | force | Number | Overwrite existing references |
 | current_id | [Oid](/api/oid/) | The expected value of the reference at the time of update |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -244,7 +242,7 @@ var result = Reference.remove(repo, name);
 ## <a name="symbolicCreate"></a><span>Reference.</span>symbolicCreate <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-Reference.symbolicCreate(repo, name, target, force, signature, log_message).then(function(reference) {
+Reference.symbolicCreate(repo, name, target, force, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -255,7 +253,6 @@ Reference.symbolicCreate(repo, name, target, force, signature, log_message).then
 | name | String | The name of the reference |
 | target | String | The target of the reference |
 | force | Number | Overwrite existing references |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -265,7 +262,7 @@ Reference.symbolicCreate(repo, name, target, force, signature, log_message).then
 ## <a name="symbolicCreateMatching"></a><span>Reference.</span>symbolicCreateMatching <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-Reference.symbolicCreateMatching(repo, name, target, force, current_value, signature, log_message).then(function(reference) {
+Reference.symbolicCreateMatching(repo, name, target, force, current_value, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -277,7 +274,6 @@ Reference.symbolicCreateMatching(repo, name, target, force, current_value, signa
 | target | String | The target of the reference |
 | force | Number | Overwrite existing references |
 | current_value | String | The expected value of the reference when updating |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -435,7 +431,7 @@ reference.peel(type).then(function(object) {
 ## <a name="rename"></a><span>Reference#</span>rename <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-reference.rename(new_name, force, signature, log_message).then(function(reference) {
+reference.rename(new_name, force, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -444,7 +440,6 @@ reference.rename(new_name, force, signature, log_message).then(function(referenc
 | --- | --- | --- |
 | new_name | String | The new name for the reference |
 | force | Number | Overwrite an existing reference |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -466,7 +461,7 @@ reference.resolve().then(function(reference) {
 ## <a name="setTarget"></a><span>Reference#</span>setTarget <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-reference.setTarget(id, signature, log_message).then(function(reference) {
+reference.setTarget(id, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -474,7 +469,6 @@ reference.setTarget(id, signature, log_message).then(function(reference) {
 | Parameters | Type |
 | --- | --- | --- |
 | id | [Oid](/api/oid/) | The new target OID for the reference |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
@@ -494,7 +488,7 @@ var string = reference.shorthand();
 ## <a name="symbolicSetTarget"></a><span>Reference#</span>symbolicSetTarget <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-reference.symbolicSetTarget(target, signature, log_message).then(function(reference) {
+reference.symbolicSetTarget(target, log_message).then(function(reference) {
   // Use reference
 });
 ```
@@ -502,7 +496,6 @@ reference.symbolicSetTarget(target, signature, log_message).then(function(refere
 | Parameters | Type |
 | --- | --- | --- |
 | target | String | The new target for the reference |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
 | log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |

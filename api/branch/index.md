@@ -2,12 +2,13 @@
 layout: default
 menu_item: api
 title: Branch
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
+  "createFromAnnotated": "#createFromAnnotated"
   "delete": "#delete"
   "isHead": "#isHead"
   "iteratorNew": "#iteratorNew"
@@ -22,7 +23,7 @@ sections:
 ## <a name="create"></a><span>Branch.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Branch.create(repo, branch_name, target, force, signature, log_message).then(function(reference) {
+Branch.create(repo, branch_name, target, force).then(function(reference) {
   // Use reference
 });
 ```
@@ -33,12 +34,27 @@ Branch.create(repo, branch_name, target, force, signature, log_message).then(fun
 | branch_name | String | Name for the branch; this name is validated for consistency. It should also not conflict with an already existing branch name. |
 | target | [Commit](/api/commit/) | Commit to which this branch should point. This object must belong to the given `repo`. |
 | force | Number | Overwrite existing branch. |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
-| log_message | String | The one line long message to be appended to the reflog. If NULL, the default is "Branch: created"; if you want something more useful, provide a message. |
 
 | Returns |  |
 | --- | --- |
 | [Reference](/api/reference/) | the underlying reference. |
+
+## <a name="createFromAnnotated"></a><span>Branch.</span>createFromAnnotated <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var reference = Branch.createFromAnnotated(repository, branch_name, commit, force);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repository | [Repository](/api/repository/) |  |
+| branch_name | String |  |
+| commit | [AnnotatedCommit](/api/annotated_commit/) |  |
+| force | Number |  |
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) |  |
 
 ## <a name="delete"></a><span>Branch.</span>delete <span class="tags"><span class="sync">Sync</span></span>
 
@@ -107,7 +123,7 @@ Branch.lookup(repo, branch_name, branch_type).then(function(reference) {
 ## <a name="move"></a><span>Branch.</span>move <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Branch.move(branch, new_branch_name, force, signature, log_message).then(function(reference) {
+Branch.move(branch, new_branch_name, force).then(function(reference) {
   // Use reference
 });
 ```
@@ -117,8 +133,6 @@ Branch.move(branch, new_branch_name, force, signature, log_message).then(functio
 | branch | [Reference](/api/reference/) | Current underlying reference of the branch. |
 | new_branch_name | String | Target name of the branch once the move is performed; this name is validated for consistency. |
 | force | Number | Overwrite existing branch. |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
-| log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
 | --- | --- |

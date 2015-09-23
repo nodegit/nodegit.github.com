@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Status
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -149,4 +149,5 @@ var result = Status.shouldIgnore(ignored, repo, path);
 | <span>Status.STATUS.</span>WT_RENAMED | 2048 |
 | <span>Status.STATUS.</span>WT_UNREADABLE | 4096 |
 | <span>Status.STATUS.</span>IGNORED | 16384 |
+| <span>Status.STATUS.</span>CONFLICTED | 32768 |
 

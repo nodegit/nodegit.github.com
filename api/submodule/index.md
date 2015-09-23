@@ -2,15 +2,20 @@
 layout: default
 menu_item: api
 title: Submodule
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "addSetup": "#addSetup"
   "lookup": "#lookup"
-  "reloadAll": "#reloadAll"
   "resolveUrl": "#resolveUrl"
+  "setBranch": "#setBranch"
+  "setFetchRecurseSubmodules": "#setFetchRecurseSubmodules"
+  "setIgnore": "#setIgnore"
+  "setUpdate": "#setUpdate"
+  "setUrl": "#setUrl"
+  "updateInitOptions": "#updateInitOptions"
   "#addFinalize": "#addFinalize"
   "#addToIndex": "#addToIndex"
   "#branch": "#branch"
@@ -26,11 +31,6 @@ sections:
   "#path": "#path"
   "#reload": "#reload"
   "#repoInit": "#repoInit"
-  "#save": "#save"
-  "#setFetchRecurseSubmodules": "#setFetchRecurseSubmodules"
-  "#setIgnore": "#setIgnore"
-  "#setUpdate": "#setUpdate"
-  "#setUrl": "#setUrl"
   "#sync": "#sync"
   "#update": "#update"
   "#updateStrategy": "#updateStrategy"
@@ -78,23 +78,6 @@ Submodule.lookup(repo, name).then(function(submodule) {
 | --- | --- |
 | [Submodule](/api/submodule/) | Output ptr to submodule; pass NULL to just get return code |
 
-## <a name="reloadAll"></a><span>Submodule.</span>reloadAll <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = Submodule.reloadAll(repo, force);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | The repository to reload submodule data for |
-| force | Number | Force full reload even if the data doesn't seem out of date |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, 
-<
-0 on error |
-
 ## <a name="resolveUrl"></a><span>Submodule.</span>resolveUrl <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
@@ -111,6 +94,105 @@ Submodule.resolveUrl(repo, url).then(function(buf) {
 | Returns |  |
 | --- | --- |
 | [Buf](/api/buf/) | buffer to store the absolute submodule url in |
+
+## <a name="setBranch"></a><span>Submodule.</span>setBranch <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.setBranch(repo, name, branch);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to affect |
+| name | String | the name of the submodule to configure |
+| branch | String | Branch that should be used for the submodule |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, 
+<
+0 on failure |
+
+## <a name="setFetchRecurseSubmodules"></a><span>Submodule.</span>setFetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.setFetchRecurseSubmodules(repo, name, fetch_recurse_submodules);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to affect |
+| name | String | the submodule to configure |
+| fetch_recurse_submodules | Number | Boolean value |
+
+| Returns |  |
+| --- | --- |
+| Number |  old value for fetchRecurseSubmodules |
+
+## <a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.setIgnore(repo, name, ignore);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to affect |
+| name | String | the name of the submdule |
+| ignore | Number | The new value for the ignore rule |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.setUpdate(repo, name, update);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to affect |
+| name | String | the name of the submodule to configure |
+| update | Number | The new value to use |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.setUrl(repo, name, url);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to affect |
+| name | String | the name of the submodule to configure |
+| url | String | URL that should be used for the submodule |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, 
+<
+0 on failure |
+
+## <a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Submodule.updateInitOptions(opts, version);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| opts | [SubmoduleUpdateOptions](/api/submodule_update_options/) | The `git_submodule_update_options` instance to initialize. |
+| version | Number | Version of struct; pass `GIT_SUBMODULE_UPDATE_OPTIONS_VERSION` |
+
+| Returns |  |
+| --- | --- |
+| Number |  Zero on success; -1 on failure. |
 
 ## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -289,76 +371,6 @@ submodule.repoInit(use_gitlink).then(function(repository) {
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
-## <a name="save"></a><span>Submodule#</span>save <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = submodule.save();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, 
-<
-0 on failure. |
-
-## <a name="setFetchRecurseSubmodules"></a><span>Submodule#</span>setFetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = submodule.setFetchRecurseSubmodules(fetch_recurse_submodules);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| fetch_recurse_submodules | Number | Boolean value |
-
-| Returns |  |
-| --- | --- |
-| Number |  old value for fetchRecurseSubmodules |
-
-## <a name="setIgnore"></a><span>Submodule#</span>setIgnore <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = submodule.setIgnore(ignore);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| ignore | Number | The new value for the ignore rule |
-
-| Returns |  |
-| --- | --- |
-| Number |  old value for ignore |
-
-## <a name="setUpdate"></a><span>Submodule#</span>setUpdate <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = submodule.setUpdate(update);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| update | Number | The new value to use |
-
-| Returns |  |
-| --- | --- |
-| Number |  old value for update |
-
-## <a name="setUrl"></a><span>Submodule#</span>setUrl <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = submodule.setUrl(url);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| url | String | URL that should be used for the submodule |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, 
-<
-0 on failure |
-
 ## <a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
@@ -421,18 +433,16 @@ var oid = submodule.wdId();
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Submodule.IGNORE.</span>RESET | -1 |
+| <span>Submodule.IGNORE.</span>UNSPECIFIED | -1 |
 | <span>Submodule.IGNORE.</span>NONE | 1 |
 | <span>Submodule.IGNORE.</span>UNTRACKED | 2 |
 | <span>Submodule.IGNORE.</span>DIRTY | 3 |
 | <span>Submodule.IGNORE.</span>ALL | 4 |
-| <span>Submodule.IGNORE.</span>DEFAULT | 0 |
 
 ## <a name="RECURSE"></a><span>Submodule.</span>RECURSE <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Submodule.RECURSE.</span>RESET | -1 |
 | <span>Submodule.RECURSE.</span>NO | 0 |
 | <span>Submodule.RECURSE.</span>YES | 1 |
 | <span>Submodule.RECURSE.</span>ONDEMAND | 2 |
@@ -460,7 +470,6 @@ var oid = submodule.wdId();
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Submodule.UPDATE.</span>RESET | -1 |
 | <span>Submodule.UPDATE.</span>CHECKOUT | 1 |
 | <span>Submodule.UPDATE.</span>REBASE | 2 |
 | <span>Submodule.UPDATE.</span>MERGE | 3 |

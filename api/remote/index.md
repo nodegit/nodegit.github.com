@@ -2,11 +2,13 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "addFetch": "#addFetch"
+  "addPush": "#addPush"
   "create": "#create"
   "createAnonymous": "#createAnonymous"
   "createWithFetchspec": "#createWithFetchspec"
@@ -15,10 +17,10 @@ sections:
   "isValidName": "#isValidName"
   "list": "#list"
   "lookup": "#lookup"
-  "#addFetch": "#addFetch"
-  "#addPush": "#addPush"
+  "setAutotag": "#setAutotag"
+  "setPushurl": "#setPushurl"
+  "setUrl": "#setUrl"
   "#autotag": "#autotag"
-  "#clearRefspecs": "#clearRefspecs"
   "#connect": "#connect"
   "#connected": "#connected"
   "#disconnect": "#disconnect"
@@ -26,7 +28,6 @@ sections:
   "#dup": "#dup"
   "#fetch": "#fetch"
   "#free": "#free"
-  "#getCallbacks": "#getCallbacks"
   "#getFetchRefspecs": "#getFetchRefspecs"
   "#getPushRefspecs": "#getPushRefspecs"
   "#getRefspec": "#getRefspec"
@@ -37,21 +38,46 @@ sections:
   "#push": "#push"
   "#pushurl": "#pushurl"
   "#refspecCount": "#refspecCount"
-  "#save": "#save"
-  "#setAutotag": "#setAutotag"
-  "#setCallbacks": "#setCallbacks"
-  "#setPushurl": "#setPushurl"
-  "#setUpdateFetchhead": "#setUpdateFetchhead"
-  "#setUrl": "#setUrl"
   "#stats": "#stats"
   "#stop": "#stop"
-  "#updateFetchhead": "#updateFetchhead"
   "#updateTips": "#updateTips"
   "#upload": "#upload"
   "#url": "#url"
   "AUTOTAG_OPTION": "#AUTOTAG_OPTION"
   "COMPLETION_TYPE": "#COMPLETION_TYPE"
 ---
+
+## <a name="addFetch"></a><span>Remote.</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.addFetch(repo, remote, refspec);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to change the configuration |
+| remote | String | the name of the remote to change |
+| refspec | String | the new fetch refspec |
+
+| Returns |  |
+| --- | --- |
+| Number |  0, GIT_EINVALIDSPEC if refspec is invalid or an error value |
+
+## <a name="addPush"></a><span>Remote.</span>addPush <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.addPush(repo, remote, refspec);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to change the configuration |
+| remote | String | the name of the remote to change |
+| refspec | String | the new push refspec |
+
+| Returns |  |
+| --- | --- |
+| Number |  0, GIT_EINVALIDSPEC if refspec is invalid or an error value |
 
 ## <a name="create"></a><span>Remote.</span>create <span class="tags"><span class="sync">Sync</span></span>
 
@@ -72,7 +98,7 @@ var remote = Remote.create(repo, name, url);
 ## <a name="createAnonymous"></a><span>Remote.</span>createAnonymous <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Remote.createAnonymous(repo, url, fetch).then(function(remote) {
+Remote.createAnonymous(repo, url).then(function(remote) {
   // Use remote
 });
 ```
@@ -81,7 +107,6 @@ Remote.createAnonymous(repo, url, fetch).then(function(remote) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | the associated repository |
 | url | String | the remote repository's URL |
-| fetch | String | the fetch refspec to use for this remote. |
 
 | Returns |  |
 | --- | --- |
@@ -188,29 +213,49 @@ Retrieves the remote by name
 | --- | --- |
 | [Remote](/api/remote/) |  |
 
-## <a name="addFetch"></a><span>Remote#</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setAutotag"></a><span>Remote.</span>setAutotag <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = remote.addFetch(refspec);
+var result = Remote.setAutotag(repo, remote, value);
 ```
 
-| Parameters | Type |
+| Parameters | Type |   |
 | --- | --- | --- |
-| refspec | String | the new fetch refspec |
+| repo | [Repository](/api/repository/) | the repository in which to make the change |
+| remote | String | the name of the remote |
+| value | Number | the new value to take. |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error value |
+| Number |  |
 
-## <a name="addPush"></a><span>Remote#</span>addPush <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setPushurl"></a><span>Remote.</span>setPushurl <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = remote.addPush(refspec);
+var result = Remote.setPushurl(repo, remote, url);
 ```
 
-| Parameters | Type |
+| Parameters | Type |   |
 | --- | --- | --- |
-| refspec | String | the new push refspec |
+| repo | [Repository](/api/repository/) | the repository in which to perform the change |
+| remote | String | the remote's name |
+| url | String | the url to set |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="setUrl"></a><span>Remote.</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Remote.setUrl(repo, remote, url);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to perform the change |
+| remote | String | the remote's name |
+| url | String | the url to set |
 
 | Returns |  |
 | --- | --- |
@@ -226,27 +271,25 @@ var result = remote.autotag();
 | --- | --- |
 | Number |  the auto-follow setting |
 
-## <a name="clearRefspecs"></a><span>Remote#</span>clearRefspecs <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-remote.clearRefspecs();
-```
-
 ## <a name="connect"></a><span>Remote#</span>connect <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.connect(direction).then(function(result) {
-  // Use result
+remote.connect(direction, callbacks, callback).then(function(number) {
+  // Use number
 });
 ```
 
+Connects to a remote
+
 | Parameters | Type |
 | --- | --- | --- |
-| direction | Number | GIT_DIRECTION_FETCH if you want to fetch or GIT_DIRECTION_PUSH if you want to push |
+| direction | [Enums.DIRECTION](/api/enums/#DIRECTION) | The direction for the connection |
+| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | The callback functions for the connection |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| Number | error code |
 
 ## <a name="connected"></a><span>Remote#</span>connected <span class="tags"><span class="sync">Sync</span></span>
 
@@ -268,18 +311,22 @@ remote.disconnect().then(function() {
 ## <a name="download"></a><span>Remote#</span>download <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.download(refspecs).then(function(result) {
-  // Use result
+remote.download(refSpecs, opts, callback).then(function(number) {
+  // Use number
 });
 ```
 
+Connects to a remote
+
 | Parameters | Type |
 | --- | --- | --- |
-| refspecs | [Strarray](/api/strarray/) | the refspecs to use for this negotiation and download. Use NULL or an empty array to use the base refspecs |
+| refSpecs | Array | The ref specs that should be pushed |
+| opts | [FetchOptions](/api/fetch_options/) | The fetch options for download, contains callbacks |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| Number | error code |
 
 ## <a name="dup"></a><span>Remote#</span>dup <span class="tags"><span class="async">Async</span></span>
 
@@ -296,36 +343,29 @@ remote.dup().then(function(remote) {
 ## <a name="fetch"></a><span>Remote#</span>fetch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.fetch(refspecs, signature, reflog_message).then(function(result) {
-  // Use result
+remote.fetch(refSpecs, opts, message, callback).then(function(number) {
+  // Use number
 });
 ```
 
+Connects to a remote
+
 | Parameters | Type |
 | --- | --- | --- |
-| refspecs | [Strarray](/api/strarray/) | the refspecs to use for this fetch. Pass NULL or an empty array to use the base refspecs. |
-| signature | [Signature](/api/signature/) | The identity to use when updating reflogs |
-| reflog_message | String | The message to insert into the reflogs. If NULL, the default is "fetch" |
+| refSpecs | Array | The ref specs that should be pushed |
+| opts | [FetchOptions](/api/fetch_options/) | The fetch options for download, contains callbacks |
+| message | String | The message to use for the update reflog messages |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| Number | error code |
 
 ## <a name="free"></a><span>Remote#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 remote.free();
 ```
-
-## <a name="getCallbacks"></a><span>Remote#</span>getCallbacks <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var remoteCallbacks = remote.getCallbacks();
-```
-
-| Returns |  |
-| --- | --- |
-| [RemoteCallbacks](/api/remote_callbacks/) |  the callbacks structure |
 
 ## <a name="getFetchRefspecs"></a><span>Remote#</span>getFetchRefspecs <span class="tags"><span class="async">Async</span></span>
 
@@ -388,8 +428,12 @@ var repository = remote.owner();
 ## <a name="prune"></a><span>Remote#</span>prune <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = remote.prune();
+var result = remote.prune(callbacks);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | callbacks to use for this prune |
 
 | Returns |  |
 | --- | --- |
@@ -408,7 +452,7 @@ var result = remote.pruneRefs();
 ## <a name="push"></a><span>Remote#</span>push <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.push(refSpecs, options, signature, message).then(function(number) {
+remote.push(refSpecs, options, callback).then(function(number) {
   // Use number
 });
 ```
@@ -419,8 +463,7 @@ Pushes to a remote
 | --- | --- | --- |
 | refSpecs | Array | The ref specs that should be pushed |
 | options | [PushOptions](/api/push_options/) | Options for the checkout |
-| signature | [Signature](/api/signature/) | The identity to use for the reflog of the updated references |
-| message | String | The message to use for the update reflog messages |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
@@ -446,78 +489,6 @@ var result = remote.refspecCount();
 | --- | --- |
 | Number |  the amount of refspecs configured in this remote |
 
-## <a name="save"></a><span>Remote#</span>save <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.save();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  0, GIT_EINVALIDSPEC or an error code |
-
-## <a name="setAutotag"></a><span>Remote#</span>setAutotag <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-remote.setAutotag(value);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| value | Number | a GIT_REMOTE_DOWNLOAD_TAGS value |
-
-## <a name="setCallbacks"></a><span>Remote#</span>setCallbacks <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.setCallbacks(callbacks);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | a pointer to the user's callback settings |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error code |
-
-## <a name="setPushurl"></a><span>Remote#</span>setPushurl <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.setPushurl(url);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| url | String | the url to set or NULL to clear the pushurl |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error value |
-
-## <a name="setUpdateFetchhead"></a><span>Remote#</span>setUpdateFetchhead <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-remote.setUpdateFetchhead(value);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| value | Number | 0 to disable updating FETCH_HEAD |
-
-## <a name="setUrl"></a><span>Remote#</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.setUrl(url);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| url | String | the url to set |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error value |
-
 ## <a name="stats"></a><span>Remote#</span>stats <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -534,26 +505,18 @@ var transferProgress = remote.stats();
 remote.stop();
 ```
 
-## <a name="updateFetchhead"></a><span>Remote#</span>updateFetchhead <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = remote.updateFetchhead();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  the update FETCH_HEAD setting |
-
 ## <a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = remote.updateTips(signature, reflog_message);
+var result = remote.updateTips(callbacks, update_fetchhead, download_tags, reflog_message);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| signature | [Signature](/api/signature/) | The identity to use when updating reflogs |
-| reflog_message | String | The message to insert into the reflogs. If NULL, the default is "fetch <name>", where <name> is the name of the remote (or its url, for in-memory remotes). |
+| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | pointer to the callback structure to use |
+| update_fetchhead | Number | whether to write to FETCH_HEAD. Pass 1 to behave like git. |
+| download_tags | Number | what the behaviour for downloading tags is for this fetch. This is ignored for push. This must be the same value passed to `git_remote_download()`. |
+| reflog_message | String | The message to insert into the reflogs. If NULL and fetching, the default is "fetch <name>", where <name> is the name of the remote (or its url, for in-memory remotes). This parameter is ignored when pushing. |
 
 | Returns |  |
 | --- | --- |
@@ -568,7 +531,7 @@ var result = remote.upload(refspecs, opts);
 | Parameters | Type |
 | --- | --- | --- |
 | refspecs | [Strarray](/api/strarray/) | the refspecs to use for this negotiation and upload. Use NULL or an empty array to use the base refspecs |
-| opts | [PushOptions](/api/push_options/) |  |
+| opts | [PushOptions](/api/push_options/) | the options to use for this push |
 
 | Returns |  |
 | --- | --- |
@@ -588,9 +551,10 @@ var string = remote.url();
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_AUTO | 0 |
-| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_NONE | 1 |
-| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_ALL | 2 |
+| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_UNSPECIFIED | 0 |
+| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_AUTO | 1 |
+| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_NONE | 2 |
+| <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_ALL | 3 |
 
 ## <a name="COMPLETION_TYPE"></a><span>Remote.</span>COMPLETION_TYPE <span class="tags"><span class="enum">ENUM</span></span>
 

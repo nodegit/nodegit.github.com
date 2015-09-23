@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Treebuilder
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -105,14 +105,10 @@ var result = treebuilder.remove(filename);
 ## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = treebuilder.write(id);
+var oid = treebuilder.write();
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| id | [Oid](/api/oid/) | Pointer to store the OID of the newly written tree |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Oid](/api/oid/) |  |
 
