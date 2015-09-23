@@ -2,11 +2,12 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "discover": "#discover"
   "init": "#init"
   "initExt": "#initExt"
   "open": "#open"
@@ -54,8 +55,15 @@ sections:
   "#headDetached": "#headDetached"
   "#headUnborn": "#headUnborn"
   "#index": "#index"
+  "#isApplyingMailbox": "#isApplyingMailbox"
   "#isBare": "#isBare"
+  "#isBisecting": "#isBisecting"
+  "#isCherrypicking": "#isCherrypicking"
+  "#isDefaultState": "#isDefaultState"
   "#isEmpty": "#isEmpty"
+  "#isMerging": "#isMerging"
+  "#isRebasing": "#isRebasing"
+  "#isReverting": "#isReverting"
   "#isShallow": "#isShallow"
   "#mergeBranches": "#mergeBranches"
   "#messageRemove": "#messageRemove"
@@ -65,8 +73,11 @@ sections:
   "#refdb": "#refdb"
   "#setHead": "#setHead"
   "#setHeadDetached": "#setHeadDetached"
+  "#setHeadDetachedFromAnnotated": "#setHeadDetachedFromAnnotated"
+  "#setIdent": "#setIdent"
   "#setNamespace": "#setNamespace"
   "#setWorkdir": "#setWorkdir"
+  "#stageLines": "#stageLines"
   "#state": "#state"
   "#stateCleanup": "#stateCleanup"
   "#treeBuilder": "#treeBuilder"
@@ -76,6 +87,25 @@ sections:
   "OPEN_FLAG": "#OPEN_FLAG"
   "STATE": "#STATE"
 ---
+
+## <a name="discover"></a><span>Repository.</span>discover <span class="tags"><span class="async">Async</span></span>
+
+```js
+Repository.discover(start_path, across_fs, ceiling_dirs).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| start_path | String | The base path where the lookup starts. |
+| across_fs | Number | If true, then the lookup will not stop when a filesystem device change is detected while exploring parent directories. |
+| ceiling_dirs | String | A GIT_PATH_LIST_SEPARATOR separated list of absolute symbolic link free paths. The lookup will stop when any of this paths is reached. Note that the lookup always performs on start_path no matter start_path appears in ceiling_dirs ceiling_dirs might be NULL (which is equivalent to an empty string) |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | a user-allocated git_buf which will contain
+ the found path. |
 
 ## <a name="init"></a><span>Repository.</span>init <span class="tags"><span class="async">Async</span></span>
 
@@ -177,10 +207,11 @@ Repository.wrapOdb(odb).then(function(repository) {
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
-## <a name="checkoutBranch"></a><span>Repository#</span>checkoutBranch <span class="tags"><span class="sync">Sync</span></span>
+## <a name="checkoutBranch"></a><span>Repository#</span>checkoutBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.checkoutBranch(branch, opts);
+repository.checkoutBranch(branch, opts).then(function() {
+  // method complete});
 ```
 
 This will set the HEAD to point to the local branch and then attempt
@@ -398,13 +429,8 @@ Deletes a tag from a repository by the tag name.
 ## <a name="detachHead"></a><span>Repository#</span>detachHead <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = repository.detachHead(signature, reflog_message);
+var result = repository.detachHead();
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
-| reflog_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
 | --- | --- |
@@ -414,7 +440,7 @@ var result = repository.detachHead(signature, reflog_message);
 ## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.fetch(remote, remoteCallbacks, set, will);
+repository.fetch(remote, fetchOptions);
 ```
 
 Fetches from a remote
@@ -422,23 +448,21 @@ Fetches from a remote
 | Parameters | Type |
 | --- | --- | --- |
 | remote | String, [Remote](/api/remote/) |  |
-| remoteCallbacks | [Object](/api/object/), RemoteCallback | Any custom callbacks needed |
-| set | [Remote.AUTOTAG_OPTION](/api/remote/#AUTOTAG_OPTION), autoTag | the auto tag option for remote |
-| will | Bool, pruneAfter | perform a prune after the fetch if true |
+| fetchOptions | [Object](/api/object/), [FetchOptions](/api/fetch_options/) | Options for the fetch, includes callbacks for fetching |
 
 ## <a name="fetchAll"></a><span>Repository#</span>fetchAll <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.fetchAll(remoteCallbacks, set, will);
+repository.fetchAll(fetchOptions, callback);
 ```
 
-Fetches from all remotes
+Fetches from all remotes. This is done in series due to deadlocking issues
+with fetching from many remotes that can happen.
 
 | Parameters | Type |
 | --- | --- | --- |
-| remoteCallbacks | [Object](/api/object/), RemoteCallback | Any custom callbacks needed |
-| set | [Remote.AUTOTAG_OPTION](/api/remote/#AUTOTAG_OPTION), autoTag | the AUTO_TAG option for remotes |
-| will | Bool, pruneAfter | perform a prune after the fetch if true |
+| fetchOptions | [Object](/api/object/), [FetchOptions](/api/fetch_options/) | Options for the fetch, includes callbacks for fetching |
+| callback | Function |  |
 
 ## <a name="fetchheadForeach"></a><span>Repository#</span>fetchheadForeach <span class="tags"><span class="async">Async</span></span>
 
@@ -820,6 +844,19 @@ repository.index().then(function(index) {
 | --- | --- |
 | [Index](/api/index/) |  |
 
+## <a name="isApplyingMailbox"></a><span>Repository#</span>isApplyingMailbox <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isApplyingMailbox();
+```
+
+Returns true if the repository is in the APPLY_MAILBOX or
+APPLY_MAILBOX_OR_REBASE state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isBare"></a><span>Repository#</span>isBare <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -829,6 +866,42 @@ var result = repository.isBare();
 | Returns |  |
 | --- | --- |
 | Number |  1 if the repository is bare, 0 otherwise. |
+
+## <a name="isBisecting"></a><span>Repository#</span>isBisecting <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isBisecting();
+```
+
+Returns true if the repository is in the BISECT state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isCherrypicking"></a><span>Repository#</span>isCherrypicking <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isCherrypicking();
+```
+
+Returns true if the repository is in the CHERRYPICK state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isDefaultState"></a><span>Repository#</span>isDefaultState <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isDefaultState();
+```
+
+Returns true if the repository is in the default NONE state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
 
 ## <a name="isEmpty"></a><span>Repository#</span>isEmpty <span class="tags"><span class="sync">Sync</span></span>
 
@@ -840,6 +913,43 @@ var result = repository.isEmpty();
 | --- | --- |
 | Number |  1 if the repository is empty, 0 if it isn't, error code
  if the repository is corrupted |
+
+## <a name="isMerging"></a><span>Repository#</span>isMerging <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isMerging();
+```
+
+Returns true if the repository is in the MERGE state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isRebasing"></a><span>Repository#</span>isRebasing <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isRebasing();
+```
+
+Returns true if the repository is in the REBASE, REBASE_INTERACTIVE, or
+REBASE_MERGE state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isReverting"></a><span>Repository#</span>isReverting <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = repository.isReverting();
+```
+
+Returns true if the repository is in the REVERT state.
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
 
 ## <a name="isShallow"></a><span>Repository#</span>isShallow <span class="tags"><span class="sync">Sync</span></span>
 
@@ -936,7 +1046,7 @@ repository.refdb().then(function(refdb) {
 ## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.setHead(refname, signature, log_message).then(function(result) {
+repository.setHead(refname).then(function(result) {
   // Use result
 });
 ```
@@ -944,8 +1054,6 @@ repository.setHead(refname, signature, log_message).then(function(result) {
 | Parameters | Type |
 | --- | --- | --- |
 | refname | String | Canonical name of the reference the HEAD should point at |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
-| log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
 | --- | --- |
@@ -954,18 +1062,45 @@ repository.setHead(refname, signature, log_message).then(function(result) {
 ## <a name="setHeadDetached"></a><span>Repository#</span>setHeadDetached <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = repository.setHeadDetached(commitish, signature, log_message);
+var result = repository.setHeadDetached(commitish);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
 | commitish | [Oid](/api/oid/) | Object id of the Commit the HEAD should point to |
-| signature | [Signature](/api/signature/) | The identity that will used to populate the reflog entry |
-| log_message | String | The one line long message to be appended to the reflog |
 
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, or an error code |
+
+## <a name="setHeadDetachedFromAnnotated"></a><span>Repository#</span>setHeadDetachedFromAnnotated <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.setHeadDetachedFromAnnotated(commitish);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| commitish | [AnnotatedCommit](/api/annotated_commit/) |  |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="setIdent"></a><span>Repository#</span>setIdent <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.setIdent(name, email);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the email to use for the reflog entries |
+| email | String |  |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="setNamespace"></a><span>Repository#</span>setNamespace <span class="tags"><span class="sync">Sync</span></span>
 
@@ -995,6 +1130,26 @@ var result = repository.setWorkdir(workdir, update_gitlink);
 | Returns |  |
 | --- | --- |
 | Number |  0, or an error code |
+
+## <a name="stageLines"></a><span>Repository#</span>stageLines <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.stageLines(filePath, newLines, isStaged).then(function(number) {
+  // Use number
+});
+```
+
+Stages or unstages line selection of a specified file
+
+| Parameters | Type |
+| --- | --- | --- |
+| filePath | String | The relative path of this file in the repo |
+| newLines | Array | The array of DiffLine objects selected for staging or unstaging |
+| isStaged | Boolean | Are the selected lines currently staged |
+
+| Returns |  |
+| --- | --- |
+| Number | 0 or an error code |
 
 ## <a name="state"></a><span>Repository#</span>state <span class="tags"><span class="sync">Sync</span></span>
 

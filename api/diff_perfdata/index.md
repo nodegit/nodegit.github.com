@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffPerfdata
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/

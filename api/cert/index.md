@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Cert
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -23,8 +23,10 @@ sections:
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Cert.TYPE.</span>X509 | 0 |
-| <span>Cert.TYPE.</span>HOSTKEY_LIBSSH2 | 1 |
+| <span>Cert.TYPE.</span>NONE | 0 |
+| <span>Cert.TYPE.</span>X509 | 1 |
+| <span>Cert.TYPE.</span>HOSTKEY_LIBSSH2 | 2 |
+| <span>Cert.TYPE.</span>STRARRAY | 3 |
 
 ## <a name="ivars"></a>Instance Variables
 

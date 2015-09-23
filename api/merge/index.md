@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Merge
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -165,6 +165,11 @@ Merge.trees(repo, ancestor_tree, our_tree, their_tree, opts).then(function(index
 | <span>Merge.FILE_FLAGS.</span>FILE_STYLE_MERGE | 1 |
 | <span>Merge.FILE_FLAGS.</span>FILE_STYLE_DIFF3 | 2 |
 | <span>Merge.FILE_FLAGS.</span>FILE_SIMPLIFY_ALNUM | 4 |
+| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE | 8 |
+| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_CHANGE | 16 |
+| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_EOL | 32 |
+| <span>Merge.FILE_FLAGS.</span>FILE_DIFF_PATIENCE | 64 |
+| <span>Merge.FILE_FLAGS.</span>FILE_DIFF_MINIMAL | 128 |
 
 ## <a name="PREFERENCE"></a><span>Merge.</span>PREFERENCE <span class="tags"><span class="enum">ENUM</span></span>
 

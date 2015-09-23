@@ -2,13 +2,13 @@
 layout: default
 menu_item: api
 title: Config
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "openDefault": "#openDefault"
-  "#getString": "#getString"
+  "#getStringBuf": "#getStringBuf"
   "#setInt64": "#setInt64"
   "#setMultivar": "#setMultivar"
   "#setString": "#setString"
@@ -28,11 +28,11 @@ Config.openDefault().then(function(config) {
 | --- | --- |
 | [Config](/api/config/) |  |
 
-## <a name="getString"></a><span>Config#</span>getString <span class="tags"><span class="async">Async</span></span>
+## <a name="getStringBuf"></a><span>Config#</span>getStringBuf <span class="tags"><span class="async">Async</span></span>
 
 ```js
-config.getString(name).then(function(string) {
-  // Use string
+config.getStringBuf(name).then(function(buf) {
+  // Use buf
 });
 ```
 
@@ -42,7 +42,7 @@ config.getString(name).then(function(string) {
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| [Buf](/api/buf/) | buffer in which to store the string |
 
 ## <a name="setInt64"></a><span>Config#</span>setInt64 <span class="tags"><span class="sync">Sync</span></span>
 

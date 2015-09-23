@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: CheckoutOptions
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -20,6 +20,7 @@ var checkoutOptions = new CheckoutOptions();
 | --- | --- |
 | <a name="ancestorLabel"></a>ancestorLabel | String |
 | <a name="baseline"></a>baseline | Tree |
+| <a name="baselineIndex"></a>baselineIndex | Index |
 | <a name="checkoutStrategy"></a>checkoutStrategy | Number |
 | <a name="dirMode"></a>dirMode | Number |
 | <a name="disableFilters"></a>disableFilters | Number |
@@ -30,6 +31,8 @@ var checkoutOptions = new CheckoutOptions();
 | <a name="notifyPayload"></a>notifyPayload | Void |
 | <a name="ourLabel"></a>ourLabel | String |
 | <a name="paths"></a>paths | Strarray |
+| <a name="perfdataCb"></a>perfdataCb | CheckoutPerfdataCb |
+| <a name="perfdataPayload"></a>perfdataPayload | Void |
 | <a name="progressCb"></a>progressCb | CheckoutProgressCb |
 | <a name="progressPayload"></a>progressPayload | Void |
 | <a name="targetDirectory"></a>targetDirectory | String |

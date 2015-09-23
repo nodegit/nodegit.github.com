@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: AnnotatedCommit
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "fromFetchhead": "#fromFetchhead"
   "fromRef": "#fromRef"
+  "fromRevspec": "#fromRevspec"
   "lookup": "#lookup"
   "#free": "#free"
   "#id": "#id"
@@ -27,7 +28,7 @@ AnnotatedCommit.fromFetchhead(repo, branch_name, remote_url, id).then(function(a
 | repo | [Repository](/api/repository/) | repository that contains the given commit |
 | branch_name | String | name of the (remote) branch |
 | remote_url | String | url of the remote |
-| id | [Oid](/api/oid/) |  |
+| id | [Oid](/api/oid/) | the commit object id of the remote branch |
 
 | Returns |  |
 | --- | --- |
@@ -45,6 +46,23 @@ AnnotatedCommit.fromRef(repo, ref).then(function(annotatedCommit) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | repository that contains the given reference |
 | ref | [Reference](/api/reference/) | reference to use to lookup the git_annotated_commit |
+
+| Returns |  |
+| --- | --- |
+| [AnnotatedCommit](/api/annotated_commit/) |  |
+
+## <a name="fromRevspec"></a><span>AnnotatedCommit.</span>fromRevspec <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+AnnotatedCommit.fromRevspec(repo, revspec).then(function(annotatedCommit) {
+  // Use annotatedCommit
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | repository that contains the given commit |
+| revspec | String | the extended sha syntax string to use to lookup the commit |
 
 | Returns |  |
 | --- | --- |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -20,6 +20,7 @@ sections:
   "#getEntry": "#getEntry"
   "#getParents": "#getParents"
   "#getTree": "#getTree"
+  "#headerField": "#headerField"
   "#history": "#history"
   "#id": "#id"
   "#message": "#message"
@@ -126,12 +127,11 @@ Commit.lookupPrefix(repo, id, len).then(function(commit) {
 ## <a name="amend"></a><span>Commit#</span>amend <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = commit.amend(id, update_ref, author, committer, message_encoding, message, tree);
+var oid = commit.amend(update_ref, author, committer, message_encoding, message, tree);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| id | [Oid](/api/oid/) |  |
 | update_ref | String |  |
 | author | [Signature](/api/signature/) |  |
 | committer | [Signature](/api/signature/) |  |
@@ -141,7 +141,7 @@ var result = commit.amend(id, update_ref, author, committer, message_encoding, m
 
 | Returns |  |
 | --- | --- |
-| Number |  |
+| [Oid](/api/oid/) |  |
 
 ## <a name="author"></a><span>Commit#</span>author <span class="tags"><span class="sync">Sync</span></span>
 
@@ -251,6 +251,22 @@ Get the tree associated with this commit.
 | Returns |  |
 | --- | --- |
 | [Tree](/api/tree/) |  |
+
+## <a name="headerField"></a><span>Commit#</span>headerField <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.headerField(field).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| field | String | the header field to return |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | the buffer to fill |
 
 ## <a name="history"></a><span>Commit#</span>history <span class="tags"><span class="sync">Sync</span></span>
 

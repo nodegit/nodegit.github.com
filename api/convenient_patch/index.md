@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: ConvenientPatch
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "#hunks": "#hunks"
   "#isAdded": "#isAdded"
+  "#isConflicted": "#isConflicted"
   "#isCopied": "#isCopied"
   "#isDeleted": "#isDeleted"
   "#isIgnored": "#isIgnored"
@@ -16,6 +17,7 @@ sections:
   "#isRenamed": "#isRenamed"
   "#isTypeChange": "#isTypeChange"
   "#isUnmodified": "#isUnmodified"
+  "#isUnreadable": "#isUnreadable"
   "#isUntracked": "#isUntracked"
   "#newFile": "#newFile"
   "#oldFile": "#oldFile"
@@ -44,6 +46,18 @@ var boolean = convenientPatch.isAdded();
 ```
 
 Is this an added patch?
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isConflicted"></a><span>ConvenientPatch#</span>isConflicted <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = convenientPatch.isConflicted();
+```
+
+Is this a conflicted patch?
 
 | Returns |  |
 | --- | --- |
@@ -128,6 +142,18 @@ var boolean = convenientPatch.isUnmodified();
 ```
 
 Is this an unmodified patch?
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
+## <a name="isUnreadable"></a><span>ConvenientPatch#</span>isUnreadable <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = convenientPatch.isUnreadable();
+```
+
+Is this an undreadable patch?
 
 | Returns |  |
 | --- | --- |

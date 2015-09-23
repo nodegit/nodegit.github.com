@@ -2,16 +2,17 @@
 layout: default
 menu_item: api
 title: Ignore
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "addRule": "#addRule"
   "clearInternalRules": "#clearInternalRules"
+  "pathIsIgnored": "#pathIsIgnored"
 ---
 
-## <a name="addRule"></a><span>Ignore.</span>addRule <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="addRule"></a><span>Ignore.</span>addRule <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Ignore.addRule(repo, rules);
@@ -26,7 +27,7 @@ var result = Ignore.addRule(repo, rules);
 | --- | --- |
 | Number |  0 on success |
 
-## <a name="clearInternalRules"></a><span>Ignore.</span>clearInternalRules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="clearInternalRules"></a><span>Ignore.</span>clearInternalRules <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Ignore.clearInternalRules(repo);
@@ -39,4 +40,19 @@ var result = Ignore.clearInternalRules(repo);
 | Returns |  |
 | --- | --- |
 | Number |  0 on success |
+
+## <a name="pathIsIgnored"></a><span>Ignore.</span>pathIsIgnored <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Ignore.pathIsIgnored(repo, path);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | a repository object |
+| path | String | the file to check ignores for, relative to the repo's workdir. |
+
+| Returns |  |
+| --- | --- |
+| Number | boolean returning 0 if the file is not ignored, 1 if it is |
 

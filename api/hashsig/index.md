@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Hashsig
-description: Version 0.4.1
+description: Version 0.5.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -24,13 +24,13 @@ Hashsig.create(buf, buflen, opts).then(function(hashsig) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| buf | String | The contents of the file to hash |
-| buflen | Number | The length of the data at `buf` |
-| opts | Number |  |
+| buf | String | The input buffer. |
+| buflen | Number | The input buffer size. |
+| opts | Number | The signature computation options (see above). |
 
 | Returns |  |
 | --- | --- |
-| [Hashsig](/api/hashsig/) | The array of hashed runs representing the file content |
+| [Hashsig](/api/hashsig/) | The computed similarity signature. |
 
 ## <a name="createFromFile"></a><span>Hashsig.</span>createFromFile <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -42,12 +42,12 @@ Hashsig.createFromFile(path, opts).then(function(hashsig) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| path | String |  |
-| opts | Number |  |
+| path | String | The path to the input file. |
+| opts | Number | The signature computation options (see above). |
 
 | Returns |  |
 | --- | --- |
-| [Hashsig](/api/hashsig/) |  |
+| [Hashsig](/api/hashsig/) | The computed similarity signature. |
 
 ## <a name="compare"></a><span>Hashsig#</span>compare <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -57,9 +57,7 @@ var result = hashsig.compare();
 
 | Returns |  |
 | --- | --- |
-| Number |  
-<
-0 for error, [0 to 100] as similarity score |
+| Number |  [0 to 100] on success as the similarity score, or error code. |
 
 ## <a name="free"></a><span>Hashsig#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -74,4 +72,5 @@ hashsig.free();
 | <span>Hashsig.OPTION.</span>NORMAL | 0 |
 | <span>Hashsig.OPTION.</span>IGNORE_WHITESPACE | 1 |
 | <span>Hashsig.OPTION.</span>SMART_WHITESPACE | 2 |
+| <span>Hashsig.OPTION.</span>ALLOW_SMALL_FILES | 4 |
 
