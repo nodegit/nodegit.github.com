@@ -69,7 +69,9 @@ or where you execute it from.
 The third argument to the `clone` method is an optional simple object.
 
 ``` javascript
-var cloneOptions = {};
+var cloneOptions = {
+  fetchOpts: {}
+};
 ```
 
 #### GitHub certificate issue in OS X
@@ -81,7 +83,7 @@ to passthrough the certificate check.
 *Note: this is not a problem with Windows or Linux*
 
 ``` javascript
-cloneOptions.remoteCallbacks = {
+cloneOptions.fetchOpts.callbacks = {
   certificateCheck: function() { return 1; }
 };
 ```
@@ -95,10 +97,10 @@ This function will be attached below the above `certificateCheck`, and will
 respond back with the credentials from the agent.  You'll notice we handle
 the second argument passed to credentials, `userName`.
 
-The `remoteCallbacks` object now looks like this:
+The `fetchOpts.callbacks` object now looks like this:
 
 ``` javascript
-cloneOptions.remoteCallbacks = {
+cloneOptions.fetchOpts.callbacks = {
   certificateCheck: function() { return 1; },
   credentials: function(url, userName) {
     return NodeGit.Cred.sshKeyFromAgent(userName);
