@@ -234,7 +234,7 @@ revwalk.sorting(sort);
 ```
 
 Set the sort order for the revwalk. This function takes variable arguments
-like `revwalk.sorting(NodeGit.RevWalk.Topological, NodeGit.RevWalk.Reverse).`
+like `revwalk.sorting(NodeGit.RevWalk.SORT.Topological, NodeGit.RevWalk.SORT.Reverse).`
 
 | Parameters | Type |
 | --- | --- | --- |
