@@ -283,8 +283,12 @@ Reference.symbolicCreateMatching(repo, name, target, force, current_value, log_m
 ## <a name="cmp"></a><span>Reference#</span>cmp <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = reference.cmp();
+var result = reference.cmp(ref2);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| ref2 | [Reference](/api/reference/) | The second git_reference |
 
 | Returns |  |
 | --- | --- |

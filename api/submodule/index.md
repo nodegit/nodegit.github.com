@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "addSetup": "#addSetup"
+  "foreach": "#foreach"
   "lookup": "#lookup"
   "resolveUrl": "#resolveUrl"
   "setBranch": "#setBranch"
@@ -42,7 +43,7 @@ sections:
   "UPDATE": "#UPDATE"
 ---
 
-## <a name="addSetup"></a><span>Submodule.</span>addSetup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="addSetup"></a><span>Submodule.</span>addSetup <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Submodule.addSetup(repo, url, path, use_gitlink).then(function(submodule) {
@@ -61,7 +62,25 @@ Submodule.addSetup(repo, url, path, use_gitlink).then(function(submodule) {
 | --- | --- |
 | [Submodule](/api/submodule/) | The newly created submodule ready to open for clone |
 
-## <a name="lookup"></a><span>Submodule.</span>lookup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="foreach"></a><span>Submodule.</span>foreach <span class="tags"><span class="async">Async</span></span>
+
+```js
+Submodule.foreach(repo, callback, payload).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repository |
+| callback | SubmoduleCb | Function to be called with the name of each submodule. Return a non-zero value to terminate the iteration. |
+| payload | Void | Extra data to pass to callback |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, -1 on error, or non-zero return value of callback |
+
+## <a name="lookup"></a><span>Submodule.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Submodule.lookup(repo, name).then(function(submodule) {
@@ -78,7 +97,7 @@ Submodule.lookup(repo, name).then(function(submodule) {
 | --- | --- |
 | [Submodule](/api/submodule/) | Output ptr to submodule; pass NULL to just get return code |
 
-## <a name="resolveUrl"></a><span>Submodule.</span>resolveUrl <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="resolveUrl"></a><span>Submodule.</span>resolveUrl <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Submodule.resolveUrl(repo, url).then(function(buf) {
@@ -95,7 +114,7 @@ Submodule.resolveUrl(repo, url).then(function(buf) {
 | --- | --- |
 | [Buf](/api/buf/) | buffer to store the absolute submodule url in |
 
-## <a name="setBranch"></a><span>Submodule.</span>setBranch <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setBranch"></a><span>Submodule.</span>setBranch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.setBranch(repo, name, branch);
@@ -113,7 +132,7 @@ var result = Submodule.setBranch(repo, name, branch);
 <
 0 on failure |
 
-## <a name="setFetchRecurseSubmodules"></a><span>Submodule.</span>setFetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setFetchRecurseSubmodules"></a><span>Submodule.</span>setFetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.setFetchRecurseSubmodules(repo, name, fetch_recurse_submodules);
@@ -129,7 +148,7 @@ var result = Submodule.setFetchRecurseSubmodules(repo, name, fetch_recurse_submo
 | --- | --- |
 | Number |  old value for fetchRecurseSubmodules |
 
-## <a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.setIgnore(repo, name, ignore);
@@ -145,7 +164,7 @@ var result = Submodule.setIgnore(repo, name, ignore);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.setUpdate(repo, name, update);
@@ -161,7 +180,7 @@ var result = Submodule.setUpdate(repo, name, update);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.setUrl(repo, name, url);
@@ -179,7 +198,7 @@ var result = Submodule.setUrl(repo, name, url);
 <
 0 on failure |
 
-## <a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Submodule.updateInitOptions(opts, version);
@@ -194,7 +213,7 @@ var result = Submodule.updateInitOptions(opts, version);
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
 
-## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.addFinalize();
@@ -204,7 +223,7 @@ var result = submodule.addFinalize();
 | --- | --- |
 | Number |  |
 
-## <a name="addToIndex"></a><span>Submodule#</span>addToIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="addToIndex"></a><span>Submodule#</span>addToIndex <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.addToIndex(write_index);
@@ -220,7 +239,7 @@ var result = submodule.addToIndex(write_index);
 <
 0 on failure |
 
-## <a name="branch"></a><span>Submodule#</span>branch <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="branch"></a><span>Submodule#</span>branch <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = submodule.branch();
@@ -230,7 +249,7 @@ var string = submodule.branch();
 | --- | --- |
 | String |  |
 
-## <a name="fetchRecurseSubmodules"></a><span>Submodule#</span>fetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="fetchRecurseSubmodules"></a><span>Submodule#</span>fetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.fetchRecurseSubmodules();
@@ -240,13 +259,13 @@ var result = submodule.fetchRecurseSubmodules();
 | --- | --- |
 | Number |  0 if fetchRecurseSubmodules is false, 1 if true |
 
-## <a name="free"></a><span>Submodule#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Submodule#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 submodule.free();
 ```
 
-## <a name="headId"></a><span>Submodule#</span>headId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="headId"></a><span>Submodule#</span>headId <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = submodule.headId();
@@ -256,7 +275,7 @@ var oid = submodule.headId();
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="ignore"></a><span>Submodule#</span>ignore <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="ignore"></a><span>Submodule#</span>ignore <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.ignore();
@@ -267,7 +286,7 @@ var result = submodule.ignore();
 | Number |  The current git_submodule_ignore_t valyue what will be used for
          this submodule. |
 
-## <a name="indexId"></a><span>Submodule#</span>indexId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="indexId"></a><span>Submodule#</span>indexId <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = submodule.indexId();
@@ -277,7 +296,7 @@ var oid = submodule.indexId();
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.init(overwrite);
@@ -293,7 +312,7 @@ var result = submodule.init(overwrite);
 <
 0 on failure. |
 
-## <a name="name"></a><span>Submodule#</span>name <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="name"></a><span>Submodule#</span>name <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = submodule.name();
@@ -303,7 +322,7 @@ var string = submodule.name();
 | --- | --- |
 | String |  |
 
-## <a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.open(repo);
@@ -319,7 +338,7 @@ var result = submodule.open(repo);
 <
 0 if submodule repo could not be opened. |
 
-## <a name="owner"></a><span>Submodule#</span>owner <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="owner"></a><span>Submodule#</span>owner <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var repository = submodule.owner();
@@ -329,7 +348,7 @@ var repository = submodule.owner();
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
-## <a name="path"></a><span>Submodule#</span>path <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="path"></a><span>Submodule#</span>path <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = submodule.path();
@@ -339,7 +358,7 @@ var string = submodule.path();
 | --- | --- |
 | String |  |
 
-## <a name="reload"></a><span>Submodule#</span>reload <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="reload"></a><span>Submodule#</span>reload <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.reload(force);
@@ -355,7 +374,7 @@ var result = submodule.reload(force);
 <
 0 on error |
 
-## <a name="repoInit"></a><span>Submodule#</span>repoInit <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="repoInit"></a><span>Submodule#</span>repoInit <span class="tags"><span class="async">Async</span></span>
 
 ```js
 submodule.repoInit(use_gitlink).then(function(repository) {
@@ -371,7 +390,7 @@ submodule.repoInit(use_gitlink).then(function(repository) {
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
-## <a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.sync();
@@ -381,7 +400,7 @@ var result = submodule.sync();
 | --- | --- |
 | Number |  |
 
-## <a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.update(init, options);
@@ -398,7 +417,7 @@ var result = submodule.update(init, options);
          function, or a negative value to indicate an error (use
          `giterr_last` for a detailed error message). |
 
-## <a name="updateStrategy"></a><span>Submodule#</span>updateStrategy <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="updateStrategy"></a><span>Submodule#</span>updateStrategy <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = submodule.updateStrategy();
@@ -409,7 +428,7 @@ var result = submodule.updateStrategy();
 | Number |  The current git_submodule_update_t value that will be used
          for this submodule. |
 
-## <a name="url"></a><span>Submodule#</span>url <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="url"></a><span>Submodule#</span>url <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = submodule.url();
@@ -419,7 +438,7 @@ var string = submodule.url();
 | --- | --- |
 | String |  |
 
-## <a name="wdId"></a><span>Submodule#</span>wdId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="wdId"></a><span>Submodule#</span>wdId <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = submodule.wdId();

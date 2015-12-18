@@ -17,6 +17,7 @@ sections:
   "#date": "#date"
   "#free": "#free"
   "#getDiff": "#getDiff"
+  "#getDiffWithOptions": "#getDiffWithOptions"
   "#getEntry": "#getEntry"
   "#getParents": "#getParents"
   "#getTree": "#getTree"
@@ -194,6 +195,26 @@ and its parent(s).
 
 | Parameters | Type |
 | --- | --- | --- |
+| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;[Diff](/api/diff/)&gt; | an array of diffs |
+
+## <a name="getDiffWithOptions"></a><span>Commit#</span>getDiffWithOptions <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.getDiffWithOptions(options, callback).then(function(arrayDiff) {
+  // Use arrayDiff
+});
+```
+
+Generate an array of diff trees showing changes between this commit
+and its parent(s).
+
+| Parameters | Type |
+| --- | --- | --- |
+| options | [Object](/api/object/) |  |
 | callback | Function |  |
 
 | Returns |  |

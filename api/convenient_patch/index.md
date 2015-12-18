@@ -19,6 +19,7 @@ sections:
   "#isUnmodified": "#isUnmodified"
   "#isUnreadable": "#isUnreadable"
   "#isUntracked": "#isUntracked"
+  "#lineStats": "#lineStats"
   "#newFile": "#newFile"
   "#oldFile": "#oldFile"
   "#size": "#size"
@@ -170,6 +171,18 @@ Is this an untracked patch?
 | Returns |  |
 | --- | --- |
 | Boolean |  |
+
+## <a name="lineStats"></a><span>ConvenientPatch#</span>lineStats <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var lineStats = convenientPatch.lineStats();
+```
+
+The line statistics of this patch (#contexts, #added, #deleted)
+
+| Returns |  |
+| --- | --- |
+| lineStats |  |
 
 ## <a name="newFile"></a><span>ConvenientPatch#</span>newFile <span class="tags"><span class="sync">Sync</span></span>
 

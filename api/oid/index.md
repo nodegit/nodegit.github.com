@@ -35,8 +35,12 @@ var oid = Oid.fromString(str);
 ## <a name="cmp"></a><span>Oid#</span>cmp <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = oid.cmp();
+var result = oid.cmp(b);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| b | [Oid](/api/oid/) | second oid structure. |
 
 | Returns |  |
 | --- | --- |
@@ -59,8 +63,12 @@ var oid = oid.cpy();
 ## <a name="equal"></a><span>Oid#</span>equal <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = oid.equal();
+var result = oid.equal(b);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| b | [Oid](/api/oid/) | second oid structure. |
 
 | Returns |  |
 | --- | --- |
@@ -79,11 +87,12 @@ var result = oid.iszero();
 ## <a name="ncmp"></a><span>Oid#</span>ncmp <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var result = oid.ncmp(len);
+var result = oid.ncmp(b, len);
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
+| b | [Oid](/api/oid/) | second oid structure. |
 | len | Number | the number of hex chars to compare |
 
 | Returns |  |

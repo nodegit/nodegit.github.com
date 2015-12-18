@@ -38,6 +38,7 @@ sections:
 | <span>Error.CODE.</span>EEOF | -20 |
 | <span>Error.CODE.</span>EINVALID | -21 |
 | <span>Error.CODE.</span>EUNCOMMITTED | -22 |
+| <span>Error.CODE.</span>EDIRECTORY | -23 |
 | <span>Error.CODE.</span>PASSTHROUGH | -30 |
 | <span>Error.CODE.</span>ITEROVER | -31 |
 

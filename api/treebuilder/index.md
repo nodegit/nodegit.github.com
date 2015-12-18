@@ -17,7 +17,7 @@ sections:
   "#write": "#write"
 ---
 
-## <a name="create"></a><span>Treebuilder.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="create"></a><span>Treebuilder.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Treebuilder.create(repo, source).then(function(treebuilder) {
@@ -34,13 +34,13 @@ Treebuilder.create(repo, source).then(function(treebuilder) {
 | --- | --- |
 | [Treebuilder](/api/treebuilder/) | the tree builder |
 
-## <a name="clear"></a><span>Treebuilder#</span>clear <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="clear"></a><span>Treebuilder#</span>clear <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 treebuilder.clear();
 ```
 
-## <a name="entrycount"></a><span>Treebuilder#</span>entrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entrycount"></a><span>Treebuilder#</span>entrycount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = treebuilder.entrycount();
@@ -50,13 +50,13 @@ var result = treebuilder.entrycount();
 | --- | --- |
 | Number |  the number of entries in the treebuilder |
 
-## <a name="free"></a><span>Treebuilder#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Treebuilder#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 treebuilder.free();
 ```
 
-## <a name="get"></a><span>Treebuilder#</span>get <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="get"></a><span>Treebuilder#</span>get <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var treeEntry = treebuilder.get(filename);
@@ -70,7 +70,7 @@ var treeEntry = treebuilder.get(filename);
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  |
 
-## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="async">Async</span></span>
 
 ```js
 treebuilder.insert(filename, id, filemode).then(function(treeEntry) {
@@ -88,7 +88,7 @@ treebuilder.insert(filename, id, filemode).then(function(treeEntry) {
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  |
 
-## <a name="remove"></a><span>Treebuilder#</span>remove <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="remove"></a><span>Treebuilder#</span>remove <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = treebuilder.remove(filename);
@@ -102,7 +102,7 @@ var result = treebuilder.remove(filename);
 | --- | --- |
 | Number |  |
 
-## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = treebuilder.write();

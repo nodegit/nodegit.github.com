@@ -15,7 +15,7 @@ sections:
   "#id": "#id"
 ---
 
-## <a name="fromFetchhead"></a><span>AnnotatedCommit.</span>fromFetchhead <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromFetchhead"></a><span>AnnotatedCommit.</span>fromFetchhead <span class="tags"><span class="async">Async</span></span>
 
 ```js
 AnnotatedCommit.fromFetchhead(repo, branch_name, remote_url, id).then(function(annotatedCommit) {
@@ -34,7 +34,7 @@ AnnotatedCommit.fromFetchhead(repo, branch_name, remote_url, id).then(function(a
 | --- | --- |
 | [AnnotatedCommit](/api/annotated_commit/) |  |
 
-## <a name="fromRef"></a><span>AnnotatedCommit.</span>fromRef <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromRef"></a><span>AnnotatedCommit.</span>fromRef <span class="tags"><span class="async">Async</span></span>
 
 ```js
 AnnotatedCommit.fromRef(repo, ref).then(function(annotatedCommit) {
@@ -51,7 +51,7 @@ AnnotatedCommit.fromRef(repo, ref).then(function(annotatedCommit) {
 | --- | --- |
 | [AnnotatedCommit](/api/annotated_commit/) |  |
 
-## <a name="fromRevspec"></a><span>AnnotatedCommit.</span>fromRevspec <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromRevspec"></a><span>AnnotatedCommit.</span>fromRevspec <span class="tags"><span class="async">Async</span></span>
 
 ```js
 AnnotatedCommit.fromRevspec(repo, revspec).then(function(annotatedCommit) {
@@ -68,7 +68,7 @@ AnnotatedCommit.fromRevspec(repo, revspec).then(function(annotatedCommit) {
 | --- | --- |
 | [AnnotatedCommit](/api/annotated_commit/) |  |
 
-## <a name="lookup"></a><span>AnnotatedCommit.</span>lookup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="lookup"></a><span>AnnotatedCommit.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
 ```js
 AnnotatedCommit.lookup(repo, id).then(function(annotatedCommit) {
@@ -85,13 +85,13 @@ AnnotatedCommit.lookup(repo, id).then(function(annotatedCommit) {
 | --- | --- |
 | [AnnotatedCommit](/api/annotated_commit/) |  |
 
-## <a name="free"></a><span>AnnotatedCommit#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>AnnotatedCommit#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 annotatedCommit.free();
 ```
 
-## <a name="id"></a><span>AnnotatedCommit#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="id"></a><span>AnnotatedCommit#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = annotatedCommit.id();

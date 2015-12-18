@@ -20,6 +20,7 @@ sections:
   "#_entryByIndex": "#_entryByIndex"
   "#builder": "#builder"
   "#diff": "#diff"
+  "#diffWithOptions": "#diffWithOptions"
   "#entries": "#entries"
   "#entryById": "#entryById"
   "#entryByIndex": "#entryByIndex"
@@ -230,6 +231,26 @@ Diff two trees
 | Parameters | Type |
 | --- | --- | --- |
 | tree | [Tree](/api/tree/) | to diff against |
+| callback | Function |  |
+
+| Returns |  |
+| --- | --- |
+| DiffList |  |
+
+## <a name="diffWithOptions"></a><span>Tree#</span>diffWithOptions <span class="tags"><span class="async">Async</span></span>
+
+```js
+tree.diffWithOptions(tree, options, callback).then(function(diffList) {
+  // Use diffList
+});
+```
+
+Diff two trees with options
+
+| Parameters | Type |
+| --- | --- | --- |
+| tree | [Tree](/api/tree/) | to diff against |
+| options | [Object](/api/object/) |  |
 | callback | Function |  |
 
 | Returns |  |

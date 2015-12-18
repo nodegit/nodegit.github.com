@@ -154,10 +154,12 @@ Branch.name(ref).then(function(string) {
 | --- | --- |
 | String |  |
 
-## <a name="setUpstream"></a><span>Branch.</span>setUpstream <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setUpstream"></a><span>Branch.</span>setUpstream <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Branch.setUpstream(branch, upstream_name);
+Branch.setUpstream(branch, upstream_name).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -169,10 +171,12 @@ var result = Branch.setUpstream(branch, upstream_name);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="upstream"></a><span>Branch.</span>upstream <span class="tags"><span class="sync">Sync</span></span>
+## <a name="upstream"></a><span>Branch.</span>upstream <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var reference = Branch.upstream(branch);
+Branch.upstream(branch).then(function(reference) {
+  // Use reference
+});
 ```
 
 | Parameters | Type |   |

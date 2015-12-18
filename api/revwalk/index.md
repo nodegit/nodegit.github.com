@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
+  "#fastWalk": "#fastWalk"
   "#getCommits": "#getCommits"
   "#getCommitsUntil": "#getCommitsUntil"
   "#hide": "#hide"
@@ -42,10 +43,28 @@ var revwalk = Revwalk.create(repo);
 | --- | --- |
 | [Revwalk](/api/revwalk/) |  |
 
-## <a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="sync">Sync</span></span>
+## <a name="fastWalk"></a><span>Revwalk#</span>fastWalk <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var arrayCommit = revwalk.getCommits(count);
+revwalk.fastWalk(max_count).then(function(stdVectorGitOid) {
+  // Use stdVectorGitOid
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| max_count | Number |  |
+
+| Returns |  |
+| --- | --- |
+| Std::vector<gitOid> * |  |
+
+## <a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="async">Async</span></span>
+
+```js
+revwalk.getCommits(count).then(function(arrayCommit) {
+  // Use arrayCommit
+});
 ```
 
 Get a number of commits.
@@ -58,10 +77,12 @@ Get a number of commits.
 | --- | --- |
 | Array&lt;[Commit](/api/commit/)&gt; |  |
 
-## <a name="getCommitsUntil"></a><span>Revwalk#</span>getCommitsUntil <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getCommitsUntil"></a><span>Revwalk#</span>getCommitsUntil <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var array = revwalk.getCommitsUntil(checkFn);
+revwalk.getCommitsUntil(checkFn).then(function(array) {
+  // Use array
+});
 ```
 
 Walk the history grabbing commits until the checkFn called with the

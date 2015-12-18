@@ -13,12 +13,13 @@ sections:
   "#getDelta": "#getDelta"
   "#getHunk": "#getHunk"
   "#getLineInHunk": "#getLineInHunk"
+  "#lineStats": "#lineStats"
   "#numHunks": "#numHunks"
   "#numLinesInHunk": "#numLinesInHunk"
   "#size": "#size"
 ---
 
-## <a name="fromBlobAndBuffer"></a><span>Patch.</span>fromBlobAndBuffer <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromBlobAndBuffer"></a><span>Patch.</span>fromBlobAndBuffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Patch.fromBlobAndBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, opts).then(function(patch) {
@@ -39,7 +40,7 @@ Patch.fromBlobAndBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_pat
 | --- | --- |
 | [Patch](/api/patch/) | The generated patch; NULL on error |
 
-## <a name="fromBlobs"></a><span>Patch.</span>fromBlobs <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromBlobs"></a><span>Patch.</span>fromBlobs <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Patch.fromBlobs(old_blob, old_as_path, new_blob, new_as_path, opts).then(function(patch) {
@@ -59,7 +60,7 @@ Patch.fromBlobs(old_blob, old_as_path, new_blob, new_as_path, opts).then(functio
 | --- | --- |
 | [Patch](/api/patch/) | The generated patch; NULL on error |
 
-## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="fromDiff"></a><span>Patch.</span>fromDiff <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Patch.fromDiff(diff, idx).then(function(patch) {
@@ -76,7 +77,7 @@ Patch.fromDiff(diff, idx).then(function(patch) {
 | --- | --- |
 | [Patch](/api/patch/) | Output parameter for the delta patch object |
 
-## <a name="getDelta"></a><span>Patch#</span>getDelta <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getDelta"></a><span>Patch#</span>getDelta <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var diffDelta = patch.getDelta();
@@ -86,7 +87,7 @@ var diffDelta = patch.getDelta();
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  |
 
-## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="getHunk"></a><span>Patch#</span>getHunk <span class="tags"><span class="async">Async</span></span>
 
 ```js
 patch.getHunk(hunk_idx).then(function(result) {
@@ -102,7 +103,7 @@ patch.getHunk(hunk_idx).then(function(result) {
 | --- | --- |
 | Number | Output count of total lines in this hunk |
 
-## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="getLineInHunk"></a><span>Patch#</span>getLineInHunk <span class="tags"><span class="async">Async</span></span>
 
 ```js
 patch.getLineInHunk(hunk_idx, line_of_hunk).then(function(diffLine) {
@@ -119,7 +120,17 @@ patch.getLineInHunk(hunk_idx, line_of_hunk).then(function(diffLine) {
 | --- | --- |
 | [DiffLine](/api/diff_line/) | The git_diff_line data for this line |
 
-## <a name="numHunks"></a><span>Patch#</span>numHunks <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="lineStats"></a><span>Patch#</span>lineStats <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = patch.lineStats();
+```
+
+| Returns |  |
+| --- | --- |
+| Number | Count of deletion lines in output, can be NULL. |
+
+## <a name="numHunks"></a><span>Patch#</span>numHunks <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = patch.numHunks();
@@ -129,7 +140,7 @@ var result = patch.numHunks();
 | --- | --- |
 | Number |  |
 
-## <a name="numLinesInHunk"></a><span>Patch#</span>numLinesInHunk <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="numLinesInHunk"></a><span>Patch#</span>numLinesInHunk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = patch.numLinesInHunk(hunk_idx);
@@ -143,7 +154,7 @@ var result = patch.numLinesInHunk(hunk_idx);
 | --- | --- |
 | Number |  Number of lines in hunk or -1 if invalid hunk index |
 
-## <a name="size"></a><span>Patch#</span>size <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="size"></a><span>Patch#</span>size <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = patch.size(include_context, include_hunk_headers, include_file_headers);

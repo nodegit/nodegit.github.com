@@ -17,25 +17,21 @@ sections:
   "FLAG": "#FLAG"
 ---
 
-## <a name="file"></a><span>Blame.</span>file <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="file"></a><span>Blame.</span>file <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-Blame.file(repo, path, options).then(function(blame) {
-  // Use blame
-});
+Blame.file(repo, path, [options]);
 ```
+
+Retrieve the blame of a file
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) | repository whose history is to be walked |
-| path | String | path to file to consider |
-| options | [BlameOptions](/api/blame_options/) | options for the blame operation. If NULL, this is treated as though GIT_BLAME_OPTIONS_INIT were passed. |
+| repo | [Repository](/api/repository/) | that contains the file |
+| path | String | to the file to get the blame of |
+| [options] | [BlameOptions](/api/blame_options/) | Options for the blame |
 
-| Returns |  |
-| --- | --- |
-| [Blame](/api/blame/) |  |
-
-## <a name="initOptions"></a><span>Blame.</span>initOptions <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="initOptions"></a><span>Blame.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Blame.initOptions(opts, version);
@@ -50,7 +46,7 @@ var result = Blame.initOptions(opts, version);
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
 
-## <a name="buffer"></a><span>Blame#</span>buffer <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="buffer"></a><span>Blame#</span>buffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
 blame.buffer(buffer, buffer_len).then(function(blame) {
@@ -67,13 +63,13 @@ blame.buffer(buffer, buffer_len).then(function(blame) {
 | --- | --- |
 | [Blame](/api/blame/) |  |
 
-## <a name="free"></a><span>Blame#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Blame#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 blame.free();
 ```
 
-## <a name="getHunkByIndex"></a><span>Blame#</span>getHunkByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getHunkByIndex"></a><span>Blame#</span>getHunkByIndex <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var blameHunk = blame.getHunkByIndex(index);
@@ -87,7 +83,7 @@ var blameHunk = blame.getHunkByIndex(index);
 | --- | --- |
 | [BlameHunk](/api/blame_hunk/) |  the hunk at the given index, or NULL on error |
 
-## <a name="getHunkByLine"></a><span>Blame#</span>getHunkByLine <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getHunkByLine"></a><span>Blame#</span>getHunkByLine <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var blameHunk = blame.getHunkByLine(lineno);
@@ -101,7 +97,7 @@ var blameHunk = blame.getHunkByLine(lineno);
 | --- | --- |
 | [BlameHunk](/api/blame_hunk/) |  the hunk that contains the given line, or NULL on error |
 
-## <a name="getHunkCount"></a><span>Blame#</span>getHunkCount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="getHunkCount"></a><span>Blame#</span>getHunkCount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = blame.getHunkCount();

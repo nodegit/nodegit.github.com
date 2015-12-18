@@ -15,8 +15,12 @@ sections:
 ## <a name="copy"></a><span>Strarray#</span>copy <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = strarray.copy();
+var result = strarray.copy(src);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| src | [Strarray](/api/strarray/) | source |
 
 | Returns |  |
 | --- | --- |

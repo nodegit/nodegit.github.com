@@ -48,6 +48,7 @@ sections:
   "#getRemotes": "#getRemotes"
   "#getStatus": "#getStatus"
   "#getStatusExt": "#getStatusExt"
+  "#getSubmoduleNames": "#getSubmoduleNames"
   "#getTag": "#getTag"
   "#getTagByName": "#getTagByName"
   "#getTree": "#getTree"
@@ -77,6 +78,7 @@ sections:
   "#setIdent": "#setIdent"
   "#setNamespace": "#setNamespace"
   "#setWorkdir": "#setWorkdir"
+  "#stageFilemode": "#stageFilemode"
   "#stageLines": "#stageLines"
   "#state": "#state"
   "#stateCleanup": "#stateCleanup"
@@ -250,7 +252,7 @@ repository.configSnapshot().then(function(config) {
 ## <a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var oid = repository.continueRebase(signature);
+var oid = repository.continueRebase(signature, beforeNextFn);
 ```
 
 Continues an existing rebase
@@ -258,6 +260,7 @@ Continues an existing rebase
 | Parameters | Type |
 | --- | --- | --- |
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
+| beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
 
 | Returns |  |
 | --- | --- |
@@ -711,10 +714,12 @@ Lists out the remotes in the given repository.
 | --- | --- |
 | [Object](/api/object/) | Promise object. |
 
-## <a name="getStatus"></a><span>Repository#</span>getStatus <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getStatus"></a><span>Repository#</span>getStatus <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var arrayStatusFile = repository.getStatus(opts);
+repository.getStatus(opts).then(function(arrayStatusFile) {
+  // Use arrayStatusFile
+});
 ```
 
 Get the status of a repo to it's working directory
@@ -727,10 +732,12 @@ Get the status of a repo to it's working directory
 | --- | --- |
 | Array&lt;StatusFile&gt; |  |
 
-## <a name="getStatusExt"></a><span>Repository#</span>getStatusExt <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getStatusExt"></a><span>Repository#</span>getStatusExt <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var arrayStatusEntry = repository.getStatusExt(opts);
+repository.getStatusExt(opts).then(function(arrayStatusFile) {
+  // Use arrayStatusFile
+});
 ```
 
 Get extended statuses of a repo to it's working directory. Status entries
@@ -742,7 +749,21 @@ have `status`, `headToIndex` delta, and `indexToWorkdir` deltas
 
 | Returns |  |
 | --- | --- |
-| Array&lt;[StatusEntry](/api/status_entry/)&gt; |  |
+| Array&lt;StatusFile&gt; |  |
+
+## <a name="getSubmoduleNames"></a><span>Repository#</span>getSubmoduleNames <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.getSubmoduleNames().then(function(arrayString) {
+  // Use arrayString
+});
+```
+
+Get the names of the submodules in the repository.
+
+| Returns |  |
+| --- | --- |
+| Array&lt;String&gt; |  |
 
 ## <a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="async">Async</span></span>
 
@@ -1015,7 +1036,7 @@ var string = repository.path();
 ## <a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var oid = repository.rebaseBranches(branch, upstream, onto, signature);
+var oid = repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn);
 ```
 
 Rebases a branch onto another branch
@@ -1026,6 +1047,7 @@ Rebases a branch onto another branch
 | upstream | String |  |
 | onto | String |  |
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
+| beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
 
 | Returns |  |
 | --- | --- |
@@ -1095,8 +1117,8 @@ var result = repository.setIdent(name, email);
 
 | Parameters | Type |
 | --- | --- | --- |
-| name | String | the email to use for the reflog entries |
-| email | String |  |
+| name | String | the name to use for the reflog entries |
+| email | String | the email to use for the reflog entries |
 
 | Returns |  |
 | --- | --- |
@@ -1130,6 +1152,25 @@ var result = repository.setWorkdir(workdir, update_gitlink);
 | Returns |  |
 | --- | --- |
 | Number |  0, or an error code |
+
+## <a name="stageFilemode"></a><span>Repository#</span>stageFilemode <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.stageFilemode(filePath, stageNew).then(function(number) {
+  // Use number
+});
+```
+
+Stages or unstages line selection of a specified file
+
+| Parameters | Type |
+| --- | --- | --- |
+| filePath | String | The relative path of this file in the repo |
+| stageNew | Boolean | Set to stage new filemode. Unset to unstage. |
+
+| Returns |  |
+| --- | --- |
+| Number | 0 or an error code |
 
 ## <a name="stageLines"></a><span>Repository#</span>stageLines <span class="tags"><span class="async">Async</span></span>
 

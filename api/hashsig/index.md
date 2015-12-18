@@ -52,8 +52,12 @@ Hashsig.createFromFile(path, opts).then(function(hashsig) {
 ## <a name="compare"></a><span>Hashsig#</span>compare <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = hashsig.compare();
+var result = hashsig.compare(b);
 ```
+
+| Parameters | Type |
+| --- | --- | --- |
+| b | [Hashsig](/api/hashsig/) | The second similarity signature to compare. |
 
 | Returns |  |
 | --- | --- |
