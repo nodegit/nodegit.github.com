@@ -3,6 +3,10 @@ var Path = require('path');
 var changeCase = require('change-case');
 
 var writeApiDocs = function(apiData, path) {
+  var configymlpath = Path.join(__dirname, '..', '..', '_config.yml');
+  var configyml = fs.readFileSync(configymlpath).toString();
+  var current_nodegit_version = configyml.match(/current_nodegit_version: (\d+\.\d+\.\d+)/)[1];
+
   var path = path || '';
   path = ("/" + path + "/").replace(/\/+/g, '/');
 
@@ -312,7 +316,7 @@ var writeApiDocs = function(apiData, path) {
       pageContent += "layout: default\n";
       pageContent += "menu_item: api\n";
       pageContent += "title: " + item + "\n";
-      pageContent += "description: Version 0.7.0\n";
+      pageContent += "description: Version " + current_nodegit_version + "\n";
       pageContent += "menu_item: api\n";
       pageContent += "return_to:\n";
       pageContent += "  \"API Documentation Index\": " + path + "api/\n";
@@ -329,7 +333,7 @@ var writeApiDocs = function(apiData, path) {
   homeContent += "layout: default\n";
   homeContent += "menu_item: api\n";
   homeContent += "title: API Docs\n";
-  homeContent += "description: Version 0.7.0\n";
+  homeContent += "description: Version " + current_nodegit_version + "\n";
   homeContent += "menu_item: api\n";
   homeContent += "sections:\n";
   homeContent += homeSections;
