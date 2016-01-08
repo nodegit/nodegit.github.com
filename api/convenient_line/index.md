@@ -32,74 +32,74 @@ The relevant line
 ## <a name="contentLen"></a><span>ConvenientLine#</span>contentLen <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.contentLen();
+var number = convenientLine.contentLen();
 ```
 
-The content of the line
+Number of bytes in the string
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| Number |  |
 
 ## <a name="contentOffset"></a><span>ConvenientLine#</span>contentOffset <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.contentOffset();
+var number = convenientLine.contentOffset();
 ```
 
-The content of the line
+Offset in the original file to the content
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| Number |  |
 
 ## <a name="newLineno"></a><span>ConvenientLine#</span>newLineno <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.newLineno();
+var number = convenientLine.newLineno();
 ```
 
-The content of the line
+Line number in new file or -1 for deleted line
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| Number |  |
 
 ## <a name="numLines"></a><span>ConvenientLine#</span>numLines <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.numLines();
+var number = convenientLine.numLines();
 ```
 
-The content of the line
+Number of newline characters in content
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| Number |  |
 
 ## <a name="oldLineno"></a><span>ConvenientLine#</span>oldLineno <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.oldLineno();
+var number = convenientLine.oldLineno();
 ```
 
-The content of the line
+Line number in old file or -1 for added line
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| Number |  |
 
 ## <a name="origin"></a><span>ConvenientLine#</span>origin <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientLine.origin();
+var diffLine = convenientLine.origin();
 ```
 
-The content of the line
+The type of the line (context, addition, deletion, etc...)
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| [Diff.LINE](/api/diff/#LINE) |  |
 
 ## <a name="rawContent"></a><span>ConvenientLine#</span>rawContent <span class="tags"><span class="sync">Sync</span></span>
 
@@ -107,7 +107,7 @@ The content of the line
 var string = convenientLine.rawContent();
 ```
 
-The content of the line
+Pointer to diff text, not NUL-byte terminated
 
 | Returns |  |
 | --- | --- |
