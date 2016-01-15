@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.7.0
+description: Version 0.8.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -1165,7 +1165,7 @@ Stages or unstages line selection of a specified file
 
 | Parameters | Type |
 | --- | --- | --- |
-| filePath | String | The relative path of this file in the repo |
+| filePath | String, Array | The relative path of this file in the repo |
 | stageNew | Boolean | Set to stage new filemode. Unset to unstage. |
 
 | Returns |  |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.7.0
+description: Version 0.8.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -789,7 +789,7 @@ sections:
 | Class Methods |  |
 | --- | ---: |
 | [<span>Graph.</span>aheadBehind <span>(repo, local, upstream)</span>](/api/graph/#aheadBehind) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Graph.</span>descendantOf <span>(repo, commit, ancestor)</span>](/api/graph/#descendantOf) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Graph.</span>descendantOf <span>(repo, commit, ancestor)</span>](/api/graph/#descendantOf) |  <span class="tags"><span class="async">Async</span></span> |
 
 
 ## <a name='Hashsig'></a>[Hashsig](/api/hashsig/)

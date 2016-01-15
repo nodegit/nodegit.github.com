@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Graph
-description: Version 0.7.0
+description: Version 0.8.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -29,10 +29,12 @@ Graph.aheadBehind(repo, local, upstream).then(function(result) {
 | --- | --- |
 | Number | number of unique from commits in `local` |
 
-## <a name="descendantOf"></a><span>Graph.</span>descendantOf <span class="tags"><span class="sync">Sync</span></span>
+## <a name="descendantOf"></a><span>Graph.</span>descendantOf <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Graph.descendantOf(repo, commit, ancestor);
+Graph.descendantOf(repo, commit, ancestor).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
