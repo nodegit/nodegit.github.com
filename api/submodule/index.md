@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Submodule
-description: Version 0.8.0
+description: Version 0.9.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,6 +16,7 @@ sections:
   "setIgnore": "#setIgnore"
   "setUpdate": "#setUpdate"
   "setUrl": "#setUrl"
+  "status": "#status"
   "updateInitOptions": "#updateInitOptions"
   "#addFinalize": "#addFinalize"
   "#addToIndex": "#addToIndex"
@@ -26,6 +27,7 @@ sections:
   "#ignore": "#ignore"
   "#indexId": "#indexId"
   "#init": "#init"
+  "#location": "#location"
   "#name": "#name"
   "#open": "#open"
   "#owner": "#owner"
@@ -148,10 +150,12 @@ var result = Submodule.setFetchRecurseSubmodules(repo, name, fetch_recurse_submo
 | --- | --- |
 | Number |  old value for fetchRecurseSubmodules |
 
-## <a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Submodule.setIgnore(repo, name, ignore);
+Submodule.setIgnore(repo, name, ignore).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -164,10 +168,12 @@ var result = Submodule.setIgnore(repo, name, ignore);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Submodule.setUpdate(repo, name, update);
+Submodule.setUpdate(repo, name, update).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -180,10 +186,12 @@ var result = Submodule.setUpdate(repo, name, update);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Submodule.setUrl(repo, name, url);
+Submodule.setUrl(repo, name, url).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
@@ -197,6 +205,24 @@ var result = Submodule.setUrl(repo, name, url);
 | Number |  0 on success, 
 <
 0 on failure |
+
+## <a name="status"></a><span>Submodule.</span>status <span class="tags"><span class="async">Async</span></span>
+
+```js
+Submodule.status(repo, name, ignore).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to look |
+| name | String | name of the submodule |
+| ignore | Number | the ignore rules to follow |
+
+| Returns |  |
+| --- | --- |
+| Number | Combination of `GIT_SUBMODULE_STATUS` flags |
 
 ## <a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span></span>
 
@@ -213,20 +239,24 @@ var result = Submodule.updateInitOptions(opts, version);
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
 
-## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="sync">Sync</span></span>
+## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.addFinalize();
+submodule.addFinalize().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |
 | --- | --- |
 | Number |  |
 
-## <a name="addToIndex"></a><span>Submodule#</span>addToIndex <span class="tags"><span class="sync">Sync</span></span>
+## <a name="addToIndex"></a><span>Submodule#</span>addToIndex <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.addToIndex(write_index);
+submodule.addToIndex(write_index).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -296,10 +326,12 @@ var oid = submodule.indexId();
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="sync">Sync</span></span>
+## <a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.init(overwrite);
+submodule.init(overwrite).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -312,6 +344,18 @@ var result = submodule.init(overwrite);
 <
 0 on failure. |
 
+## <a name="location"></a><span>Submodule#</span>location <span class="tags"><span class="async">Async</span></span>
+
+```js
+submodule.location().then(function(result) {
+  // Use result
+});
+```
+
+| Returns |  |
+| --- | --- |
+| Number | Combination of first four `GIT_SUBMODULE_STATUS` flags |
+
 ## <a name="name"></a><span>Submodule#</span>name <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -322,21 +366,17 @@ var string = submodule.name();
 | --- | --- |
 | String |  |
 
-## <a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="sync">Sync</span></span>
+## <a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.open(repo);
+submodule.open().then(function(repository) {
+  // Use repository
+});
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | Pointer to the submodule repo which was opened |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success, 
-<
-0 if submodule repo could not be opened. |
+| [Repository](/api/repository/) |  |
 
 ## <a name="owner"></a><span>Submodule#</span>owner <span class="tags"><span class="sync">Sync</span></span>
 
@@ -390,20 +430,24 @@ submodule.repoInit(use_gitlink).then(function(repository) {
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
-## <a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="sync">Sync</span></span>
+## <a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.sync();
+submodule.sync().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |
 | --- | --- |
 | Number |  |
 
-## <a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="sync">Sync</span></span>
+## <a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = submodule.update(init, options);
+submodule.update(init, options).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |

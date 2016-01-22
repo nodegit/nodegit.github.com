@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: AnnotatedCommit
-description: Version 0.8.0
+description: Version 0.9.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/

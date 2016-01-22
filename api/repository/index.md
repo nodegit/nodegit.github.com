@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.8.0
+description: Version 0.9.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -985,7 +985,7 @@ var result = repository.isShallow();
 ## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var oid = repository.mergeBranches(to, from, signature, mergePreference);
+var oid = repository.mergeBranches(to, from, signature, mergePreference, mergeOptions);
 ```
 
 Merge a branch onto another branch
@@ -996,6 +996,7 @@ Merge a branch onto another branch
 | from | String, Ref |  |
 | signature | [Signature](/api/signature/) |  |
 | mergePreference | [Merge.PREFERENCE](/api/merge/#PREFERENCE) |  |
+| mergeOptions | [MergeOptions](/api/merge_options/) |  |
 
 | Returns |  |
 | --- | --- |

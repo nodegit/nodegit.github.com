@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.8.0
+description: Version 0.9.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -1357,6 +1357,7 @@ sections:
 | [<span>Remote#</span>autotag <span>()</span>](/api/remote/#autotag) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>connect <span>(direction, callbacks, callback)</span>](/api/remote/#connect) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>connected <span>()</span>](/api/remote/#connected) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Remote#</span>defaultBranch <span>()</span>](/api/remote/#defaultBranch) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>disconnect <span>()</span>](/api/remote/#disconnect) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>download <span>(refSpecs, opts, callback)</span>](/api/remote/#download) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>dup <span>()</span>](/api/remote/#dup) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1462,7 +1463,7 @@ sections:
 | [<span>Repository#</span>isRebasing <span>()</span>](/api/repository/#isRebasing) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isReverting <span>()</span>](/api/repository/#isReverting) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isShallow <span>()</span>](/api/repository/#isShallow) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Repository#</span>mergeBranches <span>(to, from, signature, mergePreference)</span>](/api/repository/#mergeBranches) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>mergeBranches <span>(to, from, signature, mergePreference, mergeOptions)</span>](/api/repository/#mergeBranches) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>messageRemove <span>()</span>](/api/repository/#messageRemove) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>odb <span>()</span>](/api/repository/#odb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>path <span>()</span>](/api/repository/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1701,30 +1702,32 @@ sections:
 | [<span>Submodule.</span>resolveUrl <span>(repo, url)</span>](/api/submodule/#resolveUrl) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule.</span>setBranch <span>(repo, name, branch)</span>](/api/submodule/#setBranch) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule.</span>setFetchRecurseSubmodules <span>(repo, name, fetch_recurse_submodules)</span>](/api/submodule/#setFetchRecurseSubmodules) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule.</span>setIgnore <span>(repo, name, ignore)</span>](/api/submodule/#setIgnore) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule.</span>setUpdate <span>(repo, name, update)</span>](/api/submodule/#setUpdate) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule.</span>setUrl <span>(repo, name, url)</span>](/api/submodule/#setUrl) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Submodule.</span>setIgnore <span>(repo, name, ignore)</span>](/api/submodule/#setIgnore) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule.</span>setUpdate <span>(repo, name, update)</span>](/api/submodule/#setUpdate) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule.</span>setUrl <span>(repo, name, url)</span>](/api/submodule/#setUrl) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule.</span>status <span>(repo, name, ignore)</span>](/api/submodule/#status) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule.</span>updateInitOptions <span>(opts, version)</span>](/api/submodule/#updateInitOptions) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Submodule#</span>addFinalize <span>()</span>](/api/submodule/#addFinalize) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule#</span>addToIndex <span>(write_index)</span>](/api/submodule/#addToIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Submodule#</span>addFinalize <span>()</span>](/api/submodule/#addFinalize) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule#</span>addToIndex <span>(write_index)</span>](/api/submodule/#addToIndex) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule#</span>branch <span>()</span>](/api/submodule/#branch) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>fetchRecurseSubmodules <span>()</span>](/api/submodule/#fetchRecurseSubmodules) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>free <span>()</span>](/api/submodule/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>headId <span>()</span>](/api/submodule/#headId) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>ignore <span>()</span>](/api/submodule/#ignore) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>indexId <span>()</span>](/api/submodule/#indexId) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule#</span>init <span>(overwrite)</span>](/api/submodule/#init) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Submodule#</span>init <span>(overwrite)</span>](/api/submodule/#init) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule#</span>location <span>()</span>](/api/submodule/#location) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule#</span>name <span>()</span>](/api/submodule/#name) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule#</span>open <span>(repo)</span>](/api/submodule/#open) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Submodule#</span>open <span>()</span>](/api/submodule/#open) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule#</span>owner <span>()</span>](/api/submodule/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>path <span>()</span>](/api/submodule/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>reload <span>(force)</span>](/api/submodule/#reload) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>repoInit <span>(use_gitlink)</span>](/api/submodule/#repoInit) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Submodule#</span>sync <span>()</span>](/api/submodule/#sync) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Submodule#</span>update <span>(init, options)</span>](/api/submodule/#update) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Submodule#</span>sync <span>()</span>](/api/submodule/#sync) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Submodule#</span>update <span>(init, options)</span>](/api/submodule/#update) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Submodule#</span>updateStrategy <span>()</span>](/api/submodule/#updateStrategy) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>url <span>()</span>](/api/submodule/#url) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Submodule#</span>wdId <span>()</span>](/api/submodule/#wdId) |  <span class="tags"><span class="sync">Sync</span></span> |

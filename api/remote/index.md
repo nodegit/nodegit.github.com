@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.8.0
+description: Version 0.9.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -23,6 +23,7 @@ sections:
   "#autotag": "#autotag"
   "#connect": "#connect"
   "#connected": "#connected"
+  "#defaultBranch": "#defaultBranch"
   "#disconnect": "#disconnect"
   "#download": "#download"
   "#dup": "#dup"
@@ -300,6 +301,18 @@ var result = remote.connected();
 | Returns |  |
 | --- | --- |
 | Number |  1 if it's connected, 0 otherwise. |
+
+## <a name="defaultBranch"></a><span>Remote#</span>defaultBranch <span class="tags"><span class="async">Async</span></span>
+
+```js
+remote.defaultBranch().then(function(buf) {
+  // Use buf
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | the buffern in which to store the reference name |
 
 ## <a name="disconnect"></a><span>Remote#</span>disconnect <span class="tags"><span class="async">Async</span></span>
 
