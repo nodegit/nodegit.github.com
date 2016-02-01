@@ -2,11 +2,12 @@
 layout: default
 menu_item: api
 title: Patch
-description: Version 0.9.0
+description: Version 0.10.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "convenientFromDiff": "#convenientFromDiff"
   "fromBlobAndBuffer": "#fromBlobAndBuffer"
   "fromBlobs": "#fromBlobs"
   "fromDiff": "#fromDiff"
@@ -18,6 +19,22 @@ sections:
   "#numLinesInHunk": "#numLinesInHunk"
   "#size": "#size"
 ---
+
+## <a name="convenientFromDiff"></a><span>Patch.</span>convenientFromDiff <span class="tags"><span class="async">Async</span></span>
+
+```js
+Patch.convenientFromDiff(diff).then(function(stdVectorPatchdata) {
+  // Use stdVectorPatchdata
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| diff | [Diff](/api/diff/) |  |
+
+| Returns |  |
+| --- | --- |
+| Std::vector<patchdata> * |  |
 
 ## <a name="fromBlobAndBuffer"></a><span>Patch.</span>fromBlobAndBuffer <span class="tags"><span class="async">Async</span></span>
 

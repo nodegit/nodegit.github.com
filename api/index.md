@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.9.0
+description: Version 0.10.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -25,9 +25,6 @@ sections:
   "Commit": "#Commit"
   "Config": "#Config"
   "ConfigEntry": "#ConfigEntry"
-  "ConvenientHunk": "#ConvenientHunk"
-  "ConvenientLine": "#ConvenientLine"
-  "ConvenientPatch": "#ConvenientPatch"
   "Cred": "#Cred"
   "CredUsername": "#CredUsername"
   "CredUserpassPayload": "#CredUserpassPayload"
@@ -441,52 +438,6 @@ sections:
 | [<span>ConfigEntry#</span>value](/api/config_entry/#value) |  |
 
 
-## <a name='ConvenientHunk'></a>[ConvenientHunk](/api/convenient_hunk/)
-
-| Instance Methods |  |
-| --- | ---: |
-| [<span>ConvenientHunk#</span>header <span>()</span>](/api/convenient_hunk/#header) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientHunk#</span>lines <span>()</span>](/api/convenient_hunk/#lines) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>ConvenientHunk#</span>size <span>()</span>](/api/convenient_hunk/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
-
-
-## <a name='ConvenientLine'></a>[ConvenientLine](/api/convenient_line/)
-
-| Instance Methods |  |
-| --- | ---: |
-| [<span>ConvenientLine#</span>content <span>()</span>](/api/convenient_line/#content) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>contentLen <span>()</span>](/api/convenient_line/#contentLen) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>contentOffset <span>()</span>](/api/convenient_line/#contentOffset) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>newLineno <span>()</span>](/api/convenient_line/#newLineno) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>numLines <span>()</span>](/api/convenient_line/#numLines) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>oldLineno <span>()</span>](/api/convenient_line/#oldLineno) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>origin <span>()</span>](/api/convenient_line/#origin) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientLine#</span>rawContent <span>()</span>](/api/convenient_line/#rawContent) |  <span class="tags"><span class="sync">Sync</span></span> |
-
-
-## <a name='ConvenientPatch'></a>[ConvenientPatch](/api/convenient_patch/)
-
-| Instance Methods |  |
-| --- | ---: |
-| [<span>ConvenientPatch#</span>hunks <span>()</span>](/api/convenient_patch/#hunks) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>ConvenientPatch#</span>isAdded <span>()</span>](/api/convenient_patch/#isAdded) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isConflicted <span>()</span>](/api/convenient_patch/#isConflicted) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isCopied <span>()</span>](/api/convenient_patch/#isCopied) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isDeleted <span>()</span>](/api/convenient_patch/#isDeleted) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isIgnored <span>()</span>](/api/convenient_patch/#isIgnored) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isModified <span>()</span>](/api/convenient_patch/#isModified) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isRenamed <span>()</span>](/api/convenient_patch/#isRenamed) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isTypeChange <span>()</span>](/api/convenient_patch/#isTypeChange) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isUnmodified <span>()</span>](/api/convenient_patch/#isUnmodified) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isUnreadable <span>()</span>](/api/convenient_patch/#isUnreadable) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>isUntracked <span>()</span>](/api/convenient_patch/#isUntracked) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>lineStats <span>()</span>](/api/convenient_patch/#lineStats) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>newFile <span>()</span>](/api/convenient_patch/#newFile) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>oldFile <span>()</span>](/api/convenient_patch/#oldFile) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>size <span>()</span>](/api/convenient_patch/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>ConvenientPatch#</span>status <span>()</span>](/api/convenient_patch/#status) |  <span class="tags"><span class="sync">Sync</span></span> |
-
-
 ## <a name='Cred'></a>[Cred](/api/cred/)
 
 | Class Methods |  |
@@ -657,6 +608,10 @@ sections:
 
 
 ## <a name='DiffLine'></a>[DiffLine](/api/diff_line/)
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>DiffLine#</span>content <span>()</span>](/api/diff_line/#content) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Variables |  |
 | --- | ---: |
@@ -1128,6 +1083,7 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
+| [<span>Patch.</span>convenientFromDiff <span>(diff)</span>](/api/patch/#convenientFromDiff) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Patch.</span>fromBlobAndBuffer <span>(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, opts)</span>](/api/patch/#fromBlobAndBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Patch.</span>fromBlobs <span>(old_blob, old_as_path, new_blob, new_as_path, opts)</span>](/api/patch/#fromBlobs) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Patch.</span>fromDiff <span>(diff, idx)</span>](/api/patch/#fromDiff) |  <span class="tags"><span class="async">Async</span></span> |
