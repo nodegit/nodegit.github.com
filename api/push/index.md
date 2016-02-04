@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Push
-description: Version 0.10.0
+description: Version 0.11.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/

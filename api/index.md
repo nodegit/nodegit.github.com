@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.10.0
+description: Version 0.11.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -25,6 +25,7 @@ sections:
   "Commit": "#Commit"
   "Config": "#Config"
   "ConfigEntry": "#ConfigEntry"
+  "ConvenientPatch": "#ConvenientPatch"
   "Cred": "#Cred"
   "CredUsername": "#CredUsername"
   "CredUserpassPayload": "#CredUserpassPayload"
@@ -436,6 +437,29 @@ sections:
 | [<span>ConfigEntry#</span>name](/api/config_entry/#name) |  |
 | [<span>ConfigEntry#</span>payload](/api/config_entry/#payload) |  |
 | [<span>ConfigEntry#</span>value](/api/config_entry/#value) |  |
+
+
+## <a name='ConvenientPatch'></a>[ConvenientPatch](/api/convenient_patch/)
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>ConvenientPatch#</span>hunks <span>()</span>](/api/convenient_patch/#hunks) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>ConvenientPatch#</span>isAdded <span>()</span>](/api/convenient_patch/#isAdded) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isConflicted <span>()</span>](/api/convenient_patch/#isConflicted) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isCopied <span>()</span>](/api/convenient_patch/#isCopied) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isDeleted <span>()</span>](/api/convenient_patch/#isDeleted) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isIgnored <span>()</span>](/api/convenient_patch/#isIgnored) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isModified <span>()</span>](/api/convenient_patch/#isModified) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isRenamed <span>()</span>](/api/convenient_patch/#isRenamed) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isTypeChange <span>()</span>](/api/convenient_patch/#isTypeChange) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isUnmodified <span>()</span>](/api/convenient_patch/#isUnmodified) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isUnreadable <span>()</span>](/api/convenient_patch/#isUnreadable) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>isUntracked <span>()</span>](/api/convenient_patch/#isUntracked) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>lineStats <span>()</span>](/api/convenient_patch/#lineStats) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>newFile <span>()</span>](/api/convenient_patch/#newFile) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>oldFile <span>()</span>](/api/convenient_patch/#oldFile) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>size <span>()</span>](/api/convenient_patch/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>ConvenientPatch#</span>status <span>()</span>](/api/convenient_patch/#status) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
 ## <a name='Cred'></a>[Cred](/api/cred/)
@@ -1477,8 +1501,8 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Revert.</span>commit <span>(repo, revert_commit, our_commit, mainline, merge_options)</span>](/api/revert/#commit) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Revert.</span>revert <span>(repo, commit, given_opts)</span>](/api/revert/#revert) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Revert.</span>commit <span>(repo, revert_commit, our_commit, mainline, merge_options)</span>](/api/revert/#commit) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Revert.</span>revert <span>(repo, commit, given_opts)</span>](/api/revert/#revert) |  <span class="tags"><span class="async">Async</span></span> |
 
 
 ## <a name='RevertOptions'></a>[RevertOptions](/api/revert_options/)
@@ -1512,6 +1536,7 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Revwalk#</span>fastWalk <span>(max_count)</span>](/api/revwalk/#fastWalk) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Revwalk#</span>fileHistoryWalk <span>(filePath, max_count)</span>](/api/revwalk/#fileHistoryWalk) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>getCommits <span>(count)</span>](/api/revwalk/#getCommits) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>getCommitsUntil <span>(checkFn)</span>](/api/revwalk/#getCommitsUntil) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>hide <span>(commit_id)</span>](/api/revwalk/#hide) |  <span class="tags"><span class="sync">Sync</span></span> |

@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: Revwalk
-description: Version 0.10.0
+description: Version 0.11.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
   "#fastWalk": "#fastWalk"
+  "#fileHistoryWalk": "#fileHistoryWalk"
   "#getCommits": "#getCommits"
   "#getCommitsUntil": "#getCommitsUntil"
   "#hide": "#hide"
@@ -58,6 +59,23 @@ revwalk.fastWalk(max_count).then(function(stdVectorGitOid) {
 | Returns |  |
 | --- | --- |
 | Std::vector<gitOid> * |  |
+
+## <a name="fileHistoryWalk"></a><span>Revwalk#</span>fileHistoryWalk <span class="tags"><span class="async">Async</span></span>
+
+```js
+revwalk.fileHistoryWalk(filePath, max_count).then(function(arrayHistoryEntry) {
+  // Use arrayHistoryEntry
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| filePath | String |  |
+| max_count | Number |  |
+
+| Returns |  |
+| --- | --- |
+| Array&lt;historyEntry&gt; |  |
 
 ## <a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="async">Async</span></span>
 

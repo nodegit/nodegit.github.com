@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.10.0
+description: Version 0.11.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -210,7 +210,7 @@ Retrieve patches in this difflist
 
 | Returns |  |
 | --- | --- |
-| Array&lt;ConvenientPatch&gt; | a promise that resolves to an array of                                      ConvenientPatches |
+| Array&lt;[ConvenientPatch](/api/convenient_patch/)&gt; | a promise that resolves to an array of                                      ConvenientPatches |
 
 ## <a name="DELTA"></a><span>Diff.</span>DELTA <span class="tags"><span class="enum">ENUM</span></span>
 

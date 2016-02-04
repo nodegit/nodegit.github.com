@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Revert
-description: Version 0.10.0
+description: Version 0.11.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,7 +11,7 @@ sections:
   "revert": "#revert"
 ---
 
-## <a name="commit"></a><span>Revert.</span>commit <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="commit"></a><span>Revert.</span>commit <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Revert.commit(repo, revert_commit, our_commit, mainline, merge_options).then(function(index) {
@@ -31,10 +31,12 @@ Revert.commit(repo, revert_commit, our_commit, mainline, merge_options).then(fun
 | --- | --- |
 | [Index](/api/index/) |  |
 
-## <a name="revert"></a><span>Revert.</span>revert <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="revert"></a><span>Revert.</span>revert <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Revert.revert(repo, commit, given_opts);
+Revert.revert(repo, commit, given_opts).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |
