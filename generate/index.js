@@ -4,6 +4,7 @@ var fse = require('fs-extra');
 var glob = require('glob').sync;
 var generatedData = require('./lib/generated_data');
 var writeApiDocs = require('./lib/write_api_docs');
+var writeTsDeclarations = require('./lib/write_ts_declarations');
 var addConvenienceMethods = require('./lib/add_convenience_methods.js');
 
 var idefsPath = 'generate/nodegit/generate/output/idefs.json';
@@ -14,6 +15,7 @@ var fullData;
 
 addConvenienceMethods(baseData).then(function(fullData) {
   writeApiDocs(fullData);
+  writeTsDeclarations(fullData);
 });
 
 // Copy convenience methods in.
