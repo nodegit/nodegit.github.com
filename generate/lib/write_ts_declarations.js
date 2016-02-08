@@ -21,7 +21,44 @@ var writeTsDecls = function(apiData, path) {
       return "Array<" + getType(type.slice(0, sqBracketIndex)) + ">";
     }
 
+    // If type has < in it already, translate generic argument.
+    var angleIndex = type.indexOf('<');
+    if (angleIndex !== -1) {
+      type = type.slice(0, angleIndex) + '<' + getType(type.slice(angleIndex + 1, type.indexOf('>'))) + ">";
+    }
+
     switch (type) {
+      // Weird things. Prune items as we fix docs.
+      case 'obj':
+      case 'ConvenientHunk':
+      case 'lineStats':
+      case 'RevWalk':
+      case 'StatusFile':
+      case 'historyEntry':
+      case 'DiffList':
+        return 'any';
+      // Untyped function callbacks.
+      case 'CheckoutNotifyCb':
+      case 'CheckoutPerfdataCb':
+      case 'CheckoutProgressCb':
+      case 'DiffFileCb':
+      case 'DiffBinaryCb':
+      case 'DiffHunkCb':
+      case 'DiffLineCb':
+      case 'DiffNotifyCb':
+      case 'CredAcquireCb':
+      case 'FetchheadForeachCb':
+      case 'FilterStreamFn':
+      case 'IndexMatchedPathCb':
+      case 'NoteForeachCb':
+      case 'StashCb':
+      case 'StashApplyProgressCb':
+      case 'StatusCb':
+      case 'SubmoduleCb':
+      case 'TransferProgressCb':
+      case 'TransportCb':
+      case 'TransportCertificateCheckCb':
+        return 'Function';
       // Primitives
       case 'String':
         return 'string';
@@ -31,6 +68,8 @@ var writeTsDecls = function(apiData, path) {
         return 'number';
       case 'Void':
         return 'void';
+      case 'bool':
+        return 'boolean';
       case 'Array':
         return 'Array<any>';
       // Avoiding type collusions
@@ -135,7 +174,7 @@ var writeTsDecls = function(apiData, path) {
     var enumFields = "  " + Object.keys(enumData).sort().map(function(enumType) {
       return enumType + " = " + enumData[enumType];
     }).join(",\n  ");
-    return "enum " + exportName + " {\n" + enumFields + "\n}";
+    return "declare enum " + exportName + " {\n" + enumFields + "\n}";
   }
 
   /**
@@ -158,6 +197,7 @@ var writeTsDecls = function(apiData, path) {
     // Export specially only if we have to remap the name to avoid type collisions.
     if (className !== exportName) {
       nameMap[exportName] = className;
+      classDecl = "declare ";
     } else {
       classDecl = "export ";
     }
