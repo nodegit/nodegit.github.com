@@ -13,12 +13,26 @@ var writeTsDecls = function(apiData, path) {
    * Given a type from the API docs, produce a TypeScript type.
    */
   function getType(type) {
+    // Remove spaces.
+    type = type.replace(/\s/g, '');
+    // Convert [] to Array<> for generics.
+    var sqBracketIndex = type.indexOf('[');
+    if (sqBracketIndex !== -1) {
+      return "Array<" + getType(type.slice(0, sqBracketIndex)) + ">";
+    }
+
     switch (type) {
       // Primitives
       case 'String':
         return 'string';
+      case 'Char':
+      case 'int':
       case 'Number':
         return 'number';
+      case 'Void':
+        return 'void';
+      case 'Array':
+        return 'Array<any>';
       // Avoiding type collusions
       case 'Object':
         return 'GitObject';
@@ -30,11 +44,21 @@ var writeTsDecls = function(apiData, path) {
       default:
         var dotIndex = type.indexOf('.');
         if (dotIndex !== -1) {
-          // Remove '.' from types (e.g. Reference.Type => ReferenceType) as
-          // we make them part of the outer scope.
-          // Also, convert the owner of the type properly (e.g. Object.TYPE => GitObjectTYPE).
-          return getType(type.slice(0, dotIndex)) + type.slice(dotIndex + 1);
+          if (type[dotIndex + 1] === '<') {
+            // Sometimes, the docs include a '.' between the type and the generic type argument.
+            return type.replace(/\./g, '');
+          } else {
+            // Remove '.' from types (e.g. Reference.Type => ReferenceType) as
+            // we make them part of the outer scope.
+            // Also, convert the owner of the type properly (e.g. Object.TYPE => GitObjectTYPE).
+            return getType(type.slice(0, dotIndex)) + type.slice(dotIndex + 1);
+          }
         } else {
+          // Check for weird things. If there are weird things, punt with 'any'.
+          if (type.indexOf('(') !== -1 || type.indexOf(':') !== -1) {
+            return 'any';
+          }
+
           return type;
         }
     }
@@ -56,6 +80,13 @@ var writeTsDecls = function(apiData, path) {
   }
 
   /**
+   * Strip illegal characters from identifiers.
+   */
+  function fixIdentifier(name) {
+    return name.replace(/[\[\]]/g, '');
+  }
+
+  /**
    * Converts a function in JSON format into a TypeScript function
    * declaration.
    */
@@ -70,14 +101,15 @@ var writeTsDecls = function(apiData, path) {
     var fcnSig = isStatic ? 'public static' : 'public';
     fcnSig += " " + name + "(" +
       fcn.params.map(function(param) {
-        jsDoc += "\n@param " + param.name + " ";
+        var paramName = fixIdentifier(param.name);
+        jsDoc += "\n@param " + paramName + " ";
         // Apparently param.description can be null, so check that it's not before looking at the contents!
         if (param.description && param.description.trim() !== "") {
           // Indent secondary lines of the description.
           jsDoc += param.description.replace(/\n/g, '\n    ') + "\n";
         }
         // Make each param type a union type if multiple types.
-        return param.name + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
+        return paramName + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
       }).join(', ') + "): ";
 
     var returnType = fcn.return ? getType(fcn.return.type) : "void";
@@ -103,7 +135,7 @@ var writeTsDecls = function(apiData, path) {
     var enumFields = "  " + Object.keys(enumData).sort().map(function(enumType) {
       return enumType + " = " + enumData[enumType];
     }).join(",\n  ");
-    return "export const enum " + exportName + " {\n" + enumFields + "\n}";
+    return "enum " + exportName + " {\n" + enumFields + "\n}";
   }
 
   /**
@@ -141,9 +173,12 @@ var writeTsDecls = function(apiData, path) {
     });
 
     // Fields
-    var fields = Object.keys(classData.fields).sort().map(function(name) {
+    // HACK: Filter out fields that clash with declared methods. This is a bug in the doc script.
+    var fields = Object.keys(classData.fields).sort().filter(function(name) {
+      return !classData.prototypes[name];
+    }).map(function(name) {
       // Fields do not have descriptions.
-      return "public " + name + ": " + getType(classData.fields[name]);
+      return "public " + fixIdentifier(name) + ": " + getType(classData.fields[name]);
     });
 
     // Enums (static fields)
