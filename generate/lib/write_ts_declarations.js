@@ -61,6 +61,9 @@ var writeTsDecls = function(apiData, path) {
    */
   function getFunctionDeclaration(name, fcn, isStatic) {
     var jsDoc = "";
+    if (fcn.experimental) {
+      jsDoc += "[EXPERIMENTAL] ";
+    }
     if (fcn.description !== "") {
       jsDoc += fcn.description + "\n";
     }
@@ -120,6 +123,7 @@ var writeTsDecls = function(apiData, path) {
     var classData = apiData[exportName];
     var classDecl = "";
 
+    // Export specially only if we have to remap the name to avoid type collisions.
     if (className !== exportName) {
       nameMap[exportName] = className;
     } else {
