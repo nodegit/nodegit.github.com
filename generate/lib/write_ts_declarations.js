@@ -148,7 +148,7 @@ var writeTsDecls = function(apiData, path) {
           jsDoc += param.description.replace(/\n/g, '\n    ') + "\n";
         }
         // Make each param type a union type if multiple types.
-        return paramName + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
+        return paramName + (param.optional ? "?" : "") + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
       }).join(', ') + "): ";
 
     var returnType = fcn.return ? getType(fcn.return.type) : "void";
