@@ -126,6 +126,94 @@ var writeTsDecls = function(apiData, path) {
   }
 
   /**
+   * Given a function, returns a function signature.
+   */
+  function getFunctionSignature(name, fcn, params, isStatic) {
+    var fcnSig = isStatic ? 'public static' : 'public';
+    fcnSig += " " + name + "(" +
+      params.map(function(param) {
+        var paramName = fixIdentifier(param.name);
+        // Make each param type a union type if multiple types.
+        return paramName + (param.optional ? "?" : "") + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
+      }).join(', ') + "): ";
+    var returnType = fcn.return ? getType(fcn.return.type) : "void";
+    if (fcn.isAsync) {
+      returnType = "PromiseLike<" + returnType + ">";
+    }
+    return fcnSig + returnType + ";"
+  }
+
+  /**
+   * Returns an array of parameter permutations to a function.
+   */
+  function getParamPermutations(params) {
+    // Figure out which parameters are optional.
+    var optionalParams = []
+    var nonOptionalAfterOptional = false;
+    var i;
+    for (i = 0; i < params.length; i++) {
+      if (params[i].optional) {
+        optionalParams.push(i);
+      } else if (optionalParams.length > 0) {
+        nonOptionalAfterOptional = true;
+      }
+    }
+
+    // If no non-optional functions follow optional functions,
+    // we only need one function signature [common case].
+    if (!nonOptionalAfterOptional) {
+      return [params];
+    } else {
+      var rv = [];
+
+      // Only toggle the ones in the middle. Ignore those at the
+      // end -- they are benign.
+	    for (i = params.length - 1; i >= 0; i--) {
+        if (optionalParams[optionalParams.length - 1] === i) {
+          optionalParams.pop();
+        } else {
+          break;
+        }
+      }
+
+      var numOptionalParams = optionalParams.length;
+      var state = new Array(numOptionalParams);
+      for (i = 0; i < numOptionalParams; i++) {
+        state[i] = 0;
+      }
+      outer:
+      while(true) {
+        // 'Clone' the params object.
+        var paramVariant = JSON.parse(JSON.stringify(params));
+        // Remove 'disabled' optional params, from r2l to avoid messing with
+        // array indices.
+        for (i = numOptionalParams - 1; i >= 0; i--) {
+          var optionalIndex = optionalParams[i];
+          if (state[i]) {
+            paramVariant.splice(optionalIndex, 1);
+          } else {
+            paramVariant[optionalIndex].optional = false;
+          }
+        }
+        rv.push(paramVariant);
+
+        // Add '1' to 'state', from L2R.
+        var digit = 0;
+        while (state[digit] === 1) {
+          if ((digit + 1) < numOptionalParams) {
+            state[digit] = 0;
+            digit++;
+          } else {
+            break outer;
+          }
+        }
+        state[digit] = 1;
+      }
+      return rv.reverse();
+    }
+  }
+
+  /**
    * Converts a function in JSON format into a TypeScript function
    * declaration.
    */
@@ -137,33 +225,26 @@ var writeTsDecls = function(apiData, path) {
     if (fcn.description !== "") {
       jsDoc += fcn.description + "\n";
     }
-    var fcnSig = isStatic ? 'public static' : 'public';
-    fcnSig += " " + name + "(" +
-      fcn.params.map(function(param) {
-        var paramName = fixIdentifier(param.name);
-        jsDoc += "\n@param " + paramName + " ";
-        // Apparently param.description can be null, so check that it's not before looking at the contents!
-        if (param.description && param.description.trim() !== "") {
-          // Indent secondary lines of the description.
-          jsDoc += param.description.replace(/\n/g, '\n    ') + "\n";
-        }
-        // Make each param type a union type if multiple types.
-        return paramName + (param.optional ? "?" : "") + ": " + (param.types.map(function(type) { return getType(type); }).join(" | "));
-      }).join(', ') + "): ";
 
-    var returnType = fcn.return ? getType(fcn.return.type) : "void";
-    if (fcn.isAsync) {
-      returnType = "PromiseLike<" + returnType + ">";
-    }
+    var params = fcn.params;
+    params.map(function(param) {
+      var paramName = fixIdentifier(param.name);
+      jsDoc += "\n@param " + paramName + " ";
+      // Apparently param.description can be null, so check that it's not before looking at the contents!
+      if (param.description && param.description.trim() !== "") {
+        // Indent secondary lines of the description.
+        jsDoc += param.description.replace(/\n/g, '\n    ') + "\n";
+      }
+    });
+
     var fcnDesc = fcn.return ? fcn.return.description.replace(/\n/g, '\n    ') : '';
 
     if (fcnDesc.trim() !== "") {
       jsDoc += "\n@return " + fcnDesc;
     }
 
-    fcnSig += returnType + ";"
-
-    return textToJSDoc(jsDoc) + "\n" + fcnSig;
+    var paramPermutations = getParamPermutations(fcn.params);
+    return textToJSDoc(jsDoc) + "\n" + paramPermutations.map(function(params) { return getFunctionSignature(name, fcn, params, isStatic); }).join("\n");
   }
 
   /**
