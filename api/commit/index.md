@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.11.0
+description: Version 0.11.2
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -434,7 +434,7 @@ var result = commit.parentcount();
 ## <a name="parents"></a><span>Commit#</span>parents <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var arrayOids = commit.parents(callback);
+var arrayOid = commit.parents(callback);
 ```
 
 Retrieve the commit"s parent shas.
@@ -445,7 +445,7 @@ Retrieve the commit"s parent shas.
 
 | Returns |  |
 | --- | --- |
-| Array&lt;Oids&gt; | array of oids |
+| Array&lt;[Oid](/api/oid/)&gt; | array of oids |
 
 ## <a name="rawHeader"></a><span>Commit#</span>rawHeader <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.11.0
+description: Version 0.11.2
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -269,7 +269,7 @@ Continues an existing rebase
 ## <a name="createBlobFromBuffer"></a><span>Repository#</span>createBlobFromBuffer <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var blob = repository.createBlobFromBuffer(buffer);
+var oid = repository.createBlobFromBuffer(buffer);
 ```
 
 Create a blob from a buffer
@@ -280,13 +280,13 @@ Create a blob from a buffer
 
 | Returns |  |
 | --- | --- |
-| [Blob](/api/blob/) |  |
+| [Oid](/api/oid/) |  |
 
 ## <a name="createBranch"></a><span>Repository#</span>createBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.createBranch(name, commit, force, signature, logMessage).then(function(ref) {
-  // Use ref
+repository.createBranch(name, commit, force, signature, logMessage).then(function(reference) {
+  // Use reference
 });
 ```
 
@@ -302,7 +302,7 @@ Creates a branch with the passed in name pointing to the commit
 
 | Returns |  |
 | --- | --- |
-| Ref |  |
+| [Reference](/api/reference/) |  |
 
 ## <a name="createCommit"></a><span>Repository#</span>createCommit <span class="tags"><span class="async">Async</span></span>
 
@@ -505,8 +505,8 @@ Retrieve the blob represented by the oid.
 ## <a name="getBranch"></a><span>Repository#</span>getBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getBranch(name).then(function(ref) {
-  // Use ref
+repository.getBranch(name).then(function(reference) {
+  // Use reference
 });
 ```
 
@@ -514,11 +514,11 @@ Look up a branch. Alias for `getReference`
 
 | Parameters | Type |
 | --- | --- | --- |
-| name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
+| name | String, [Reference](/api/reference/) | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
 
 | Returns |  |
 | --- | --- |
-| Ref |  |
+| [Reference](/api/reference/) |  |
 
 ## <a name="getBranchCommit"></a><span>Repository#</span>getBranchCommit <span class="tags"><span class="async">Async</span></span>
 
@@ -532,7 +532,7 @@ Look up a branch's most recent commit. Alias to `getReferenceCommit`
 
 | Parameters | Type |
 | --- | --- | --- |
-| name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
+| name | String, [Reference](/api/reference/) | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
 
 | Returns |  |
 | --- | --- |
@@ -621,7 +621,7 @@ Lookup the reference with the given name.
 
 | Parameters | Type |
 | --- | --- | --- |
-| name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
+| name | String, [Reference](/api/reference/) | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
 
 | Returns |  |
 | --- | --- |
@@ -639,7 +639,7 @@ Look up a refs's commit.
 
 | Parameters | Type |
 | --- | --- | --- |
-| name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
+| name | String, [Reference](/api/reference/) | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
 
 | Returns |  |
 | --- | --- |
@@ -992,8 +992,8 @@ Merge a branch onto another branch
 
 | Parameters | Type |
 | --- | --- | --- |
-| to | String, Ref |  |
-| from | String, Ref |  |
+| to | String, [Reference](/api/reference/) |  |
+| from | String, [Reference](/api/reference/) |  |
 | signature | [Signature](/api/signature/) |  |
 | mergePreference | [Merge.PREFERENCE](/api/merge/#PREFERENCE) |  |
 | mergeOptions | [MergeOptions](/api/merge_options/) |  |

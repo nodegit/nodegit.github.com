@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: ConvenientPatch
-description: Version 0.11.0
+description: Version 0.11.2
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -187,26 +187,26 @@ The line statistics of this patch (#contexts, #added, #deleted)
 ## <a name="newFile"></a><span>ConvenientPatch#</span>newFile <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientPatch.newFile();
+var diffFile = convenientPatch.newFile();
 ```
 
-New name of the file
+New attributes of the file
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| [DiffFile](/api/diff_file/) |  |
 
 ## <a name="oldFile"></a><span>ConvenientPatch#</span>oldFile <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = convenientPatch.oldFile();
+var diffFile = convenientPatch.oldFile();
 ```
 
-Old name of the file
+Old attributes of the file
 
 | Returns |  |
 | --- | --- |
-| String |  |
+| [DiffFile](/api/diff_file/) |  |
 
 ## <a name="size"></a><span>ConvenientPatch#</span>size <span class="tags"><span class="sync">Sync</span></span>
 

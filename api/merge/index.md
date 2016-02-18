@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Merge
-description: Version 0.11.0
+description: Version 0.11.2
 menu_item: api
 return_to:
   "API Documentation Index": /api/

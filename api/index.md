@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.11.0
+description: Version 0.11.2
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -596,6 +596,14 @@ sections:
 
 
 ## <a name='DiffFile'></a>[DiffFile](/api/diff_file/)
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>DiffFile#</span>flags <span>()</span>](/api/diff_file/#flags) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>DiffFile#</span>id <span>()</span>](/api/diff_file/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>DiffFile#</span>mode <span>()</span>](/api/diff_file/#mode) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>DiffFile#</span>path <span>()</span>](/api/diff_file/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>DiffFile#</span>size <span>()</span>](/api/diff_file/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Variables |  |
 | --- | ---: |
