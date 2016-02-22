@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.11.2
+description: Version 0.11.3
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Attr
-description: Version 0.11.2
+description: Version 0.11.3
 menu_item: api
 return_to:
   "API Documentation Index": /api/
