@@ -249,10 +249,12 @@ repository.configSnapshot().then(function(config) {
 | --- | --- |
 | [Config](/api/config/) |  |
 
-## <a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="sync">Sync</span></span>
+## <a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = repository.continueRebase(signature, beforeNextFn);
+repository.continueRebase(signature, beforeNextFn).then(function(oid) {
+  // Use oid
+});
 ```
 
 Continues an existing rebase
@@ -440,10 +442,11 @@ var result = repository.detachHead();
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
 
-## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="sync">Sync</span></span>
+## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.fetch(remote, fetchOptions);
+repository.fetch(remote, fetchOptions).then(function() {
+  // method complete});
 ```
 
 Fetches from a remote
@@ -453,10 +456,11 @@ Fetches from a remote
 | remote | String, [Remote](/api/remote/) |  |
 | fetchOptions | [Object](/api/object/), [FetchOptions](/api/fetch_options/) | Options for the fetch, includes callbacks for fetching |
 
-## <a name="fetchAll"></a><span>Repository#</span>fetchAll <span class="tags"><span class="sync">Sync</span></span>
+## <a name="fetchAll"></a><span>Repository#</span>fetchAll <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.fetchAll(fetchOptions, callback);
+repository.fetchAll(fetchOptions, callback).then(function() {
+  // method complete});
 ```
 
 Fetches from all remotes. This is done in series due to deadlocking issues
@@ -681,10 +685,12 @@ Lookup references for a repository.
 | --- | --- |
 | Array&lt;[Reference](/api/reference/)&gt; |  |
 
-## <a name="getRemote"></a><span>Repository#</span>getRemote <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getRemote"></a><span>Repository#</span>getRemote <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var remote = repository.getRemote(remote, callback);
+repository.getRemote(remote, callback).then(function(remote) {
+  // Use remote
+});
 ```
 
 Gets a remote from the repo
@@ -698,10 +704,12 @@ Gets a remote from the repo
 | --- | --- |
 | [Remote](/api/remote/) | The remote object |
 
-## <a name="getRemotes"></a><span>Repository#</span>getRemotes <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getRemotes"></a><span>Repository#</span>getRemotes <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var object = repository.getRemotes(Optional);
+repository.getRemotes(Optional).then(function(object) {
+  // Use object
+});
 ```
 
 Lists out the remotes in the given repository.
@@ -982,10 +990,12 @@ var result = repository.isShallow();
 | --- | --- |
 | Number |  1 if shallow, zero if not |
 
-## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="sync">Sync</span></span>
+## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = repository.mergeBranches(to, from, signature, mergePreference, mergeOptions);
+repository.mergeBranches(to, from, signature, mergePreference, mergeOptions).then(function(oid) {
+  // Use oid
+});
 ```
 
 Merge a branch onto another branch
@@ -1034,10 +1044,12 @@ var string = repository.path();
 | --- | --- |
 | String |  the path to the repository |
 
-## <a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="sync">Sync</span></span>
+## <a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn);
+repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn).then(function(oid) {
+  // Use oid
+});
 ```
 
 Rebases a branch onto another branch
