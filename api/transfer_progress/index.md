@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: TransferProgress
-description: Version 0.11.3
+description: Version 0.11.4
 menu_item: api
 return_to:
   "API Documentation Index": /api/
