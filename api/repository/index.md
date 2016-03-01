@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.11.5
+description: Version 0.11.6
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -15,6 +15,7 @@ sections:
   "openExt": "#openExt"
   "wrapOdb": "#wrapOdb"
   "#checkoutBranch": "#checkoutBranch"
+  "#checkoutRef": "#checkoutRef"
   "#config": "#config"
   "#configSnapshot": "#configSnapshot"
   "#continueRebase": "#continueRebase"
@@ -223,6 +224,22 @@ latest commit on that branch
 | Parameters | Type |
 | --- | --- | --- |
 | branch | String, [Reference](/api/reference/) | the branch to checkout |
+| opts | [Object](/api/object/), [CheckoutOptions](/api/checkout_options/) | the options to use for the checkout |
+
+## <a name="checkoutRef"></a><span>Repository#</span>checkoutRef <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.checkoutRef(reference, opts).then(function() {
+  // method complete});
+```
+
+This will set the HEAD to point to the reference and then attempt
+to update the index and working tree to match the content of the
+latest commit on that reference
+
+| Parameters | Type |
+| --- | --- | --- |
+| reference | [Reference](/api/reference/) | the reference to checkout |
 | opts | [Object](/api/object/), [CheckoutOptions](/api/checkout_options/) | the options to use for the checkout |
 
 ## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>

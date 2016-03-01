@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.11.5
+description: Version 0.11.6
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -36,7 +36,7 @@ sections:
   "WALK_MODE": "#WALK_MODE"
 ---
 
-## <a name="entryCmp"></a><span>Tree.</span>entryCmp <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryCmp"></a><span>Tree.</span>entryCmp <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryCmp(e1, e2);
@@ -53,7 +53,7 @@ var result = Tree.entryCmp(e1, e2);
 <
 0 if e1 is before e2, 0 if e1 == e2, >0 if e1 is after e2 |
 
-## <a name="entryDup"></a><span>Tree.</span>entryDup <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryDup"></a><span>Tree.</span>entryDup <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryDup(dest, source);
@@ -68,7 +68,7 @@ var result = Tree.entryDup(dest, source);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="entryFilemode"></a><span>Tree.</span>entryFilemode <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryFilemode"></a><span>Tree.</span>entryFilemode <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryFilemode(entry);
@@ -82,7 +82,7 @@ var result = Tree.entryFilemode(entry);
 | --- | --- |
 | Number |  filemode as an integer |
 
-## <a name="entryFilemodeRaw"></a><span>Tree.</span>entryFilemodeRaw <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryFilemodeRaw"></a><span>Tree.</span>entryFilemodeRaw <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryFilemodeRaw(entry);
@@ -96,7 +96,7 @@ var result = Tree.entryFilemodeRaw(entry);
 | --- | --- |
 | Number |  filemode as an integer |
 
-## <a name="entryId"></a><span>Tree.</span>entryId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryId"></a><span>Tree.</span>entryId <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = Tree.entryId(entry);
@@ -110,7 +110,7 @@ var oid = Tree.entryId(entry);
 | --- | --- |
 | [Oid](/api/oid/) |  the oid of the object |
 
-## <a name="entryName"></a><span>Tree.</span>entryName <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryName"></a><span>Tree.</span>entryName <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var string = Tree.entryName(entry);
@@ -124,7 +124,7 @@ var string = Tree.entryName(entry);
 | --- | --- |
 | String |  the name of the file |
 
-## <a name="entryToObject"></a><span>Tree.</span>entryToObject <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryToObject"></a><span>Tree.</span>entryToObject <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryToObject(object_out, repo, entry);
@@ -140,7 +140,7 @@ var result = Tree.entryToObject(object_out, repo, entry);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="entryType"></a><span>Tree.</span>entryType <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryType"></a><span>Tree.</span>entryType <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Tree.entryType(entry);
@@ -174,7 +174,7 @@ Retrieves the tree pointed to by the oid
 | --- | --- |
 | [Tree](/api/tree/) |  |
 
-## <a name="lookupPrefix"></a><span>Tree.</span>lookupPrefix <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="lookupPrefix"></a><span>Tree.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span>
 
 ```js
 Tree.lookupPrefix(repo, id, len).then(function(tree) {
@@ -192,7 +192,7 @@ Tree.lookupPrefix(repo, id, len).then(function(tree) {
 | --- | --- |
 | [Tree](/api/tree/) |  |
 
-## <a name="_entryByIndex"></a><span>Tree#</span>_entryByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="_entryByIndex"></a><span>Tree#</span>_entryByIndex <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var treeEntry = tree._entryByIndex(idx);
@@ -269,7 +269,7 @@ Return an array of the entries in this tree (excluding its children).
 | --- | --- |
 | Array&lt;[TreeEntry](/api/tree_entry/)&gt; | an array of TreeEntrys |
 
-## <a name="entryById"></a><span>Tree#</span>entryById <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryById"></a><span>Tree#</span>entryById <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var treeEntry = tree.entryById(id);
@@ -315,7 +315,7 @@ Get an entry by name; if the tree is a directory, the name is the filename.
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  |
 
-## <a name="entryByPath"></a><span>Tree#</span>entryByPath <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="entryByPath"></a><span>Tree#</span>entryByPath <span class="tags"><span class="async">Async</span></span>
 
 ```js
 tree.entryByPath(path).then(function(treeEntry) {
@@ -331,7 +331,7 @@ tree.entryByPath(path).then(function(treeEntry) {
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) | the tree entry |
 
-## <a name="entryCount"></a><span>Tree#</span>entryCount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="entryCount"></a><span>Tree#</span>entryCount <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = tree.entryCount();
@@ -341,7 +341,7 @@ var result = tree.entryCount();
 | --- | --- |
 | Number |  the number of entries in the tree |
 
-## <a name="free"></a><span>Tree#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="free"></a><span>Tree#</span>free <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 tree.free();
@@ -364,7 +364,7 @@ qualified path, like `/foo/bar/baz.javascript`
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  |
 
-## <a name="id"></a><span>Tree#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="id"></a><span>Tree#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var oid = tree.id();
@@ -374,7 +374,7 @@ var oid = tree.id();
 | --- | --- |
 | [Oid](/api/oid/) |  object identity for the tree. |
 
-## <a name="owner"></a><span>Tree#</span>owner <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="owner"></a><span>Tree#</span>owner <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var repository = tree.owner();

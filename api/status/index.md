@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Status
-description: Version 0.11.5
+description: Version 0.11.6
 menu_item: api
 return_to:
   "API Documentation Index": /api/

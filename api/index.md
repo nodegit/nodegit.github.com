@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.11.5
+description: Version 0.11.6
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -1400,6 +1400,7 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Repository#</span>checkoutBranch <span>(branch, opts)</span>](/api/repository/#checkoutBranch) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>checkoutRef <span>(reference, opts)</span>](/api/repository/#checkoutRef) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1815,33 +1816,33 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Tree.</span>entryCmp <span>(e1, e2)</span>](/api/tree/#entryCmp) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryDup <span>(dest, source)</span>](/api/tree/#entryDup) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryFilemode <span>(entry)</span>](/api/tree/#entryFilemode) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryFilemodeRaw <span>(entry)</span>](/api/tree/#entryFilemodeRaw) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryId <span>(entry)</span>](/api/tree/#entryId) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryName <span>(entry)</span>](/api/tree/#entryName) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryToObject <span>(object_out, repo, entry)</span>](/api/tree/#entryToObject) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree.</span>entryType <span>(entry)</span>](/api/tree/#entryType) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree.</span>entryCmp <span>(e1, e2)</span>](/api/tree/#entryCmp) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryDup <span>(dest, source)</span>](/api/tree/#entryDup) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryFilemode <span>(entry)</span>](/api/tree/#entryFilemode) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryFilemodeRaw <span>(entry)</span>](/api/tree/#entryFilemodeRaw) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryId <span>(entry)</span>](/api/tree/#entryId) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryName <span>(entry)</span>](/api/tree/#entryName) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryToObject <span>(object_out, repo, entry)</span>](/api/tree/#entryToObject) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryType <span>(entry)</span>](/api/tree/#entryType) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>lookup <span>(repo, id, callback)</span>](/api/tree/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Tree.</span>lookupPrefix <span>(repo, id, len)</span>](/api/tree/#lookupPrefix) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree.</span>lookupPrefix <span>(repo, id, len)</span>](/api/tree/#lookupPrefix) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Tree#</span>_entryByIndex <span>(idx)</span>](/api/tree/#_entryByIndex) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree#</span>_entryByIndex <span>(idx)</span>](/api/tree/#_entryByIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>builder <span>()</span>](/api/tree/#builder) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>diff <span>(tree, callback)</span>](/api/tree/#diff) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tree#</span>diffWithOptions <span>(tree, options, callback)</span>](/api/tree/#diffWithOptions) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tree#</span>entries <span>()</span>](/api/tree/#entries) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Tree#</span>entryById <span>(id)</span>](/api/tree/#entryById) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree#</span>entryById <span>(id)</span>](/api/tree/#entryById) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>entryByIndex <span>(i)</span>](/api/tree/#entryByIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>entryByName <span>(name)</span>](/api/tree/#entryByName) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Tree#</span>entryByPath <span>(path)</span>](/api/tree/#entryByPath) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree#</span>entryCount <span>()</span>](/api/tree/#entryCount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree#</span>free <span>()</span>](/api/tree/#free) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree#</span>entryByPath <span>(path)</span>](/api/tree/#entryByPath) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tree#</span>entryCount <span>()</span>](/api/tree/#entryCount) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree#</span>free <span>()</span>](/api/tree/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>getEntry <span>(filePath)</span>](/api/tree/#getEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Tree#</span>id <span>()</span>](/api/tree/#id) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Tree#</span>owner <span>()</span>](/api/tree/#owner) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Tree#</span>id <span>()</span>](/api/tree/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree#</span>owner <span>()</span>](/api/tree/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>path <span>()</span>](/api/tree/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>walk <span>([blobsOnly)</span>](/api/tree/#walk) |  <span class="tags"><span class="sync">Sync</span></span> |
 
