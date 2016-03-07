@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reset
-description: Version 0.11.7
+description: Version 0.11.8
 menu_item: api
 return_to:
   "API Documentation Index": /api/
