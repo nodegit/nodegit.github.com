@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.11.6
+description: Version 0.11.7
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -68,6 +68,7 @@ sections:
   "#isReverting": "#isReverting"
   "#isShallow": "#isShallow"
   "#mergeBranches": "#mergeBranches"
+  "#mergeheadForeach": "#mergeheadForeach"
   "#messageRemove": "#messageRemove"
   "#odb": "#odb"
   "#path": "#path"
@@ -1028,6 +1029,17 @@ Merge a branch onto another branch
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | A commit id for a succesful merge or an index for a                      merge with conflicts |
+
+## <a name="mergeheadForeach"></a><span>Repository#</span>mergeheadForeach <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.mergeheadForeach(callback).then(function() {
+  // method complete});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| callback | MergeheadForeachCb | The callback function to be called on each entry |
 
 ## <a name="messageRemove"></a><span>Repository#</span>messageRemove <span class="tags"><span class="sync">Sync</span></span>
 

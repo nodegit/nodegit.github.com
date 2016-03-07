@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Merge
-description: Version 0.11.6
+description: Version 0.11.7
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -114,7 +114,7 @@ Merge a commit into HEAD and writes the results to the working directory.
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | Repository that contains the given commits |
-| theirHead | [Commit](/api/commit/) | The annotated to merge into HEAD |
+| theirHead | [AnnotatedCommit](/api/annotated_commit/) | The annotated commit to merge into HEAD |
 | [mergeOpts] | [MergeOptions](/api/merge_options/) | The merge tree options (null for default) |
 | [checkoutOpts] | [CheckoutOptions](/api/checkout_options/) | The checkout options (null for default) |
 
