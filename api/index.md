@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.11.9
+description: Version 0.12.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -534,7 +534,7 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Diff.</span>blobToBuffer <span>(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, options, file_cb, binary_cb, hunk_cb, line_cb, payload)</span>](/api/diff/#blobToBuffer) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Diff.</span>blobToBuffer <span>(old_blob, old_as_path, buffer, buffer_as_path, opts, file_cb, binary_cb, hunk_cb, line_cb)</span>](/api/diff/#blobToBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff.</span>indexToWorkdir <span>(repo, index, opts)</span>](/api/diff/#indexToWorkdir) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff.</span>treeToIndex <span>(repo, old_tree, index, opts)</span>](/api/diff/#treeToIndex) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Diff.</span>treeToTree <span>(repo, old_tree, new_tree, opts)</span>](/api/diff/#treeToTree) |  <span class="tags"><span class="async">Async</span></span> |
@@ -802,7 +802,7 @@ sections:
 | --- | ---: |
 | [<span>Ignore.</span>addRule <span>(repo, rules)</span>](/api/ignore/#addRule) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Ignore.</span>clearInternalRules <span>(repo)</span>](/api/ignore/#clearInternalRules) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Ignore.</span>pathIsIgnored <span>(repo, path)</span>](/api/ignore/#pathIsIgnored) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Ignore.</span>pathIsIgnored <span>(repo, path)</span>](/api/ignore/#pathIsIgnored) |  <span class="tags"><span class="async">Async</span></span> |
 
 
 ## <a name='Index'></a>[Index](/api/index/)
@@ -1821,6 +1821,7 @@ sections:
 | [<span>Tree.</span>entryDup <span>(dest, source)</span>](/api/tree/#entryDup) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>entryFilemode <span>(entry)</span>](/api/tree/#entryFilemode) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>entryFilemodeRaw <span>(entry)</span>](/api/tree/#entryFilemodeRaw) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Tree.</span>entryFree <span>(entry)</span>](/api/tree/#entryFree) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>entryId <span>(entry)</span>](/api/tree/#entryId) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>entryName <span>(entry)</span>](/api/tree/#entryName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree.</span>entryToObject <span>(object_out, repo, entry)</span>](/api/tree/#entryToObject) |  <span class="tags"><span class="sync">Sync</span></span> |

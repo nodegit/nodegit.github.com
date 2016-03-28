@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.11.9
+description: Version 0.12.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,6 +11,7 @@ sections:
   "entryDup": "#entryDup"
   "entryFilemode": "#entryFilemode"
   "entryFilemodeRaw": "#entryFilemodeRaw"
+  "entryFree": "#entryFree"
   "entryId": "#entryId"
   "entryName": "#entryName"
   "entryToObject": "#entryToObject"
@@ -95,6 +96,16 @@ var result = Tree.entryFilemodeRaw(entry);
 | Returns |  |
 | --- | --- |
 | Number |  filemode as an integer |
+
+## <a name="entryFree"></a><span>Tree.</span>entryFree <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+Tree.entryFree(entry);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| entry | [TreeEntry](/api/tree_entry/) | The entry to free |
 
 ## <a name="entryId"></a><span>Tree.</span>entryId <span class="tags"><span class="sync">Sync</span></span>
 

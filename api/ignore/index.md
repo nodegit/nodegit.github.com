@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Ignore
-description: Version 0.11.9
+description: Version 0.12.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -41,10 +41,12 @@ var result = Ignore.clearInternalRules(repo);
 | --- | --- |
 | Number |  0 on success |
 
-## <a name="pathIsIgnored"></a><span>Ignore.</span>pathIsIgnored <span class="tags"><span class="sync">Sync</span></span>
+## <a name="pathIsIgnored"></a><span>Ignore.</span>pathIsIgnored <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Ignore.pathIsIgnored(repo, path);
+Ignore.pathIsIgnored(repo, path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.11.9
+description: Version 0.12.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -31,28 +31,23 @@ sections:
 ## <a name="blobToBuffer"></a><span>Diff.</span>blobToBuffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, options, file_cb, binary_cb, hunk_cb, line_cb, payload).then(function(result) {
-  // Use result
-});
+Diff.blobToBuffer(old_blob, old_as_path, buffer, buffer_as_path, opts, file_cb, binary_cb, hunk_cb, line_cb).then(function() {
+  // method complete});
 ```
+
+Directly run a diff between a blob and a buffer.
 
 | Parameters | Type |   |
 | --- | --- | --- |
 | old_blob | [Blob](/api/blob/) | Blob for old side of diff, or NULL for empty blob |
 | old_as_path | String | Treat old blob as if it had this filename; can be NULL |
 | buffer | String | Raw data for new side of diff, or NULL for empty |
-| buffer_len | Number | Length of raw data for new side of diff |
 | buffer_as_path | String | Treat buffer as if it had this filename; can be NULL |
-| options | [DiffOptions](/api/diff_options/) | Options for diff, or NULL for default options |
-| file_cb | DiffFileCb | Callback for "file"; made once if there is a diff; can be NULL |
-| binary_cb | DiffBinaryCb | Callback for binary files; can be NULL |
-| hunk_cb | DiffHunkCb | Callback for each hunk in diff; can be NULL |
-| line_cb | DiffLineCb | Callback for each line in diff; can be NULL |
-| payload | Void | Payload passed to each callback function |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, non-zero callback return value, or error code |
+| opts | [DiffOptions](/api/diff_options/) | Options for diff, or NULL for default options |
+| file_cb | Function | Callback for "file"; made once if there is a diff; can be NULL |
+| binary_cb | Function | Callback for binary files; can be NULL |
+| hunk_cb | Function | Callback for each hunk in diff; can be NULL |
+| line_cb | Function | Callback for each line in diff; can be NULL |
 
 ## <a name="indexToWorkdir"></a><span>Diff.</span>indexToWorkdir <span class="tags"><span class="async">Async</span></span>
 
