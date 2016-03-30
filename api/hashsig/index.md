@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Hashsig
-description: Version 0.12.0
+description: Version 0.12.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
