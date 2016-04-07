@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.12.1
+description: Version 0.12.2
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -1401,6 +1401,7 @@ sections:
 | --- | ---: |
 | [<span>Repository#</span>checkoutBranch <span>(branch, opts)</span>](/api/repository/#checkoutBranch) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>checkoutRef <span>(reference, opts)</span>](/api/repository/#checkoutRef) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>cleanup <span>()</span>](/api/repository/#cleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |

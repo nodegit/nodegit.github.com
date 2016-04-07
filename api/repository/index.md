@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.12.1
+description: Version 0.12.2
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,6 +16,7 @@ sections:
   "wrapOdb": "#wrapOdb"
   "#checkoutBranch": "#checkoutBranch"
   "#checkoutRef": "#checkoutRef"
+  "#cleanup": "#cleanup"
   "#config": "#config"
   "#configSnapshot": "#configSnapshot"
   "#continueRebase": "#continueRebase"
@@ -242,6 +243,12 @@ latest commit on that reference
 | --- | --- | --- |
 | reference | [Reference](/api/reference/) | the reference to checkout |
 | opts | [Object](/api/object/), [CheckoutOptions](/api/checkout_options/) | the options to use for the checkout |
+
+## <a name="cleanup"></a><span>Repository#</span>cleanup <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+repository.cleanup();
+```
 
 ## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>
 
