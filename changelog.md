@@ -3,6 +3,30 @@ layout: default
 title: Changelog
 description: What's changed between releases
 sections:
+  "v0.13.0": "#v0-13-0"
+  "v0.12.2": "#v0-12-2"
+  "v0.12.1": "#v0-12-1"
+  "v0.12.0": "#v0-12-0"
+  "v0.11.9": "#v0-11-9"
+  "v0.11.8": "#v0-11-8"
+  "v0.11.7": "#v0-11-7"
+  "v0.11.6": "#v0-11-6"
+  "v0.11.5": "#v0-11-5"
+  "v0.11.4": "#v0-11-4"
+  "v0.11.3": "#v0-11-3"
+  "v0.11.2": "#v0-11-2"
+  "v0.11.1": "#v0-11-1"
+  "v0.11.0": "#v0-11-0"
+  "v0.10.0": "#v0-10-0"
+  "v0.9.0": "#v0-9-0"
+  "v0.8.0": "#v0-8-0"
+  "v0.7.0": "#v0-7-0"
+  "v0.6.3": "#v0-6-3"
+  "v0.6.2": "#v0-6-2"
+  "v0.6.1": "#v0-6-1"
+  "v0.6.0": "#v0-6-0"
+  "v0.5.0": "#v0-5-0"
+  "v0.4.1": "#v0-4-1"
   "v0.4.0": "#v0-4-0"
   "v0.3.3": "#v0-3-3"
   "v0.3.2": "#v0-3-2"
@@ -37,7 +61,420 @@ sections:
   "v0.0.1": "#v0-0-1"
 ---
 
-## <a name="v0-4-0" href="#v0-4-0">v0.4.0</a> (2015-05-07)
+# <a name="v0-13-0" href="#v0-13-0">v0.13.0</a> [(2016-05-04)](https://github.com/nodegit/nodegit/releases/tag/v0.13.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.12.2...v0.13.0)
+
+## Summary
+
+This is a big update! Lots of work was done to bring NodeGit up to the latest stable libgit2 version (v0.24.1), to use babel in the library, to make it more stable, remove memory leaks, squash bugs and in general just improve the library for all. Make sure to see all of the API changes below (there are a lot).
+
+## Node support
+
+We have added Node 6 as a supported platform! Going forward we aim to have 1:1 support for versions of Node that are either current or LTS. That means that v0.12 will not be supported soon so if you're on that please upgrade to at least Node v4. Also Node v5 will *NOT* be LTS so when Node stops supporting that in the coming months we will as well. You can read more about the current Node upgrade plan [here](https://nodejs.org/en/blog/release/v6.0.0/).
+
+## API Changes
+-------
+
+### Modified
+
+- `Index#add`, `Index#addByPath`, `Index#clear`, `Index#conflictAdd`, `Index#conflictCleanup`, `Index#conflictGet`, `Index#conflictRemove`, `Index.open`, `Index#read`, `Index#readTree`, `Index#remove`, `Index#removeByPath`, `Index#removeDirectory`, `Index#read`, `Index#writeTree`, and `Index#writeTreeTo` are all now asynchronous functions [PR #971](https://github.com/nodegit/nodegit/pull/971)
+- Made `ancestoryEntry`, `outEntry` and `theirEntry` optional parameters on `Index#conflictAdd` [PR #997](https://github.com/nodegit/nodegit/pull/997)
+- `Repository#refreshIndex` will return an Index object back that has the latest data loaded off of disk [PR #986](https://github.com/nodegit/nodegit/pull/986)
+- `Commit.create` is now asynchronous [PR #1022](https://github.com/nodegit/nodegit/pull/1022)
+
+### Added
+
+- `Diff#merge` will combine a diff into itself [PR #1000](https://github.com/nodegit/nodegit/pull/1000)
+- `ReflogEntry#committer`, `ReflogEntry#idNew`, `ReflogEntry#idOld`, and `ReflogEntry#message` have been added
+[PR #1013](https://github.com/nodegit/nodegit/pull/1013)
+
+### Removed
+
+- `Repository#openIndex` [PR #990](https://github.com/nodegit/nodegit/pull/990)
+- `Reflog#entryCommitter`, `Reflog#entryIdNew`, `Reflog#entryIdOld`, and `Reflog#entryMessage` have been moved to be under `ReflogEntry`
+[PR #1013](https://github.com/nodegit/nodegit/pull/1013)
+
+### Bug fixes
+
+- `Branch.name` works now [PR #991](https://github.com/nodegit/nodegit/pull/991)
+- Fixed a crash with callbacks from libgit2 [PR #944](https://github.com/nodegit/nodegit/pull/944)
+- Fixed a crash in `Tree#entryByName` [PR #998](https://github.com/nodegit/nodegit/pull/998)
+- More memory leaks have been plugged [PR #1005](https://github.com/nodegit/nodegit/pull/1005), [PR #1006](https://github.com/nodegit/nodegit/pull/1006), [PR #1014](https://github.com/nodegit/nodegit/pull/1014), and [PR #1015](https://github.com/nodegit/nodegit/pull/1015)
+- `Commit#getDiffWithOptions` now actually passes the options correctly [PR #1008](https://github.com/nodegit/nodegit/pull/1008)
+
+## Upgraded to libgit2 v0.24.1 [PR #1010](https://github.com/nodegit/nodegit/pull/1010)
+-------
+
+### Changes or improvements
+
+- Custom merge drivers can now be registered, which allows callers to
+  configure callbacks to honor `merge=driver` configuration in
+  `.gitattributes`.
+
+- Custom filters can now be registered with wildcard attributes, for
+  example `filter=*`.  Consumers should examine the attributes parameter
+  of the `check` function for details.
+
+- Symlinks are now followed when locking a file, which can be
+  necessary when multiple worktrees share a base repository.
+
+- You can now set your own user-agent to be sent for HTTP requests by
+  using the `Libgit2.OPT.SET_USER_AGENT` with `Libgit2.opts()`.
+
+- You can set custom HTTP header fields to be sent along with requests
+  by passing them in the fetch and push options.
+
+- Tree objects are now assumed to be sorted. If a tree is not
+  correctly formed, it will give bad results. This is the git approach
+  and cuts a significant amount of time when reading the trees.
+
+- Filter registration is now protected against concurrent
+  registration.
+
+- Filenames which are not valid on Windows in an index no longer cause
+  to fail to parse it on that OS.
+
+- Rebases can now be performed purely in-memory, without touching the
+  repository's workdir.
+
+- When adding objects to the index, or when creating new tree or commit
+  objects, the inputs are validated to ensure that the dependent objects
+  exist and are of the correct type.  This object validation can be
+  disabled with the `Libgit2.OPT.ENABLE_STRICT_OBJECT_CREATION` option.
+
+- The WinHTTP transport's handling of bad credentials now behaves like
+  the others, asking for credentials again.
+
+### API additions
+
+- `Blob.createFromStream()` and
+  `Blob.createFromStreamCommit` allow you to create a blob by
+  writing into a stream. Useful when you do not know the final size or
+  want to copy the contents from another stream.
+
+- `Config#lock` has been added, which allow for
+  transactional/atomic complex updates to the configuration, removing
+  the opportunity for concurrent operations and not committing any
+  changes until the unlock.
+
+- `DiffOptions` added a new callback `progress_cb` to report on the
+  progress of the diff as files are being compared. The documentation of
+  the existing callback `notify_cb` was updated to reflect that it only
+  gets called when new deltas are added to the diff.
+
+- `FetchOptions` and `PushOptions` have gained a `custom_headers`
+  field to set the extra HTTP header fields to send.
+
+- `Commit#headerField` allows you to look up a specific header
+  field in a commit.
+
+### Breaking API changes
+
+- `MergeOptions` now provides a `defaultDriver` that can be used
+  to provide the name of a merge driver to be used to handle files changed
+  during a merge.
+
+- The `Merge.TREE_FLAG` is now `Merge.FLAG`.  Subsequently,
+  `treeFlags` field of the `MergeOptions` structure is now named `flags`.
+
+- The `Merge.FILE_FLAGS` enum is now `Merge.FILE_FLAG` for
+  consistency with other enum type names.
+
+- `Cert` descendent types now have a proper `parent` member
+
+- It is the responsibility of the refdb backend to decide what to do
+  with the reflog on ref deletion. The file-based backend must delete
+  it, a database-backed one may wish to archive it.
+
+- `Index#add` and `Index#conflictAdd` will now use the case
+  as provided by the caller on case insensitive systems.  Previous
+  versions would keep the case as it existed in the index.  This does
+  not affect the higher-level `Index#addByPath` or
+  `Index#addFromBuffer` functions.
+
+- The `Config.LEVEL` enum has gained a higher-priority value
+  `PROGRAMDATA` which represent a rough Windows equivalent
+  to the system level configuration.
+
+- `RebaseOptions` now has a `mergeOptions` field.
+
+- The index no longer performs locking itself. This is not something
+  users of the library should have been relying on as it's not part of
+  the concurrency guarantees.
+
+- `Remote#connect()` now takes a `customHeaders` argument to set
+  the extra HTTP header fields to send.
+
+- `Tree.entryFilemode`, `Tree.entryFilemodeRaw`, `Tree.entryId`, `Tree.entryName`,
+  `Tree.entryToObject`, and `Tree.entryType` have all been moved to the `TreeEntry` prototype.
+  Additionally, the `TreeEntry` fields have been removed in lieu of the corresponding functions to return
+  the data.
+
+# <a name="v0-12-2" href="#v0-12-2">v0.12.2</a> [(2016-04-07)](https://github.com/nodegit/nodegit/releases/tag/v0.12.2)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.12.1...v0.12.2)
+
+## Added
+
+- We now provide 32-bit binaries for linux [PR #980](https://github.com/nodegit/nodegit/pull/980)
+
+## Bug fixes
+
+- Added memory clean up for references [PR #977](https://github.com/nodegit/nodegit/pull/977) and remotes [PR #981](https://github.com/nodegit/nodegit/pull/981)
+
+# <a name="v0-12-1" href="#v0-12-1">v0.12.1</a> [(2016-03-30)](https://github.com/nodegit/nodegit/releases/tag/v0.12.1)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.12.0...v0.12.1)
+
+## Bug fixes
+
+- Fixed post install script dying on windows [PR #978](https://github.com/nodegit/nodegit/pull/978)
+
+# <a name="v0-12-0" href="#v0-12-0">v0.12.0</a> [(2016-03-28)](https://github.com/nodegit/nodegit/releases/tag/v0.12.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.9...v0.12.0)
+
+## API changes
+- `Ignore`
+  - Made `Ignore.pathIsIgnored` async [PR #970](https://github.com/nodegit/nodegit/pull/970)
+
+## Bug fixes
+
+- Added an error message when trying to install NodeGit without a required version of libstdc++ [PR #972](https://github.com/nodegit/nodegit/pull/972)
+- Fix a crash when grabbing content out of a buffer that has unicode [PR #966](https://github.com/nodegit/nodegit/pull/966)
+- Added some plumbing for better memory management [PR #958](https://github.com/nodegit/nodegit/pull/958)
+- Fix `checkoutOptions` in `Stash#apply` [PR #956](https://github.com/nodegit/nodegit/pull/956)
+- Fixed install when there is a space in the username on windows [PR #951](https://github.com/nodegit/nodegit/pull/951)
+- Bump to nan@2.2.0 [PR #952](https://github.com/nodegit/nodegit/pull/952)
+
+# <a name="v0-11-9" href="#v0-11-9">v0.11.9</a> [(2016-03-09)](https://github.com/nodegit/nodegit/releases/tag/v0.11.9)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.8...v0.11.9)
+
+- Fixed crash when calculating diff via `ConvenientPatch` [PR #945](https://github.com/nodegit/nodegit/pull/945)
+
+# <a name="v0-11-8" href="#v0-11-8">v0.11.8</a> [(2016-03-07)](https://github.com/nodegit/nodegit/releases/tag/v0.11.8)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.7...v0.11.8)
+
+- Removed callback throttling due to segmentation faults. Will be implemented later. [PR #943](https://github.com/nodegit/nodegit/pull/943)
+
+# <a name="v0-11-7" href="#v0-11-7">v0.11.7</a> [(2016-03-07)](https://github.com/nodegit/nodegit/releases/tag/v0.11.7)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.6...v0.11.7)
+
+- Added `Repository#mergeheadForeach` [PR #937](https://github.com/nodegit/nodegit/pull/937)
+- Improved speed of all callbacks dramatically [PR #932](https://github.com/nodegit/nodegit/pull/932)
+- Fixed `Merge.merge` docs to show it takes in an `AnnotatedCommit` and not a `Commit` [PR #935](https://github.com/nodegit/nodegit/pull/935)
+- Fixed unicode in `Diff.blobToBuffer` getting corrupted [PR #935](https://github.com/nodegit/nodegit/pull/935)
+- Fixed fetching/pulling to bitbucket in versions > v5.6 of node [PR #942](https://github.com/nodegit/nodegit/pull/942)
+
+# <a name="v0-11-6" href="#v0-11-6">v0.11.6</a> [(2016-03-01)](https://github.com/nodegit/nodegit/releases/tag/v0.11.6)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.5...v0.11.6)
+
+- Added `Repository#checkoutRef` [PR #891](https://github.com/nodegit/nodegit/pull/891)
+- `Repository#createCommitOnHead` no longer dies if the repo is empty [PR #927](https://github.com/nodegit/nodegit/pull/927)
+- Fixed memory leak in `Patch#convenientFromDiff` [PR #930](https://github.com/nodegit/nodegit/pull/930)
+- Generated files now have a header comment indicating that they are generated [PR #924](https://github.com/nodegit/nodegit/pull/924)
+- Fixed http parsing errors in Node 5.6 [PR #931](https://github.com/nodegit/nodegit/pull/931)
+- Fixed `Tree#walk` not returning the correct entries on `end` [PR #929](https://github.com/nodegit/nodegit/pull/929)
+
+# <a name="v0-11-5" href="#v0-11-5">v0.11.5</a> [(2016-02-25)](https://github.com/nodegit/nodegit/releases/tag/v0.11.5)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.4...v0.11.5)
+
+- Fixed crash when calculating a diff [PR #922](https://github.com/nodegit/nodegit/pull/922)
+- Fixed an issue with return values getting randomly corrupted [PR #923](https://github.com/nodegit/nodegit/pull/923))
+
+# <a name="v0-11-4" href="#v0-11-4">v0.11.4</a> [(2016-02-24)](https://github.com/nodegit/nodegit/releases/tag/v0.11.4)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.3...v0.11.4)
+
+- Fixed callback out values in callbacks from C++. This affects any NodeGit call that is passed a callback as an option [PR #921](https://github.com/nodegit/nodegit/pull/921)
+- Fixed an issue with building the debug version of NodeGit on windows [PR #918](https://github.com/nodegit/nodegit/pull/918)
+
+# <a name="v0-11-3" href="#v0-11-3">v0.11.3</a> [(2016-02-22)](https://github.com/nodegit/nodegit/releases/tag/v0.11.3)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.2...v0.11.3)
+
+- Fixed an issue where initializing NodeGit would sometimes seg fault. Also fixed an error when fetching concurrently [PR #912](https://github.com/nodegit/nodegit/pull/912)
+
+# <a name="v0-11-2" href="#v0-11-2">v0.11.2</a> [(2016-02-18)](https://github.com/nodegit/nodegit/releases/tag/v0.11.2)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.1...v0.11.2)
+
+- Fixed an issue where when staging lines if the index is locked NodeGit just nuked it [PR #906](https://github.com/nodegit/nodegit/pull/906)
+- Fixed diff calculation when staging lines/hunks [PR #906](https://github.com/nodegit/nodegit/pull/906)
+- Fixed seg-fault in linux that happens when getting the diff of very small files [PR #908](https://github.com/nodegit/nodegit/pull/908)
+- Fixed `RevWalk#fastWalk` dying when an error happens in libgit2 [PR #909](https://github.com/nodegit/nodegit/pull/909)
+
+# <a name="v0-11-1" href="#v0-11-1">v0.11.1</a> [(2016-02-09)](https://github.com/nodegit/nodegit/releases/tag/v0.11.1)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.11.0...v0.11.1)
+
+- Numerous fixes and perf boosts to file history [PR #900](https://github.com/nodegit/nodegit/pull/900)[PR #896](https://github.com/nodegit/nodegit/pull/896)
+- Several doc fixes [PR #899](https://github.com/nodegit/nodegit/pull/899)[PR #897](https://github.com/nodegit/nodegit/pull/897)
+
+# <a name="v0-11-0" href="#v0-11-0">v0.11.0</a> [(2016-02-04)](https://github.com/nodegit/nodegit/releases/tag/v0.11.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.10.0...v0.11.0)
+
+- Change `Revert.commit` and `Revert.revert` to by async. [PR #887](https://github.com/nodegit/nodegit/pull/887)
+- Added `RevWalk#fileHistoryWalk` for a faster way to retrieve history for a specific file. [PR #889](https://github.com/nodegit/nodegit/pull/889)
+
+# <a name="v0-10-0" href="#v0-10-0">v0.10.0</a> [(2016-02-01)](https://github.com/nodegit/nodegit/releases/tag/v0.10.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.9.0...v0.10.0)
+
+- Clean mutexes are part of GC. No longer leaves processes running after the script ends [PR #880](https://github.com/nodegit/nodegit/pull/880)
+- Increased the performance of `ConvenientPatch` by an order of magnitude [PR #883](https://github.com/nodegit/nodegit/pull/883)
+
+# API changes
+- `ConvenientPatch`
+  - `ConvenientPatch` does not have a `patch` or a `delta` property associated with it, if you were using the `delta`, please just use prototype methods `oldFile`, `newFile`, and `Status`, which are stripped directly from the `delta`.
+  - `ConvenientPatch#hunks` returns a promise with an array of `ConvenientHunks`.
+- `ConvenientHunk`
+  - `ConvenientHunk` does not have an exposed diffHunk associated with it, but does have the same members as diffHunk:
+    - `size()` : number of lines in the hunk
+    - `oldStart()` : old starting position
+    - `oldLines()` : number of lines in old file
+    - `newStart()` : new starting position
+    - `newLines()` : number of lines in new file
+    - `headerLen()` : length of header
+    - `header()` : returns the header of the hunk
+    - `lines()` : returns a promise containing `DiffLines`, not `ConvenientLines`.
+- `DiffLine`
+- `DiffLine` now contains the members `rawContent()` and `content()`.
+  - `rawContent()` contains the unformatted content of the line. This is no longer a string from the line to the end of the file.
+  - `content()` contains the utf8 formatted content of the line.
+
+# <a name="v0-9-0" href="#v0-9-0">v0.9.0</a> [(2016-01-21)](https://github.com/nodegit/nodegit/releases/tag/v0.9.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.8.0...v0.9.0)
+
+- Thread safe fix to stop crashing on releasing mutexes [PR #876](https://github.com/nodegit/nodegit/pull/876)
+- `Submodule#setIgnore`, `Submodule#setUpdate`, and `Submodule#setUrl` are now all async. `Submodule#status` and `Submodule#location` are now available [PR #867](https://github.com/nodegit/nodegit/pull/867) and [PR #870](https://github.com/nodegit/nodegit/pull/870)
+- `Remote#defaultBranch` is now available [PR #872](https://github.com/nodegit/nodegit/pull/872)
+- `Repository#mergeBranches` now takes in a `MergeOptions` parameter [PR #873](https://github.com/nodegit/nodegit/pull/873)
+- Remove a NodeGit specific hack to make `Index#addAll` faster since that is fixed in libgit2 [PR #875](https://github.com/nodegit/nodegit/pull/875))
+
+# <a name="v0-8-0" href="#v0-8-0">v0.8.0</a> [(2016-01-15)](https://github.com/nodegit/nodegit/releases/tag/v0.8.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.7.0...0.8.0)
+
+- Thread safe locking has been added and currently is defaulted to off. Use `NodeGit.enableThreadSafety()` to turn on
+- NodeGit no longer requires a specific Promise object from the `nodegit-promise` library to be passed in. You can now use whatever you want!
+- `Repository#stageFilemode` now can accept an array of strings for files to update
+- `Submodule#addToIndex`, `Submodule#addFinalize`, `Submodule#init`, `Submodule#open`, `Submodule#sync`, and `Submodule#update` are now all async methodss
+
+# <a name="v0-7-0" href="#v0-7-0">v0.7.0</a> [(2016-01-08)](https://github.com/nodegit/nodegit/releases/tag/v0.7.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.6.3...0.7.0)
+
+- Bumped openssl to 1.0.2e to fix issues with prebuilts on linux platforms
+- Fixed a bug with GIT_ITER_OVER breaking rebase and other iterative methods
+- Make GraphDescendentOf asynchronous
+- Fixed line length of utf8 stringss
+
+# <a name="v0-6-3" href="#v0-6-3">v0.6.3</a> [(2015-12-16)](https://github.com/nodegit/nodegit/releases/tag/v0.6.3)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.6.2...0.6.3)
+
+ - Fixed a bug where manually building for vanilla node would fail without explicitly
+   setting the target
+
+# <a name="v0-6-2" href="#v0-6-2">v0.6.2</a> [(2015-12-16)](https://github.com/nodegit/nodegit/releases/tag/v0.6.2)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.6.1...0.6.2)
+
+ - Fixed a bug where manually building on windows would fail (if unable to download a prebuilt binary)
+
+# <a name="v0-6-1" href="#v0-6-1">v0.6.1</a> [(2015-12-14)](https://github.com/nodegit/nodegit/releases/tag/v0.6.1)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.6.0...0.6.1)
+
+ - Fixed Treebuilder.create to have an optional source
+ - Added Repository.getSubmoduleNames
+ - Added Submodule.Foreach
+
+# <a name="v0-6-0" href="#v0-6-0">v0.6.0</a> [(2015-12-08)](https://github.com/nodegit/nodegit/releases/tag/v0.6.0)
+
+ - Added file mode staging
+ - Added a fast rev walk to do the rev walk in C++ and bubble the result up to JS
+ - Updated to latest libgit2
+ - Updated to latest openssl
+ - Updated to latest nodegit-promise
+ - Removed c++11 dependency
+ - Fixed weirdness in lifecycle scripts
+ - Added downloading prebuilt binaries for electron
+
+# <a name="v0-4-1" href="#v0-4-1">v0.4.1</a> [(2015-06-02)](https://github.com/nodegit/nodegit/tree/0.4.1)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.4.0...0.4.1)
+
+**Closed issues:**
+
+- Error: Module did not self-register [\#593](https://github.com/nodegit/nodegit/issues/593)
+
+- A guide on how to create a new branch, switch to it and delete it. [\#588](https://github.com/nodegit/nodegit/issues/588)
+
+- A way to get "gone" branches [\#583](https://github.com/nodegit/nodegit/issues/583)
+
+- Missing documentation pages for BranchIterator and NodeIterator [\#581](https://github.com/nodegit/nodegit/issues/581)
+
+- ELIFECYCLE error on `npm rebuild` [\#578](https://github.com/nodegit/nodegit/issues/578)
+
+- npm rebuild fails \(lifecycleScripts/clean should not delete lifecycleScripts!\) [\#576](https://github.com/nodegit/nodegit/issues/576)
+
+- Unable to compile and install v0.4.0 on Windows [\#575](https://github.com/nodegit/nodegit/issues/575)
+
+- Doesn't work with Electron [\#574](https://github.com/nodegit/nodegit/issues/574)
+
+- Doesn't work with io.js 2.x [\#573](https://github.com/nodegit/nodegit/issues/573)
+
+- Getting an exception during a fetchAll in defaultSignature in repository.js [\#572](https://github.com/nodegit/nodegit/issues/572)
+
+- tree\_entry path function not working when calling getEntry with a path including subdir [\#570](https://github.com/nodegit/nodegit/issues/570)
+
+- Build is broken on windows [\#565](https://github.com/nodegit/nodegit/issues/565)
+
+- Cloning git sub modules using "nodegit" npm module [\#560](https://github.com/nodegit/nodegit/issues/560)
+
+- How to get remote latest commit? [\#559](https://github.com/nodegit/nodegit/issues/559)
+
+- npm install fails for nw.js [\#558](https://github.com/nodegit/nodegit/issues/558)
+
+- nodegit and nw.js [\#557](https://github.com/nodegit/nodegit/issues/557)
+
+**Merged pull requests:**
+
+- Cherrypick tests [\#595](https://github.com/nodegit/nodegit/pull/595) ([jdgarcia](https://github.com/jdgarcia))
+
+- Fix for issue \#591.  TreeEntry.path\(\) throws when TreeEntry came from Tree.entries\(\) [\#592](https://github.com/nodegit/nodegit/pull/592) ([tomruggs](https://github.com/tomruggs))
+
+- Standard merge [\#589](https://github.com/nodegit/nodegit/pull/589) ([jdgarcia](https://github.com/jdgarcia))
+
+- Add `git\_index\_conflict\_get` and test [\#586](https://github.com/nodegit/nodegit/pull/586) ([johnhaley81](https://github.com/johnhaley81))
+
+- Bump nan [\#584](https://github.com/nodegit/nodegit/pull/584) ([johnhaley81](https://github.com/johnhaley81))
+
+- Fix CI false positives [\#582](https://github.com/nodegit/nodegit/pull/582) ([johnhaley81](https://github.com/johnhaley81))
+
+- Added NodeGit.Checkout.index [\#579](https://github.com/nodegit/nodegit/pull/579) ([jdgarcia](https://github.com/jdgarcia))
+
+- Check for existence to avoid throwing an error when there is no default signature [\#577](https://github.com/nodegit/nodegit/pull/577) ([tomruggs](https://github.com/tomruggs))
+
+- Fix path function in tree\_entry \(fix for issue \#570\) [\#571](https://github.com/nodegit/nodegit/pull/571) ([jfremy](https://github.com/jfremy))
+
+- Fix Rebase issues [\#568](https://github.com/nodegit/nodegit/pull/568) ([jdgarcia](https://github.com/jdgarcia))
+
+- Fix build issues with 0.4.0 [\#566](https://github.com/nodegit/nodegit/pull/566) ([maxkorp](https://github.com/maxkorp))
+
+- stop cleaning on post-install [\#562](https://github.com/nodegit/nodegit/pull/562) ([maxkorp](https://github.com/maxkorp))
+
+# <a name="v0-4-0" href="#v0-4-0">v0.4.0</a> [(2015-05-07)](https://github.com/nodegit/nodegit/tree/v0.4.0)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.3...v0.4.0)
 
@@ -107,7 +544,7 @@ sections:
 
 - A wrapper for git\_diff\_blob\_to\_buffer [\#550](https://github.com/nodegit/nodegit/pull/550) ([bleathem](https://github.com/bleathem))
 
-- A wrapper for git\_diff\_blob\_to\_buffer [\#549](https://github.com/nodegit/nodegit/pull/549) ([bleathem](https://github.com/bleathem))
+- Update to 0.4.0 [\#548](https://github.com/nodegit/nodegit/pull/548) ([tbranyen](https://github.com/tbranyen))
 
 - Removed the superflous "line" argument [\#547](https://github.com/nodegit/nodegit/pull/547) ([bleathem](https://github.com/bleathem))
 
@@ -165,7 +602,7 @@ sections:
 
 - Add automatically generated change log file. [\#465](https://github.com/nodegit/nodegit/pull/465) ([skywinder](https://github.com/skywinder))
 
-## <a name="v0-3-3" href="#v0-3-3">v0.3.3</a> (2015-03-16)
+# <a name="v0-3-3" href="#v0-3-3">v0.3.3</a> [(2015-03-16)](https://github.com/nodegit/nodegit/tree/v0.3.3)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.2...v0.3.3)
 
@@ -173,7 +610,7 @@ sections:
 
 - Download all dev dependencies before build [\#491](https://github.com/nodegit/nodegit/pull/491) ([johnhaley81](https://github.com/johnhaley81))
 
-## <a name="v0-3-2" href="#v0-3-2">v0.3.2</a> (2015-03-16)
+# <a name="v0-3-2" href="#v0-3-2">v0.3.2</a> [(2015-03-16)](https://github.com/nodegit/nodegit/tree/v0.3.2)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.1...v0.3.2)
 
@@ -185,7 +622,7 @@ sections:
 
 - Confirm builder exists before building [\#490](https://github.com/nodegit/nodegit/pull/490) ([johnhaley81](https://github.com/johnhaley81))
 
-## <a name="v0-3-1" href="#v0-3-1">v0.3.1</a> (2015-03-14)
+# <a name="v0-3-1" href="#v0-3-1">v0.3.1</a> [(2015-03-14)](https://github.com/nodegit/nodegit/tree/v0.3.1)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.3.0...v0.3.1)
 
@@ -193,11 +630,13 @@ sections:
 
 - Revert node-pre-gyp to install not build [\#486](https://github.com/nodegit/nodegit/pull/486) ([tbranyen](https://github.com/tbranyen))
 
-## <a name="v0-3-0" href="#v0-3-0">v0.3.0</a> (2015-03-13)
+# <a name="v0-3-0" href="#v0-3-0">v0.3.0</a> [(2015-03-13)](https://github.com/nodegit/nodegit/tree/v0.3.0)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.7...v0.3.0)
 
 **Closed issues:**
+
+- Push [\#463](https://github.com/nodegit/nodegit/issues/463)
 
 - Suppress astyle errors [\#459](https://github.com/nodegit/nodegit/issues/459)
 
@@ -205,13 +644,9 @@ sections:
 
 - Meteor: icon fonts not working \(Resource interpreted as Font but transferred with MIME type text/html\) [\#443](https://github.com/nodegit/nodegit/issues/443)
 
-- Don't let users set the payloads through JS [\#436](https://github.com/nodegit/nodegit/issues/436)
-
-- Transfer callback stats are being converted wrong [\#432](https://github.com/nodegit/nodegit/issues/432)
+- AnnotatedCommit.x listing as Annotated.commitX [\#437](https://github.com/nodegit/nodegit/issues/437)
 
 - fetchAll\(\) fails unless a default signature is available [\#431](https://github.com/nodegit/nodegit/issues/431)
-
-- Push example needs to be updated [\#429](https://github.com/nodegit/nodegit/issues/429)
 
 - Question: Is there a certificateCheck option available for pushing to a remote repository? [\#420](https://github.com/nodegit/nodegit/issues/420)
 
@@ -231,8 +666,6 @@ sections:
 
 - Subtrees + custom error handling [\#400](https://github.com/nodegit/nodegit/issues/400)
 
-- Callbacks need to handle more use-cases [\#395](https://github.com/nodegit/nodegit/issues/395)
-
 - How to use nodegit in atom shell ..... [\#393](https://github.com/nodegit/nodegit/issues/393)
 
 - Cannot create a new branch [\#391](https://github.com/nodegit/nodegit/issues/391)
@@ -243,39 +676,57 @@ sections:
 
 - Rename combyne folder to templates [\#378](https://github.com/nodegit/nodegit/issues/378)
 
-- Building for atom-shell v0.21.0 fails [\#376](https://github.com/nodegit/nodegit/issues/376)
-
 - Cloning SSH repos seem to fail  [\#372](https://github.com/nodegit/nodegit/issues/372)
 
 - Commit.getDiff is backwards? [\#368](https://github.com/nodegit/nodegit/issues/368)
 
 - List all files in repo \(git ls-tree\) [\#365](https://github.com/nodegit/nodegit/issues/365)
 
-- Cloning locks up when more than 3 at the same time.  [\#364](https://github.com/nodegit/nodegit/issues/364)
-
 - Checking out a branch [\#361](https://github.com/nodegit/nodegit/issues/361)
 
 - nodegit no longer builds in nwjs [\#360](https://github.com/nodegit/nodegit/issues/360)
-
-- Update to v0.22 of libgit2 [\#355](https://github.com/nodegit/nodegit/issues/355)
 
 - Module install/build fails on Heroku  [\#332](https://github.com/nodegit/nodegit/issues/332)
 
 - 2 Step Authentication [\#323](https://github.com/nodegit/nodegit/issues/323)
 
-- Needed Examples for 0.3.0 [\#321](https://github.com/nodegit/nodegit/issues/321)
-
-- Tests randomly failing in AppVeyor [\#316](https://github.com/nodegit/nodegit/issues/316)
-
-- Start using prepublishing to fix dependencies [\#301](https://github.com/nodegit/nodegit/issues/301)
-
-- Get commits history only for a file [\#220](https://github.com/nodegit/nodegit/issues/220)
-
-- enable Index.addAll and related [\#131](https://github.com/nodegit/nodegit/issues/131)
-
 **Merged pull requests:**
 
+- Rename `Annotated` to `AnnotatedCommit` [\#485](https://github.com/nodegit/nodegit/pull/485) ([johnhaley81](https://github.com/johnhaley81))
+
+- Bump version to 0.3.0 [\#484](https://github.com/nodegit/nodegit/pull/484) ([johnhaley81](https://github.com/johnhaley81))
+
+- Remove unneeded connect call from push example [\#483](https://github.com/nodegit/nodegit/pull/483) ([johnhaley81](https://github.com/johnhaley81))
+
+- Update push example [\#481](https://github.com/nodegit/nodegit/pull/481) ([billt2006](https://github.com/billt2006))
+
+- Fix trailing space in atom-shell windows install [\#480](https://github.com/nodegit/nodegit/pull/480) ([johnhaley81](https://github.com/johnhaley81))
+
+- Fix atom-shell install on windows [\#479](https://github.com/nodegit/nodegit/pull/479) ([johnhaley81](https://github.com/johnhaley81))
+
+- Updated API documentation link to work with NPM's markdown renderer.  [\#477](https://github.com/nodegit/nodegit/pull/477) ([hughfdjackson](https://github.com/hughfdjackson))
+
+- Add option to `fetch` to prune the remote afterwards [\#476](https://github.com/nodegit/nodegit/pull/476) ([johnhaley81](https://github.com/johnhaley81))
+
+- Make index.addAll use status to increase performance [\#475](https://github.com/nodegit/nodegit/pull/475) ([maxkorp](https://github.com/maxkorp))
+
+- Add defaults to `Remote.prototype.push` [\#474](https://github.com/nodegit/nodegit/pull/474) ([johnhaley81](https://github.com/johnhaley81))
+
+- Fix `createCommitOnHead` [\#473](https://github.com/nodegit/nodegit/pull/473) ([johnhaley81](https://github.com/johnhaley81))
+
+- Move guides around to remove subindexes [\#472](https://github.com/nodegit/nodegit/pull/472) ([orderedlist](https://github.com/orderedlist))
+
+- Put `Remote.Push` on the remote prototype [\#470](https://github.com/nodegit/nodegit/pull/470) ([johnhaley81](https://github.com/johnhaley81))
+
+- Change Repository.prototype.setHead to be asynchronous [\#469](https://github.com/nodegit/nodegit/pull/469) ([jrbalsano](https://github.com/jrbalsano))
+
+- Test in Node 0.12 and io.js [\#468](https://github.com/nodegit/nodegit/pull/468) ([tbranyen](https://github.com/tbranyen))
+
+- Add checkoutBranch convenience method [\#466](https://github.com/nodegit/nodegit/pull/466) ([johnhaley81](https://github.com/johnhaley81))
+
 - Don't assign enums to \_\_proto\_\_ [\#464](https://github.com/nodegit/nodegit/pull/464) ([orderedlist](https://github.com/orderedlist))
+
+- Fix push example [\#462](https://github.com/nodegit/nodegit/pull/462) ([johnhaley81](https://github.com/johnhaley81))
 
 - Adds support for strarray in structs [\#461](https://github.com/nodegit/nodegit/pull/461) ([orderedlist](https://github.com/orderedlist))
 
@@ -309,21 +760,13 @@ sections:
 
 - Fix transfer callback stats [\#440](https://github.com/nodegit/nodegit/pull/440) ([johnhaley81](https://github.com/johnhaley81))
 
-- Put `uv\_async\_init` on main thread [\#438](https://github.com/nodegit/nodegit/pull/438) ([johnhaley81](https://github.com/johnhaley81))
-
-- Fix libuv threading issue [\#435](https://github.com/nodegit/nodegit/pull/435) ([johnhaley81](https://github.com/johnhaley81))
-
 - Automatically free repositories post clone [\#434](https://github.com/nodegit/nodegit/pull/434) ([tbranyen](https://github.com/tbranyen))
 
 - Skip transfer progress test until it's fixed [\#433](https://github.com/nodegit/nodegit/pull/433) ([johnhaley81](https://github.com/johnhaley81))
 
-- git\_create\_tag doesn't have the correct descriptor [\#430](https://github.com/nodegit/nodegit/pull/430) ([mattyclarkson](https://github.com/mattyclarkson))
-
 - Change environment to default for upgraded service [\#428](https://github.com/nodegit/nodegit/pull/428) ([maxkorp](https://github.com/maxkorp))
 
 - Make the `git\_remote\_push` function async [\#427](https://github.com/nodegit/nodegit/pull/427) ([johnhaley81](https://github.com/johnhaley81))
-
-- Fix file lock 2 [\#426](https://github.com/nodegit/nodegit/pull/426) ([tbranyen](https://github.com/tbranyen))
 
 - Attempt to fix Windows file locking bug [\#425](https://github.com/nodegit/nodegit/pull/425) ([tbranyen](https://github.com/tbranyen))
 
@@ -339,6 +782,8 @@ sections:
 
 - Update jsdoc and ignore some methods [\#418](https://github.com/nodegit/nodegit/pull/418) ([orderedlist](https://github.com/orderedlist))
 
+- Converting Examples to Guides [\#417](https://github.com/nodegit/nodegit/pull/417) ([tbranyen](https://github.com/tbranyen))
+
 - Fix callbacks with just return value and single payload [\#416](https://github.com/nodegit/nodegit/pull/416) ([johnhaley81](https://github.com/johnhaley81))
 
 - Add `git\_reset` and `git\_reset\_default` [\#415](https://github.com/nodegit/nodegit/pull/415) ([johnhaley81](https://github.com/johnhaley81))
@@ -348,8 +793,6 @@ sections:
 - Added code for `git\_strarray` and enabled `git\_index\_add\_all` [\#413](https://github.com/nodegit/nodegit/pull/413) ([johnhaley81](https://github.com/johnhaley81))
 
 - Tree Entry getBlob\(\) should also support the callback pattern. [\#405](https://github.com/nodegit/nodegit/pull/405) ([jeffwilcox](https://github.com/jeffwilcox))
-
-- Tree Entry getBlob\(\) should also support the callback pattern. [\#404](https://github.com/nodegit/nodegit/pull/404) ([jeffwilcox](https://github.com/jeffwilcox))
 
 - Adds in git\_checkout\_tree [\#402](https://github.com/nodegit/nodegit/pull/402) ([tbranyen](https://github.com/tbranyen))
 
@@ -377,8 +820,6 @@ sections:
 
 - Make all cred generators sync. [\#377](https://github.com/nodegit/nodegit/pull/377) ([maxkorp](https://github.com/maxkorp))
 
-- Plaintext credential not async [\#375](https://github.com/nodegit/nodegit/pull/375) ([mbleigh](https://github.com/mbleigh))
-
 - Status and StatusList [\#374](https://github.com/nodegit/nodegit/pull/374) ([orderedlist](https://github.com/orderedlist))
 
 - Fix the package scripts [\#373](https://github.com/nodegit/nodegit/pull/373) ([maxkorp](https://github.com/maxkorp))
@@ -395,17 +836,15 @@ sections:
 
 - Updated fs-extra to 0.15.0 [\#363](https://github.com/nodegit/nodegit/pull/363) ([johnhaley81](https://github.com/johnhaley81))
 
-- update to libgit2 v0.21.5 [\#362](https://github.com/nodegit/nodegit/pull/362) ([maxkorp](https://github.com/maxkorp))
-
 - Make remote\#download async [\#326](https://github.com/nodegit/nodegit/pull/326) ([tbranyen](https://github.com/tbranyen))
 
 - Enable transfer progress [\#325](https://github.com/nodegit/nodegit/pull/325) ([tbranyen](https://github.com/tbranyen))
 
-## <a name="v0-2-7" href="#v0-2-7">v0.2.7</a> (2015-01-21)
+# <a name="v0-2-7" href="#v0-2-7">v0.2.7</a> [(2015-01-21)](https://github.com/nodegit/nodegit/tree/v0.2.7)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.6...v0.2.7)
 
-## <a name="v0-2-6" href="#v0-2-6">v0.2.6</a> (2015-01-20)
+# <a name="v0-2-6" href="#v0-2-6">v0.2.6</a> [(2015-01-20)](https://github.com/nodegit/nodegit/tree/v0.2.6)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.5...v0.2.6)
 
@@ -413,7 +852,7 @@ sections:
 
 - \[WIP\] Added in some diff functions from libgit2 [\#348](https://github.com/nodegit/nodegit/pull/348) ([johnhaley81](https://github.com/johnhaley81))
 
-## <a name="v0-2-5" href="#v0-2-5">v0.2.5</a> (2015-01-20)
+# <a name="v0-2-5" href="#v0-2-5">v0.2.5</a> [(2015-01-20)](https://github.com/nodegit/nodegit/tree/v0.2.5)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.4...v0.2.5)
 
@@ -427,10 +866,6 @@ sections:
 
 - Can't require nodegit without building it explicitly [\#340](https://github.com/nodegit/nodegit/issues/340)
 
-- Can't build for node-webkit [\#335](https://github.com/nodegit/nodegit/issues/335)
-
-- Error when creating a new ssh key during credential handshake. [\#333](https://github.com/nodegit/nodegit/issues/333)
-
 - Tracking down bugs [\#331](https://github.com/nodegit/nodegit/issues/331)
 
 - Document possible values of CloneOptions [\#330](https://github.com/nodegit/nodegit/issues/330)
@@ -443,10 +878,6 @@ sections:
 
 - Fetch doesn't seem to work with https urls. [\#322](https://github.com/nodegit/nodegit/issues/322)
 
-- `git diff --cached --name-only` [\#183](https://github.com/nodegit/nodegit/issues/183)
-
-- git status [\#170](https://github.com/nodegit/nodegit/issues/170)
-
 **Merged pull requests:**
 
 - Refactor installation and publication [\#359](https://github.com/nodegit/nodegit/pull/359) ([maxkorp](https://github.com/maxkorp))
@@ -457,13 +888,9 @@ sections:
 
 - Fixed a typo in the debug build instruction. [\#356](https://github.com/nodegit/nodegit/pull/356) ([mcollina](https://github.com/mcollina))
 
-- Added a null check on freeing the raw object [\#354](https://github.com/nodegit/nodegit/pull/354) ([johnhaley81](https://github.com/johnhaley81))
-
 - \[WIP\] Attempt at fixing appveyor [\#352](https://github.com/nodegit/nodegit/pull/352) ([johnhaley81](https://github.com/johnhaley81))
 
 - Updated to nan 1.5.0 and fixed build errors [\#351](https://github.com/nodegit/nodegit/pull/351) ([johnhaley81](https://github.com/johnhaley81))
-
-- WIP: Refactor publishing [\#350](https://github.com/nodegit/nodegit/pull/350) ([maxkorp](https://github.com/maxkorp))
 
 - Added debug build instructions. [\#349](https://github.com/nodegit/nodegit/pull/349) ([mcollina](https://github.com/mcollina))
 
@@ -491,7 +918,7 @@ sections:
 
 - moving some deps to devdeps [\#320](https://github.com/nodegit/nodegit/pull/320) ([maxkorp](https://github.com/maxkorp))
 
-## <a name="v0-2-4" href="#v0-2-4">v0.2.4</a> (2014-12-05)
+# <a name="v0-2-4" href="#v0-2-4">v0.2.4</a> [(2014-12-05)](https://github.com/nodegit/nodegit/tree/v0.2.4)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.3...v0.2.4)
 
@@ -507,8 +934,6 @@ sections:
 
 - current branch [\#305](https://github.com/nodegit/nodegit/issues/305)
 
-- Don't require json output for production [\#302](https://github.com/nodegit/nodegit/issues/302)
-
 - Module fails to load [\#299](https://github.com/nodegit/nodegit/issues/299)
 
 - How to list all tags? [\#298](https://github.com/nodegit/nodegit/issues/298)
@@ -516,10 +941,6 @@ sections:
 - Building for ARM [\#292](https://github.com/nodegit/nodegit/issues/292)
 
 - Next release checklist [\#256](https://github.com/nodegit/nodegit/issues/256)
-
-- CI issues [\#202](https://github.com/nodegit/nodegit/issues/202)
-
-- Variable names in the Docs?  [\#157](https://github.com/nodegit/nodegit/issues/157)
 
 **Merged pull requests:**
 
@@ -539,8 +960,6 @@ sections:
 
 - fix signature.now and add signature tests [\#308](https://github.com/nodegit/nodegit/pull/308) ([maxkorp](https://github.com/maxkorp))
 
-- Add a Gitter chat badge to README.md [\#304](https://github.com/nodegit/nodegit/pull/304) ([gitter-badger](https://github.com/gitter-badger))
-
 - move nodegit.js to a template to remove idefs dependency [\#303](https://github.com/nodegit/nodegit/pull/303) ([maxkorp](https://github.com/maxkorp))
 
 - Fixed tag list and added a test for it [\#300](https://github.com/nodegit/nodegit/pull/300) ([johnhaley81](https://github.com/johnhaley81))
@@ -551,11 +970,11 @@ sections:
 
 - Styling  [\#295](https://github.com/nodegit/nodegit/pull/295) ([maxkorp](https://github.com/maxkorp))
 
-## <a name="v0-2-3" href="#v0-2-3">v0.2.3</a> (2014-11-25)
+# <a name="v0-2-3" href="#v0-2-3">v0.2.3</a> [(2014-11-25)](https://github.com/nodegit/nodegit/tree/v0.2.3)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.2...v0.2.3)
 
-## <a name="v0-2-2" href="#v0-2-2">v0.2.2</a> (2014-11-25)
+# <a name="v0-2-2" href="#v0-2-2">v0.2.2</a> [(2014-11-25)](https://github.com/nodegit/nodegit/tree/v0.2.2)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.1...v0.2.2)
 
@@ -563,7 +982,7 @@ sections:
 
 - Moved some dependencies around to help the generate not fail [\#294](https://github.com/nodegit/nodegit/pull/294) ([johnhaley81](https://github.com/johnhaley81))
 
-## <a name="v0-2-1" href="#v0-2-1">v0.2.1</a> (2014-11-25)
+# <a name="v0-2-1" href="#v0-2-1">v0.2.1</a> [(2014-11-25)](https://github.com/nodegit/nodegit/tree/v0.2.1)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.2.0...v0.2.1)
 
@@ -571,7 +990,7 @@ sections:
 
 - Rewrite installer [\#293](https://github.com/nodegit/nodegit/pull/293) ([johnhaley81](https://github.com/johnhaley81))
 
-## <a name="v0-2-0" href="#v0-2-0">v0.2.0</a> (2014-11-25)
+# <a name="v0-2-0" href="#v0-2-0">v0.2.0</a> [(2014-11-25)](https://github.com/nodegit/nodegit/tree/v0.2.0)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.1.4...v0.2.0)
 
@@ -593,8 +1012,6 @@ sections:
 
 - require\('path'\).Repo.open\(...\) returns {} [\#241](https://github.com/nodegit/nodegit/issues/241)
 
-- Refactoring how internal C objects are stored in V8 and passed to JS [\#240](https://github.com/nodegit/nodegit/issues/240)
-
 - RevWalk malloc error [\#239](https://github.com/nodegit/nodegit/issues/239)
 
 - OS X tests in Travis-CI [\#237](https://github.com/nodegit/nodegit/issues/237)
@@ -613,23 +1030,11 @@ sections:
 
 - Did getReferences dissapear? [\#223](https://github.com/nodegit/nodegit/issues/223)
 
-- How to get UNIX file attributes? [\#222](https://github.com/nodegit/nodegit/issues/222)
-
-- How to get mtime for TreeEntry/file? [\#221](https://github.com/nodegit/nodegit/issues/221)
-
-- Commit only if there is changes [\#219](https://github.com/nodegit/nodegit/issues/219)
-
 - Again for \#147 [\#218](https://github.com/nodegit/nodegit/issues/218)
 
 - Update documentation on nodegit.org [\#217](https://github.com/nodegit/nodegit/issues/217)
 
-- Can you provide the prebuilt binaries on S3? [\#216](https://github.com/nodegit/nodegit/issues/216)
-
 - Stable = bump to 1.0 [\#215](https://github.com/nodegit/nodegit/issues/215)
-
-- How can I push a commit? [\#214](https://github.com/nodegit/nodegit/issues/214)
-
-- "Error: Reference 'refs/heads/master' not found " when create commit in a empty repo [\#213](https://github.com/nodegit/nodegit/issues/213)
 
 - Example on nodegit.com homepage is invalid [\#211](https://github.com/nodegit/nodegit/issues/211)
 
@@ -647,15 +1052,9 @@ sections:
 
 - CloneOptions documentation lacking [\#192](https://github.com/nodegit/nodegit/issues/192)
 
-- Getting the HEAD commit SHA [\#191](https://github.com/nodegit/nodegit/issues/191)
-
 - Webpage examples are not up to date [\#190](https://github.com/nodegit/nodegit/issues/190)
 
 - Automatically generate structs from types array [\#187](https://github.com/nodegit/nodegit/issues/187)
-
-- Adding a new file always returns the same SHA. [\#185](https://github.com/nodegit/nodegit/issues/185)
-
-- Current Travis passes with fallback binary. [\#182](https://github.com/nodegit/nodegit/issues/182)
 
 - Error: connect ETIMEDOUT during install [\#179](https://github.com/nodegit/nodegit/issues/179)
 
@@ -663,59 +1062,7 @@ sections:
 
 - Notes [\#176](https://github.com/nodegit/nodegit/issues/176)
 
-- How to create a branch [\#174](https://github.com/nodegit/nodegit/issues/174)
-
-- `p-\>index\_map.data' failed [\#172](https://github.com/nodegit/nodegit/issues/172)
-
 - Integration improvements. [\#171](https://github.com/nodegit/nodegit/issues/171)
-
-- invalid ELF header from build/Release/nodegit.node [\#167](https://github.com/nodegit/nodegit/issues/167)
-
-- Removing generated source. [\#165](https://github.com/nodegit/nodegit/issues/165)
-
-- using newer libgit2 version [\#164](https://github.com/nodegit/nodegit/issues/164)
-
-- Generating tests for bindings. [\#163](https://github.com/nodegit/nodegit/issues/163)
-
-- Streams? [\#161](https://github.com/nodegit/nodegit/issues/161)
-
-- Unfortunately GitHub decided to go their own way :-/ [\#160](https://github.com/nodegit/nodegit/issues/160)
-
-- Separate additional meta data from JSON. [\#152](https://github.com/nodegit/nodegit/issues/152)
-
-- Git Pull [\#151](https://github.com/nodegit/nodegit/issues/151)
-
-- branch.cc missing from binding.gyp [\#149](https://github.com/nodegit/nodegit/issues/149)
-
-- numDeltasOfType is a static method not on the prototype [\#148](https://github.com/nodegit/nodegit/issues/148)
-
-- Not sure how this happen [\#147](https://github.com/nodegit/nodegit/issues/147)
-
-- Emscripten binding templates. [\#142](https://github.com/nodegit/nodegit/issues/142)
-
-- git+ssh transport support [\#136](https://github.com/nodegit/nodegit/issues/136)
-
-- Support for git\_merge [\#133](https://github.com/nodegit/nodegit/issues/133)
-
-- Random segfault in kh\_get\_off [\#132](https://github.com/nodegit/nodegit/issues/132)
-
-- Unexpected HTTP status code: 401 [\#130](https://github.com/nodegit/nodegit/issues/130)
-
-- Commit\#messageEncoding triggers a segmentation fault [\#129](https://github.com/nodegit/nodegit/issues/129)
-
-- Passing CloneOptions [\#127](https://github.com/nodegit/nodegit/issues/127)
-
-- Commit.getDiff\(\) fails for first commit [\#125](https://github.com/nodegit/nodegit/issues/125)
-
-- Adding directories [\#121](https://github.com/nodegit/nodegit/issues/121)
-
-- checkout head and update working tree [\#114](https://github.com/nodegit/nodegit/issues/114)
-
-- Index add cacheinfo [\#111](https://github.com/nodegit/nodegit/issues/111)
-
-- Remote.prototype.pushUrl\(\) Segmentation fault: 11 and Remote.prototype.setPushUrl\(url\) not working ? [\#109](https://github.com/nodegit/nodegit/issues/109)
-
-- Set working tree [\#93](https://github.com/nodegit/nodegit/issues/93)
 
 **Merged pull requests:**
 
@@ -747,8 +1094,6 @@ sections:
 
 - Exposes the NodeGit Promise implementation [\#278](https://github.com/nodegit/nodegit/pull/278) ([tbranyen](https://github.com/tbranyen))
 
-- Fixes incorrect method used in path lookup [\#277](https://github.com/nodegit/nodegit/pull/277) ([tbranyen](https://github.com/tbranyen))
-
 - \[WIP\] Update examples [\#276](https://github.com/nodegit/nodegit/pull/276) ([johnhaley81](https://github.com/johnhaley81))
 
 - Added script to generate missing tests [\#274](https://github.com/nodegit/nodegit/pull/274) ([johnhaley81](https://github.com/johnhaley81))
@@ -765,8 +1110,6 @@ sections:
 
 - require --documentation flag to include text in idefs [\#265](https://github.com/nodegit/nodegit/pull/265) ([maxkorp](https://github.com/maxkorp))
 
-- This is a test [\#263](https://github.com/nodegit/nodegit/pull/263) ([johnhaley81](https://github.com/johnhaley81))
-
 - Added ability for callbacks to poll promises for fulfillment value [\#260](https://github.com/nodegit/nodegit/pull/260) ([johnhaley81](https://github.com/johnhaley81))
 
 - Generate nodegit from libgit2 docs and refactor descriptor [\#259](https://github.com/nodegit/nodegit/pull/259) ([johnhaley81](https://github.com/johnhaley81))
@@ -775,19 +1118,13 @@ sections:
 
 - Bump to latest libgit2 [\#257](https://github.com/nodegit/nodegit/pull/257) ([tbranyen](https://github.com/tbranyen))
 
-- Added status methods [\#255](https://github.com/nodegit/nodegit/pull/255) ([tbranyen](https://github.com/tbranyen))
-
 - Use Start-Process to start pageant.exe [\#254](https://github.com/nodegit/nodegit/pull/254) ([FeodorFitsner](https://github.com/FeodorFitsner))
-
-- Adds in git\_index\_add and GitIndexInfo struct [\#253](https://github.com/nodegit/nodegit/pull/253) ([tbranyen](https://github.com/tbranyen))
 
 - Adds in a broken unit test for \#109 [\#252](https://github.com/nodegit/nodegit/pull/252) ([tbranyen](https://github.com/tbranyen))
 
 - Added more git\_cred methods [\#251](https://github.com/nodegit/nodegit/pull/251) ([johnhaley81](https://github.com/johnhaley81))
 
 - Refactor classes [\#250](https://github.com/nodegit/nodegit/pull/250) ([maxkorp](https://github.com/maxkorp))
-
-- Remove openssl [\#249](https://github.com/nodegit/nodegit/pull/249) ([tbranyen](https://github.com/tbranyen))
 
 - Update Readme, to improve example code [\#248](https://github.com/nodegit/nodegit/pull/248) ([nmn](https://github.com/nmn))
 
@@ -800,8 +1137,6 @@ sections:
 - Branch methods [\#243](https://github.com/nodegit/nodegit/pull/243) ([tbranyen](https://github.com/tbranyen))
 
 - Blame methods [\#242](https://github.com/nodegit/nodegit/pull/242) ([tbranyen](https://github.com/tbranyen))
-
-- Enable multios [\#238](https://github.com/nodegit/nodegit/pull/238) ([maxkorp](https://github.com/maxkorp))
 
 - Add revwalk.hide and revwalk.simplifyFirstParent [\#235](https://github.com/nodegit/nodegit/pull/235) ([tbranyen](https://github.com/tbranyen))
 
@@ -816,10 +1151,6 @@ sections:
 - WIP: Refactor source generation templates from EJS to Combyne [\#227](https://github.com/nodegit/nodegit/pull/227) ([tbranyen](https://github.com/tbranyen))
 
 - Test fixes [\#226](https://github.com/nodegit/nodegit/pull/226) ([johnhaley81](https://github.com/johnhaley81))
-
-- Get HEAD SHA [\#210](https://github.com/nodegit/nodegit/pull/210) ([tbranyen](https://github.com/tbranyen))
-
-- Started working on initializing a repo with init options [\#208](https://github.com/nodegit/nodegit/pull/208) ([tbranyen](https://github.com/tbranyen))
 
 - Added new methods in checkout and repository [\#207](https://github.com/nodegit/nodegit/pull/207) ([tbranyen](https://github.com/tbranyen))
 
@@ -851,13 +1182,7 @@ sections:
 
 - Better installation flow for developing. [\#180](https://github.com/nodegit/nodegit/pull/180) ([tbranyen](https://github.com/tbranyen))
 
-- \[Experimental\] Emscripten fun. [\#168](https://github.com/nodegit/nodegit/pull/168) ([tbranyen](https://github.com/tbranyen))
-
-- \[WIP\] Descriptor refactor. [\#162](https://github.com/nodegit/nodegit/pull/162) ([tbranyen](https://github.com/tbranyen))
-
-- Enable promises. [\#153](https://github.com/nodegit/nodegit/pull/153) ([tbranyen](https://github.com/tbranyen))
-
-## <a name="v0-1-4" href="#v0-1-4">v0.1.4</a> (2014-06-13)
+# <a name="v0-1-4" href="#v0-1-4">v0.1.4</a> [(2014-06-13)](https://github.com/nodegit/nodegit/tree/v0.1.4)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.1.3...v0.1.4)
 
@@ -867,13 +1192,9 @@ sections:
 
 - using "Branch" object results in "undefined" error =\> branch.cc missing from binding.gyp? [\#166](https://github.com/nodegit/nodegit/issues/166)
 
-- Feature: Compatibility with node \>=v0.11.13 [\#159](https://github.com/nodegit/nodegit/issues/159)
-
 - Windows: Failure on install [\#158](https://github.com/nodegit/nodegit/issues/158)
 
 - Can't install v0.1.2 under OSX [\#155](https://github.com/nodegit/nodegit/issues/155)
-
-- Logo for project [\#69](https://github.com/nodegit/nodegit/issues/69)
 
 **Merged pull requests:**
 
@@ -883,19 +1204,15 @@ sections:
 
 - Fixed: "ReferenceError: error is not defined" [\#169](https://github.com/nodegit/nodegit/pull/169) ([danyshaanan](https://github.com/danyshaanan))
 
-## <a name="v0-1-3" href="#v0-1-3">v0.1.3</a> (2014-05-02)
+# <a name="v0-1-3" href="#v0-1-3">v0.1.3</a> [(2014-05-02)](https://github.com/nodegit/nodegit/tree/v0.1.3)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.1.2...v0.1.3)
-
-**Closed issues:**
-
-- Fix AppVeyor. [\#154](https://github.com/nodegit/nodegit/issues/154)
 
 **Merged pull requests:**
 
 - Fix erroneous OS detection for installation in OS X. [\#156](https://github.com/nodegit/nodegit/pull/156) ([tbranyen](https://github.com/tbranyen))
 
-## <a name="v0-1-2" href="#v0-1-2">v0.1.2</a> (2014-05-02)
+# <a name="v0-1-2" href="#v0-1-2">v0.1.2</a> [(2014-05-02)](https://github.com/nodegit/nodegit/tree/v0.1.2)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.1.1...v0.1.2)
 
@@ -933,7 +1250,7 @@ sections:
 
 - WIP New installer. [\#140](https://github.com/nodegit/nodegit/pull/140) ([tbranyen](https://github.com/tbranyen))
 
-## <a name="v0-1-1" href="#v0-1-1">v0.1.1</a> (2014-03-23)
+# <a name="v0-1-1" href="#v0-1-1">v0.1.1</a> [(2014-03-23)](https://github.com/nodegit/nodegit/tree/v0.1.1)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.1.0...v0.1.1)
 
@@ -975,8 +1292,6 @@ sections:
 
 - missing cstring [\#88](https://github.com/nodegit/nodegit/issues/88)
 
-- Memory management for the codegen `wip` branch [\#84](https://github.com/nodegit/nodegit/issues/84)
-
 - Installing fails - can't find vendor/libgit2/build [\#80](https://github.com/nodegit/nodegit/issues/80)
 
 - Improving JavaScript API [\#73](https://github.com/nodegit/nodegit/issues/73)
@@ -988,8 +1303,6 @@ sections:
 - Fix and improve testing. [\#139](https://github.com/nodegit/nodegit/pull/139) ([tbranyen](https://github.com/tbranyen))
 
 - Support for Node 0.11+ [\#135](https://github.com/nodegit/nodegit/pull/135) ([pierreinglebert](https://github.com/pierreinglebert))
-
-- Fixed the error message to pass test. [\#119](https://github.com/nodegit/nodegit/pull/119) ([tbranyen](https://github.com/tbranyen))
 
 - Added git\_diff\_delta\_dup to git\_diff\_get\_patch to fix a memory issue whe... [\#113](https://github.com/nodegit/nodegit/pull/113) ([kmctown](https://github.com/kmctown))
 
@@ -1015,7 +1328,7 @@ sections:
 
 - Add system dependencies for OSX install [\#82](https://github.com/nodegit/nodegit/pull/82) ([philschatz](https://github.com/philschatz))
 
-## <a name="v0-1-0" href="#v0-1-0">v0.1.0</a> (2013-09-07)
+# <a name="v0-1-0" href="#v0-1-0">v0.1.0</a> [(2013-09-07)](https://github.com/nodegit/nodegit/tree/v0.1.0)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.79...v0.1.0)
 
@@ -1035,51 +1348,31 @@ sections:
 
 - Nested walks scatter memory and cause SEGFAULTS [\#72](https://github.com/nodegit/nodegit/issues/72)
 
-- Why is new git.Oid\(\).fromString\(\) etc. async? [\#68](https://github.com/nodegit/nodegit/issues/68)
-
 - feature request: Provide fileMode / getType method on tree entries [\#67](https://github.com/nodegit/nodegit/issues/67)
 
 - Document DiffList [\#66](https://github.com/nodegit/nodegit/issues/66)
 
-- Implement query-like access to repo content [\#61](https://github.com/nodegit/nodegit/issues/61)
-
-- Tags [\#58](https://github.com/nodegit/nodegit/issues/58)
-
 - Procedure for moving development to nodegit/nodegit [\#55](https://github.com/nodegit/nodegit/issues/55)
-
-- cloning or updating repositories? [\#50](https://github.com/nodegit/nodegit/issues/50)
 
 - Cannot install on OSX [\#49](https://github.com/nodegit/nodegit/issues/49)
 
-- Add file to repo [\#45](https://github.com/nodegit/nodegit/issues/45)
-
 **Merged pull requests:**
-
-- Fixed TreeBuilder.write's missing repo argument to match its documentation [\#85](https://github.com/nodegit/nodegit/pull/85) ([FrozenCow](https://github.com/FrozenCow))
 
 - Codegen [\#79](https://github.com/nodegit/nodegit/pull/79) ([nkallen](https://github.com/nkallen))
 
-- Codegen [\#78](https://github.com/nodegit/nodegit/pull/78) ([nkallen](https://github.com/nkallen))
-
-- Codegen [\#77](https://github.com/nodegit/nodegit/pull/77) ([nkallen](https://github.com/nkallen))
-
 - Updated LICENSE to MIT [\#75](https://github.com/nodegit/nodegit/pull/75) ([tbranyen](https://github.com/tbranyen))
 
-## <a name="v0-0-79" href="#v0-0-79">v0.0.79</a> (2013-04-05)
+# <a name="v0-0-79" href="#v0-0-79">v0.0.79</a> [(2013-04-05)](https://github.com/nodegit/nodegit/tree/v0.0.79)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.778...v0.0.79)
 
 **Closed issues:**
 
-- Un-chain async example on github pages [\#65](https://github.com/nodegit/nodegit/issues/65)
-
 - Clarify commit.history documentation [\#63](https://github.com/nodegit/nodegit/issues/63)
-
-- Make commit.time pass Date object [\#62](https://github.com/nodegit/nodegit/issues/62)
 
 - Python error on installing nodegit 0.0.77 [\#59](https://github.com/nodegit/nodegit/issues/59)
 
-## <a name="v0-0-778" href="#v0-0-778">v0.0.778</a> (2013-03-26)
+# <a name="v0-0-778" href="#v0-0-778">v0.0.778</a> [(2013-03-26)](https://github.com/nodegit/nodegit/tree/v0.0.778)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.77...v0.0.778)
 
@@ -1087,15 +1380,15 @@ sections:
 
 - See issue \#59 [\#60](https://github.com/nodegit/nodegit/pull/60) ([dctr](https://github.com/dctr))
 
-## <a name="v0-0-77" href="#v0-0-77">v0.0.77</a> (2013-03-24)
+# <a name="v0-0-77" href="#v0-0-77">v0.0.77</a> [(2013-03-24)](https://github.com/nodegit/nodegit/tree/v0.0.77)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.76...v0.0.77)
 
-## <a name="v0-0-76" href="#v0-0-76">v0.0.76</a> (2013-03-24)
+# <a name="v0-0-76" href="#v0-0-76">v0.0.76</a> [(2013-03-24)](https://github.com/nodegit/nodegit/tree/v0.0.76)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.75...v0.0.76)
 
-## <a name="v0-0-75" href="#v0-0-75">v0.0.75</a> (2013-03-24)
+# <a name="v0-0-75" href="#v0-0-75">v0.0.75</a> [(2013-03-24)](https://github.com/nodegit/nodegit/tree/v0.0.75)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.74...v0.0.75)
 
@@ -1125,11 +1418,11 @@ sections:
 
 - Comment all code methods [\#1](https://github.com/nodegit/nodegit/issues/1)
 
-## <a name="v0-0-74" href="#v0-0-74">v0.0.74</a> (2013-03-21)
+# <a name="v0-0-74" href="#v0-0-74">v0.0.74</a> [(2013-03-21)](https://github.com/nodegit/nodegit/tree/v0.0.74)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.73...v0.0.74)
 
-## <a name="v0-0-73" href="#v0-0-73">v0.0.73</a> (2013-03-21)
+# <a name="v0-0-73" href="#v0-0-73">v0.0.73</a> [(2013-03-21)](https://github.com/nodegit/nodegit/tree/v0.0.73)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.72...v0.0.73)
 
@@ -1143,11 +1436,11 @@ sections:
 
 - Tree each method is synchronous [\#15](https://github.com/nodegit/nodegit/issues/15)
 
-## <a name="v0-0-72" href="#v0-0-72">v0.0.72</a> (2013-03-06)
+# <a name="v0-0-72" href="#v0-0-72">v0.0.72</a> [(2013-03-06)](https://github.com/nodegit/nodegit/tree/v0.0.72)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.71...v0.0.72)
 
-## <a name="v0-0-71" href="#v0-0-71">v0.0.71</a> (2013-03-06)
+# <a name="v0-0-71" href="#v0-0-71">v0.0.71</a> [(2013-03-06)](https://github.com/nodegit/nodegit/tree/v0.0.71)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.6...v0.0.71)
 
@@ -1160,8 +1453,6 @@ sections:
 - repo has no method 'branch' [\#35](https://github.com/nodegit/nodegit/issues/35)
 
 - update for node 0.5.9 [\#29](https://github.com/nodegit/nodegit/issues/29)
-
-- Issue with errors [\#23](https://github.com/nodegit/nodegit/issues/23)
 
 **Merged pull requests:**
 
@@ -1177,15 +1468,7 @@ sections:
 
 - Refactor [\#37](https://github.com/nodegit/nodegit/pull/37) ([mmalecki](https://github.com/mmalecki))
 
-- Refactor [\#36](https://github.com/nodegit/nodegit/pull/36) ([mmalecki](https://github.com/mmalecki))
-
-- Removed references to node\_events.h [\#31](https://github.com/nodegit/nodegit/pull/31) ([alexkwolfe](https://github.com/alexkwolfe))
-
-- Updates for node 0.5.9 \(fixed Issue \#29\) [\#30](https://github.com/nodegit/nodegit/pull/30) ([tojocky](https://github.com/tojocky))
-
-- Error constants added [\#25](https://github.com/nodegit/nodegit/pull/25) ([milani](https://github.com/milani))
-
-## <a name="v0-0-6" href="#v0-0-6">v0.0.6</a> (2011-12-19)
+# <a name="v0-0-6" href="#v0-0-6">v0.0.6</a> [(2011-12-19)](https://github.com/nodegit/nodegit/tree/v0.0.6)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.4...v0.0.6)
 
@@ -1199,9 +1482,7 @@ sections:
 
 - Node 0.6x fixes [\#34](https://github.com/nodegit/nodegit/pull/34) ([moneal](https://github.com/moneal))
 
-- Updates for node 0.6x [\#33](https://github.com/nodegit/nodegit/pull/33) ([moneal](https://github.com/moneal))
-
-## <a name="v0-0-4" href="#v0-0-4">v0.0.4</a> (2011-05-14)
+# <a name="v0-0-4" href="#v0-0-4">v0.0.4</a> [(2011-05-14)](https://github.com/nodegit/nodegit/tree/v0.0.4)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.3...v0.0.4)
 
@@ -1211,13 +1492,9 @@ sections:
 
 - example/convenience-repo.js errors [\#21](https://github.com/nodegit/nodegit/issues/21)
 
-- Use new Error when throwing exceptions [\#20](https://github.com/nodegit/nodegit/issues/20)
-
-- Scope.close when handlescope is used [\#19](https://github.com/nodegit/nodegit/issues/19)
-
 - Branch history each method is asynchronous [\#11](https://github.com/nodegit/nodegit/issues/11)
 
-## <a name="v0-0-3" href="#v0-0-3">v0.0.3</a> (2011-04-13)
+# <a name="v0-0-3" href="#v0-0-3">v0.0.3</a> [(2011-04-13)](https://github.com/nodegit/nodegit/tree/v0.0.3)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.2...v0.0.3)
 
@@ -1225,17 +1502,13 @@ sections:
 
 - error handling [\#18](https://github.com/nodegit/nodegit/issues/18)
 
-- nodegit namespace [\#14](https://github.com/nodegit/nodegit/issues/14)
-
-- Rename all classes to have Git prefix [\#13](https://github.com/nodegit/nodegit/issues/13)
-
 - Windows link issue [\#12](https://github.com/nodegit/nodegit/issues/12)
 
-## <a name="v0-0-2" href="#v0-0-2">v0.0.2</a> (2011-03-14)
+# <a name="v0-0-2" href="#v0-0-2">v0.0.2</a> [(2011-03-14)](https://github.com/nodegit/nodegit/tree/v0.0.2)
 
 [Full Changelog](https://github.com/nodegit/nodegit/compare/v0.0.1...v0.0.2)
 
-## <a name="v0-0-1" href="#v0-0-1">v0.0.1</a> (2011-03-10)
+# <a name="v0-0-1" href="#v0-0-1">v0.0.1</a> [(2011-03-10)](https://github.com/nodegit/nodegit/tree/v0.0.1)
 
 
 
