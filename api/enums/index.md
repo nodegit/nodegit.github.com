@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Enums
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -37,6 +37,7 @@ sections:
 | <span>Enums.FEATURE.</span>THREADS | 1 |
 | <span>Enums.FEATURE.</span>HTTPS | 2 |
 | <span>Enums.FEATURE.</span>SSH | 4 |
+| <span>Enums.FEATURE.</span>NSEC | 8 |
 
 ## <a name="IDXENTRY_EXTENDED_FLAG"></a><span>Enums.</span>IDXENTRY_EXTENDED_FLAG <span class="tags"><span class="enum">ENUM</span></span>
 

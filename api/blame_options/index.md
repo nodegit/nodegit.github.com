@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: BlameOptions
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/

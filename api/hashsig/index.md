@@ -2,35 +2,16 @@
 layout: default
 menu_item: api
 title: Hashsig
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
-  "create": "#create"
   "createFromFile": "#createFromFile"
   "#compare": "#compare"
   "#free": "#free"
   "OPTION": "#OPTION"
 ---
-
-## <a name="create"></a><span>Hashsig.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
-
-```js
-Hashsig.create(buf, buflen, opts).then(function(hashsig) {
-  // Use hashsig
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| buf | String | The input buffer. |
-| buflen | Number | The input buffer size. |
-| opts | Number | The signature computation options (see above). |
-
-| Returns |  |
-| --- | --- |
-| [Hashsig](/api/hashsig/) | The computed similarity signature. |
 
 ## <a name="createFromFile"></a><span>Hashsig.</span>createFromFile <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

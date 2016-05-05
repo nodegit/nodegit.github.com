@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -80,10 +80,12 @@ var result = Remote.addPush(repo, remote, refspec);
 | --- | --- |
 | Number |  0, GIT_EINVALIDSPEC if refspec is invalid or an error value |
 
-## <a name="create"></a><span>Remote.</span>create <span class="tags"><span class="sync">Sync</span></span>
+## <a name="create"></a><span>Remote.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var remote = Remote.create(repo, name, url);
+Remote.create(repo, name, url).then(function(remote) {
+  // Use remote
+});
 ```
 
 | Parameters | Type |   |
@@ -275,7 +277,7 @@ var result = remote.autotag();
 ## <a name="connect"></a><span>Remote#</span>connect <span class="tags"><span class="async">Async</span></span>
 
 ```js
-remote.connect(direction, callbacks, callback).then(function(number) {
+remote.connect(direction, callbacks, proxyOpts, customHeaders, callback).then(function(number) {
   // Use number
 });
 ```
@@ -286,6 +288,8 @@ Connects to a remote
 | --- | --- | --- |
 | direction | [Enums.DIRECTION](/api/enums/#DIRECTION) | The direction for the connection |
 | callbacks | [RemoteCallbacks](/api/remote_callbacks/) | The callback functions for the connection |
+| proxyOpts | ProxyOptions | Proxy settings |
+| customHeaders | Array&lt;string&gt; | extra HTTP headers to use |
 | callback | Function |  |
 
 | Returns |  |

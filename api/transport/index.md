@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Transport
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,6 +10,7 @@ sections:
   "sshWithPaths": "#sshWithPaths"
   "unregister": "#unregister"
   "#init": "#init"
+  "#smartCertificateCheck": "#smartCertificateCheck"
   "FLAGS": "#FLAGS"
 ---
 
@@ -57,6 +58,22 @@ var result = transport.init(version);
 | Returns |  |
 | --- | --- |
 | Number |  Zero on success; -1 on failure. |
+
+## <a name="smartCertificateCheck"></a><span>Transport#</span>smartCertificateCheck <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = transport.smartCertificateCheck(cert, valid, hostname);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| cert | [Cert](/api/cert/) | the certificate to pass to the caller |
+| valid | Number | whether we believe the certificate is valid |
+| hostname | String | the hostname we connected to |
+
+| Returns |  |
+| --- | --- |
+| Number |  the return value of the callback |
 
 ## <a name="FLAGS"></a><span>Transport.</span>FLAGS <span class="tags"><span class="enum">ENUM</span></span>
 

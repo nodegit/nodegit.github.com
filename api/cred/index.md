@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Cred
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,6 +13,7 @@ sections:
   "sshKeyNew": "#sshKeyNew"
   "usernameNew": "#usernameNew"
   "userpassPlaintextNew": "#userpassPlaintextNew"
+  "#free": "#free"
   "#hasUsername": "#hasUsername"
   "TYPE": "#TYPE"
 ---
@@ -107,6 +108,12 @@ var cred = Cred.userpassPlaintextNew(username, password);
 | Returns |  |
 | --- | --- |
 | [Cred](/api/cred/) | The newly created credential object. |
+
+## <a name="free"></a><span>Cred#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+cred.free();
+```
 
 ## <a name="hasUsername"></a><span>Cred#</span>hasUsername <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,20 +2,13 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "entryCmp": "#entryCmp"
   "entryDup": "#entryDup"
-  "entryFilemode": "#entryFilemode"
-  "entryFilemodeRaw": "#entryFilemodeRaw"
-  "entryFree": "#entryFree"
-  "entryId": "#entryId"
-  "entryName": "#entryName"
-  "entryToObject": "#entryToObject"
-  "entryType": "#entryType"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#_entryByIndex": "#_entryByIndex"
@@ -68,102 +61,6 @@ var result = Tree.entryDup(dest, source);
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
-
-## <a name="entryFilemode"></a><span>Tree.</span>entryFilemode <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tree.entryFilemode(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| Number |  filemode as an integer |
-
-## <a name="entryFilemodeRaw"></a><span>Tree.</span>entryFilemodeRaw <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tree.entryFilemodeRaw(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| Number |  filemode as an integer |
-
-## <a name="entryFree"></a><span>Tree.</span>entryFree <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-Tree.entryFree(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | The entry to free |
-
-## <a name="entryId"></a><span>Tree.</span>entryId <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var oid = Tree.entryId(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) |  the oid of the object |
-
-## <a name="entryName"></a><span>Tree.</span>entryName <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var string = Tree.entryName(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| String |  the name of the file |
-
-## <a name="entryToObject"></a><span>Tree.</span>entryToObject <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tree.entryToObject(object_out, repo, entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| object_out | [Object](/api/object/) | pointer to the converted object |
-| repo | [Repository](/api/repository/) | repository where to lookup the pointed object |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error code |
-
-## <a name="entryType"></a><span>Tree.</span>entryType <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tree.entryType(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [TreeEntry](/api/tree_entry/) | a tree entry |
-
-| Returns |  |
-| --- | --- |
-| Number |  the type of the pointed object |
 
 ## <a name="lookup"></a><span>Tree.</span>lookup <span class="tags"><span class="async">Async</span></span>
 

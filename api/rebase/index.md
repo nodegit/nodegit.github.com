@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Rebase
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,6 +13,7 @@ sections:
   "#abort": "#abort"
   "#commit": "#commit"
   "#finish": "#finish"
+  "#inmemoryIndex": "#inmemoryIndex"
   "#next": "#next"
   "#operationByIndex": "#operationByIndex"
   "#operationCurrent": "#operationCurrent"
@@ -112,6 +113,20 @@ var result = rebase.finish(signature);
 | Returns |  |
 | --- | --- |
 | Number |  Zero on success; -1 on error |
+
+## <a name="inmemoryIndex"></a><span>Rebase#</span>inmemoryIndex <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = rebase.inmemoryIndex(index);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| index | [Index](/api/index/) |  |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="next"></a><span>Rebase#</span>next <span class="tags"><span class="async">Async</span></span>
 

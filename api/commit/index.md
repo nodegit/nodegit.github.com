@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,6 +13,7 @@ sections:
   "lookupPrefix": "#lookupPrefix"
   "#amend": "#amend"
   "#author": "#author"
+  "#body": "#body"
   "#committer": "#committer"
   "#date": "#date"
   "#free": "#free"
@@ -44,10 +45,12 @@ sections:
   "#treeId": "#treeId"
 ---
 
-## <a name="create"></a><span>Commit.</span>create <span class="tags"><span class="sync">Sync</span></span>
+## <a name="create"></a><span>Commit.</span>create <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = Commit.create(repo, update_ref, author, committer, message_encoding, message, tree, parent_count, parents);
+Commit.create(repo, update_ref, author, committer, message_encoding, message, tree, parent_count, parents).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
@@ -153,6 +156,17 @@ var signature = commit.author();
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the author of a commit |
+
+## <a name="body"></a><span>Commit#</span>body <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = commit.body();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  the body of a commit or NULL when no the message only
+   consists of a summary |
 
 ## <a name="committer"></a><span>Commit#</span>committer <span class="tags"><span class="sync">Sync</span></span>
 

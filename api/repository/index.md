@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -75,10 +75,12 @@ sections:
   "#path": "#path"
   "#rebaseBranches": "#rebaseBranches"
   "#refdb": "#refdb"
+  "#refreshIndex": "#refreshIndex"
   "#setHead": "#setHead"
   "#setHeadDetached": "#setHeadDetached"
   "#setHeadDetachedFromAnnotated": "#setHeadDetachedFromAnnotated"
   "#setIdent": "#setIdent"
+  "#setIndex": "#setIndex"
   "#setNamespace": "#setNamespace"
   "#setWorkdir": "#setWorkdir"
   "#stageFilemode": "#stageFilemode"
@@ -1114,6 +1116,21 @@ repository.refdb().then(function(refdb) {
 | --- | --- |
 | [Refdb](/api/refdb/) |  |
 
+## <a name="refreshIndex"></a><span>Repository#</span>refreshIndex <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.refreshIndex().then(function(index) {
+  // Use index
+});
+```
+
+Grabs a fresh copy of the index from the repository. Invalidates
+all previously grabbed indexes
+
+| Returns |  |
+| --- | --- |
+| [Index](/api/index/) |  |
+
 ## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -1172,6 +1189,16 @@ var result = repository.setIdent(name, email);
 | Returns |  |
 | --- | --- |
 | Number |  |
+
+## <a name="setIndex"></a><span>Repository#</span>setIndex <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+repository.setIndex(index);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| index | [Index](/api/index/) | An index object |
 
 ## <a name="setNamespace"></a><span>Repository#</span>setNamespace <span class="tags"><span class="sync">Sync</span></span>
 
@@ -1318,11 +1345,13 @@ var string = repository.workdir();
 | <span>Repository.STATE.</span>NONE | 0 |
 | <span>Repository.STATE.</span>MERGE | 1 |
 | <span>Repository.STATE.</span>REVERT | 2 |
-| <span>Repository.STATE.</span>CHERRYPICK | 3 |
-| <span>Repository.STATE.</span>BISECT | 4 |
-| <span>Repository.STATE.</span>REBASE | 5 |
-| <span>Repository.STATE.</span>REBASE_INTERACTIVE | 6 |
-| <span>Repository.STATE.</span>REBASE_MERGE | 7 |
-| <span>Repository.STATE.</span>APPLY_MAILBOX | 8 |
-| <span>Repository.STATE.</span>APPLY_MAILBOX_OR_REBASE | 9 |
+| <span>Repository.STATE.</span>REVERT_SEQUENCE | 3 |
+| <span>Repository.STATE.</span>CHERRYPICK | 4 |
+| <span>Repository.STATE.</span>CHERRYPICK_SEQUENCE | 5 |
+| <span>Repository.STATE.</span>BISECT | 6 |
+| <span>Repository.STATE.</span>REBASE | 7 |
+| <span>Repository.STATE.</span>REBASE_INTERACTIVE | 8 |
+| <span>Repository.STATE.</span>REBASE_MERGE | 9 |
+| <span>Repository.STATE.</span>APPLY_MAILBOX | 10 |
+| <span>Repository.STATE.</span>APPLY_MAILBOX_OR_REBASE | 11 |
 

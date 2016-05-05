@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Giterr
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "errClear": "#errClear"
-  "errDetach": "#errDetach"
   "errLast": "#errLast"
   "errSetOom": "#errSetOom"
   "errSetString": "#errSetString"
@@ -19,20 +18,6 @@ sections:
 ```js
 Giterr.errClear();
 ```
-
-## <a name="errDetach"></a><span>Giterr.</span>errDetach <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = Giterr.errDetach(cpy);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| cpy | [Error](/api/error/) |  |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
 
 ## <a name="errLast"></a><span>Giterr.</span>errLast <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

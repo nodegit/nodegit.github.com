@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Error
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -39,6 +39,7 @@ sections:
 | <span>Error.CODE.</span>EINVALID | -21 |
 | <span>Error.CODE.</span>EUNCOMMITTED | -22 |
 | <span>Error.CODE.</span>EDIRECTORY | -23 |
+| <span>Error.CODE.</span>EMERGECONFLICT | -24 |
 | <span>Error.CODE.</span>PASSTHROUGH | -30 |
 | <span>Error.CODE.</span>ITEROVER | -31 |
 

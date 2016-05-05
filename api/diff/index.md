@@ -2,12 +2,13 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "blobToBuffer": "#blobToBuffer"
+  "indexToIndex": "#indexToIndex"
   "indexToWorkdir": "#indexToWorkdir"
   "treeToIndex": "#treeToIndex"
   "treeToTree": "#treeToTree"
@@ -16,6 +17,7 @@ sections:
   "#findSimilar": "#findSimilar"
   "#getDelta": "#getDelta"
   "#getPerfdata": "#getPerfdata"
+  "#merge": "#merge"
   "#numDeltas": "#numDeltas"
   "#patches": "#patches"
   "DELTA": "#DELTA"
@@ -48,6 +50,25 @@ Directly run a diff between a blob and a buffer.
 | binary_cb | Function | Callback for binary files; can be NULL |
 | hunk_cb | Function | Callback for each hunk in diff; can be NULL |
 | line_cb | Function | Callback for each line in diff; can be NULL |
+
+## <a name="indexToIndex"></a><span>Diff.</span>indexToIndex <span class="tags"><span class="async">Async</span></span>
+
+```js
+Diff.indexToIndex(repo, old_index, new_index, opts).then(function(diff) {
+  // Use diff
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repository containing the indexes. |
+| old_index | [Index](/api/index/) | A git_index object to diff from. |
+| new_index | [Index](/api/index/) | A git_index object to diff to. |
+| opts | [DiffOptions](/api/diff_options/) | Structure with options to influence diff or NULL for defaults. |
+
+| Returns |  |
+| --- | --- |
+| [Diff](/api/diff/) |  |
 
 ## <a name="indexToWorkdir"></a><span>Diff.</span>indexToWorkdir <span class="tags"><span class="async">Async</span></span>
 
@@ -182,6 +203,22 @@ diff.getPerfdata().then(function(diffPerfdata) {
 | Returns |  |
 | --- | --- |
 | [DiffPerfdata](/api/diff_perfdata/) | Structure to be filled with diff performance data |
+
+## <a name="merge"></a><span>Diff#</span>merge <span class="tags"><span class="async">Async</span></span>
+
+```js
+diff.merge(from).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| from | [Diff](/api/diff/) | Diff to merge. |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="numDeltas"></a><span>Diff#</span>numDeltas <span class="tags"><span class="sync">Sync</span></span>
 

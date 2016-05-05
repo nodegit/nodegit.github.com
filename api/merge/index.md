@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Merge
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,9 +16,9 @@ sections:
   "trees": "#trees"
   "ANALYSIS": "#ANALYSIS"
   "FILE_FAVOR": "#FILE_FAVOR"
-  "FILE_FLAGS": "#FILE_FLAGS"
+  "FILE_FLAG": "#FILE_FLAG"
+  "FLAG": "#FLAG"
   "PREFERENCE": "#PREFERENCE"
-  "TREE_FLAG": "#TREE_FLAG"
 ---
 
 ## <a name="base"></a><span>Merge.</span>base <span class="tags"><span class="async">Async</span></span>
@@ -157,19 +157,28 @@ Merge.trees(repo, ancestor_tree, our_tree, their_tree, opts).then(function(index
 | <span>Merge.FILE_FAVOR.</span>THEIRS | 2 |
 | <span>Merge.FILE_FAVOR.</span>UNION | 3 |
 
-## <a name="FILE_FLAGS"></a><span>Merge.</span>FILE_FLAGS <span class="tags"><span class="enum">ENUM</span></span>
+## <a name="FILE_FLAG"></a><span>Merge.</span>FILE_FLAG <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Merge.FILE_FLAGS.</span>FILE_DEFAULT | 0 |
-| <span>Merge.FILE_FLAGS.</span>FILE_STYLE_MERGE | 1 |
-| <span>Merge.FILE_FLAGS.</span>FILE_STYLE_DIFF3 | 2 |
-| <span>Merge.FILE_FLAGS.</span>FILE_SIMPLIFY_ALNUM | 4 |
-| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE | 8 |
-| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_CHANGE | 16 |
-| <span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_EOL | 32 |
-| <span>Merge.FILE_FLAGS.</span>FILE_DIFF_PATIENCE | 64 |
-| <span>Merge.FILE_FLAGS.</span>FILE_DIFF_MINIMAL | 128 |
+| <span>Merge.FILE_FLAG.</span>FILE_DEFAULT | 0 |
+| <span>Merge.FILE_FLAG.</span>FILE_STYLE_MERGE | 1 |
+| <span>Merge.FILE_FLAG.</span>FILE_STYLE_DIFF3 | 2 |
+| <span>Merge.FILE_FLAG.</span>FILE_SIMPLIFY_ALNUM | 4 |
+| <span>Merge.FILE_FLAG.</span>FILE_IGNORE_WHITESPACE | 8 |
+| <span>Merge.FILE_FLAG.</span>FILE_IGNORE_WHITESPACE_CHANGE | 16 |
+| <span>Merge.FILE_FLAG.</span>FILE_IGNORE_WHITESPACE_EOL | 32 |
+| <span>Merge.FILE_FLAG.</span>FILE_DIFF_PATIENCE | 64 |
+| <span>Merge.FILE_FLAG.</span>FILE_DIFF_MINIMAL | 128 |
+
+## <a name="FLAG"></a><span>Merge.</span>FLAG <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Merge.FLAG.</span>FIND_RENAMES | 1 |
+| <span>Merge.FLAG.</span>FAIL_ON_CONFLICT | 2 |
+| <span>Merge.FLAG.</span>SKIP_REUC | 4 |
+| <span>Merge.FLAG.</span>NO_RECURSIVE | 8 |
 
 ## <a name="PREFERENCE"></a><span>Merge.</span>PREFERENCE <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -178,10 +187,4 @@ Merge.trees(repo, ancestor_tree, our_tree, their_tree, opts).then(function(index
 | <span>Merge.PREFERENCE.</span>NONE | 0 |
 | <span>Merge.PREFERENCE.</span>NO_FASTFORWARD | 1 |
 | <span>Merge.PREFERENCE.</span>FASTFORWARD_ONLY | 2 |
-
-## <a name="TREE_FLAG"></a><span>Merge.</span>TREE_FLAG <span class="tags"><span class="enum">ENUM</span></span>
-
-| Flag | Value |
-| --- | --- | --- |
-| <span>Merge.TREE_FLAG.</span>TREE_FIND_RENAMES | 1 |
 

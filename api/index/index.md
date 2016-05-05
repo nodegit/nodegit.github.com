@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Index
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -22,6 +22,7 @@ sections:
   "#conflictRemove": "#conflictRemove"
   "#entries": "#entries"
   "#entryCount": "#entryCount"
+  "#findPrefix": "#findPrefix"
   "#getByIndex": "#getByIndex"
   "#getByPath": "#getByPath"
   "#hasConflicts": "#hasConflicts"
@@ -86,10 +87,12 @@ Index.open(index_path).then(function(index) {
 | --- | --- |
 | [Index](/api/index/) |  |
 
-## <a name="add"></a><span>Index#</span>add <span class="tags"><span class="sync">Sync</span></span>
+## <a name="add"></a><span>Index#</span>add <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.add(source_entry);
+index.add(source_entry).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -119,10 +122,12 @@ index.addAll(pathspec, flags, callback, payload).then(function(result) {
 | --- | --- |
 | Number |  0 on success, negative callback return value, or error code |
 
-## <a name="addByPath"></a><span>Index#</span>addByPath <span class="tags"><span class="sync">Sync</span></span>
+## <a name="addByPath"></a><span>Index#</span>addByPath <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.addByPath(path);
+index.addByPath(path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -153,10 +158,12 @@ var oid = index.checksum();
 | --- | --- |
 | [Oid](/api/oid/) |  the checksum of the index |
 
-## <a name="clear"></a><span>Index#</span>clear <span class="tags"><span class="sync">Sync</span></span>
+## <a name="clear"></a><span>Index#</span>clear <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.clear();
+index.clear().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |
@@ -165,10 +172,12 @@ var result = index.clear();
 <
  0 on failure |
 
-## <a name="conflictAdd"></a><span>Index#</span>conflictAdd <span class="tags"><span class="sync">Sync</span></span>
+## <a name="conflictAdd"></a><span>Index#</span>conflictAdd <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.conflictAdd(ancestor_entry, our_entry, their_entry);
+index.conflictAdd(ancestor_entry, our_entry, their_entry).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -181,10 +190,12 @@ var result = index.conflictAdd(ancestor_entry, our_entry, their_entry);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="conflictCleanup"></a><span>Index#</span>conflictCleanup <span class="tags"><span class="sync">Sync</span></span>
+## <a name="conflictCleanup"></a><span>Index#</span>conflictCleanup <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.conflictCleanup();
+index.conflictCleanup().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |
@@ -207,10 +218,12 @@ index.conflictGet(path).then(function(indexEntry) {
 | --- | --- |
 | [IndexEntry](/api/index_entry/) |  |
 
-## <a name="conflictRemove"></a><span>Index#</span>conflictRemove <span class="tags"><span class="sync">Sync</span></span>
+## <a name="conflictRemove"></a><span>Index#</span>conflictRemove <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.conflictRemove(path);
+index.conflictRemove(path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -242,6 +255,21 @@ var result = index.entryCount();
 | Returns |  |
 | --- | --- |
 | Number |  integer of count of current entries |
+
+## <a name="findPrefix"></a><span>Index#</span>findPrefix <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = index.findPrefix(at_pos, prefix);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| at_pos | Number | the address to which the position of the index entry is written (optional) |
+| prefix | String | the prefix to search for |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 with valid value in at_pos; an error code otherwise |
 
 ## <a name="getByIndex"></a><span>Index#</span>getByIndex <span class="tags"><span class="sync">Sync</span></span>
 
@@ -302,10 +330,12 @@ var string = index.path();
 | --- | --- |
 | String |  path to index file or NULL for in-memory index |
 
-## <a name="read"></a><span>Index#</span>read <span class="tags"><span class="sync">Sync</span></span>
+## <a name="read"></a><span>Index#</span>read <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.read(force);
+index.read(force).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -316,10 +346,12 @@ var result = index.read(force);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="readTree"></a><span>Index#</span>readTree <span class="tags"><span class="sync">Sync</span></span>
+## <a name="readTree"></a><span>Index#</span>readTree <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.readTree(tree);
+index.readTree(tree).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -330,10 +362,12 @@ var result = index.readTree(tree);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="remove"></a><span>Index#</span>remove <span class="tags"><span class="sync">Sync</span></span>
+## <a name="remove"></a><span>Index#</span>remove <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.remove(path, stage);
+index.remove(path, stage).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -363,10 +397,12 @@ index.removeAll(pathspec, callback, payload).then(function(result) {
 | --- | --- |
 | Number |  0 on success, negative callback return value, or error code |
 
-## <a name="removeByPath"></a><span>Index#</span>removeByPath <span class="tags"><span class="sync">Sync</span></span>
+## <a name="removeByPath"></a><span>Index#</span>removeByPath <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.removeByPath(path);
+index.removeByPath(path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -377,10 +413,12 @@ var result = index.removeByPath(path);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="removeDirectory"></a><span>Index#</span>removeDirectory <span class="tags"><span class="sync">Sync</span></span>
+## <a name="removeDirectory"></a><span>Index#</span>removeDirectory <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.removeDirectory(dir, stage);
+index.removeDirectory(dir, stage).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -424,10 +462,12 @@ index.updateAll(pathspec, callback, payload).then(function(result) {
 | --- | --- |
 | Number |  0 on success, negative callback return value, or error code |
 
-## <a name="write"></a><span>Index#</span>write <span class="tags"><span class="sync">Sync</span></span>
+## <a name="write"></a><span>Index#</span>write <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.write();
+index.write().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |

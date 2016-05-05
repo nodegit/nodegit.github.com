@@ -2,16 +2,12 @@
 layout: default
 menu_item: api
 title: Reflog
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "delete": "#delete"
-  "entryCommitter": "#entryCommitter"
-  "entryIdNew": "#entryIdNew"
-  "entryIdOld": "#entryIdOld"
-  "entryMessage": "#entryMessage"
   "read": "#read"
   "rename": "#rename"
   "#append": "#append"
@@ -36,62 +32,6 @@ var result = Reflog.delete(repo, name);
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
-
-## <a name="entryCommitter"></a><span>Reflog.</span>entryCommitter <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var signature = Reflog.entryCommitter(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [ReflogEntry](/api/reflog_entry/) | a reflog entry |
-
-| Returns |  |
-| --- | --- |
-| [Signature](/api/signature/) |  the committer |
-
-## <a name="entryIdNew"></a><span>Reflog.</span>entryIdNew <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var oid = Reflog.entryIdNew(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [ReflogEntry](/api/reflog_entry/) | a reflog entry |
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) |  the new oid at this time |
-
-## <a name="entryIdOld"></a><span>Reflog.</span>entryIdOld <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var oid = Reflog.entryIdOld(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [ReflogEntry](/api/reflog_entry/) | a reflog entry |
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) |  the old oid |
-
-## <a name="entryMessage"></a><span>Reflog.</span>entryMessage <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var string = Reflog.entryMessage(entry);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| entry | [ReflogEntry](/api/reflog_entry/) | a reflog entry |
-
-| Returns |  |
-| --- | --- |
-| String |  the log msg |
 
 ## <a name="read"></a><span>Reflog.</span>read <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

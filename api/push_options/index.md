@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: PushOptions
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -19,6 +19,7 @@ var pushOptions = new PushOptions();
 | Variable | Type |
 | --- | --- |
 | <a name="callbacks"></a>callbacks | RemoteCallbacks |
+| <a name="customHeaders"></a>customHeaders | Strarray |
 | <a name="pbParallelism"></a>pbParallelism | Number |
 | <a name="version"></a>version | Number |
 

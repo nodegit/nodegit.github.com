@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: MergeOptions
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -20,8 +20,9 @@ var mergeOptions = new MergeOptions();
 | --- | --- |
 | <a name="fileFavor"></a>fileFavor | Number |
 | <a name="fileFlags"></a>fileFlags | Number |
+| <a name="flags"></a>flags | Number |
+| <a name="recursionLimit"></a>recursionLimit | Number |
 | <a name="renameThreshold"></a>renameThreshold | Number |
 | <a name="targetLimit"></a>targetLimit | Number |
-| <a name="treeFlags"></a>treeFlags | Number |
 | <a name="version"></a>version | Number |
 

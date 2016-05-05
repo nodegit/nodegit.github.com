@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffOptions
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -26,8 +26,9 @@ var diffOptions = new DiffOptions();
 | <a name="maxSize"></a>maxSize | Number |
 | <a name="newPrefix"></a>newPrefix | String |
 | <a name="notifyCb"></a>notifyCb | DiffNotifyCb |
-| <a name="notifyPayload"></a>notifyPayload | Void |
 | <a name="oldPrefix"></a>oldPrefix | String |
 | <a name="pathspec"></a>pathspec | Strarray |
+| <a name="payload"></a>payload | Void |
+| <a name="progressCb"></a>progressCb | DiffProgressCb |
 | <a name="version"></a>version | Number |
 

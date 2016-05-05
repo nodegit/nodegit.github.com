@@ -2,23 +2,55 @@
 layout: default
 menu_item: api
 title: TreeEntry
-description: Version 0.12.2
+description: Version 0.13.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "#filemode": "#filemode"
+  "#filemodeRaw": "#filemodeRaw"
+  "#free": "#free"
   "#getBlob": "#getBlob"
   "#getTree": "#getTree"
+  "#id": "#id"
   "#isBlob": "#isBlob"
   "#isDirectory": "#isDirectory"
   "#isFile": "#isFile"
   "#isTree": "#isTree"
+  "#name": "#name"
   "#path": "#path"
   "#sha": "#sha"
+  "#toObject": "#toObject"
   "#toString": "#toString"
+  "#type": "#type"
   "FILEMODE": "#FILEMODE"
-  "Instance Variables": "#ivars"
 ---
+
+## <a name="filemode"></a><span>TreeEntry#</span>filemode <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = treeEntry.filemode();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  filemode as an integer |
+
+## <a name="filemodeRaw"></a><span>TreeEntry#</span>filemodeRaw <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = treeEntry.filemodeRaw();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  filemode as an integer |
+
+## <a name="free"></a><span>TreeEntry#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+treeEntry.free();
+```
 
 ## <a name="getBlob"></a><span>TreeEntry#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 
@@ -28,7 +60,7 @@ treeEntry.getBlob().then(function(blob) {
 });
 ```
 
-Retrieve the tree for this entry. Make sure to call `isTree` first!
+Retrieve the blob for this entry. Make sure to call `isBlob` first!
 
 | Returns |  |
 | --- | --- |
@@ -47,6 +79,16 @@ Retrieve the tree for this entry. Make sure to call `isTree` first!
 | Returns |  |
 | --- | --- |
 | [Tree](/api/tree/) |  |
+
+## <a name="id"></a><span>TreeEntry#</span>id <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = treeEntry.id();
+```
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  the oid of the object |
 
 ## <a name="isBlob"></a><span>TreeEntry#</span>isBlob <span class="tags"><span class="sync">Sync</span></span>
 
@@ -96,6 +138,16 @@ Is this TreeEntry a tree? (i.e., a directory)
 | --- | --- |
 | Boolean |  |
 
+## <a name="name"></a><span>TreeEntry#</span>name <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = treeEntry.name();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  the name of the file |
+
 ## <a name="path"></a><span>TreeEntry#</span>path <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -120,6 +172,21 @@ Retrieve the SHA for this TreeEntry.
 | --- | --- |
 | String |  |
 
+## <a name="toObject"></a><span>TreeEntry#</span>toObject <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = treeEntry.toObject(object_out, repo);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| object_out | [Object](/api/object/) | pointer to the converted object |
+| repo | [Repository](/api/repository/) | repository where to lookup the pointed object |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
 ## <a name="toString"></a><span>TreeEntry#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -127,6 +194,16 @@ treeEntry.toString();
 ```
 
 Alias for `path`
+
+## <a name="type"></a><span>TreeEntry#</span>type <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = treeEntry.type();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  the type of the pointed object |
 
 ## <a name="FILEMODE"></a><span>TreeEntry.</span>FILEMODE <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -138,13 +215,4 @@ Alias for `path`
 | <span>TreeEntry.FILEMODE.</span>EXECUTABLE | 33261 |
 | <span>TreeEntry.FILEMODE.</span>LINK | 40960 |
 | <span>TreeEntry.FILEMODE.</span>COMMIT | 57344 |
-
-## <a name="ivars"></a>Instance Variables
-
-| Variable | Type |
-| --- | --- |
-| <a name="attr"></a>attr | Number |
-| <a name="filename"></a>filename | String |
-| <a name="filenameLen"></a>filenameLen | Number |
-| <a name="oid"></a>oid | Oid |
 
