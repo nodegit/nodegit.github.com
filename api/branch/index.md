@@ -96,7 +96,7 @@ Branch.iteratorNew(repo, list_flags).then(function(branchIterator) {
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | Repository where to find the branches. |
-| list_flags | Number | Filtering flags for the branch listing. Valid values are GIT_BRANCH_LOCAL, GIT_BRANCH_REMOTE or GIT_BRANCH_ALL. |
+| list_flags | Number | Filtering flags for the branch listing. Valid values are Branch.BRANCH.LOCAL, Branch.BRANCH.REMOTE or Branch.BRANCH.ALL. |
 
 | Returns |  |
 | --- | --- |
@@ -114,7 +114,7 @@ Branch.lookup(repo, branch_name, branch_type).then(function(reference) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | the repository to look up the branch |
 | branch_name | String | Name of the branch to be looked-up; this name is validated for consistency. |
-| branch_type | Number | Type of the considered branch. This should be valued with either GIT_BRANCH_LOCAL or GIT_BRANCH_REMOTE. |
+| branch_type | Number | Type of the considered branch. This should be valued with either Branch.BRANCH.LOCAL or Branch.BRANCH.REMOTE. |
 
 | Returns |  |
 | --- | --- |
