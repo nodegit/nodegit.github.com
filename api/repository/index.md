@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.13.0
+description: Version 0.13.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -30,6 +30,7 @@ sections:
   "#defaultSignature": "#defaultSignature"
   "#deleteTagByName": "#deleteTagByName"
   "#detachHead": "#detachHead"
+  "#discardLines": "#discardLines"
   "#fetch": "#fetch"
   "#fetchAll": "#fetchAll"
   "#fetchheadForeach": "#fetchheadForeach"
@@ -468,6 +469,26 @@ var result = repository.detachHead();
 | --- | --- |
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
+
+## <a name="discardLines"></a><span>Repository#</span>discardLines <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.discardLines(filePath, selectedLines).then(function(number) {
+  // Use number
+});
+```
+
+Discard line selection of a specified file.
+Assumes selected lines are unstaged.
+
+| Parameters | Type |
+| --- | --- | --- |
+| filePath | String | The relative path of this file in the repo |
+| selectedLines | Array | The array of DiffLine objects selected for discarding |
+
+| Returns |  |
+| --- | --- |
+| Number | 0 or an error code |
 
 ## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="async">Async</span></span>
 
@@ -1251,7 +1272,7 @@ Stages or unstages line selection of a specified file
 ## <a name="stageLines"></a><span>Repository#</span>stageLines <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.stageLines(filePath, newLines, isStaged).then(function(number) {
+repository.stageLines(filePath, selectedLines, isStaged).then(function(number) {
   // Use number
 });
 ```
@@ -1261,7 +1282,7 @@ Stages or unstages line selection of a specified file
 | Parameters | Type |
 | --- | --- | --- |
 | filePath | String | The relative path of this file in the repo |
-| newLines | Array | The array of DiffLine objects selected for staging or unstaging |
+| selectedLines | Array | The array of DiffLine objects selected for staging or unstaging |
 | isStaged | Boolean | Are the selected lines currently staged |
 
 | Returns |  |
