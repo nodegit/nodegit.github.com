@@ -3,6 +3,7 @@ layout: default
 title: Changelog
 description: What's changed between releases
 sections:
+  "v0.14.0": "#v0-14-0"
   "v0.13.2": "#v0-13-2"
   "v0.13.1": "#v0-13-1"
   "v0.13.0": "#v0-13-0"
@@ -62,6 +63,13 @@ sections:
   "v0.0.2": "#v0-0-2"
   "v0.0.1": "#v0-0-1"
 ---
+
+## <a name="v0-14-0" href="#v0-14-0">v0.14.0</a> [(2016-06-09)](https://github.com/nodegit/nodegit/releases/tag/v0.14.0)
+
+[Full Changelog](https://github.com/nodegit/nodegit/compare/v0.13.2...v0.14.0)
+
+- Improve lifecycle scripts and install process [PR #1055](https://github.com/nodegit/nodegit/pull/1055)
+- Fix example code [PR #1058](https://github.com/nodegit/nodegit/pull/1058)
 
 ## <a name="v0-13-2" href="#v0-13-2">v0.13.2</a> [(2016-06-09)](https://github.com/nodegit/nodegit/releases/tag/v0.13.2)
 
