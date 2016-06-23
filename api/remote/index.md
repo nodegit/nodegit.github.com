@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -288,7 +288,7 @@ Connects to a remote
 | --- | --- | --- |
 | direction | [Enums.DIRECTION](/api/enums/#DIRECTION) | The direction for the connection |
 | callbacks | [RemoteCallbacks](/api/remote_callbacks/) | The callback functions for the connection |
-| proxyOpts | ProxyOptions | Proxy settings |
+| proxyOpts | [ProxyOptions](/api/proxy_options/) | Proxy settings |
 | customHeaders | Array&lt;string&gt; | extra HTTP headers to use |
 | callback | Function |  |
 

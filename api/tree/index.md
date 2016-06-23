@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -15,6 +15,7 @@ sections:
   "#builder": "#builder"
   "#diff": "#diff"
   "#diffWithOptions": "#diffWithOptions"
+  "#dup": "#dup"
   "#entries": "#entries"
   "#entryById": "#entryById"
   "#entryByIndex": "#entryByIndex"
@@ -164,6 +165,18 @@ Diff two trees with options
 | Returns |  |
 | --- | --- |
 | DiffList |  |
+
+## <a name="dup"></a><span>Tree#</span>dup <span class="tags"><span class="async">Async</span></span>
+
+```js
+tree.dup().then(function(tree) {
+  // Use tree
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Tree](/api/tree/) |  |
 
 ## <a name="entries"></a><span>Tree#</span>entries <span class="tags"><span class="sync">Sync</span></span>
 

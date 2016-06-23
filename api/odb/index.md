@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: Odb
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "open": "#open"
   "#addDiskAlternate": "#addDiskAlternate"
+  "#expandIds": "#expandIds"
   "#free": "#free"
   "#read": "#read"
   "#write": "#write"
@@ -44,6 +45,21 @@ var result = odb.addDiskAlternate(path);
 | Returns |  |
 | --- | --- |
 | Number |  0 on success; error code otherwise |
+
+## <a name="expandIds"></a><span>Odb#</span>expandIds <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = odb.expandIds(ids, count);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| ids | [OdbExpandId](/api/odb_expand_id/) | An array of short object IDs to search for |
+| count | Number | The length of the `ids` array |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success or an error code on failure |
 
 ## <a name="free"></a><span>Odb#</span>free <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
   "createV": "#createV"
+  "createWithSignature": "#createWithSignature"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#amend": "#amend"
@@ -16,6 +17,7 @@ sections:
   "#body": "#body"
   "#committer": "#committer"
   "#date": "#date"
+  "#dup": "#dup"
   "#free": "#free"
   "#getDiff": "#getDiff"
   "#getDiffWithOptions": "#getDiffWithOptions"
@@ -90,6 +92,25 @@ var result = Commit.createV(id, repo, update_ref, author, committer, message_enc
 | Returns |  |
 | --- | --- |
 | Number |  |
+
+## <a name="createWithSignature"></a><span>Commit.</span>createWithSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+Commit.createWithSignature(repo, commit_content, signature, signature_field).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) |  |
+| commit_content | String | the content of the unsigned commit object |
+| signature | String | the signature to add to the commit |
+| signature_field | String | which header field should contain this signature. Leave `NULL` for the default of "gpgsig" |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | the resulting commit id |
 
 ## <a name="lookup"></a><span>Commit.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -189,6 +210,18 @@ Retrieve the commit time as a Date object.
 | Returns |  |
 | --- | --- |
 | Date |  |
+
+## <a name="dup"></a><span>Commit#</span>dup <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.dup().then(function(commit) {
+  // Use commit
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Commit](/api/commit/) |  |
 
 ## <a name="free"></a><span>Commit#</span>free <span class="tags"><span class="sync">Sync</span></span>
 

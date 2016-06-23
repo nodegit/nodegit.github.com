@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: RemoteCallbacks
+title: ProxyOptions
 description: Version 0.15.0
 menu_item: api
 return_to:
@@ -11,7 +11,7 @@ sections:
 ---
 
 ```js
-var remoteCallbacks = new RemoteCallbacks();
+var proxyOptions = new ProxyOptions();
 ```
 
 ## <a name="ivars"></a>Instance Variables
@@ -21,7 +21,7 @@ var remoteCallbacks = new RemoteCallbacks();
 | <a name="certificateCheck"></a>certificateCheck | TransportCertificateCheckCb |
 | <a name="credentials"></a>credentials | CredAcquireCb |
 | <a name="payload"></a>payload | Void |
-| <a name="transferProgress"></a>transferProgress | TransferProgressCb |
-| <a name="transport"></a>transport | TransportCb |
+| <a name="type"></a>type | Number |
+| <a name="url"></a>url | String |
 | <a name="version"></a>version | Number |
 

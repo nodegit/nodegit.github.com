@@ -2,17 +2,20 @@
 layout: default
 menu_item: api
 title: Blob
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "createFromBuffer": "#createFromBuffer"
   "createFromDisk": "#createFromDisk"
+  "createFromStream": "#createFromStream"
   "createFromWorkdir": "#createFromWorkdir"
+  "createFromstreamCommit": "#createFromstreamCommit"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#content": "#content"
+  "#dup": "#dup"
   "#filemode": "#filemode"
   "#free": "#free"
   "#id": "#id"
@@ -55,6 +58,23 @@ var result = Blob.createFromDisk(id, repo, path);
 | --- | --- |
 | Number |  0 or an error code |
 
+## <a name="createFromStream"></a><span>Blob.</span>createFromStream <span class="tags"><span class="async">Async</span></span>
+
+```js
+Blob.createFromStream(repo, hintpath).then(function(writestream) {
+  // Use writestream
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository where the blob will be written. This repository can be bare or not. |
+| hintpath | String | If not NULL, will be used to select data filters to apply onto the content of the blob to be created. |
+
+| Returns |  |
+| --- | --- |
+| [Writestream](/api/writestream/) | the stream into which to write |
+
 ## <a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -70,6 +90,22 @@ var result = Blob.createFromWorkdir(id, repo, relative_path);
 | Returns |  |
 | --- | --- |
 | Number |  0 or an error code |
+
+## <a name="createFromstreamCommit"></a><span>Blob.</span>createFromstreamCommit <span class="tags"><span class="async">Async</span></span>
+
+```js
+Blob.createFromstreamCommit(stream).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| stream | [Writestream](/api/writestream/) | the stream to close |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | the id of the new blob |
 
 ## <a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -119,6 +155,18 @@ Retrieve the content of the Blob.
 | Returns |  |
 | --- | --- |
 | Buffer | Contents as a buffer. |
+
+## <a name="dup"></a><span>Blob#</span>dup <span class="tags"><span class="async">Async</span></span>
+
+```js
+blob.dup().then(function(blob) {
+  // Use blob
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Blob](/api/blob/) |  |
 
 ## <a name="filemode"></a><span>Blob#</span>filemode <span class="tags"><span class="sync">Sync</span></span>
 

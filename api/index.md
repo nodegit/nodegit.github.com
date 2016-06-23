@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -64,6 +64,7 @@ sections:
   "Note": "#Note"
   "Object": "#Object"
   "Odb": "#Odb"
+  "OdbExpandId": "#OdbExpandId"
   "OdbObject": "#OdbObject"
   "Oid": "#Oid"
   "Oidarray": "#Oidarray"
@@ -71,6 +72,8 @@ sections:
   "Packbuilder": "#Packbuilder"
   "Patch": "#Patch"
   "Pathspec": "#Pathspec"
+  "Proxy": "#Proxy"
+  "ProxyOptions": "#ProxyOptions"
   "Push": "#Push"
   "PushOptions": "#PushOptions"
   "PushUpdate": "#PushUpdate"
@@ -194,13 +197,16 @@ sections:
 | --- | ---: |
 | [<span>Blob.</span>createFromBuffer <span>(repo, buffer, len)</span>](/api/blob/#createFromBuffer) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob.</span>createFromDisk <span>(id, repo, path)</span>](/api/blob/#createFromDisk) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Blob.</span>createFromStream <span>(repo, hintpath)</span>](/api/blob/#createFromStream) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob.</span>createFromWorkdir <span>(id, repo, relative_path)</span>](/api/blob/#createFromWorkdir) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Blob.</span>createFromstreamCommit <span>(stream)</span>](/api/blob/#createFromstreamCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob.</span>lookup <span>(repo, id)</span>](/api/blob/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob.</span>lookupPrefix <span>(repo, id, len)</span>](/api/blob/#lookupPrefix) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Blob#</span>content <span>()</span>](/api/blob/#content) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Blob#</span>dup <span>()</span>](/api/blob/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob#</span>filemode <span>()</span>](/api/blob/#filemode) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>free <span>()</span>](/api/blob/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>id <span>()</span>](/api/blob/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -372,6 +378,7 @@ sections:
 | --- | ---: |
 | [<span>Commit.</span>create <span>(repo, update_ref, author, committer, message_encoding, message, tree, parent_count, parents)</span>](/api/commit/#create) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit.</span>createV <span>(id, repo, update_ref, author, committer, message_encoding, message, tree, parent_count)</span>](/api/commit/#createV) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit.</span>createWithSignature <span>(repo, commit_content, signature, signature_field)</span>](/api/commit/#createWithSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit.</span>lookup <span>(repo, id)</span>](/api/commit/#lookup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit.</span>lookupPrefix <span>(repo, id, len)</span>](/api/commit/#lookupPrefix) |  <span class="tags"><span class="async">Async</span></span> |
 
@@ -382,6 +389,7 @@ sections:
 | [<span>Commit#</span>body <span>()</span>](/api/commit/#body) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>committer <span>()</span>](/api/commit/#committer) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>date <span>()</span>](/api/commit/#date) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit#</span>dup <span>()</span>](/api/commit/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>free <span>()</span>](/api/commit/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>getDiff <span>(callback)</span>](/api/commit/#getDiff) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>getDiffWithOptions <span>(options, callback)</span>](/api/commit/#getDiffWithOptions) |  <span class="tags"><span class="async">Async</span></span> |
@@ -734,6 +742,7 @@ sections:
 | [<span>FetchOptions#</span>callbacks](/api/fetch_options/#callbacks) |  |
 | [<span>FetchOptions#</span>customHeaders](/api/fetch_options/#customHeaders) |  |
 | [<span>FetchOptions#</span>downloadTags](/api/fetch_options/#downloadTags) |  |
+| [<span>FetchOptions#</span>proxyOpts](/api/fetch_options/#proxyOpts) |  |
 | [<span>FetchOptions#</span>prune](/api/fetch_options/#prune) |  |
 | [<span>FetchOptions#</span>updateFetchhead](/api/fetch_options/#updateFetchhead) |  |
 | [<span>FetchOptions#</span>version](/api/fetch_options/#version) |  |
@@ -930,6 +939,7 @@ sections:
 | [<span>Merge.</span>PREFERENCE](/api/merge/#PREFERENCE)|  |
 
 
+
 ## <a name='MergeFileInput'></a>[MergeFileInput](/api/merge_file_input/)
 
 | Instance Variables |  |
@@ -968,6 +978,7 @@ sections:
 
 | Instance Variables |  |
 | --- | ---: |
+| [<span>MergeOptions#</span>defaultDriver](/api/merge_options/#defaultDriver) |  |
 | [<span>MergeOptions#</span>fileFavor](/api/merge_options/#fileFavor) |  |
 | [<span>MergeOptions#</span>fileFlags](/api/merge_options/#fileFlags) |  |
 | [<span>MergeOptions#</span>flags](/api/merge_options/#flags) |  |
@@ -1036,6 +1047,7 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Odb#</span>addDiskAlternate <span>(path)</span>](/api/odb/#addDiskAlternate) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Odb#</span>expandIds <span>(ids, count)</span>](/api/odb/#expandIds) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Odb#</span>free <span>()</span>](/api/odb/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Odb#</span>read <span>(id)</span>](/api/odb/#read) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Odb#</span>write <span>(data, len, type)</span>](/api/odb/#write) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1043,6 +1055,15 @@ sections:
 | ENUMS |  |
 | --- | ---: |
 | [<span>Odb.</span>STREAM](/api/odb/#STREAM)|  |
+
+
+## <a name='OdbExpandId'></a>[OdbExpandId](/api/odb_expand_id/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>OdbExpandId#</span>id](/api/odb_expand_id/#id) |  |
+| [<span>OdbExpandId#</span>length](/api/odb_expand_id/#length) |  |
+| [<span>OdbExpandId#</span>type](/api/odb_expand_id/#type) |  |
 
 
 ## <a name='OdbObject'></a>[OdbObject](/api/odb_object/)
@@ -1165,6 +1186,29 @@ sections:
 
 
 
+## <a name='Proxy'></a>[Proxy](/api/proxy/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>Proxy.</span>initOptions <span>(opts, version)</span>](/api/proxy/#initOptions) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+| ENUMS |  |
+| --- | ---: |
+| [<span>Proxy.</span>PROXY](/api/proxy/#PROXY)|  |
+
+
+## <a name='ProxyOptions'></a>[ProxyOptions](/api/proxy_options/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>ProxyOptions#</span>certificateCheck](/api/proxy_options/#certificateCheck) |  |
+| [<span>ProxyOptions#</span>credentials](/api/proxy_options/#credentials) |  |
+| [<span>ProxyOptions#</span>payload](/api/proxy_options/#payload) |  |
+| [<span>ProxyOptions#</span>type](/api/proxy_options/#type) |  |
+| [<span>ProxyOptions#</span>url](/api/proxy_options/#url) |  |
+| [<span>ProxyOptions#</span>version](/api/proxy_options/#version) |  |
+
+
 ## <a name='Push'></a>[Push](/api/push/)
 
 | Class Methods |  |
@@ -1179,6 +1223,7 @@ sections:
 | [<span>PushOptions#</span>callbacks](/api/push_options/#callbacks) |  |
 | [<span>PushOptions#</span>customHeaders](/api/push_options/#customHeaders) |  |
 | [<span>PushOptions#</span>pbParallelism](/api/push_options/#pbParallelism) |  |
+| [<span>PushOptions#</span>proxyOpts](/api/push_options/#proxyOpts) |  |
 | [<span>PushOptions#</span>version](/api/push_options/#version) |  |
 
 
@@ -1775,6 +1820,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Tag#</span>dup <span>()</span>](/api/tag/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag#</span>free <span>()</span>](/api/tag/#free) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tag#</span>id <span>()</span>](/api/tag/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tag#</span>message <span>()</span>](/api/tag/#message) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1848,6 +1894,7 @@ sections:
 | [<span>Tree#</span>builder <span>()</span>](/api/tree/#builder) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>diff <span>(tree, callback)</span>](/api/tree/#diff) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tree#</span>diffWithOptions <span>(tree, options, callback)</span>](/api/tree/#diffWithOptions) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tree#</span>dup <span>()</span>](/api/tree/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tree#</span>entries <span>()</span>](/api/tree/#entries) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>entryById <span>(id)</span>](/api/tree/#entryById) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tree#</span>entryByIndex <span>(i)</span>](/api/tree/#entryByIndex) |  <span class="tags"><span class="sync">Sync</span></span> |

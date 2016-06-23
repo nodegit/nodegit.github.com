@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: MergeOptions
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -18,6 +18,7 @@ var mergeOptions = new MergeOptions();
 
 | Variable | Type |
 | --- | --- |
+| <a name="defaultDriver"></a>defaultDriver | String |
 | <a name="fileFavor"></a>fileFavor | Number |
 | <a name="fileFlags"></a>fileFlags | Number |
 | <a name="flags"></a>flags | Number |

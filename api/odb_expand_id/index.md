@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: Time
+title: OdbExpandId
 description: Version 0.15.0
 menu_item: api
 return_to:
@@ -14,6 +14,7 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="offset"></a>offset | Number |
-| <a name="time"></a>time | Number |
+| <a name="id"></a>id | Oid |
+| <a name="length"></a>length | Number |
+| <a name="type"></a>type | Number |
 

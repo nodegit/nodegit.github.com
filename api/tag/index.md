@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tag
-description: Version 0.14.0
+description: Version 0.15.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -15,6 +15,7 @@ sections:
   "listMatch": "#listMatch"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
+  "#dup": "#dup"
   "#free": "#free"
   "#id": "#id"
   "#message": "#message"
@@ -175,6 +176,18 @@ Tag.lookupPrefix(repo, id, len).then(function(tag) {
 | repo | [Repository](/api/repository/) | the repo to use when locating the tag. |
 | id | [Oid](/api/oid/) | identity of the tag to locate. |
 | len | Number | the length of the short identifier |
+
+| Returns |  |
+| --- | --- |
+| [Tag](/api/tag/) |  |
+
+## <a name="dup"></a><span>Tag#</span>dup <span class="tags"><span class="async">Async</span></span>
+
+```js
+tag.dup().then(function(tag) {
+  // Use tag
+});
+```
 
 | Returns |  |
 | --- | --- |
