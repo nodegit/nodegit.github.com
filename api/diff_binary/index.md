@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffBinary
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -23,6 +23,7 @@ sections:
 
 | Variable | Type |
 | --- | --- |
+| <a name="containsData"></a>containsData | Number |
 | <a name="newFile"></a>newFile | DiffBinaryFile |
 | <a name="oldFile"></a>oldFile | DiffBinaryFile |
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -149,11 +149,14 @@ Commit.lookupPrefix(repo, id, len).then(function(commit) {
 | --- | --- |
 | [Commit](/api/commit/) |  |
 
-## <a name="amend"></a><span>Commit#</span>amend <span class="tags"><span class="sync">Sync</span></span>
+## <a name="amend"></a><span>Commit#</span>amend <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = commit.amend(update_ref, author, committer, message_encoding, message, tree);
+commit.amend(update_ref, author, committer, message_encoding, message, tree, callback).then(function() {
+  // method complete});
 ```
+
+Amend a commit
 
 | Parameters | Type |
 | --- | --- | --- |
@@ -162,11 +165,8 @@ var oid = commit.amend(update_ref, author, committer, message_encoding, message,
 | committer | [Signature](/api/signature/) |  |
 | message_encoding | String |  |
 | message | String |  |
-| tree | [Tree](/api/tree/) |  |
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) |  |
+| tree | [Tree](/api/tree/), [Oid](/api/oid/) |  |
+| callback | [Oid](/api/oid/) |  |
 
 ## <a name="author"></a><span>Commit#</span>author <span class="tags"><span class="sync">Sync</span></span>
 
@@ -481,14 +481,10 @@ var result = commit.parentcount();
 ## <a name="parents"></a><span>Commit#</span>parents <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var arrayOid = commit.parents(callback);
+var arrayOid = commit.parents();
 ```
 
-Retrieve the commit"s parent shas.
-
-| Parameters | Type |
-| --- | --- | --- |
-| callback | Function |  |
+Retrieve the commit's parent shas.
 
 | Returns |  |
 | --- | --- |

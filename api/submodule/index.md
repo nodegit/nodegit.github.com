@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Submodule
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -445,21 +445,21 @@ submodule.sync().then(function(result) {
 ## <a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="async">Async</span></span>
 
 ```js
-submodule.update(init, options).then(function(result) {
-  // Use result
+submodule.update(init, options).then(function(number) {
+  // Use number
 });
 ```
 
+Updates a submodule
+
 | Parameters | Type |
 | --- | --- | --- |
-| init | Number | If the submodule is not initialized, setting this flag to true will initialize the submodule before updating. Otherwise, this will return an error if attempting to update an uninitialzed repository. but setting this to true forces them to be updated. |
-| options | [SubmoduleUpdateOptions](/api/submodule_update_options/) | configuration options for the update. If NULL, the function works as though GIT_SUBMODULE_UPDATE_OPTIONS_INIT was passed. |
+| init | Number | Setting this to 1 will initialize submodule before updating |
+| options | [SubmoduleUpdateOptions](/api/submodule_update_options/) | Submodule update settings |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success, any non-zero return value from a callback
-         function, or a negative value to indicate an error (use
-         `giterr_last` for a detailed error message). |
+| Number | 0 on success, any non-zero return value from a callback |
 
 ## <a name="updateStrategy"></a><span>Submodule#</span>updateStrategy <span class="tags"><span class="sync">Sync</span></span>
 

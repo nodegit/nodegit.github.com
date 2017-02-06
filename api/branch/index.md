@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Branch
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -39,10 +39,12 @@ Branch.create(repo, branch_name, target, force).then(function(reference) {
 | --- | --- |
 | [Reference](/api/reference/) | the underlying reference. |
 
-## <a name="createFromAnnotated"></a><span>Branch.</span>createFromAnnotated <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createFromAnnotated"></a><span>Branch.</span>createFromAnnotated <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var reference = Branch.createFromAnnotated(repository, branch_name, commit, force);
+Branch.createFromAnnotated(repository, branch_name, commit, force).then(function(reference) {
+  // Use reference
+});
 ```
 
 | Parameters | Type |   |

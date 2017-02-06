@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Revert
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -19,17 +19,20 @@ Revert.commit(repo, revert_commit, our_commit, mainline, merge_options).then(fun
 });
 ```
 
+Reverts the given commit against the given "our" commit, producing an index
+that reflects the result of the revert.
+
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) | the repository that contains the given commits |
+| repo | [Repository](/api/repository/) | the repository that contains the given commits. |
 | revert_commit | [Commit](/api/commit/) | the commit to revert |
-| our_commit | [Commit](/api/commit/) | the commit to revert against (eg, HEAD) |
+| our_commit | [Commit](/api/commit/) | the commit to revert against (e.g. HEAD) |
 | mainline | Number | the parent of the revert commit, if it is a merge |
 | merge_options | [MergeOptions](/api/merge_options/) | the merge options (or null for defaults) |
 
 | Returns |  |
 | --- | --- |
-| [Index](/api/index/) |  |
+| [Index](/api/index/) | the index result |
 
 ## <a name="revert"></a><span>Revert.</span>revert <span class="tags"><span class="async">Async</span></span>
 

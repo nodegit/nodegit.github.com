@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: DiffPerfdata
+title: TreeUpdate
 description: Version 0.17.0
 menu_item: api
 return_to:
@@ -14,7 +14,8 @@ sections:
 
 | Variable | Type |
 | --- | --- |
-| <a name="oidCalculations"></a>oidCalculations | Number |
-| <a name="statCalls"></a>statCalls | Number |
-| <a name="version"></a>version | Number |
+| <a name="action"></a>action | Number |
+| <a name="filemode"></a>filemode | Number |
+| <a name="id"></a>id | Oid |
+| <a name="path"></a>path | String |
 

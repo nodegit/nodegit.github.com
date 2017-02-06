@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffFile
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -81,6 +81,7 @@ Returns the file's size
 | --- | --- |
 | <a name="flags"></a>flags | Number |
 | <a name="id"></a>id | Oid |
+| <a name="idAbbrev"></a>idAbbrev | Number |
 | <a name="mode"></a>mode | Number |
 | <a name="path"></a>path | String |
 | <a name="size"></a>size | Number |

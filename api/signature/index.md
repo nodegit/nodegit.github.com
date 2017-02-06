@@ -2,13 +2,14 @@
 layout: default
 menu_item: api
 title: Signature
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
   "default": "#default"
+  "fromBuffer": "#fromBuffer"
   "now": "#now"
   "#dup": "#dup"
   "#free": "#free"
@@ -42,6 +43,22 @@ var signature = Signature.default(repo);
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | repository pointer |
+
+| Returns |  |
+| --- | --- |
+| [Signature](/api/signature/) | new signature |
+
+## <a name="fromBuffer"></a><span>Signature.</span>fromBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Signature.fromBuffer(buf).then(function(signature) {
+  // Use signature
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| buf | String | signature string |
 
 | Returns |  |
 | --- | --- |

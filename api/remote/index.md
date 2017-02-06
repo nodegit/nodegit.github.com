@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -539,20 +539,25 @@ var result = remote.updateTips(callbacks, update_fetchhead, download_tags, reflo
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="upload"></a><span>Remote#</span>upload <span class="tags"><span class="sync">Sync</span></span>
+## <a name="upload"></a><span>Remote#</span>upload <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = remote.upload(refspecs, opts);
+remote.upload(refSpecs, options, callback).then(function(number) {
+  // Use number
+});
 ```
+
+Pushes to a remote
 
 | Parameters | Type |
 | --- | --- | --- |
-| refspecs | [Strarray](/api/strarray/) | the refspecs to use for this negotiation and upload. Use NULL or an empty array to use the base refspecs |
-| opts | [PushOptions](/api/push_options/) | the options to use for this push |
+| refSpecs | Array | The ref specs that should be pushed |
+| options | [PushOptions](/api/push_options/) | Options for the checkout |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| Number | error code |
 
 ## <a name="url"></a><span>Remote#</span>url <span class="tags"><span class="sync">Sync</span></span>
 

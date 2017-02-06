@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -99,21 +99,22 @@ sections:
 ## <a name="discover"></a><span>Repository.</span>discover <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Repository.discover(start_path, across_fs, ceiling_dirs).then(function(buf) {
-  // Use buf
+Repository.discover(startPath, acrossFs, ceilingDirs).then(function(string) {
+  // Use string
 });
 ```
 
+Creates a branch with the passed in name pointing to the commit
+
 | Parameters | Type |   |
 | --- | --- | --- |
-| start_path | String | The base path where the lookup starts. |
-| across_fs | Number | If true, then the lookup will not stop when a filesystem device change is detected while exploring parent directories. |
-| ceiling_dirs | String | A GIT_PATH_LIST_SEPARATOR separated list of absolute symbolic link free paths. The lookup will stop when any of this paths is reached. Note that the lookup always performs on start_path no matter start_path appears in ceiling_dirs ceiling_dirs might be NULL (which is equivalent to an empty string) |
+| startPath | String | The base path where the lookup starts. |
+| acrossFs | Number | If non-zero, then the lookup will not stop when a filesystem device change is detected while exploring parent directories. |
+| ceilingDirs | String | A list of absolute symbolic link free paths. the search will stop if any of these paths are hit. This may be set to null |
 
 | Returns |  |
 | --- | --- |
-| [Buf](/api/buf/) | a user-allocated git_buf which will contain
- the found path. |
+| String | Path of the git repository |
 
 ## <a name="init"></a><span>Repository.</span>init <span class="tags"><span class="async">Async</span></span>
 
@@ -191,7 +192,7 @@ Repository.openExt(path, flags, ceiling_dirs).then(function(repository) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| path | String | Path to open as git repository. If the flags permit "searching", then this can be a path to a subdirectory inside the working directory of the repository. |
+| path | String | Path to open as git repository. If the flags permit "searching", then this can be a path to a subdirectory inside the working directory of the repository. May be NULL if flags is GIT_REPOSITORY_OPEN_FROM_ENV. |
 | flags | Number | A combination of the GIT_REPOSITORY_OPEN flags above. |
 | ceiling_dirs | String | A GIT_PATH_LIST_SEPARATOR delimited list of path prefixes at which the search for a containing repository should terminate. |
 
@@ -315,7 +316,7 @@ Create a blob from a buffer
 ## <a name="createBranch"></a><span>Repository#</span>createBranch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.createBranch(name, commit, force, signature, logMessage).then(function(reference) {
+repository.createBranch(name, commit, force).then(function(reference) {
   // Use reference
 });
 ```
@@ -327,8 +328,6 @@ Creates a branch with the passed in name pointing to the commit
 | name | String | Branch name, e.g. "master" |
 | commit | [Commit](/api/commit/), String, [Oid](/api/oid/) | The commit the branch will point to |
 | force | bool | Overwrite branch if it exists |
-| signature | [Signature](/api/signature/) | Identity to use to populate reflog |
-| logMessage | String | One line message to be appended to the reflog |
 
 | Returns |  |
 | --- | --- |
@@ -1358,6 +1357,8 @@ var string = repository.workdir();
 | <span>Repository.OPEN_FLAG.</span>OPEN_NO_SEARCH | 1 |
 | <span>Repository.OPEN_FLAG.</span>OPEN_CROSS_FS | 2 |
 | <span>Repository.OPEN_FLAG.</span>OPEN_BARE | 4 |
+| <span>Repository.OPEN_FLAG.</span>OPEN_NO_DOTGIT | 8 |
+| <span>Repository.OPEN_FLAG.</span>OPEN_FROM_ENV | 16 |
 
 ## <a name="STATE"></a><span>Repository.</span>STATE <span class="tags"><span class="enum">ENUM</span></span>
 

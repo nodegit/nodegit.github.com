@@ -2,12 +2,13 @@
 layout: default
 menu_item: api
 title: Filter
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "listContains": "#listContains"
+  "listLength": "#listLength"
   "listNew": "#listNew"
   "listStreamBlob": "#listStreamBlob"
   "listStreamData": "#listStreamData"
@@ -34,6 +35,20 @@ var result = Filter.listContains(filters, name);
 | Returns |  |
 | --- | --- |
 | Number |  1 if the filter is in the list, 0 otherwise |
+
+## <a name="listLength"></a><span>Filter.</span>listLength <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = Filter.listLength(fl);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| fl | [FilterList](/api/filter_list/) | A filter list |
+
+| Returns |  |
+| --- | --- |
+| Number |  The number of filters in the list |
 
 ## <a name="listNew"></a><span>Filter.</span>listNew <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

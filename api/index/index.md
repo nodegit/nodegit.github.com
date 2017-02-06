@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Index
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -35,7 +35,9 @@ sections:
   "#removeByPath": "#removeByPath"
   "#removeDirectory": "#removeDirectory"
   "#setCaps": "#setCaps"
+  "#setVersion": "#setVersion"
   "#updateAll": "#updateAll"
+  "#version": "#version"
   "#write": "#write"
   "#writeTree": "#writeTree"
   "#writeTreeTo": "#writeTreeTo"
@@ -444,6 +446,20 @@ var result = index.setCaps(caps);
 | --- | --- |
 | Number |  0 on success, -1 on failure |
 
+## <a name="setVersion"></a><span>Index#</span>setVersion <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = index.setVersion(version);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| version | Number | The new version number |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, -1 on failure |
+
 ## <a name="updateAll"></a><span>Index#</span>updateAll <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -461,6 +477,16 @@ index.updateAll(pathspec, callback, payload).then(function(result) {
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, negative callback return value, or error code |
+
+## <a name="version"></a><span>Index#</span>version <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = index.version();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  the index version |
 
 ## <a name="write"></a><span>Index#</span>write <span class="tags"><span class="async">Async</span></span>
 

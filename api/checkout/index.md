@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Checkout
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -33,7 +33,7 @@ Patch head checkout to automatically coerce objects.
 ## <a name="index"></a><span>Checkout.</span>index <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Checkout.index(repo, The, [options]).then(function() {
+Checkout.index(repo, index, [options]).then(function() {
   // checkout complete
 });
 ```
@@ -43,7 +43,7 @@ Patch index checkout to automatically coerce objects.
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repo to checkout an index |
-| The | [Index](/api/index/) | index to checkout |
+| index | [Index](/api/index/) | The index to checkout |
 | [options] | [CheckoutOptions](/api/checkout_options/) | Options for the checkout |
 
 ## <a name="initOptions"></a><span>Checkout.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
@@ -74,7 +74,7 @@ Patch tree checkout to automatically coerce objects.
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) |  |
-| treeish | [Oid](/api/oid/), [Tree](/api/tree/), [Commit](/api/commit/), [Reference](/api/reference/) |  |
+| treeish | String, [Tree](/api/tree/), [Commit](/api/commit/), [Reference](/api/reference/) |  |
 | [options] | [CheckoutOptions](/api/checkout_options/) |  |
 
 ## <a name="NOTIFY"></a><span>Checkout.</span>NOTIFY <span class="tags"><span class="enum">ENUM</span></span>

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -12,7 +12,9 @@ sections:
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#_entryByIndex": "#_entryByIndex"
+  "#_entryByName": "#_entryByName"
   "#builder": "#builder"
+  "#createUpdated": "#createUpdated"
   "#diff": "#diff"
   "#diffWithOptions": "#diffWithOptions"
   "#dup": "#dup"
@@ -28,6 +30,7 @@ sections:
   "#owner": "#owner"
   "#path": "#path"
   "#walk": "#walk"
+  "UPDATE": "#UPDATE"
   "WALK_MODE": "#WALK_MODE"
 ---
 
@@ -115,6 +118,20 @@ var treeEntry = tree._entryByIndex(idx);
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  the tree entry; NULL if not found |
 
+## <a name="_entryByName"></a><span>Tree#</span>_entryByName <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var treeEntry = tree._entryByName(filename);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| filename | String | the filename of the desired entry |
+
+| Returns |  |
+| --- | --- |
+| [TreeEntry](/api/tree_entry/) |  the tree entry; NULL if not found |
+
 ## <a name="builder"></a><span>Tree#</span>builder <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -126,6 +143,24 @@ Make builder. This is helpful for modifying trees.
 | Returns |  |
 | --- | --- |
 | [Treebuilder](/api/treebuilder/) |  |
+
+## <a name="createUpdated"></a><span>Tree#</span>createUpdated <span class="tags"><span class="async">Async</span></span>
+
+```js
+tree.createUpdated(repo, nupdates, updates).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to create the tree, must be the same as for `baseline` |
+| nupdates | Number | the number of elements in the update list |
+| updates | [TreeUpdate](/api/tree_update/) | the list of updates to perform |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | id of the new tree |
 
 ## <a name="diff"></a><span>Tree#</span>diff <span class="tags"><span class="async">Async</span></span>
 
@@ -268,10 +303,12 @@ var result = tree.entryCount();
 tree.free();
 ```
 
-## <a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var treeEntry = tree.getEntry(filePath);
+tree.getEntry(filePath).then(function(treeEntry) {
+  // Use treeEntry
+});
 ```
 
 Get an entry at a path. Unlike by name, this takes a fully
@@ -351,6 +388,13 @@ entry.
 | Returns |  |
 | --- | --- |
 | EventEmitter |  |
+
+## <a name="UPDATE"></a><span>Tree.</span>UPDATE <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Tree.UPDATE.</span>UPSERT | 0 |
+| <span>Tree.UPDATE.</span>REMOVE | 1 |
 
 ## <a name="WALK_MODE"></a><span>Tree.</span>WALK_MODE <span class="tags"><span class="enum">ENUM</span></span>
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: TreeEntry
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,8 +16,10 @@ sections:
   "#isBlob": "#isBlob"
   "#isDirectory": "#isDirectory"
   "#isFile": "#isFile"
+  "#isSubmodule": "#isSubmodule"
   "#isTree": "#isTree"
   "#name": "#name"
+  "#oid": "#oid"
   "#path": "#path"
   "#sha": "#sha"
   "#toObject": "#toObject"
@@ -126,6 +128,18 @@ Is this TreeEntry a blob? (i.e., a file)
 | --- | --- |
 | Boolean |  |
 
+## <a name="isSubmodule"></a><span>TreeEntry#</span>isSubmodule <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var boolean = treeEntry.isSubmodule();
+```
+
+Is this TreeEntry a submodule?
+
+| Returns |  |
+| --- | --- |
+| Boolean |  |
+
 ## <a name="isTree"></a><span>TreeEntry#</span>isTree <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -147,6 +161,18 @@ var string = treeEntry.name();
 | Returns |  |
 | --- | --- |
 | String |  the name of the file |
+
+## <a name="oid"></a><span>TreeEntry#</span>oid <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = treeEntry.oid();
+```
+
+Retrieve the SHA for this TreeEntry. Alias for `sha`
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="path"></a><span>TreeEntry#</span>path <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Rebase
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -58,19 +58,23 @@ var result = Rebase.initOptions(opts, version);
 ## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Rebase.open(repo, opts).then(function(rebase) {
-  // Use rebase
+Rebase.open(repo, options, callback).then(function(remote) {
+  // Use remote
 });
 ```
+
+Opens an existing rebase that was previously started by either an invocation
+of Rebase.open or by another client.
 
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repository that has a rebase in-progress |
-| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed |
+| options | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed |
+| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
-| [Rebase](/api/rebase/) |  |
+| [Remote](/api/remote/) |  |
 
 ## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span></span>
 

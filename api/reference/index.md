@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reference
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -22,6 +22,7 @@ sections:
   "symbolicCreateMatching": "#symbolicCreateMatching"
   "#cmp": "#cmp"
   "#delete": "#delete"
+  "#dup": "#dup"
   "#isBranch": "#isBranch"
   "#isConcrete": "#isConcrete"
   "#isHead": "#isHead"
@@ -303,6 +304,18 @@ var result = reference.delete();
 | Returns |  |
 | --- | --- |
 | Number |  0, GIT_EMODIFIED or an error code |
+
+## <a name="dup"></a><span>Reference#</span>dup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+reference.dup().then(function(reference) {
+  // Use reference
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) | the copy |
 
 ## <a name="isBranch"></a><span>Reference#</span>isBranch <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

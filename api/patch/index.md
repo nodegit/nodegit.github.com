@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Patch
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -169,7 +169,7 @@ var result = patch.numLinesInHunk(hunk_idx);
 
 | Returns |  |
 | --- | --- |
-| Number |  Number of lines in hunk or -1 if invalid hunk index |
+| Number |  Number of lines in hunk or GIT_ENOTFOUND if invalid hunk index |
 
 ## <a name="size"></a><span>Patch#</span>size <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Error
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -78,6 +78,7 @@ sections:
 | <span>Error.ERROR.</span>GITERR_DESCRIBE | 28 |
 | <span>Error.ERROR.</span>GITERR_REBASE | 29 |
 | <span>Error.ERROR.</span>GITERR_FILESYSTEM | 30 |
+| <span>Error.ERROR.</span>GITERR_PATCH | 31 |
 
 ## <a name="ivars"></a>Instance Variables
 

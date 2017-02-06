@@ -2,12 +2,13 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.15.1
+description: Version 0.17.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "blobToBuffer": "#blobToBuffer"
+  "fromBuffer": "#fromBuffer"
   "indexToIndex": "#indexToIndex"
   "indexToWorkdir": "#indexToWorkdir"
   "treeToIndex": "#treeToIndex"
@@ -20,6 +21,7 @@ sections:
   "#merge": "#merge"
   "#numDeltas": "#numDeltas"
   "#patches": "#patches"
+  "#toBuf": "#toBuf"
   "DELTA": "#DELTA"
   "FIND": "#FIND"
   "FLAG": "#FLAG"
@@ -50,6 +52,23 @@ Directly run a diff between a blob and a buffer.
 | binary_cb | Function | Callback for binary files; can be NULL |
 | hunk_cb | Function | Callback for each hunk in diff; can be NULL |
 | line_cb | Function | Callback for each line in diff; can be NULL |
+
+## <a name="fromBuffer"></a><span>Diff.</span>fromBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Diff.fromBuffer(content, content_len).then(function(diff) {
+  // Use diff
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| content | String | The contents of a patch file |
+| content_len | Number | The length of the patch file contents |
+
+| Returns |  |
+| --- | --- |
+| [Diff](/api/diff/) |  |
 
 ## <a name="indexToIndex"></a><span>Diff.</span>indexToIndex <span class="tags"><span class="async">Async</span></span>
 
@@ -243,6 +262,23 @@ Retrieve patches in this difflist
 | Returns |  |
 | --- | --- |
 | Array&lt;[ConvenientPatch](/api/convenient_patch/)&gt; | a promise that resolves to an array of                                      ConvenientPatches |
+
+## <a name="toBuf"></a><span>Diff#</span>toBuf <span class="tags"><span class="async">Async</span></span>
+
+```js
+diff.toBuf(format).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| format | Number | A git_diff_format_t value to pick the text format. |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | a user-allocated git_buf that will
+            contain the diff text |
 
 ## <a name="DELTA"></a><span>Diff.</span>DELTA <span class="tags"><span class="enum">ENUM</span></span>
 
