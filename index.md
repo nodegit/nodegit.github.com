@@ -128,11 +128,9 @@ Git.Repository.open("nodegit")
 
 This will open our cloned repository and read out the latest commit's message from master.
 
-Have a problem? Come chat with us!
+### Have a problem? Come chat with us!
 
-<a href="https://gitter.im/nodegit/nodegit">
-  <img src="/img/gitterbadge.svg"/>
-</a>
+Visit [slack.libgit2.org](http://slack.libgit2.org/) to sign up, then join us in #nodegit.
 
 * * *
 
