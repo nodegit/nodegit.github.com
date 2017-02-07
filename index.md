@@ -30,14 +30,6 @@ npm install nodegit
         Electron
         </a>
       </div>
-      <div class="column">
-        <a href="http://nwjs.io">
-          <img src="/img/nwjs.png"/>
-        </a>
-        <a href="/guides/install/nw.js/">
-        nw.js
-        </a>
-      </div>
     </div>
   </div>
   <div class="column">
@@ -66,11 +58,6 @@ npm install nodegit
       <div class="column">
         <a href="http://nodejs.org">
           <img src="/img/nodejs.png"/> NodeJS
-        </a>
-      </div>
-      <div class="column">
-        <a href="https://iojs.org">
-          <img src="/img/iojs.png"/> io.js
         </a>
       </div>
     </div>
