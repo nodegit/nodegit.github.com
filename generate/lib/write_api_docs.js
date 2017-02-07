@@ -293,15 +293,15 @@ var writeApiDocs = function(apiData, path) {
 
     if (Object.keys(data.fields).length) {
       pageBody += "## <a name=\"ivars\"></a>Instance Variables\n\n";
-      pageBody += "| Variable | Type |\n";
-      pageBody += "| --- | --- |\n";
+      pageBody += "| Variable | Type | Description |\n";
+      pageBody += "| --- | --- | --- |\n";
 
       homeBody += "| Instance Variables |  |\n";
       homeBody += "| --- | ---: |\n";
 
       Object.keys(data.fields).sort().forEach(function(obj) {
         homeBody += "| " + linkToEntry("<span>" + item + "#</span>" + obj, item, obj) + " |  |\n";
-        pageBody += "| <a name=\"" + obj + "\"></a>" + obj + " | " + data.fields[obj] + " |\n";
+        pageBody += "| <a name=\"" + obj + "\"></a>" + obj + " | " + data.fields[obj].type + " | " + (data.fields[obj].description || '') + " |\n";
       });
 
       pageBody += "\n";

@@ -27,7 +27,7 @@ var generatedData = function(path, missingTestsPath) {
     var missingTests = fs.readJsonSync(missingTestsPath);
   }
 
-  generatedJSON.forEach(function(item) {
+    generatedJSON.forEach(function(item) {
     switch (item.type) {
       case 'class':
       case 'struct':
@@ -83,7 +83,10 @@ var generatedData = function(path, missingTestsPath) {
           }
         });
         item.fields.forEach(function(field) {
-          obj.fields[field.jsFunctionName] = field.jsClassName;
+          obj.fields[field.jsFunctionName] = {
+              'type': field.jsClassName,
+              'description' : field.comments
+          };
         });
         break;
       case 'enum':
