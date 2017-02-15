@@ -381,6 +381,10 @@ header {
   img {
     height:64px;
   }
+
+  &.columns .column {
+    padding:0 6px 0 0;
+  }
 }
 
 footer {
