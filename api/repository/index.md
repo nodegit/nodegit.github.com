@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -88,6 +88,8 @@ sections:
   "#stageLines": "#stageLines"
   "#state": "#state"
   "#stateCleanup": "#stateCleanup"
+  "#submoduleCacheAll": "#submoduleCacheAll"
+  "#submoduleCacheClear": "#submoduleCacheClear"
   "#treeBuilder": "#treeBuilder"
   "#workdir": "#workdir"
   "INIT_FLAG": "#INIT_FLAG"
@@ -281,7 +283,7 @@ repository.configSnapshot().then(function(config) {
 ## <a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.continueRebase(signature, beforeNextFn).then(function(oid) {
+repository.continueRebase(signature, beforeNextFn, beforeFinishFn).then(function(oid) {
   // Use oid
 });
 ```
@@ -292,6 +294,7 @@ Continues an existing rebase
 | --- | --- | --- |
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
 | beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
+| beforeFinishFn | Function | Callback called before the invocation of finish(). If the callback returns a promise, finish() will be called when the promise resolves. This callback will be provided a detailed overview of the rebase |
 
 | Returns |  |
 | --- | --- |
@@ -1105,7 +1108,7 @@ var string = repository.path();
 ## <a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn).then(function(oid) {
+repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn).then(function(oid) {
   // Use oid
 });
 ```
@@ -1119,6 +1122,7 @@ Rebases a branch onto another branch
 | onto | String |  |
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
 | beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
+| beforeFinishFn | Function | Callback called before the invocation of finish(). If the callback returns a promise, finish() will be called when the promise resolves. This callback will be provided a detailed overview of the rebase |
 
 | Returns |  |
 | --- | --- |
@@ -1307,6 +1311,26 @@ var result = repository.stateCleanup();
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, or error |
+
+## <a name="submoduleCacheAll"></a><span>Repository#</span>submoduleCacheAll <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.submoduleCacheAll();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="submoduleCacheClear"></a><span>Repository#</span>submoduleCacheClear <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.submoduleCacheClear();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="treeBuilder"></a><span>Repository#</span>treeBuilder <span class="tags"><span class="sync">Sync</span></span>
 

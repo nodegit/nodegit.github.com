@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Fetch
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -19,7 +19,7 @@ var result = Fetch.initOptions(opts, version);
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| opts | [FetchOptions](/api/fetch_options/) | the `git_push_options` instance to initialize. |
+| opts | [FetchOptions](/api/fetch_options/) | the `git_fetch_options` instance to initialize. |
 | version | Number | the version of the struct; you should pass `GIT_FETCH_OPTIONS_VERSION` here. |
 
 | Returns |  |

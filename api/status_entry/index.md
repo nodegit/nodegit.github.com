@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: StatusEntry
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -12,9 +12,9 @@ sections:
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="headToIndex"></a>headToIndex | DiffDelta |
-| <a name="indexToWorkdir"></a>indexToWorkdir | DiffDelta |
-| <a name="status"></a>status | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="headToIndex"></a>headToIndex | DiffDelta |  |
+| <a name="indexToWorkdir"></a>indexToWorkdir | DiffDelta |  |
+| <a name="status"></a>status | Number |  |
 

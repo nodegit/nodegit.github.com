@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffLine
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -38,13 +38,13 @@ The non utf8 translated text
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="content"></a>content | String |
-| <a name="contentLen"></a>contentLen | Number |
-| <a name="contentOffset"></a>contentOffset | Number |
-| <a name="newLineno"></a>newLineno | Number |
-| <a name="numLines"></a>numLines | Number |
-| <a name="oldLineno"></a>oldLineno | Number |
-| <a name="origin"></a>origin | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="content"></a>content | String |  |
+| <a name="contentLen"></a>contentLen | Number |  |
+| <a name="contentOffset"></a>contentOffset | Number |  |
+| <a name="newLineno"></a>newLineno | Number |  |
+| <a name="numLines"></a>numLines | Number |  |
+| <a name="oldLineno"></a>oldLineno | Number |  |
+| <a name="origin"></a>origin | Number |  |
 

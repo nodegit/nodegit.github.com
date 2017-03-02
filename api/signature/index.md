@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Signature
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -111,9 +111,9 @@ Standard string representation of an author.
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="email"></a>email | String |
-| <a name="name"></a>name | String |
-| <a name="when"></a>when | Time |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="email"></a>email | String |  |
+| <a name="name"></a>name | String |  |
+| <a name="when"></a>when | Time |  |
 

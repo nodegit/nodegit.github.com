@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reset
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -33,22 +33,28 @@ Look up a refs's commit.
 | --- | --- |
 | Number | 0 on success or an error code |
 
-## <a name="fromAnnotated"></a><span>Reset.</span>fromAnnotated <span class="tags"><span class="sync">Sync</span></span>
+## <a name="fromAnnotated"></a><span>Reset.</span>fromAnnotated <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Reset.fromAnnotated(repo, commit, reset_type, checkout_opts);
+Reset.fromAnnotated(repo, target, resetType, opts).then(function() {
+  // method complete});
 ```
+
+Sets the current head to the specified commit oid and optionally
+resets the index and working tree to match.
+
+This behaves like reset but takes an annotated commit, which lets
+you specify which extended sha syntax string was specified by a
+user, allowing for more exact reflog messages.
+
+See the documentation for reset.
 
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) |  |
-| commit | [AnnotatedCommit](/api/annotated_commit/) |  |
-| reset_type | Number |  |
-| checkout_opts | [CheckoutOptions](/api/checkout_options/) |  |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
+| target | [AnnotatedCommit](/api/annotated_commit/) |  |
+| resetType | Number |  |
+| opts | [CheckoutOptions](/api/checkout_options/) |  |
 
 ## <a name="reset"></a><span>Reset.</span>reset <span class="tags"><span class="async">Async</span></span>
 

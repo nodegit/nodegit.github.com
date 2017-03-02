@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: MergeFileInput
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,11 +16,11 @@ var mergeFileInput = new MergeFileInput();
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="mode"></a>mode | Number |
-| <a name="path"></a>path | String |
-| <a name="ptr"></a>ptr | String |
-| <a name="size"></a>size | Number |
-| <a name="version"></a>version | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="mode"></a>mode | Number |  |
+| <a name="path"></a>path | String |  |
+| <a name="ptr"></a>ptr | String |  |
+| <a name="size"></a>size | Number |  |
+| <a name="version"></a>version | Number |  |
 

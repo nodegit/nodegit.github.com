@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: IndexTime
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -12,8 +12,8 @@ sections:
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="nanoseconds"></a>nanoseconds | Number |
-| <a name="seconds"></a>seconds | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="nanoseconds"></a>nanoseconds | Number |  |
+| <a name="seconds"></a>seconds | Number |  |
 

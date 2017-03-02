@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Buf
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -76,9 +76,9 @@ buf.set(data, datalen).then(function(buf) {
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="asize"></a>asize | Number |
-| <a name="ptr"></a>ptr | String |
-| <a name="size"></a>size | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="asize"></a>asize | Number |  |
+| <a name="ptr"></a>ptr | String |  |
+| <a name="size"></a>size | Number |  |
 

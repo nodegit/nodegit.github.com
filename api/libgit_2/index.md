@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Libgit2
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -93,6 +93,7 @@ Libgit2.version(major, minor, rev);
 | <span>Libgit2.OPT.</span>SET_SSL_CERT_LOCATIONS | 12 |
 | <span>Libgit2.OPT.</span>SET_USER_AGENT | 13 |
 | <span>Libgit2.OPT.</span>ENABLE_STRICT_OBJECT_CREATION | 14 |
-| <span>Libgit2.OPT.</span>SET_SSL_CIPHERS | 15 |
-| <span>Libgit2.OPT.</span>GET_USER_AGENT | 16 |
+| <span>Libgit2.OPT.</span>ENABLE_STRICT_SYMBOLIC_REF_CREATION | 15 |
+| <span>Libgit2.OPT.</span>SET_SSL_CIPHERS | 16 |
+| <span>Libgit2.OPT.</span>GET_USER_AGENT | 17 |
 

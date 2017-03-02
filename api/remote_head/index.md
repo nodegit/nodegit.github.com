@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: StatusOptions
+title: RemoteHead
 description: Version 0.18.0
 menu_item: api
 return_to:
@@ -10,16 +10,13 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
-```js
-var statusOptions = new StatusOptions();
-```
-
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="flags"></a>flags | Number |  |
-| <a name="pathspec"></a>pathspec | Strarray |  |
-| <a name="show"></a>show | Number |  |
-| <a name="version"></a>version | Number |  |
+| <a name="local"></a>local | Number |  |
+| <a name="loid"></a>loid | Oid |  |
+| <a name="name"></a>name | String |  |
+| <a name="oid"></a>oid | Oid |  |
+| <a name="symrefTarget"></a>symrefTarget | String |  |
 

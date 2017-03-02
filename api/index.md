@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -87,6 +87,7 @@ sections:
   "Refspec": "#Refspec"
   "Remote": "#Remote"
   "RemoteCallbacks": "#RemoteCallbacks"
+  "RemoteHead": "#RemoteHead"
   "Repository": "#Repository"
   "RepositoryInitOptions": "#RepositoryInitOptions"
   "Reset": "#Reset"
@@ -542,6 +543,7 @@ sections:
 | [<span>DescribeOptions#</span>pattern](/api/describe_options/#pattern) |  |
 | [<span>DescribeOptions#</span>showCommitOidAsFallback](/api/describe_options/#showCommitOidAsFallback) |  |
 | [<span>DescribeOptions#</span>version](/api/describe_options/#version) |  |
+
 
 
 ## <a name='Diff'></a>[Diff](/api/diff/)
@@ -1432,6 +1434,7 @@ sections:
 | [<span>Remote#</span>pruneRefs <span>()</span>](/api/remote/#pruneRefs) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>push <span>(refSpecs, options, callback)</span>](/api/remote/#push) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>pushurl <span>()</span>](/api/remote/#pushurl) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Remote#</span>referenceList <span>()</span>](/api/remote/#referenceList) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>refspecCount <span>()</span>](/api/remote/#refspecCount) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stats <span>()</span>](/api/remote/#stats) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stop <span>()</span>](/api/remote/#stop) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1457,6 +1460,17 @@ sections:
 | [<span>RemoteCallbacks#</span>version](/api/remote_callbacks/#version) |  |
 
 
+## <a name='RemoteHead'></a>[RemoteHead](/api/remote_head/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>RemoteHead#</span>local](/api/remote_head/#local) |  |
+| [<span>RemoteHead#</span>loid](/api/remote_head/#loid) |  |
+| [<span>RemoteHead#</span>name](/api/remote_head/#name) |  |
+| [<span>RemoteHead#</span>oid](/api/remote_head/#oid) |  |
+| [<span>RemoteHead#</span>symrefTarget](/api/remote_head/#symrefTarget) |  |
+
+
 ## <a name='Repository'></a>[Repository](/api/repository/)
 
 | Class Methods |  |
@@ -1476,7 +1490,7 @@ sections:
 | [<span>Repository#</span>cleanup <span>()</span>](/api/repository/#cleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>configSnapshot <span>()</span>](/api/repository/#configSnapshot) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn, beforeFinishFn)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createBlobFromBuffer <span>(buffer)</span>](/api/repository/#createBlobFromBuffer) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>createBranch <span>(name, commit, force)</span>](/api/repository/#createBranch) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createCommit <span>(updateRef, author, committer, message, Tree, parents)</span>](/api/repository/#createCommit) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1531,7 +1545,7 @@ sections:
 | [<span>Repository#</span>messageRemove <span>()</span>](/api/repository/#messageRemove) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>odb <span>()</span>](/api/repository/#odb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>path <span>()</span>](/api/repository/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Repository#</span>rebaseBranches <span>(branch, upstream, onto, signature, beforeNextFn)</span>](/api/repository/#rebaseBranches) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>rebaseBranches <span>(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn)</span>](/api/repository/#rebaseBranches) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>refdb <span>()</span>](/api/repository/#refdb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>refreshIndex <span>()</span>](/api/repository/#refreshIndex) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHead <span>(refname)</span>](/api/repository/#setHead) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1545,6 +1559,8 @@ sections:
 | [<span>Repository#</span>stageLines <span>(filePath, selectedLines, isStaged)</span>](/api/repository/#stageLines) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>state <span>()</span>](/api/repository/#state) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>stateCleanup <span>()</span>](/api/repository/#stateCleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>submoduleCacheAll <span>()</span>](/api/repository/#submoduleCacheAll) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>submoduleCacheClear <span>()</span>](/api/repository/#submoduleCacheClear) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>treeBuilder <span>(tree)</span>](/api/repository/#treeBuilder) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>workdir <span>()</span>](/api/repository/#workdir) |  <span class="tags"><span class="sync">Sync</span></span> |
 
@@ -1575,7 +1591,7 @@ sections:
 | Class Methods |  |
 | --- | ---: |
 | [<span>Reset.</span>default <span>(repo, target, pathspecs)</span>](/api/reset/#default) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Reset.</span>fromAnnotated <span>(repo, commit, reset_type, checkout_opts)</span>](/api/reset/#fromAnnotated) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Reset.</span>fromAnnotated <span>(repo, target, resetType, opts)</span>](/api/reset/#fromAnnotated) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Reset.</span>reset <span>(repo, target, resetType, opts, name)</span>](/api/reset/#reset) |  <span class="tags"><span class="async">Async</span></span> |
 
 | ENUMS |  |
@@ -1815,7 +1831,6 @@ sections:
 | --- | ---: |
 | [<span>SubmoduleUpdateOptions#</span>allowFetch](/api/submodule_update_options/#allowFetch) |  |
 | [<span>SubmoduleUpdateOptions#</span>checkoutOpts](/api/submodule_update_options/#checkoutOpts) |  |
-| [<span>SubmoduleUpdateOptions#</span>cloneCheckoutStrategy](/api/submodule_update_options/#cloneCheckoutStrategy) |  |
 | [<span>SubmoduleUpdateOptions#</span>fetchOpts](/api/submodule_update_options/#fetchOpts) |  |
 | [<span>SubmoduleUpdateOptions#</span>version](/api/submodule_update_options/#version) |  |
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -38,6 +38,7 @@ sections:
   "#pruneRefs": "#pruneRefs"
   "#push": "#push"
   "#pushurl": "#pushurl"
+  "#referenceList": "#referenceList"
   "#refspecCount": "#refspecCount"
   "#stats": "#stats"
   "#stop": "#stop"
@@ -495,6 +496,22 @@ var string = remote.pushurl();
 | Returns |  |
 | --- | --- |
 | String |  the url or NULL if no special url for pushing is set |
+
+## <a name="referenceList"></a><span>Remote#</span>referenceList <span class="tags"><span class="async">Async</span></span>
+
+```js
+remote.referenceList().then(function(promiseArrayRemoteHead) {
+  // Use promiseArrayRemoteHead
+});
+```
+
+Lists advertised references from a remote. You must connect to the remote
+before using referenceList.
+
+| Returns |  |
+| --- | --- |
+| Array&lt;RemoteHead>&gt; | a list of the remote heads the remote                                      had available at the last established
+                                     connection. |
 
 ## <a name="refspecCount"></a><span>Remote#</span>refspecCount <span class="tags"><span class="sync">Sync</span></span>
 

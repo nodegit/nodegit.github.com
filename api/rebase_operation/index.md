@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: RebaseOperation
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -24,9 +24,9 @@ sections:
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="exec"></a>exec | String |
-| <a name="id"></a>id | Oid |
-| <a name="type"></a>type | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="exec"></a>exec | String |  |
+| <a name="id"></a>id | Oid |  |
+| <a name="type"></a>type | Number |  |
 

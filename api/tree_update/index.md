@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: TreeUpdate
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -12,10 +12,10 @@ sections:
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="action"></a>action | Number |
-| <a name="filemode"></a>filemode | Number |
-| <a name="id"></a>id | Oid |
-| <a name="path"></a>path | String |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="action"></a>action | Number |  |
+| <a name="filemode"></a>filemode | Number |  |
+| <a name="id"></a>id | Oid |  |
+| <a name="path"></a>path | String |  |
 

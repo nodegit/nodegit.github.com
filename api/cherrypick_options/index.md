@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: CherrypickOptions
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,10 +16,10 @@ var cherrypickOptions = new CherrypickOptions();
 
 ## <a name="ivars"></a>Instance Variables
 
-| Variable | Type |
-| --- | --- |
-| <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |
-| <a name="mainline"></a>mainline | Number |
-| <a name="mergeOpts"></a>mergeOpts | MergeOptions |
-| <a name="version"></a>version | Number |
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="checkoutOpts"></a>checkoutOpts | CheckoutOptions |  |
+| <a name="mainline"></a>mainline | Number |  |
+| <a name="mergeOpts"></a>mergeOpts | MergeOptions |  |
+| <a name="version"></a>version | Number |  |
 

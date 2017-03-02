@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Revert
-description: Version 0.17.0
+description: Version 0.18.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -46,7 +46,7 @@ Revert.revert(repo, commit, given_opts).then(function(result) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | the repository to revert |
 | commit | [Commit](/api/commit/) | the commit to revert |
-| given_opts | [RevertOptions](/api/revert_options/) | merge flags |
+| given_opts | [RevertOptions](/api/revert_options/) | the revert options (or null for defaults) |
 
 | Returns |  |
 | --- | --- |
