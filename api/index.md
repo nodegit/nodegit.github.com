@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.18.0
+description: Version 0.19.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -1969,7 +1969,7 @@ sections:
 | [<span>TreeEntry#</span>oid <span>()</span>](/api/tree_entry/#oid) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>TreeEntry#</span>path <span>()</span>](/api/tree_entry/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>TreeEntry#</span>sha <span>()</span>](/api/tree_entry/#sha) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>TreeEntry#</span>toObject <span>(object_out, repo)</span>](/api/tree_entry/#toObject) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>TreeEntry#</span>toObject <span>(repo)</span>](/api/tree_entry/#toObject) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>TreeEntry#</span>toString <span>()</span>](/api/tree_entry/#toString) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>TreeEntry#</span>type <span>()</span>](/api/tree_entry/#type) |  <span class="tags"><span class="sync">Sync</span></span> |
 

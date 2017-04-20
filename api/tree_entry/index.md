@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: TreeEntry
-description: Version 0.18.0
+description: Version 0.19.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -198,20 +198,21 @@ Retrieve the SHA for this TreeEntry.
 | --- | --- |
 | String |  |
 
-## <a name="toObject"></a><span>TreeEntry#</span>toObject <span class="tags"><span class="sync">Sync</span></span>
+## <a name="toObject"></a><span>TreeEntry#</span>toObject <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = treeEntry.toObject(object_out, repo);
+treeEntry.toObject(repo).then(function(object) {
+  // Use object
+});
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| object_out | [Object](/api/object/) | pointer to the converted object |
 | repo | [Repository](/api/repository/) | repository where to lookup the pointed object |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Object](/api/object/) |  |
 
 ## <a name="toString"></a><span>TreeEntry#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 
