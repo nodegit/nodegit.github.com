@@ -9,11 +9,12 @@ return_to:
 sections:
   "listContains": "#listContains"
   "listLength": "#listLength"
-  "listNew": "#listNew"
-  "listStreamBlob": "#listStreamBlob"
-  "listStreamData": "#listStreamData"
-  "listStreamFile": "#listStreamFile"
+  "load": "#load"
   "unregister": "#unregister"
+  "#applyToBlob": "#applyToBlob"
+  "#applyToData": "#applyToData"
+  "#applyToFile": "#applyToFile"
+  "#free": "#free"
   "#lookup": "#lookup"
   "#register": "#register"
   "FLAG": "#FLAG"
@@ -21,7 +22,11 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
-## <a name="listContains"></a><span>Filter.</span>listContains <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+```js
+var filter = new Filter();
+```
+
+## <a name="listContains"></a><span>Filter.</span>listContains <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Filter.listContains(filters, name);
@@ -36,7 +41,7 @@ var result = Filter.listContains(filters, name);
 | --- | --- |
 | Number |  1 if the filter is in the list, 0 otherwise |
 
-## <a name="listLength"></a><span>Filter.</span>listLength <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="listLength"></a><span>Filter.</span>listLength <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Filter.listLength(fl);
@@ -50,74 +55,27 @@ var result = Filter.listLength(fl);
 | --- | --- |
 | Number |  The number of filters in the list |
 
-## <a name="listNew"></a><span>Filter.</span>listNew <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="load"></a><span>Filter.</span>load <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Filter.listNew(repo, mode, options).then(function(filterList) {
+Filter.load(repo, blob, path, mode, flags).then(function(filterList) {
   // Use filterList
 });
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) |  |
-| mode | Number |  |
-| options | Number |  |
+| repo | [Repository](/api/repository/) | Repository object that contains `path` |
+| blob | [Blob](/api/blob/) | The blob to which the filter will be applied (if known) |
+| path | String | Relative path of the file to be filtered |
+| mode | Number | Filtering direction (WT->ODB or ODB->WT) |
+| flags | Number | Combination of `git_filter_flag_t` flags |
 
 | Returns |  |
 | --- | --- |
-| [FilterList](/api/filter_list/) |  |
+| [FilterList](/api/filter_list/) | Output newly created git_filter_list (or NULL) |
 
-## <a name="listStreamBlob"></a><span>Filter.</span>listStreamBlob <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = Filter.listStreamBlob(filters, blob, target);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| filters | [FilterList](/api/filter_list/) | the list of filters to apply |
-| blob | [Blob](/api/blob/) | the blob to filter |
-| target | [Writestream](/api/writestream/) | the stream into which the data will be written |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="listStreamData"></a><span>Filter.</span>listStreamData <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = Filter.listStreamData(filters, data, target);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| filters | [FilterList](/api/filter_list/) | the list of filters to apply |
-| data | [Buf](/api/buf/) | the buffer to filter |
-| target | [Writestream](/api/writestream/) | the stream into which the data will be written |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="listStreamFile"></a><span>Filter.</span>listStreamFile <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-var result = Filter.listStreamFile(filters, repo, path, target);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| filters | [FilterList](/api/filter_list/) | the list of filters to apply |
-| repo | [Repository](/api/repository/) | the repository in which to perform the filtering |
-| path | String | the path of the file to filter, a relative path will be taken as relative to the workdir |
-| target | [Writestream](/api/writestream/) | the stream into which the data will be written |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="unregister"></a><span>Filter.</span>unregister <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="unregister"></a><span>Filter.</span>unregister <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = Filter.unregister(name);
@@ -133,7 +91,62 @@ var result = Filter.unregister(name);
 <
 0 on failure |
 
-## <a name="lookup"></a><span>Filter#</span>lookup <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="applyToBlob"></a><span>Filter#</span>applyToBlob <span class="tags"><span class="async">Async</span></span>
+
+```js
+filter.applyToBlob(blob).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| blob | [Blob](/api/blob/) | the blob to filter |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | buffer into which to store the filtered file |
+
+## <a name="applyToData"></a><span>Filter#</span>applyToData <span class="tags"><span class="async">Async</span></span>
+
+```js
+filter.applyToData(in).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| in | [Buf](/api/buf/) | Buffer containing the data to filter |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | Buffer to store the result of the filtering |
+
+## <a name="applyToFile"></a><span>Filter#</span>applyToFile <span class="tags"><span class="async">Async</span></span>
+
+```js
+filter.applyToFile(repo, path).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository in which to perform the filtering |
+| path | String | the path of the file to filter, a relative path will be taken as relative to the workdir |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | buffer into which to store the filtered file |
+
+## <a name="free"></a><span>Filter#</span>free <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+filter.free();
+```
+
+## <a name="lookup"></a><span>Filter#</span>lookup <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var filter = filter.lookup(name);
@@ -147,7 +160,7 @@ var filter = filter.lookup(name);
 | --- | --- |
 | [Filter](/api/filter/) |  |
 
-## <a name="register"></a><span>Filter#</span>register <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="register"></a><span>Filter#</span>register <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
 var result = filter.register(name, priority);
@@ -184,7 +197,11 @@ var result = filter.register(name, priority);
 
 | Variable | Type | Description |
 | --- | --- | --- |
+| <a name="apply"></a>apply | FilterApplyFn |  |
 | <a name="attributes"></a>attributes | String |  |
-| <a name="stream"></a>stream | FilterStreamFn |  |
+| <a name="check"></a>check | FilterCheckFn |  |
+| <a name="cleanup"></a>cleanup | FilterCleanupFn |  |
+| <a name="initialize"></a>initialize | FilterInitFn |  |
+| <a name="shutdown"></a>shutdown | FilterShutdownFn |  |
 | <a name="version"></a>version | Number |  |
 

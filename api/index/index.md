@@ -22,6 +22,7 @@ sections:
   "#conflictRemove": "#conflictRemove"
   "#entries": "#entries"
   "#entryCount": "#entryCount"
+  "#find": "#find"
   "#findPrefix": "#findPrefix"
   "#getByIndex": "#getByIndex"
   "#getByPath": "#getByPath"
@@ -258,20 +259,37 @@ var result = index.entryCount();
 | --- | --- |
 | Number |  integer of count of current entries |
 
-## <a name="findPrefix"></a><span>Index#</span>findPrefix <span class="tags"><span class="sync">Sync</span></span>
+## <a name="find"></a><span>Index#</span>find <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = index.findPrefix(at_pos, prefix);
+index.find(path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| at_pos | Number | the address to which the position of the index entry is written (optional) |
+| path | String | path to search |
+
+| Returns |  |
+| --- | --- |
+| Number | the address to which the position of the index entry is written (optional) |
+
+## <a name="findPrefix"></a><span>Index#</span>findPrefix <span class="tags"><span class="async">Async</span></span>
+
+```js
+index.findPrefix(prefix).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
 | prefix | String | the prefix to search for |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 with valid value in at_pos; an error code otherwise |
+| Number | the address to which the position of the index entry is written (optional) |
 
 ## <a name="getByIndex"></a><span>Index#</span>getByIndex <span class="tags"><span class="sync">Sync</span></span>
 

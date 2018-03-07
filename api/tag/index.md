@@ -239,19 +239,17 @@ var repository = tag.owner();
 | --- | --- |
 | [Repository](/api/repository/) |  Repository that contains this tag. |
 
-## <a name="peel"></a><span>Tag#</span>peel <span class="tags"><span class="sync">Sync</span></span>
+## <a name="peel"></a><span>Tag#</span>peel <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = tag.peel(tag_target_out);
+tag.peel().then(function(object) {
+  // Use object
+});
 ```
-
-| Parameters | Type |
-| --- | --- | --- |
-| tag_target_out | [Object](/api/object/) | Pointer to the peeled git_object |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Object](/api/object/) |  |
 
 ## <a name="tagger"></a><span>Tag#</span>tagger <span class="tags"><span class="sync">Sync</span></span>
 

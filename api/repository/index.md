@@ -30,7 +30,6 @@ sections:
   "#defaultSignature": "#defaultSignature"
   "#deleteTagByName": "#deleteTagByName"
   "#detachHead": "#detachHead"
-  "#discardLines": "#discardLines"
   "#fetch": "#fetch"
   "#fetchAll": "#fetchAll"
   "#fetchheadForeach": "#fetchheadForeach"
@@ -471,26 +470,6 @@ var result = repository.detachHead();
 | --- | --- |
 | Number |  0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing
  branch or an error code |
-
-## <a name="discardLines"></a><span>Repository#</span>discardLines <span class="tags"><span class="async">Async</span></span>
-
-```js
-repository.discardLines(filePath, selectedLines).then(function(number) {
-  // Use number
-});
-```
-
-Discard line selection of a specified file.
-Assumes selected lines are unstaged.
-
-| Parameters | Type |
-| --- | --- | --- |
-| filePath | String | The relative path of this file in the repo |
-| selectedLines | Array | The array of DiffLine objects selected for discarding |
-
-| Returns |  |
-| --- | --- |
-| Number | 0 or an error code |
 
 ## <a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="async">Async</span></span>
 

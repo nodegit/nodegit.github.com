@@ -289,7 +289,7 @@ like `revwalk.sorting(NodeGit.RevWalk.Topological, NodeGit.RevWalk.Reverse).`
 ## <a name="walk"></a><span>Revwalk#</span>walk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var commit = revwalk.walk(oid, callback);
+revwalk.walk(oid, callback);
 ```
 
 Walk the history from the given oid. The callback is invoked for each commit;
@@ -299,10 +299,6 @@ When the walk is over, the callback is invoked with `(null, null)`.
 | --- | --- | --- |
 | oid | [Oid](/api/oid/) |  |
 | callback | Function |  |
-
-| Returns |  |
-| --- | --- |
-| [Commit](/api/commit/) |  |
 
 ## <a name="SORT"></a><span>Revwalk.</span>SORT <span class="tags"><span class="enum">ENUM</span></span>
 

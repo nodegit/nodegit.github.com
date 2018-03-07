@@ -70,12 +70,10 @@ var treeEntry = treebuilder.get(filename);
 | --- | --- |
 | [TreeEntry](/api/tree_entry/) |  |
 
-## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="async">Async</span></span>
+## <a name="insert"></a><span>Treebuilder#</span>insert <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-treebuilder.insert(filename, id, filemode).then(function(treeEntry) {
-  // Use treeEntry
-});
+var treeEntry = treebuilder.insert(filename, id, filemode);
 ```
 
 | Parameters | Type |

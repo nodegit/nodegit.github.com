@@ -128,10 +128,12 @@ var result = reflog.entrycount();
 reflog.free();
 ```
 
-## <a name="write"></a><span>Reflog#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="write"></a><span>Reflog#</span>write <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = reflog.write();
+reflog.write().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |

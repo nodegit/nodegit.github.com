@@ -34,8 +34,8 @@ buf.free();
 ## <a name="grow"></a><span>Buf#</span>grow <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-buf.grow(target_size).then(function(buf) {
-  // Use buf
+buf.grow(target_size).then(function(result) {
+  // Use result
 });
 ```
 
@@ -45,7 +45,7 @@ buf.grow(target_size).then(function(buf) {
 
 | Returns |  |
 | --- | --- |
-| [Buf](/api/buf/) | The buffer to be resized; may or may not be allocated yet |
+| Number |  0 on success, -1 on allocation failure |
 
 ## <a name="isBinary"></a><span>Buf#</span>isBinary <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -60,8 +60,8 @@ var result = buf.isBinary();
 ## <a name="set"></a><span>Buf#</span>set <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-buf.set(data, datalen).then(function(buf) {
-  // Use buf
+buf.set(data, datalen).then(function(result) {
+  // Use result
 });
 ```
 
@@ -72,7 +72,7 @@ buf.set(data, datalen).then(function(buf) {
 
 | Returns |  |
 | --- | --- |
-| [Buf](/api/buf/) | The buffer to set |
+| Number |  0 on success, -1 on allocation failure |
 
 ## <a name="ivars"></a>Instance Variables
 

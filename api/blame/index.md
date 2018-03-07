@@ -17,10 +17,11 @@ sections:
   "FLAG": "#FLAG"
 ---
 
-## <a name="file"></a><span>Blame.</span>file <span class="tags"><span class="sync">Sync</span></span>
+## <a name="file"></a><span>Blame.</span>file <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Blame.file(repo, path, [options]);
+Blame.file(repo, path, [options]).then(function() {
+  // method complete});
 ```
 
 Retrieve the blame of a file

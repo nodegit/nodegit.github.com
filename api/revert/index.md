@@ -37,18 +37,16 @@ that reflects the result of the revert.
 ## <a name="revert"></a><span>Revert.</span>revert <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Revert.revert(repo, commit, given_opts).then(function(result) {
-  // Use result
-});
+Revert.revert(repo, commit, revert_options).then(function() {
+  // method complete});
 ```
+
+Reverts the given commit, producing changes in the index and
+working directory.
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) | the repository to revert |
+| repo | [Repository](/api/repository/) | the repository to perform the revert in |
 | commit | [Commit](/api/commit/) | the commit to revert |
-| given_opts | [RevertOptions](/api/revert_options/) | the revert options (or null for defaults) |
-
-| Returns |  |
-| --- | --- |
-| Number |  zero on success, -1 on failure. |
+| revert_options | [RevertOptions](/api/revert_options/) | the revert options (or null for defaults) |
 

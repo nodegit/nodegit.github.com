@@ -76,10 +76,12 @@ of Rebase.open or by another client.
 | --- | --- |
 | [Remote](/api/remote/) |  |
 
-## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span></span>
+## <a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = rebase.abort();
+rebase.abort().then(function(result) {
+  // Use result
+});
 ```
 
 | Returns |  |
@@ -87,10 +89,12 @@ var result = rebase.abort();
 | Number |  Zero on success; GIT_ENOTFOUND if a rebase is not in progress,
          -1 on other errors. |
 
-## <a name="commit"></a><span>Rebase#</span>commit <span class="tags"><span class="sync">Sync</span></span>
+## <a name="commit"></a><span>Rebase#</span>commit <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = rebase.commit(author, committer, message_encoding, message);
+rebase.commit(author, committer, message_encoding, message).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |

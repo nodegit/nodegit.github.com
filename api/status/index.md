@@ -32,10 +32,12 @@ var statusEntry = Status.byIndex(statuslist, idx);
 | --- | --- |
 | [StatusEntry](/api/status_entry/) |  |
 
-## <a name="file"></a><span>Status.</span>file <span class="tags"><span class="sync">Sync</span></span>
+## <a name="file"></a><span>Status.</span>file <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Status.file(repo, path);
+Status.file(repo, path).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |   |

@@ -15,6 +15,7 @@ sections:
   "lookup": "#lookup"
   "move": "#move"
   "name": "#name"
+  "remoteName": "#remoteName"
   "setUpstream": "#setUpstream"
   "upstream": "#upstream"
   "BRANCH": "#BRANCH"
@@ -155,6 +156,25 @@ Branch.name(ref).then(function(string) {
 | Returns |  |
 | --- | --- |
 | String |  |
+
+## <a name="remoteName"></a><span>Branch.</span>remoteName <span class="tags"><span class="async">Async</span></span>
+
+```js
+Branch.remoteName(repo, the).then(function(string) {
+  // Use string
+});
+```
+
+Retrieve the Branch's Remote Name as a String.
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo to get the remote name from |
+| the | String | refname of the branch |
+
+| Returns |  |
+| --- | --- |
+| String | remote name as a string. |
 
 ## <a name="setUpstream"></a><span>Branch.</span>setUpstream <span class="tags"><span class="async">Async</span></span>
 

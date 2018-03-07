@@ -12,6 +12,7 @@ sections:
   "createFromStream": "#createFromStream"
   "createFromWorkdir": "#createFromWorkdir"
   "createFromstreamCommit": "#createFromstreamCommit"
+  "filteredContent": "#filteredContent"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#content": "#content"
@@ -26,10 +27,12 @@ sections:
   "#toString": "#toString"
 ---
 
-## <a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = Blob.createFromBuffer(repo, buffer, len);
+Blob.createFromBuffer(repo, buffer, len).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
@@ -42,21 +45,22 @@ var oid = Blob.createFromBuffer(repo, buffer, len);
 | --- | --- |
 | [Oid](/api/oid/) | return the id of the written blob |
 
-## <a name="createFromDisk"></a><span>Blob.</span>createFromDisk <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createFromDisk"></a><span>Blob.</span>createFromDisk <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Blob.createFromDisk(id, repo, path);
+Blob.createFromDisk(repo, path).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| id | [Oid](/api/oid/) | return the id of the written blob |
 | repo | [Repository](/api/repository/) | repository where the blob will be written. this repository can be bare or not |
 | path | String | file from which the blob will be created |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Oid](/api/oid/) | return the id of the written blob |
 
 ## <a name="createFromStream"></a><span>Blob.</span>createFromStream <span class="tags"><span class="async">Async</span></span>
 
@@ -75,21 +79,22 @@ Blob.createFromStream(repo, hintpath).then(function(writestream) {
 | --- | --- |
 | [Writestream](/api/writestream/) | the stream into which to write |
 
-## <a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Blob.createFromWorkdir(id, repo, relative_path);
+Blob.createFromWorkdir(repo, relative_path).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| id | [Oid](/api/oid/) | return the id of the written blob |
 | repo | [Repository](/api/repository/) | repository where the blob will be written. this repository cannot be bare |
 | relative_path | String | file from which the blob will be created, relative to the repository's working dir |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| [Oid](/api/oid/) | return the id of the written blob |
 
 ## <a name="createFromstreamCommit"></a><span>Blob.</span>createFromstreamCommit <span class="tags"><span class="async">Async</span></span>
 
@@ -106,6 +111,24 @@ Blob.createFromstreamCommit(stream).then(function(oid) {
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | the id of the new blob |
+
+## <a name="filteredContent"></a><span>Blob.</span>filteredContent <span class="tags"><span class="async">Async</span></span>
+
+```js
+Blob.filteredContent(blob, as_path, check_for_binary_data).then(function(buffer) {
+  // Use buffer
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| blob | [Blob](/api/blob/) | Pointer to the blob |
+| as_path | String | Path used for file attribute lookups, etc. |
+| check_for_binary_data | Number | Should this test if blob content contains NUL bytes / looks like binary data before applying filters? |
+
+| Returns |  |
+| --- | --- |
+| Buffer | The git_buf to be filled in |
 
 ## <a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
