@@ -1065,8 +1065,8 @@ sections:
 | [<span>Object.</span>lookup <span>(repo, id, type)</span>](/api/object/#lookup) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Object.</span>lookupPrefix <span>(repo, id, len, type)</span>](/api/object/#lookupPrefix) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Object.</span>size <span>(type)</span>](/api/object/#size) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Object.</span>string2type <span>(str)</span>](/api/object/#string2type) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Object.</span>type2string <span>(type)</span>](/api/object/#type2string) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Object.</span>string2Type <span>(str)</span>](/api/object/#string2Type) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Object.</span>type2String <span>(type)</span>](/api/object/#type2String) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Object.</span>typeisloose <span>(type)</span>](/api/object/#typeisloose) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
 | Instance Methods |  |

@@ -10,8 +10,8 @@ sections:
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "size": "#size"
-  "string2type": "#string2type"
-  "type2string": "#type2string"
+  "string2Type": "#string2Type"
+  "type2String": "#type2String"
   "typeisloose": "#typeisloose"
   "#dup": "#dup"
   "#free": "#free"
@@ -75,10 +75,10 @@ var result = Object.size(type);
 | --- | --- |
 | Number |  size in bytes of the object |
 
-## <a name="string2type"></a><span>Object.</span>string2type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="string2Type"></a><span>Object.</span>string2Type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var result = Object.string2type(str);
+var result = Object.string2Type(str);
 ```
 
 | Parameters | Type |   |
@@ -89,10 +89,10 @@ var result = Object.string2type(str);
 | --- | --- |
 | Number |  the corresponding git_otype. |
 
-## <a name="type2string"></a><span>Object.</span>type2string <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="type2String"></a><span>Object.</span>type2String <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-var string = Object.type2string(type);
+var string = Object.type2String(type);
 ```
 
 | Parameters | Type |   |
