@@ -49,9 +49,9 @@ other_nodegit_versions:
   - 0.2.7
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: [tables, no_intra_emphasis, autolink]
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 exclude: ["node_modules","generate","package.json","README.md", "CNAME", "Gemfile", "Gemfile.lock"]
