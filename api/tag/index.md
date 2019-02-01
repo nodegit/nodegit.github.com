@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Tag
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,7 +16,6 @@ sections:
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#dup": "#dup"
-  "#free": "#free"
   "#id": "#id"
   "#message": "#message"
   "#name": "#name"
@@ -128,21 +127,22 @@ Tag.list(repo).then(function(array) {
 | --- | --- |
 | Array |  |
 
-## <a name="listMatch"></a><span>Tag.</span>listMatch <span class="tags"><span class="sync">Sync</span></span>
+## <a name="listMatch"></a><span>Tag.</span>listMatch <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = Tag.listMatch(tag_names, pattern, repo);
+Tag.listMatch(pattern, repo).then(function(array) {
+  // Use array
+});
 ```
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| tag_names | [Strarray](/api/strarray/) | Pointer to a git_strarray structure where the tag names will be stored |
 | pattern | String | Standard fnmatch pattern |
 | repo | [Repository](/api/repository/) | Repository where to find the tags |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 or an error code |
+| Array |  |
 
 ## <a name="lookup"></a><span>Tag.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -192,12 +192,6 @@ tag.dup().then(function(tag) {
 | Returns |  |
 | --- | --- |
 | [Tag](/api/tag/) |  |
-
-## <a name="free"></a><span>Tag#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-tag.free();
-```
 
 ## <a name="id"></a><span>Tag#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
@@ -261,10 +255,12 @@ var signature = tag.tagger();
 | --- | --- |
 | [Signature](/api/signature/) |  reference to the tag's author or NULL when unspecified |
 
-## <a name="target"></a><span>Tag#</span>target <span class="tags"><span class="sync">Sync</span></span>
+## <a name="target"></a><span>Tag#</span>target <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var object = tag.target();
+tag.target().then(function(object) {
+  // Use object
+});
 ```
 
 | Returns |  |

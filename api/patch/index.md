@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Patch
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "convenientFromDiff": "#convenientFromDiff"
-  "fromBlobAndBuffer": "#fromBlobAndBuffer"
   "fromBlobs": "#fromBlobs"
   "fromDiff": "#fromDiff"
   "#getDelta": "#getDelta"
@@ -34,28 +33,7 @@ Patch.convenientFromDiff(diff).then(function(stdVectorPatchdata) {
 
 | Returns |  |
 | --- | --- |
-| Std::vector<patchdata> * |  |
-
-## <a name="fromBlobAndBuffer"></a><span>Patch.</span>fromBlobAndBuffer <span class="tags"><span class="async">Async</span></span>
-
-```js
-Patch.fromBlobAndBuffer(old_blob, old_as_path, buffer, buffer_len, buffer_as_path, opts).then(function(patch) {
-  // Use patch
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| old_blob | [Blob](/api/blob/) | Blob for old side of diff, or NULL for empty blob |
-| old_as_path | String | Treat old blob as if it had this filename; can be NULL |
-| buffer | String | Raw data for new side of diff, or NULL for empty |
-| buffer_len | Number | Length of raw data for new side of diff |
-| buffer_as_path | String | Treat buffer as if it had this filename; can be NULL |
-| opts | [DiffOptions](/api/diff_options/) | Options for diff, or NULL for default options |
-
-| Returns |  |
-| --- | --- |
-| [Patch](/api/patch/) | The generated patch; NULL on error |
+| StdVectorPatchdata |  |
 
 ## <a name="fromBlobs"></a><span>Patch.</span>fromBlobs <span class="tags"><span class="async">Async</span></span>
 

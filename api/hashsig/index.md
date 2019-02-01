@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Hashsig
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,7 +10,6 @@ sections:
   "create": "#create"
   "createFromFile": "#createFromFile"
   "#compare": "#compare"
-  "#free": "#free"
   "OPTION": "#OPTION"
 ---
 
@@ -62,12 +61,6 @@ var result = hashsig.compare(b);
 | Returns |  |
 | --- | --- |
 | Number |  [0 to 100] on success as the similarity score, or error code. |
-
-## <a name="free"></a><span>Hashsig#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-hashsig.free();
-```
 
 ## <a name="OPTION"></a><span>Hashsig.</span>OPTION <span class="tags"><span class="enum">ENUM</span></span>
 

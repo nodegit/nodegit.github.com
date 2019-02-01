@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Error
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -42,6 +42,8 @@ sections:
 | <span>Error.CODE.</span>EMERGECONFLICT | -24 |
 | <span>Error.CODE.</span>PASSTHROUGH | -30 |
 | <span>Error.CODE.</span>ITEROVER | -31 |
+| <span>Error.CODE.</span>RETRY | -32 |
+| <span>Error.CODE.</span>EMISMATCH | -33 |
 
 ## <a name="ERROR"></a><span>Error.</span>ERROR <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -79,6 +81,8 @@ sections:
 | <span>Error.ERROR.</span>GITERR_REBASE | 29 |
 | <span>Error.ERROR.</span>GITERR_FILESYSTEM | 30 |
 | <span>Error.ERROR.</span>GITERR_PATCH | 31 |
+| <span>Error.ERROR.</span>GITERR_WORKTREE | 32 |
+| <span>Error.ERROR.</span>GITERR_SHA1 | 33 |
 
 ## <a name="ivars"></a>Instance Variables
 

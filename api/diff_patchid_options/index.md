@@ -1,8 +1,8 @@
 ---
 layout: default
 menu_item: api
-title: OdbExpandId
-description: Version 0.19.0
+title: DiffPatchidOptions
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,11 +10,13 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
+```js
+var diffPatchidOptions = new DiffPatchidOptions();
+```
+
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="id"></a>id | Oid |  |
-| <a name="length"></a>length | Number |  |
-| <a name="type"></a>type | Number |  |
+| <a name="version"></a>version | Number |  |
 

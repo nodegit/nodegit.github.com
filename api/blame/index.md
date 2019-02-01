@@ -2,15 +2,13 @@
 layout: default
 menu_item: api
 title: Blame
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "file": "#file"
-  "initOptions": "#initOptions"
   "#buffer": "#buffer"
-  "#free": "#free"
   "#getHunkByIndex": "#getHunkByIndex"
   "#getHunkByLine": "#getHunkByLine"
   "#getHunkCount": "#getHunkCount"
@@ -32,21 +30,6 @@ Retrieve the blame of a file
 | path | String | to the file to get the blame of |
 | [options] | [BlameOptions](/api/blame_options/) | Options for the blame |
 
-## <a name="initOptions"></a><span>Blame.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Blame.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [BlameOptions](/api/blame_options/) | The `git_blame_options` struct to initialize |
-| version | Number | Version of struct; pass `GIT_BLAME_OPTIONS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
-
 ## <a name="buffer"></a><span>Blame#</span>buffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -63,12 +46,6 @@ blame.buffer(buffer, buffer_len).then(function(blame) {
 | Returns |  |
 | --- | --- |
 | [Blame](/api/blame/) |  |
-
-## <a name="free"></a><span>Blame#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-blame.free();
-```
 
 ## <a name="getHunkByIndex"></a><span>Blame#</span>getHunkByIndex <span class="tags"><span class="sync">Sync</span></span>
 

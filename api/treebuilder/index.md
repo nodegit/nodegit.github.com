@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Treebuilder
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,7 +10,6 @@ sections:
   "create": "#create"
   "#clear": "#clear"
   "#entrycount": "#entrycount"
-  "#free": "#free"
   "#get": "#get"
   "#insert": "#insert"
   "#remove": "#remove"
@@ -49,12 +48,6 @@ var result = treebuilder.entrycount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of entries in the treebuilder |
-
-## <a name="free"></a><span>Treebuilder#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-treebuilder.free();
-```
 
 ## <a name="get"></a><span>Treebuilder#</span>get <span class="tags"><span class="sync">Sync</span></span>
 
@@ -100,10 +93,12 @@ var result = treebuilder.remove(filename);
 | --- | --- |
 | Number |  |
 
-## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="sync">Sync</span></span>
+## <a name="write"></a><span>Treebuilder#</span>write <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = treebuilder.write();
+treebuilder.write().then(function(oid) {
+  // Use oid
+});
 ```
 
 | Returns |  |

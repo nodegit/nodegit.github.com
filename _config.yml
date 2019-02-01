@@ -3,9 +3,18 @@ title: NodeGit
 description: Asynchronous native Node bindings to libgit2
 url: "http://nodegit.org"
 date_format: "ordinal"
-current_nodegit_version: 0.21.1
+current_nodegit_version: 0.24.0
 other_nodegit_versions:
   - HEAD
+  - 0.24.0
+  - 0.24.0-alpha.1
+  - 0.23.0
+  - 0.23.0-alpha.2
+  - 0.23.0-alpha.1
+  - 0.22.2
+  - 0.22.1
+  - 0.22.0
+  - 0.21.2
   - 0.21.1
   - 0.21.0
   - 0.20.3

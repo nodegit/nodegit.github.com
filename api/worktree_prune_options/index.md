@@ -1,8 +1,8 @@
 ---
 layout: default
 menu_item: api
-title: CredUserpassPayload
-description: Version 0.19.0
+title: WorktreePruneOptions
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -14,6 +14,6 @@ sections:
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="password"></a>password | String |  |
-| <a name="username"></a>username | String |  |
+| <a name="flags"></a>flags | Number |  |
+| <a name="version"></a>version | Number |  |
 

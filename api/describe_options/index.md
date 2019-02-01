@@ -2,13 +2,17 @@
 layout: default
 menu_item: api
 title: DescribeOptions
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "Instance Variables": "#ivars"
 ---
+
+```js
+var describeOptions = new DescribeOptions();
+```
 
 ## <a name="ivars"></a>Instance Variables
 

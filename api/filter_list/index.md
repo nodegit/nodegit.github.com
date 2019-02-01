@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: FilterList
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,7 +11,6 @@ sections:
   "#applyToBlob": "#applyToBlob"
   "#applyToData": "#applyToData"
   "#applyToFile": "#applyToFile"
-  "#free": "#free"
 ---
 
 ## <a name="load"></a><span>FilterList.</span>load <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
@@ -82,10 +81,4 @@ filterList.applyToFile(repo, path).then(function(buf) {
 | Returns |  |
 | --- | --- |
 | [Buf](/api/buf/) | buffer into which to store the filtered file |
-
-## <a name="free"></a><span>FilterList#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-filterList.free();
-```
 

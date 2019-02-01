@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Index
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -27,7 +27,6 @@ sections:
   "#getByIndex": "#getByIndex"
   "#getByPath": "#getByPath"
   "#hasConflicts": "#hasConflicts"
-  "#owner": "#owner"
   "#path": "#path"
   "#read": "#read"
   "#readTree": "#readTree"
@@ -329,16 +328,6 @@ var result = index.hasConflicts();
 | Returns |  |
 | --- | --- |
 | Number |  1 if at least one conflict is found, 0 otherwise. |
-
-## <a name="owner"></a><span>Index#</span>owner <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var repository = index.owner();
-```
-
-| Returns |  |
-| --- | --- |
-| [Repository](/api/repository/) |  the repository |
 
 ## <a name="path"></a><span>Index#</span>path <span class="tags"><span class="sync">Sync</span></span>
 

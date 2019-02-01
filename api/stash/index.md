@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Stash
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "apply": "#apply"
-  "applyInitOptions": "#applyInitOptions"
   "drop": "#drop"
   "foreach": "#foreach"
   "pop": "#pop"
@@ -30,28 +29,13 @@ Stash.apply(repo, index, options).then(function(result) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The owning repository. |
 | index | Number | The position within the stash list. 0 points to the most recent stashed state. |
-| options | [StashApplyOptions](/api/stash_apply_options/) | Options to control how stashes are applied. |
+| options | [StashApplyOptions](/api/stash_apply_options/) | Optional options to control how stashes are applied. |
 
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, GIT_ENOTFOUND if there's no stashed state for the
          given index, GIT_EMERGECONFLICT if changes exist in the working
          directory, or an error code |
-
-## <a name="applyInitOptions"></a><span>Stash.</span>applyInitOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Stash.applyInitOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [StashApplyOptions](/api/stash_apply_options/) | the `git_stash_apply_options` instance to initialize. |
-| version | Number | the version of the struct; you should pass `GIT_STASH_APPLY_OPTIONS_INIT` here. |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="drop"></a><span>Stash.</span>drop <span class="tags"><span class="async">Async</span></span>
 
@@ -101,7 +85,7 @@ Stash.pop(repo, index, options).then(function(result) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The owning repository. |
 | index | Number | The position within the stash list. 0 points to the most recent stashed state. |
-| options | [StashApplyOptions](/api/stash_apply_options/) | Options to control how stashes are applied. |
+| options | [StashApplyOptions](/api/stash_apply_options/) | Optional options to control how stashes are applied. |
 
 | Returns |  |
 | --- | --- |

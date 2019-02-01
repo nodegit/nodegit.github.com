@@ -2,14 +2,13 @@
 layout: default
 menu_item: api
 title: StatusList
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
   "#entrycount": "#entrycount"
-  "#free": "#free"
   "#getPerfdata": "#getPerfdata"
 ---
 
@@ -39,12 +38,6 @@ var result = statusList.entrycount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of status entries |
-
-## <a name="free"></a><span>StatusList#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-statusList.free();
-```
 
 ## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="async">Async</span></span>
 

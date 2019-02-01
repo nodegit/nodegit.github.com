@@ -2,14 +2,13 @@
 layout: default
 menu_item: api
 title: TreeEntry
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "#filemode": "#filemode"
   "#filemodeRaw": "#filemodeRaw"
-  "#free": "#free"
   "#getBlob": "#getBlob"
   "#getTree": "#getTree"
   "#id": "#id"
@@ -47,12 +46,6 @@ var result = treeEntry.filemodeRaw();
 | Returns |  |
 | --- | --- |
 | Number |  filemode as an integer |
-
-## <a name="free"></a><span>TreeEntry#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-treeEntry.free();
-```
 
 ## <a name="getBlob"></a><span>TreeEntry#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 

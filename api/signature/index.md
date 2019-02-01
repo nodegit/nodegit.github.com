@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Signature
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,8 +11,6 @@ sections:
   "default": "#default"
   "fromBuffer": "#fromBuffer"
   "now": "#now"
-  "#dup": "#dup"
-  "#free": "#free"
   "#toString": "#toString"
   "Instance Variables": "#ivars"
 ---
@@ -78,24 +76,6 @@ var signature = Signature.now(name, email);
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) | new signature, in case of error NULL |
-
-## <a name="dup"></a><span>Signature#</span>dup <span class="tags"><span class="async">Async</span></span>
-
-```js
-signature.dup().then(function(signature) {
-  // Use signature
-});
-```
-
-| Returns |  |
-| --- | --- |
-| [Signature](/api/signature/) | the copy |
-
-## <a name="free"></a><span>Signature#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-signature.free();
-```
 
 ## <a name="toString"></a><span>Signature#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 

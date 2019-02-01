@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reset
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -59,12 +59,12 @@ See the documentation for reset.
 ## <a name="reset"></a><span>Reset.</span>reset <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Reset.reset(repo, target, resetType, opts, name).then(function(number) {
+Reset.reset(repo, target, resetType, opts).then(function(number) {
   // Use number
 });
 ```
 
-Look up a refs's commit.
+Reset a repository's current HEAD to the specified target.
 
 | Parameters | Type |   |
 | --- | --- | --- |
@@ -72,7 +72,6 @@ Look up a refs's commit.
 | target | [Commit](/api/commit/), [Tag](/api/tag/) | Committish to which the Head should be moved to. This object must belong to the given `repo` and can either be a git_commit or a git_tag. When a git_tag is being passed, it should be dereferencable to a git_commit which oid will be used as the target of the branch. |
 | resetType | Number | Kind of reset operation to perform. |
 | opts | [CheckoutOptions](/api/checkout_options/) | Checkout options to be used for a HARD reset. The checkout_strategy field will be overridden (based on reset_type). This parameter can be used to propagate notify and progress callbacks. |
-| name | String, Ref | Ref name, e.g. "master", "refs/heads/master" or Branch Ref |
 
 | Returns |  |
 | --- | --- |

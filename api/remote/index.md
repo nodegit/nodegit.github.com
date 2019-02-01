@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,9 +11,9 @@ sections:
   "addPush": "#addPush"
   "create": "#create"
   "createAnonymous": "#createAnonymous"
+  "createDetached": "#createDetached"
   "createWithFetchspec": "#createWithFetchspec"
   "delete": "#delete"
-  "initCallbacks": "#initCallbacks"
   "isValidName": "#isValidName"
   "list": "#list"
   "lookup": "#lookup"
@@ -28,7 +28,6 @@ sections:
   "#download": "#download"
   "#dup": "#dup"
   "#fetch": "#fetch"
-  "#free": "#free"
   "#getFetchRefspecs": "#getFetchRefspecs"
   "#getPushRefspecs": "#getPushRefspecs"
   "#getRefspec": "#getRefspec"
@@ -116,6 +115,22 @@ Remote.createAnonymous(repo, url).then(function(remote) {
 | --- | --- |
 | [Remote](/api/remote/) |  |
 
+## <a name="createDetached"></a><span>Remote.</span>createDetached <span class="tags"><span class="async">Async</span></span>
+
+```js
+Remote.createDetached(url).then(function(remote) {
+  // Use remote
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| url | String | the remote repository's URL |
+
+| Returns |  |
+| --- | --- |
+| [Remote](/api/remote/) |  |
+
 ## <a name="createWithFetchspec"></a><span>Remote.</span>createWithFetchspec <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -146,26 +161,11 @@ Remote.delete(repo, name).then(function(result) {
 | Parameters | Type |   |
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | the repository in which to act |
-| name | String | the name of the remove to delete |
+| name | String | the name of the remote to delete |
 
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, or an error code. |
-
-## <a name="initCallbacks"></a><span>Remote.</span>initCallbacks <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Remote.initCallbacks(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [RemoteCallbacks](/api/remote_callbacks/) | the `git_remote_callbacks` struct to initialize |
-| version | Number | Version of struct; pass `GIT_REMOTE_CALLBACKS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="isValidName"></a><span>Remote.</span>isValidName <span class="tags"><span class="sync">Sync</span></span>
 
@@ -378,12 +378,6 @@ Connects to a remote
 | Returns |  |
 | --- | --- |
 | Number | error code |
-
-## <a name="free"></a><span>Remote#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-remote.free();
-```
 
 ## <a name="getFetchRefspecs"></a><span>Remote#</span>getFetchRefspecs <span class="tags"><span class="async">Async</span></span>
 

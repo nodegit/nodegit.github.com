@@ -1,8 +1,8 @@
 ---
 layout: default
 menu_item: api
-title: CredUsername
-description: Version 0.19.0
+title: WorktreeAddOptions
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -14,6 +14,6 @@ sections:
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="parent"></a>parent | Cred |  |
-| <a name="username"></a>username | Char [1] |  |
+| <a name="lock"></a>lock | Number |  |
+| <a name="version"></a>version | Number |  |
 

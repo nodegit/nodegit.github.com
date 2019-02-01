@@ -2,14 +2,13 @@
 layout: default
 menu_item: api
 title: Cherrypick
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "cherrypick": "#cherrypick"
   "commit": "#commit"
-  "initOptions": "#initOptions"
 ---
 
 ## <a name="cherrypick"></a><span>Cherrypick.</span>cherrypick <span class="tags"><span class="async">Async</span></span>
@@ -54,19 +53,4 @@ reflects the result of the cherrypick. The index is not backed by a repo.
 | Returns |  |
 | --- | --- |
 | int | 0 on success, -1 on failure |
-
-## <a name="initOptions"></a><span>Cherrypick.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Cherrypick.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [CherrypickOptions](/api/cherrypick_options/) | the `git_cherrypick_options` struct to initialize |
-| version | Number | Version of struct; pass `GIT_CHERRYPICK_OPTIONS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 

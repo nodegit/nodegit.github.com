@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: AnnotatedCommit
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,7 +11,6 @@ sections:
   "fromRef": "#fromRef"
   "fromRevspec": "#fromRevspec"
   "lookup": "#lookup"
-  "#free": "#free"
   "#id": "#id"
 ---
 
@@ -84,12 +83,6 @@ AnnotatedCommit.lookup(repo, id).then(function(annotatedCommit) {
 | Returns |  |
 | --- | --- |
 | [AnnotatedCommit](/api/annotated_commit/) |  |
-
-## <a name="free"></a><span>AnnotatedCommit#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-annotatedCommit.free();
-```
 
 ## <a name="id"></a><span>AnnotatedCommit#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

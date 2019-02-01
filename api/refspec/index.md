@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Refspec
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,6 +13,7 @@ sections:
   "#force": "#force"
   "#src": "#src"
   "#srcMatches": "#srcMatches"
+  "#string": "#string"
 ---
 
 ## <a name="direction"></a><span>Refspec#</span>direction <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
@@ -82,4 +83,14 @@ var result = refspec.srcMatches(refname);
 | Returns |  |
 | --- | --- |
 | Number |  1 if the refspec matches, 0 otherwise |
+
+## <a name="string"></a><span>Refspec#</span>string <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = refspec.string();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  |
 

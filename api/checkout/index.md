@@ -2,14 +2,13 @@
 layout: default
 menu_item: api
 title: Checkout
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "head": "#head"
   "index": "#index"
-  "initOptions": "#initOptions"
   "tree": "#tree"
   "NOTIFY": "#NOTIFY"
   "STRATEGY": "#STRATEGY"
@@ -45,21 +44,6 @@ Patch index checkout to automatically coerce objects.
 | repo | [Repository](/api/repository/) | The repo to checkout an index |
 | index | [Index](/api/index/) | The index to checkout |
 | [options] | [CheckoutOptions](/api/checkout_options/) | Options for the checkout |
-
-## <a name="initOptions"></a><span>Checkout.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Checkout.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [CheckoutOptions](/api/checkout_options/) | the `git_checkout_options` struct to initialize. |
-| version | Number | Version of struct; pass `GIT_CHECKOUT_OPTIONS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="tree"></a><span>Checkout.</span>tree <span class="tags"><span class="async">Async</span></span>
 

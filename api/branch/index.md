@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Branch
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,8 +10,8 @@ sections:
   "create": "#create"
   "createFromAnnotated": "#createFromAnnotated"
   "delete": "#delete"
+  "isCheckedOut": "#isCheckedOut"
   "isHead": "#isHead"
-  "iteratorNew": "#iteratorNew"
   "lookup": "#lookup"
   "move": "#move"
   "name": "#name"
@@ -73,6 +73,21 @@ var result = Branch.delete(branch);
 | --- | --- |
 | Number |  0 on success, or an error code. |
 
+## <a name="isCheckedOut"></a><span>Branch.</span>isCheckedOut <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Branch.isCheckedOut(branch);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| branch | [Reference](/api/reference/) | Reference to the branch. |
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if branch is checked out, 0 if it isn't,
+ error code otherwise. |
+
 ## <a name="isHead"></a><span>Branch.</span>isHead <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -87,23 +102,6 @@ var result = Branch.isHead(branch);
 | --- | --- |
 | Number |  1 if HEAD points at the branch, 0 if it isn't,
  error code otherwise. |
-
-## <a name="iteratorNew"></a><span>Branch.</span>iteratorNew <span class="tags"><span class="async">Async</span></span>
-
-```js
-Branch.iteratorNew(repo, list_flags).then(function(branchIterator) {
-  // Use branchIterator
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | Repository where to find the branches. |
-| list_flags | Number | Filtering flags for the branch listing. Valid values are GIT_BRANCH_LOCAL, GIT_BRANCH_REMOTE or GIT_BRANCH_ALL. |
-
-| Returns |  |
-| --- | --- |
-| [BranchIterator](/api/branch_iterator/) | the iterator |
 
 ## <a name="lookup"></a><span>Branch.</span>lookup <span class="tags"><span class="async">Async</span></span>
 

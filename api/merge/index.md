@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Merge
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -11,7 +11,6 @@ sections:
   "bases": "#bases"
   "commits": "#commits"
   "fileInitInput": "#fileInitInput"
-  "initOptions": "#initOptions"
   "merge": "#merge"
   "trees": "#trees"
   "ANALYSIS": "#ANALYSIS"
@@ -83,21 +82,6 @@ var result = Merge.fileInitInput(opts, version);
 | --- | --- | --- |
 | opts | [MergeFileInput](/api/merge_file_input/) | the `git_merge_file_input` instance to initialize. |
 | version | Number | the version of the struct; you should pass `GIT_MERGE_FILE_INPUT_VERSION` here. |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
-
-## <a name="initOptions"></a><span>Merge.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Merge.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [MergeOptions](/api/merge_options/) | the `git_merge_options` instance to initialize. |
-| version | Number | the version of the struct; you should pass `GIT_MERGE_OPTIONS_VERSION` here. |
 
 | Returns |  |
 | --- | --- |

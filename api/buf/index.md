@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Buf
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "#containsNul": "#containsNul"
-  "#free": "#free"
   "#grow": "#grow"
   "#isBinary": "#isBinary"
   "#set": "#set"
@@ -24,12 +23,6 @@ var result = buf.containsNul();
 | Returns |  |
 | --- | --- |
 | Number |  1 if buffer contains a NUL byte |
-
-## <a name="free"></a><span>Buf#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-buf.free();
-```
 
 ## <a name="grow"></a><span>Buf#</span>grow <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 

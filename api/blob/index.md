@@ -2,23 +2,20 @@
 layout: default
 menu_item: api
 title: Blob
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "createFromBuffer": "#createFromBuffer"
   "createFromDisk": "#createFromDisk"
-  "createFromStream": "#createFromStream"
   "createFromWorkdir": "#createFromWorkdir"
-  "createFromstreamCommit": "#createFromstreamCommit"
   "filteredContent": "#filteredContent"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#content": "#content"
   "#dup": "#dup"
   "#filemode": "#filemode"
-  "#free": "#free"
   "#id": "#id"
   "#isBinary": "#isBinary"
   "#owner": "#owner"
@@ -62,23 +59,6 @@ Blob.createFromDisk(repo, path).then(function(oid) {
 | --- | --- |
 | [Oid](/api/oid/) | return the id of the written blob |
 
-## <a name="createFromStream"></a><span>Blob.</span>createFromStream <span class="tags"><span class="async">Async</span></span>
-
-```js
-Blob.createFromStream(repo, hintpath).then(function(writestream) {
-  // Use writestream
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | Repository where the blob will be written. This repository can be bare or not. |
-| hintpath | String | If not NULL, will be used to select data filters to apply onto the content of the blob to be created. |
-
-| Returns |  |
-| --- | --- |
-| [Writestream](/api/writestream/) | the stream into which to write |
-
 ## <a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -95,22 +75,6 @@ Blob.createFromWorkdir(repo, relative_path).then(function(oid) {
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | return the id of the written blob |
-
-## <a name="createFromstreamCommit"></a><span>Blob.</span>createFromstreamCommit <span class="tags"><span class="async">Async</span></span>
-
-```js
-Blob.createFromstreamCommit(stream).then(function(oid) {
-  // Use oid
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| stream | [Writestream](/api/writestream/) | the stream to close |
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) | the id of the new blob |
 
 ## <a name="filteredContent"></a><span>Blob.</span>filteredContent <span class="tags"><span class="async">Async</span></span>
 
@@ -202,12 +166,6 @@ Retrieve the Blob's type.
 | Returns |  |
 | --- | --- |
 | Number | The filemode of the blob. |
-
-## <a name="free"></a><span>Blob#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-blob.free();
-```
 
 ## <a name="id"></a><span>Blob#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,23 +2,98 @@
 layout: default
 menu_item: api
 title: Note
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "commitCreate": "#commitCreate"
+  "commitIteratorNew": "#commitIteratorNew"
+  "commitRead": "#commitRead"
+  "commitRemove": "#commitRemove"
   "create": "#create"
   "foreach": "#foreach"
-  "iteratorNew": "#iteratorNew"
-  "next": "#next"
   "read": "#read"
   "remove": "#remove"
   "#author": "#author"
   "#committer": "#committer"
-  "#free": "#free"
   "#id": "#id"
   "#message": "#message"
 ---
+
+## <a name="commitCreate"></a><span>Note.</span>commitCreate <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = Note.commitCreate(repo, parent, author, committer, oid, note, allow_note_overwrite);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | repository where the note will live |
+| parent | [Commit](/api/commit/) | Pointer to parent note or NULL if this shall start a new notes tree |
+| author | [Signature](/api/signature/) | signature of the notes commit author |
+| committer | [Signature](/api/signature/) | signature of the notes commit committer |
+| oid | [Oid](/api/oid/) | OID of the git object to decorate |
+| note | String | Content of the note to add for object oid |
+| allow_note_overwrite | Number | Overwrite existing note |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | a point to the id of a note blob (optional) |
+
+## <a name="commitIteratorNew"></a><span>Note.</span>commitIteratorNew <span class="tags"><span class="async">Async</span></span>
+
+```js
+Note.commitIteratorNew(notes_commit).then(function(noteIterator) {
+  // Use noteIterator
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| notes_commit | [Commit](/api/commit/) | a pointer to the notes commit object |
+
+| Returns |  |
+| --- | --- |
+| [NoteIterator](/api/note_iterator/) |  |
+
+## <a name="commitRead"></a><span>Note.</span>commitRead <span class="tags"><span class="async">Async</span></span>
+
+```js
+Note.commitRead(repo, notes_commit, oid).then(function(note) {
+  // Use note
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | repository where to look up the note |
+| notes_commit | [Commit](/api/commit/) | a pointer to the notes commit object |
+| oid | [Oid](/api/oid/) | OID of the git object to read the note from |
+
+| Returns |  |
+| --- | --- |
+| [Note](/api/note/) |  |
+
+## <a name="commitRemove"></a><span>Note.</span>commitRemove <span class="tags"><span class="async">Async</span></span>
+
+```js
+Note.commitRemove(repo, notes_commit, author, committer, oid).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | repository where the note lives |
+| notes_commit | [Commit](/api/commit/) | a pointer to the notes commit object |
+| author | [Signature](/api/signature/) | signature of the notes commit author |
+| committer | [Signature](/api/signature/) | signature of the notes commit committer |
+| oid | [Oid](/api/oid/) | OID of the git object to remove the note from |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  |
 
 ## <a name="create"></a><span>Note.</span>create <span class="tags"><span class="async">Async</span></span>
 
@@ -60,40 +135,6 @@ Note.foreach(repo, notes_ref, note_cb, payload).then(function(result) {
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, non-zero callback return value, or error code |
-
-## <a name="iteratorNew"></a><span>Note.</span>iteratorNew <span class="tags"><span class="async">Async</span></span>
-
-```js
-Note.iteratorNew(repo, notes_ref).then(function(noteIterator) {
-  // Use noteIterator
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) | repository where to look up the note |
-| notes_ref | String | canonical name of the reference to use (optional); defaults to "refs/notes/commits" |
-
-| Returns |  |
-| --- | --- |
-| [NoteIterator](/api/note_iterator/) |  |
-
-## <a name="next"></a><span>Note.</span>next <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Note.next(note_id, annotated_id, it);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| note_id | [Oid](/api/oid/) | id of blob containing the message |
-| annotated_id | [Oid](/api/oid/) | id of the git object being annotated |
-| it | [NoteIterator](/api/note_iterator/) | pointer to the iterator |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 (no error), GIT_ITEROVER (iteration is done) or an error code
-         (negative value) |
 
 ## <a name="read"></a><span>Note.</span>read <span class="tags"><span class="async">Async</span></span>
 
@@ -152,12 +193,6 @@ var signature = note.committer();
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the committer |
-
-## <a name="free"></a><span>Note#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-note.free();
-```
 
 ## <a name="id"></a><span>Note#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Attr
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -63,10 +63,12 @@ Attr.get(repo, flags, path, name).then(function(string) {
              use the string value for attributes set to a value.  You
              should NOT modify or free this value. |
 
-## <a name="getMany"></a><span>Attr.</span>getMany <span class="tags"><span class="sync">Sync</span></span>
+## <a name="getMany"></a><span>Attr.</span>getMany <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var array = Attr.getMany(repo, flags, path, num_attr, names);
+Attr.getMany(repo, flags, path, num_attr, names).then(function(array) {
+  // Use array
+});
 ```
 
 | Parameters | Type |   |

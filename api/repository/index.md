@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Repository
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -13,16 +13,18 @@ sections:
   "open": "#open"
   "openBare": "#openBare"
   "openExt": "#openExt"
+  "openFromWorktree": "#openFromWorktree"
   "wrapOdb": "#wrapOdb"
   "#checkoutBranch": "#checkoutBranch"
   "#checkoutRef": "#checkoutRef"
   "#cleanup": "#cleanup"
+  "#commondir": "#commondir"
   "#config": "#config"
-  "#configSnapshot": "#configSnapshot"
   "#continueRebase": "#continueRebase"
   "#createBlobFromBuffer": "#createBlobFromBuffer"
   "#createBranch": "#createBranch"
   "#createCommit": "#createCommit"
+  "#createCommitBuffer": "#createCommitBuffer"
   "#createCommitOnHead": "#createCommitOnHead"
   "#createLightweightTag": "#createLightweightTag"
   "#createRevWalk": "#createRevWalk"
@@ -33,7 +35,6 @@ sections:
   "#fetch": "#fetch"
   "#fetchAll": "#fetchAll"
   "#fetchheadForeach": "#fetchheadForeach"
-  "#free": "#free"
   "#getBlob": "#getBlob"
   "#getBranch": "#getBranch"
   "#getBranchCommit": "#getBranchCommit"
@@ -56,6 +57,7 @@ sections:
   "#getTree": "#getTree"
   "#head": "#head"
   "#headDetached": "#headDetached"
+  "#headForWorktree": "#headForWorktree"
   "#headUnborn": "#headUnborn"
   "#index": "#index"
   "#isApplyingMailbox": "#isApplyingMailbox"
@@ -68,6 +70,8 @@ sections:
   "#isRebasing": "#isRebasing"
   "#isReverting": "#isReverting"
   "#isShallow": "#isShallow"
+  "#isWorktree": "#isWorktree"
+  "#itemPath": "#itemPath"
   "#mergeBranches": "#mergeBranches"
   "#mergeheadForeach": "#mergeheadForeach"
   "#messageRemove": "#messageRemove"
@@ -93,6 +97,7 @@ sections:
   "#workdir": "#workdir"
   "INIT_FLAG": "#INIT_FLAG"
   "INIT_MODE": "#INIT_MODE"
+  "ITEM": "#ITEM"
   "OPEN_FLAG": "#OPEN_FLAG"
   "STATE": "#STATE"
 ---
@@ -201,6 +206,22 @@ Repository.openExt(path, flags, ceiling_dirs).then(function(repository) {
 | --- | --- |
 | [Repository](/api/repository/) |  |
 
+## <a name="openFromWorktree"></a><span>Repository.</span>openFromWorktree <span class="tags"><span class="async">Async</span></span>
+
+```js
+Repository.openFromWorktree(wt).then(function(repository) {
+  // Use repository
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| wt | [Worktree](/api/worktree/) | Working tree to open |
+
+| Returns |  |
+| --- | --- |
+| [Repository](/api/repository/) |  |
+
 ## <a name="wrapOdb"></a><span>Repository.</span>wrapOdb <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -255,22 +276,20 @@ latest commit on that reference
 repository.cleanup();
 ```
 
-## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>
+## <a name="commondir"></a><span>Repository#</span>commondir <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-repository.config().then(function(config) {
-  // Use config
-});
+var string = repository.commondir();
 ```
 
 | Returns |  |
 | --- | --- |
-| [Config](/api/config/) |  |
+| String |  the path to the common dir |
 
-## <a name="configSnapshot"></a><span>Repository#</span>configSnapshot <span class="tags"><span class="async">Async</span></span>
+## <a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.configSnapshot().then(function(config) {
+repository.config().then(function(config) {
   // Use config
 });
 ```
@@ -329,7 +348,7 @@ Creates a branch with the passed in name pointing to the commit
 | --- | --- | --- |
 | name | String | Branch name, e.g. "master" |
 | commit | [Commit](/api/commit/), String, [Oid](/api/oid/) | The commit the branch will point to |
-| force | bool | Overwrite branch if it exists |
+| force | Boolean | Overwrite branch if it exists |
 
 | Returns |  |
 | --- | --- |
@@ -351,12 +370,34 @@ Create a commit
 | author | [Signature](/api/signature/) |  |
 | committer | [Signature](/api/signature/) |  |
 | message | String |  |
-| Tree | [Tree](/api/tree/), [Oid](/api/oid/), String |  |
+| Tree | [Oid](/api/oid/), String |  |
 | parents | Array |  |
 
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | The oid of the commit |
+
+## <a name="createCommitBuffer"></a><span>Repository#</span>createCommitBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.createCommitBuffer(author, committer, message, treeOid, parents).then(function(string) {
+  // Use string
+});
+```
+
+Create a commit
+
+| Parameters | Type |
+| --- | --- | --- |
+| author | [Signature](/api/signature/) |  |
+| committer | [Signature](/api/signature/) |  |
+| message | String |  |
+| treeOid | [Oid](/api/oid/), String |  |
+| parents | Array |  |
+
+| Returns |  |
+| --- | --- |
+| String | The content of the commit object                  as a string |
 
 ## <a name="createCommitOnHead"></a><span>Repository#</span>createCommitOnHead <span class="tags"><span class="async">Async</span></span>
 
@@ -510,12 +551,6 @@ repository.fetchheadForeach(callback).then(function() {
 | Parameters | Type |
 | --- | --- | --- |
 | callback | FetchheadForeachCb | The callback function to be called on each entry |
-
-## <a name="free"></a><span>Repository#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-repository.free();
-```
 
 ## <a name="getBlob"></a><span>Repository#</span>getBlob <span class="tags"><span class="async">Async</span></span>
 
@@ -879,6 +914,22 @@ var result = repository.headDetached();
 | Number |  1 if HEAD is detached, 0 if it's not; error code if there
  was an error. |
 
+## <a name="headForWorktree"></a><span>Repository#</span>headForWorktree <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.headForWorktree(name).then(function(reference) {
+  // Use reference
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | name of the worktree to retrieve HEAD for |
+
+| Returns |  |
+| --- | --- |
+| [Reference](/api/reference/) |  |
+
 ## <a name="headUnborn"></a><span>Repository#</span>headUnborn <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -1018,6 +1069,32 @@ var result = repository.isShallow();
 | Returns |  |
 | --- | --- |
 | Number |  1 if shallow, zero if not |
+
+## <a name="isWorktree"></a><span>Repository#</span>isWorktree <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.isWorktree();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if the repository is a linked work tree, 0 otherwise. |
+
+## <a name="itemPath"></a><span>Repository#</span>itemPath <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.itemPath(item).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| item | Number | The repository item for which to retrieve the path |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | Buffer to store the path at |
 
 ## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="async">Async</span></span>
 
@@ -1352,6 +1429,25 @@ var string = repository.workdir();
 | <span>Repository.INIT_MODE.</span>INIT_SHARED_UMASK | 0 |
 | <span>Repository.INIT_MODE.</span>INIT_SHARED_GROUP | 1533 |
 | <span>Repository.INIT_MODE.</span>INIT_SHARED_ALL | 1535 |
+
+## <a name="ITEM"></a><span>Repository.</span>ITEM <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Repository.ITEM.</span>GITDIR | 0 |
+| <span>Repository.ITEM.</span>WORKDIR | 1 |
+| <span>Repository.ITEM.</span>COMMONDIR | 2 |
+| <span>Repository.ITEM.</span>INDEX | 3 |
+| <span>Repository.ITEM.</span>OBJECTS | 4 |
+| <span>Repository.ITEM.</span>REFS | 5 |
+| <span>Repository.ITEM.</span>PACKED_REFS | 6 |
+| <span>Repository.ITEM.</span>REMOTES | 7 |
+| <span>Repository.ITEM.</span>CONFIG | 8 |
+| <span>Repository.ITEM.</span>INFO | 9 |
+| <span>Repository.ITEM.</span>HOOKS | 10 |
+| <span>Repository.ITEM.</span>LOGS | 11 |
+| <span>Repository.ITEM.</span>MODULES | 12 |
+| <span>Repository.ITEM.</span>WORKTREES | 13 |
 
 ## <a name="OPEN_FLAG"></a><span>Repository.</span>OPEN_FLAG <span class="tags"><span class="enum">ENUM</span></span>
 

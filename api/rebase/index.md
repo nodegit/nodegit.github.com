@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Rebase
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "init": "#init"
-  "initOptions": "#initOptions"
   "open": "#open"
   "#abort": "#abort"
   "#commit": "#commit"
@@ -39,21 +38,6 @@ Rebase.init(repo, branch, upstream, onto, opts).then(function(rebase) {
 | Returns |  |
 | --- | --- |
 | [Rebase](/api/rebase/) |  |
-
-## <a name="initOptions"></a><span>Rebase.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Rebase.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [RebaseOptions](/api/rebase_options/) | the `git_rebase_options` instance to initialize. |
-| version | Number | the version of the struct; you should pass `GIT_REBASE_OPTIONS_VERSION` here. |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span>
 

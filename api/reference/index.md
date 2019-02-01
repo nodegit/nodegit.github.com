@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Reference
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -343,14 +343,14 @@ Returns true if this reference is not symbolic
 ## <a name="isHead"></a><span>Reference#</span>isHead <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var bool = reference.isHead();
+var boolean = reference.isHead();
 ```
 
 Returns if the ref is pointed at by HEAD
 
 | Returns |  |
 | --- | --- |
-| bool |  |
+| Boolean |  |
 
 ## <a name="isNote"></a><span>Reference#</span>isNote <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

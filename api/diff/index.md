@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Diff
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -18,9 +18,12 @@ sections:
   "#findSimilar": "#findSimilar"
   "#getDelta": "#getDelta"
   "#getPerfdata": "#getPerfdata"
+  "#getStats": "#getStats"
+  "#isSortedIcase": "#isSortedIcase"
   "#merge": "#merge"
   "#numDeltas": "#numDeltas"
   "#patches": "#patches"
+  "#patchid": "#patchid"
   "#toBuf": "#toBuf"
   "DELTA": "#DELTA"
   "FIND": "#FIND"
@@ -211,17 +214,37 @@ var diffDelta = diff.getDelta(idx);
 | --- | --- |
 | [DiffDelta](/api/diff_delta/) |  |
 
-## <a name="getPerfdata"></a><span>Diff#</span>getPerfdata <span class="tags"><span class="async">Async</span></span>
+## <a name="getPerfdata"></a><span>Diff#</span>getPerfdata <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-diff.getPerfdata().then(function(diffPerfdata) {
-  // Use diffPerfdata
-});
+var diffPerfdata = diff.getPerfdata();
 ```
 
 | Returns |  |
 | --- | --- |
 | [DiffPerfdata](/api/diff_perfdata/) | Structure to be filled with diff performance data |
+
+## <a name="getStats"></a><span>Diff#</span>getStats <span class="tags"><span class="async">Async</span></span>
+
+```js
+diff.getStats().then(function(diffStats) {
+  // Use diffStats
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [DiffStats](/api/diff_stats/) | Structure containg the diff statistics. |
+
+## <a name="isSortedIcase"></a><span>Diff#</span>isSortedIcase <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = diff.isSortedIcase();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  0 if case sensitive, 1 if case is ignored |
 
 ## <a name="merge"></a><span>Diff#</span>merge <span class="tags"><span class="async">Async</span></span>
 
@@ -262,6 +285,22 @@ Retrieve patches in this difflist
 | Returns |  |
 | --- | --- |
 | Array&lt;[ConvenientPatch](/api/convenient_patch/)&gt; | a promise that resolves to an array of                                      ConvenientPatches |
+
+## <a name="patchid"></a><span>Diff#</span>patchid <span class="tags"><span class="async">Async</span></span>
+
+```js
+diff.patchid(opts).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| opts | [DiffPatchidOptions](/api/diff_patchid_options/) | Options for how to calculate the patch ID. This is intended for future changes, as currently no options are available. |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  |
 
 ## <a name="toBuf"></a><span>Diff#</span>toBuf <span class="tags"><span class="async">Async</span></span>
 
@@ -390,6 +429,7 @@ diff.toBuf(format).then(function(buf) {
 | <span>Diff.OPTION.</span>PATIENCE | 268435456 |
 | <span>Diff.OPTION.</span>MINIMAL | 536870912 |
 | <span>Diff.OPTION.</span>SHOW_BINARY | 1073741824 |
+| <span>Diff.OPTION.</span>INDENT_HEURISTIC | -2147483648 |
 
 ## <a name="STATS_FORMAT"></a><span>Diff.</span>STATS_FORMAT <span class="tags"><span class="enum">ENUM</span></span>
 

@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Packbuilder
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
-  "#free": "#free"
   "#hash": "#hash"
   "#insert": "#insert"
   "#insertCommit": "#insertCommit"
@@ -35,12 +34,6 @@ var packbuilder = Packbuilder.create(repo);
 | --- | --- |
 | [Packbuilder](/api/packbuilder/) | The new packbuilder object |
 
-## <a name="free"></a><span>Packbuilder#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-packbuilder.free();
-```
-
 ## <a name="hash"></a><span>Packbuilder#</span>hash <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -51,10 +44,12 @@ var oid = packbuilder.hash();
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
-## <a name="insert"></a><span>Packbuilder#</span>insert <span class="tags"><span class="sync">Sync</span></span>
+## <a name="insert"></a><span>Packbuilder#</span>insert <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = packbuilder.insert(id, name);
+packbuilder.insert(id, name).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -66,10 +61,12 @@ var result = packbuilder.insert(id, name);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="insertCommit"></a><span>Packbuilder#</span>insertCommit <span class="tags"><span class="sync">Sync</span></span>
+## <a name="insertCommit"></a><span>Packbuilder#</span>insertCommit <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = packbuilder.insertCommit(id);
+packbuilder.insertCommit(id).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -80,10 +77,12 @@ var result = packbuilder.insertCommit(id);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="insertRecur"></a><span>Packbuilder#</span>insertRecur <span class="tags"><span class="sync">Sync</span></span>
+## <a name="insertRecur"></a><span>Packbuilder#</span>insertRecur <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = packbuilder.insertRecur(id, name);
+packbuilder.insertRecur(id, name).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -109,10 +108,12 @@ var result = packbuilder.insertTree(id);
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="insertWalk"></a><span>Packbuilder#</span>insertWalk <span class="tags"><span class="sync">Sync</span></span>
+## <a name="insertWalk"></a><span>Packbuilder#</span>insertWalk <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = packbuilder.insertWalk(walk);
+packbuilder.insertWalk(walk).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |

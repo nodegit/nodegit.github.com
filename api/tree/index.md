@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Tree
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "entryCmp": "#entryCmp"
-  "entryDup": "#entryDup"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#_entryByIndex": "#_entryByIndex"
@@ -24,7 +23,6 @@ sections:
   "#entryByName": "#entryByName"
   "#entryByPath": "#entryByPath"
   "#entryCount": "#entryCount"
-  "#free": "#free"
   "#getEntry": "#getEntry"
   "#id": "#id"
   "#owner": "#owner"
@@ -50,21 +48,6 @@ var result = Tree.entryCmp(e1, e2);
 | Number |  
 <
 0 if e1 is before e2, 0 if e1 == e2, >0 if e1 is after e2 |
-
-## <a name="entryDup"></a><span>Tree.</span>entryDup <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Tree.entryDup(dest, source);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| dest | [TreeEntry](/api/tree_entry/) | pointer where to store the copy |
-| source | [TreeEntry](/api/tree_entry/) | tree entry to duplicate |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error code |
 
 ## <a name="lookup"></a><span>Tree.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -296,12 +279,6 @@ var result = tree.entryCount();
 | Returns |  |
 | --- | --- |
 | Number |  the number of entries in the tree |
-
-## <a name="free"></a><span>Tree#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-tree.free();
-```
 
 ## <a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 

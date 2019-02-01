@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Revwalk
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -10,7 +10,6 @@ sections:
   "create": "#create"
   "#fastWalk": "#fastWalk"
   "#fileHistoryWalk": "#fileHistoryWalk"
-  "#free": "#free"
   "#getCommits": "#getCommits"
   "#getCommitsUntil": "#getCommitsUntil"
   "#hide": "#hide"
@@ -59,7 +58,7 @@ revwalk.fastWalk(max_count).then(function(stdVectorGitOid) {
 
 | Returns |  |
 | --- | --- |
-| Std::vector<gitOid> * |  |
+| StdVectorGitOid |  |
 
 ## <a name="fileHistoryWalk"></a><span>Revwalk#</span>fileHistoryWalk <span class="tags"><span class="async">Async</span></span>
 
@@ -77,12 +76,6 @@ revwalk.fileHistoryWalk(filePath, max_count).then(function(arrayHistoryEntry) {
 | Returns |  |
 | --- | --- |
 | Array&lt;historyEntry&gt; |  |
-
-## <a name="free"></a><span>Revwalk#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-revwalk.free();
-```
 
 ## <a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="async">Async</span></span>
 

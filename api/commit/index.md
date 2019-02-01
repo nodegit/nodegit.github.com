@@ -2,14 +2,16 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
+  "createBuffer": "#createBuffer"
   "createV": "#createV"
   "createWithSignature": "#createWithSignature"
+  "extractSignature": "#extractSignature"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#amend": "#amend"
@@ -18,11 +20,11 @@ sections:
   "#committer": "#committer"
   "#date": "#date"
   "#dup": "#dup"
-  "#free": "#free"
   "#getDiff": "#getDiff"
   "#getDiffWithOptions": "#getDiffWithOptions"
   "#getEntry": "#getEntry"
   "#getParents": "#getParents"
+  "#getSignature": "#getSignature"
   "#getTree": "#getTree"
   "#headerField": "#headerField"
   "#history": "#history"
@@ -71,6 +73,29 @@ Commit.create(repo, update_ref, author, committer, message_encoding, message, tr
 | --- | --- |
 | [Oid](/api/oid/) |  |
 
+## <a name="createBuffer"></a><span>Commit.</span>createBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Commit.createBuffer(repo, author, committer, message_encoding, message, tree, parent_count, parents).then(function(buffer) {
+  // Use buffer
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository where the referenced tree and parents live |
+| author | [Signature](/api/signature/) | Signature with author and author time of commit |
+| committer | [Signature](/api/signature/) | Signature with committer and * commit time of commit |
+| message_encoding | String | The encoding for the message in the commit, represented with a standard encoding name. E.g. "UTF-8". If NULL, no encoding header is written and UTF-8 is assumed. |
+| message | String | Full message for this commit |
+| tree | [Tree](/api/tree/) | An instance of a `git_tree` object that will be used as the tree for the commit. This tree object must also be owned by the given `repo`. |
+| parent_count | Number | Number of parents for this commit |
+| parents | Array | Array of `parent_count` pointers to `git_commit` objects that will be used as the parents for this commit. This array may be NULL if `parent_count` is 0 (root commit). All the given commits must be owned by the `repo`. |
+
+| Returns |  |
+| --- | --- |
+| Buffer | the buffer into which to write the commit object content |
+
 ## <a name="createV"></a><span>Commit.</span>createV <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -111,6 +136,27 @@ Commit.createWithSignature(repo, commit_content, signature, signature_field).the
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | the resulting commit id |
+
+## <a name="extractSignature"></a><span>Commit.</span>extractSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+Commit.extractSignature(signature, signed_data, repo, commit_id, field).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| signature | [Buf](/api/buf/) | the signature block; existing content will be overwritten |
+| signed_data | [Buf](/api/buf/) | signed data; this is the commit contents minus the signature block; existing content will be overwritten |
+| repo | [Repository](/api/repository/) | the repository in which the commit exists |
+| commit_id | [Oid](/api/oid/) | the commit from which to extract the data |
+| field | String | the name of the header field containing the signature block; pass `NULL` to extract the default 'gpgsig' |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success, GIT_ENOTFOUND if the id is not for a commit
+ or the commit does not have a signature. |
 
 ## <a name="lookup"></a><span>Commit.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -223,12 +269,6 @@ commit.dup().then(function(commit) {
 | --- | --- |
 | [Commit](/api/commit/) |  |
 
-## <a name="free"></a><span>Commit#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-commit.free();
-```
-
 ## <a name="getDiff"></a><span>Commit#</span>getDiff <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -306,6 +346,22 @@ Retrieve the commit's parents as commit objects.
 | --- | --- |
 | Array&lt;[Commit](/api/commit/)&gt; | array of commits |
 
+## <a name="getSignature"></a><span>Commit#</span>getSignature <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var extractedSignature = commit.getSignature(field);
+```
+
+Retrieve the signature and signed data for a commit.
+
+| Parameters | Type |
+| --- | --- | --- |
+| field | String | Optional field to get from the signature, defaults to gpgsig |
+
+| Returns |  |
+| --- | --- |
+| extractedSignature |  |
+
 ## <a name="getTree"></a><span>Commit#</span>getTree <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -334,7 +390,8 @@ commit.headerField(field).then(function(buf) {
 
 | Returns |  |
 | --- | --- |
-| [Buf](/api/buf/) | the buffer to fill |
+| [Buf](/api/buf/) | the buffer to fill; existing content will be
+ overwritten |
 
 ## <a name="history"></a><span>Commit#</span>history <span class="tags"><span class="sync">Sync</span></span>
 

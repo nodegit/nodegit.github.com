@@ -2,14 +2,12 @@
 layout: default
 menu_item: api
 title: OdbObject
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "#data": "#data"
-  "#dup": "#dup"
-  "#free": "#free"
   "#id": "#id"
   "#size": "#size"
   "#type": "#type"
@@ -24,24 +22,6 @@ var buffer = odbObject.data();
 | Returns |  |
 | --- | --- |
 | Buffer |  the data |
-
-## <a name="dup"></a><span>OdbObject#</span>dup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
-
-```js
-odbObject.dup().then(function(odbObject) {
-  // Use odbObject
-});
-```
-
-| Returns |  |
-| --- | --- |
-| [OdbObject](/api/odb_object/) | the copy |
-
-## <a name="free"></a><span>OdbObject#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
-
-```js
-odbObject.free();
-```
 
 ## <a name="id"></a><span>OdbObject#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

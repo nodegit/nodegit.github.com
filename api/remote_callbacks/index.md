@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: RemoteCallbacks
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -21,6 +21,7 @@ var remoteCallbacks = new RemoteCallbacks();
 | <a name="certificateCheck"></a>certificateCheck | TransportCertificateCheckCb |  |
 | <a name="credentials"></a>credentials | CredAcquireCb |  |
 | <a name="payload"></a>payload | Void |  |
+| <a name="pushTransferProgress"></a>pushTransferProgress | PushTransferProgress |  |
 | <a name="pushUpdateReference"></a>pushUpdateReference | PushUpdateReferenceCb |  |
 | <a name="transferProgress"></a>transferProgress | TransferProgressCb |  |
 | <a name="transport"></a>transport | TransportCb |  |

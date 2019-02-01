@@ -2,13 +2,12 @@
 layout: default
 menu_item: api
 title: Clone
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
   "clone": "#clone"
-  "initOptions": "#initOptions"
   "LOCAL": "#LOCAL"
 ---
 
@@ -31,21 +30,6 @@ Patch repository cloning to automatically coerce objects.
 | Returns |  |
 | --- | --- |
 | [Repository](/api/repository/) | repo |
-
-## <a name="initOptions"></a><span>Clone.</span>initOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Clone.initOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [CloneOptions](/api/clone_options/) | The `git_clone_options` struct to initialize |
-| version | Number | Version of struct; pass `GIT_CLONE_OPTIONS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="LOCAL"></a><span>Clone.</span>LOCAL <span class="tags"><span class="enum">ENUM</span></span>
 

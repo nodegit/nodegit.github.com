@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Submodule
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -17,12 +17,10 @@ sections:
   "setUpdate": "#setUpdate"
   "setUrl": "#setUrl"
   "status": "#status"
-  "updateInitOptions": "#updateInitOptions"
   "#addFinalize": "#addFinalize"
   "#addToIndex": "#addToIndex"
   "#branch": "#branch"
   "#fetchRecurseSubmodules": "#fetchRecurseSubmodules"
-  "#free": "#free"
   "#headId": "#headId"
   "#ignore": "#ignore"
   "#indexId": "#indexId"
@@ -224,21 +222,6 @@ Submodule.status(repo, name, ignore).then(function(result) {
 | --- | --- |
 | Number | Combination of `GIT_SUBMODULE_STATUS` flags |
 
-## <a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Submodule.updateInitOptions(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [SubmoduleUpdateOptions](/api/submodule_update_options/) | The `git_submodule_update_options` instance to initialize. |
-| version | Number | Version of struct; pass `GIT_SUBMODULE_UPDATE_OPTIONS_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
-
 ## <a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -288,12 +271,6 @@ var result = submodule.fetchRecurseSubmodules();
 | Returns |  |
 | --- | --- |
 | Number |  0 if fetchRecurseSubmodules is false, 1 if true |
-
-## <a name="free"></a><span>Submodule#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-submodule.free();
-```
 
 ## <a name="headId"></a><span>Submodule#</span>headId <span class="tags"><span class="sync">Sync</span></span>
 

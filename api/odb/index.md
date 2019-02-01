@@ -2,19 +2,36 @@
 layout: default
 menu_item: api
 title: Odb
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "hashfile": "#hashfile"
   "open": "#open"
-  "#addDiskAlternate": "#addDiskAlternate"
-  "#expandIds": "#expandIds"
-  "#free": "#free"
+  "#existsPrefix": "#existsPrefix"
   "#read": "#read"
+  "#readPrefix": "#readPrefix"
   "#write": "#write"
   "STREAM": "#STREAM"
 ---
+
+## <a name="hashfile"></a><span>Odb.</span>hashfile <span class="tags"><span class="async">Async</span></span>
+
+```js
+Odb.hashfile(path, type).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| path | String | file to read and determine object id for |
+| type | Number | the type of the object that will be hashed |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | oid structure the result is written into. |
 
 ## <a name="open"></a><span>Odb.</span>open <span class="tags"><span class="async">Async</span></span>
 
@@ -32,40 +49,22 @@ Odb.open(objects_dir).then(function(odb) {
 | --- | --- |
 | [Odb](/api/odb/) |  |
 
-## <a name="addDiskAlternate"></a><span>Odb#</span>addDiskAlternate <span class="tags"><span class="sync">Sync</span></span>
+## <a name="existsPrefix"></a><span>Odb#</span>existsPrefix <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = odb.addDiskAlternate(path);
+odb.existsPrefix(short_id, len).then(function(oid) {
+  // Use oid
+});
 ```
 
 | Parameters | Type |
 | --- | --- | --- |
-| path | String | path to the objects folder for the alternate |
+| short_id | [Oid](/api/oid/) | A prefix of the id of the object to read. |
+| len | Number | The length of the prefix. |
 
 | Returns |  |
 | --- | --- |
-| Number |  0 on success; error code otherwise |
-
-## <a name="expandIds"></a><span>Odb#</span>expandIds <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = odb.expandIds(ids, count);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| ids | [OdbExpandId](/api/odb_expand_id/) | An array of short object IDs to search for |
-| count | Number | The length of the `ids` array |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success or an error code on failure |
-
-## <a name="free"></a><span>Odb#</span>free <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-odb.free();
-```
+| [Oid](/api/oid/) | The full OID of the found object if just one is found. |
 
 ## <a name="read"></a><span>Odb#</span>read <span class="tags"><span class="async">Async</span></span>
 
@@ -78,6 +77,23 @@ odb.read(id).then(function(odbObject) {
 | Parameters | Type |
 | --- | --- | --- |
 | id | [Oid](/api/oid/) | identity of the object to read. |
+
+| Returns |  |
+| --- | --- |
+| [OdbObject](/api/odb_object/) | the read object |
+
+## <a name="readPrefix"></a><span>Odb#</span>readPrefix <span class="tags"><span class="async">Async</span></span>
+
+```js
+odb.readPrefix(short_id, len).then(function(odbObject) {
+  // Use odbObject
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| short_id | [Oid](/api/oid/) | a prefix of the id of the object to read. |
+| len | Number | the length of the prefix |
 
 | Returns |  |
 | --- | --- |

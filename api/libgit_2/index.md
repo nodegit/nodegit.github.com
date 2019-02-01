@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Libgit2
-description: Version 0.19.0
+description: Version 0.24.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -96,4 +96,9 @@ Libgit2.version(major, minor, rev);
 | <span>Libgit2.OPT.</span>ENABLE_STRICT_SYMBOLIC_REF_CREATION | 15 |
 | <span>Libgit2.OPT.</span>SET_SSL_CIPHERS | 16 |
 | <span>Libgit2.OPT.</span>GET_USER_AGENT | 17 |
+| <span>Libgit2.OPT.</span>ENABLE_OFS_DELTA | 18 |
+| <span>Libgit2.OPT.</span>ENABLE_FSYNC_GITDIR | 19 |
+| <span>Libgit2.OPT.</span>GET_WINDOWS_SHAREMODE | 20 |
+| <span>Libgit2.OPT.</span>SET_WINDOWS_SHAREMODE | 21 |
+| <span>Libgit2.OPT.</span>ENABLE_STRICT_HASH_VERIFICATION | 22 |
 
