@@ -334,7 +334,7 @@ Return the path of this tree, like `/lib/foo/bar`
 ## <a name="walk"></a><span>Tree#</span>walk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var eventEmitter = tree.walk([blobsOnly);
+var eventEmitter = tree.walk();
 
 eventEmitter.on('entry', function(tree) {
   // Use tree
@@ -347,6 +347,9 @@ eventEmitter.on('end', function(trees) {
 eventEmitter.on('error', function(error) {
   // Use error
 });
+
+// start walking the tree
+eventEmitter.start()
 ```
 
 Recursively walk the tree in breadth-first order. Fires an event for each
