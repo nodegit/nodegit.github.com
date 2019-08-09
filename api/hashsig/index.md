@@ -23,13 +23,13 @@ Hashsig.create(buf, buflen, opts).then(function(hashsig) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| buf | String | The input buffer. |
-| buflen | Number | The input buffer size. |
-| opts | Number | The signature computation options (see above). |
+| buf | String |  |
+| buflen | Number |  |
+| opts | Number |  |
 
 | Returns |  |
 | --- | --- |
-| [Hashsig](/api/hashsig/) | The computed similarity signature. |
+| [Hashsig](/api/hashsig/) |  |
 
 ## <a name="createFromFile"></a><span>Hashsig.</span>createFromFile <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
@@ -41,12 +41,12 @@ Hashsig.createFromFile(path, opts).then(function(hashsig) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| path | String | The path to the input file. |
-| opts | Number | The signature computation options (see above). |
+| path | String |  |
+| opts | Number |  |
 
 | Returns |  |
 | --- | --- |
-| [Hashsig](/api/hashsig/) | The computed similarity signature. |
+| [Hashsig](/api/hashsig/) |  |
 
 ## <a name="compare"></a><span>Hashsig#</span>compare <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -56,11 +56,11 @@ var result = hashsig.compare(b);
 
 | Parameters | Type |
 | --- | --- | --- |
-| b | [Hashsig](/api/hashsig/) | The second similarity signature to compare. |
+| b | [Hashsig](/api/hashsig/) |  |
 
 | Returns |  |
 | --- | --- |
-| Number |  [0 to 100] on success as the similarity score, or error code. |
+| Number |  |
 
 ## <a name="OPTION"></a><span>Hashsig.</span>OPTION <span class="tags"><span class="enum">ENUM</span></span>
 

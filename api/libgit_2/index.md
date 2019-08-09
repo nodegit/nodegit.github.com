@@ -101,4 +101,9 @@ Libgit2.version(major, minor, rev);
 | <span>Libgit2.OPT.</span>GET_WINDOWS_SHAREMODE | 20 |
 | <span>Libgit2.OPT.</span>SET_WINDOWS_SHAREMODE | 21 |
 | <span>Libgit2.OPT.</span>ENABLE_STRICT_HASH_VERIFICATION | 22 |
+| <span>Libgit2.OPT.</span>SET_ALLOCATOR | 23 |
+| <span>Libgit2.OPT.</span>ENABLE_UNSAVED_INDEX_SAFETY | 24 |
+| <span>Libgit2.OPT.</span>GET_PACK_MAX_OBJECTS | 25 |
+| <span>Libgit2.OPT.</span>SET_PACK_MAX_OBJECTS | 26 |
+| <span>Libgit2.OPT.</span>DISABLE_PACK_KEEP_FILE_CHECKS | 27 |
 

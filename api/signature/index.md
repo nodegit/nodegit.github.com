@@ -25,17 +25,19 @@ var signature = Signature.create(name, email, time, offset);
 | --- | --- | --- |
 | name | String | name of the person |
 | email | String | email of the person |
-| time | Number | time when the action happened |
-| offset | Number | timezone offset in minutes for the time |
+| time | Number | time (in seconds from epoch) when the action happened |
+| offset | Number | timezone offset (in minutes) for the time |
 
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) | new signature, in case of error NULL |
 
-## <a name="default"></a><span>Signature.</span>default <span class="tags"><span class="sync">Sync</span></span>
+## <a name="default"></a><span>Signature.</span>default <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var signature = Signature.default(repo);
+Signature.default(repo).then(function(signature) {
+  // Use signature
+});
 ```
 
 | Parameters | Type |   |
@@ -80,14 +82,18 @@ var signature = Signature.now(name, email);
 ## <a name="toString"></a><span>Signature#</span>toString <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var string = signature.toString();
+var string = signature.toString(withTime);
 ```
 
 Standard string representation of an author.
 
+| Parameters | Type |
+| --- | --- | --- |
+| withTime | Boolean | Whether or not to include timestamp |
+
 | Returns |  |
 | --- | --- |
-| string | Representation of the author. |
+| String | Representation of the author. |
 
 ## <a name="ivars"></a>Instance Variables
 

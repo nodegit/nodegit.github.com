@@ -12,7 +12,7 @@ sections:
   "get": "#get"
   "getMany": "#getMany"
   "value": "#value"
-  "STATES": "#STATES"
+  "VALUE": "#VALUE"
 ---
 
 ## <a name="addMacro"></a><span>Attr.</span>addMacro <span class="tags"><span class="sync">Sync</span></span>
@@ -97,12 +97,12 @@ var result = Attr.value(attr);
 | --- | --- |
 | Number |  the value type for the attribute |
 
-## <a name="STATES"></a><span>Attr.</span>STATES <span class="tags"><span class="enum">ENUM</span></span>
+## <a name="VALUE"></a><span>Attr.</span>VALUE <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Attr.STATES.</span>UNSPECIFIED_T | 0 |
-| <span>Attr.STATES.</span>TRUE_T | 1 |
-| <span>Attr.STATES.</span>FALSE_T | 2 |
-| <span>Attr.STATES.</span>VALUE_T | 3 |
+| <span>Attr.VALUE.</span>UNSPECIFIED | 0 |
+| <span>Attr.VALUE.</span>TRUE | 1 |
+| <span>Attr.VALUE.</span>FALSE | 2 |
+| <span>Attr.VALUE.</span>STRING | 3 |
 

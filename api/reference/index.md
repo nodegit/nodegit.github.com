@@ -20,6 +20,7 @@ sections:
   "remove": "#remove"
   "symbolicCreate": "#symbolicCreate"
   "symbolicCreateMatching": "#symbolicCreateMatching"
+  "updateTerminal": "#updateTerminal"
   "#cmp": "#cmp"
   "#delete": "#delete"
   "#dup": "#dup"
@@ -44,7 +45,7 @@ sections:
   "#targetPeel": "#targetPeel"
   "#toString": "#toString"
   "#type": "#type"
-  "NORMALIZE": "#NORMALIZE"
+  "FORMAT": "#FORMAT"
   "TYPE": "#TYPE"
 ---
 
@@ -218,7 +219,7 @@ var result = Reference.normalizeName(buffer_out, buffer_size, name, flags);
 | buffer_out | String | User allocated buffer to store normalized name |
 | buffer_size | Number | Size of buffer_out |
 | name | String | Reference name to be checked. |
-| flags | Number | Flags to constrain name validation rules - see the GIT_REF_FORMAT constants above. |
+| flags | Number | Flags to constrain name validation rules - see the GIT_REFERENCE_FORMAT constants above. |
 
 | Returns |  |
 | --- | --- |
@@ -280,6 +281,24 @@ Reference.symbolicCreateMatching(repo, name, target, force, current_value, log_m
 | Returns |  |
 | --- | --- |
 | [Reference](/api/reference/) |  |
+
+## <a name="updateTerminal"></a><span>Reference.</span>updateTerminal <span class="tags"><span class="async">Async</span></span>
+
+```js
+Reference.updateTerminal(repo, refName, oid, logMessage, signature).then(function() {
+  // method complete});
+```
+
+Given a reference name, follows symbolic links and updates the direct
+reference to point to a given OID. Updates the reflog with a given message.
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The repo where the reference and objects live |
+| refName | String | The reference name to update |
+| oid | [Oid](/api/oid/) | The target OID that the reference will point to |
+| logMessage | String | The reflog message to be writted |
+| signature | [Signature](/api/signature/) | Optional signature to use for the reflog entry |
 
 ## <a name="cmp"></a><span>Reference#</span>cmp <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -439,7 +458,7 @@ reference.peel(type).then(function(object) {
 
 | Parameters | Type |
 | --- | --- | --- |
-| type | Number | The type of the requested object (GIT_OBJ_COMMIT, GIT_OBJ_TAG, GIT_OBJ_TREE, GIT_OBJ_BLOB or GIT_OBJ_ANY). |
+| type | Number | The type of the requested object (GIT_OBJECT_COMMIT, GIT_OBJECT_TAG, GIT_OBJECT_TREE, GIT_OBJECT_BLOB or GIT_OBJECT_ANY). |
 
 | Returns |  |
 | --- | --- |
@@ -571,21 +590,21 @@ var result = reference.type();
 | --- | --- |
 | Number |  the type |
 
-## <a name="NORMALIZE"></a><span>Reference.</span>NORMALIZE <span class="tags"><span class="enum">ENUM</span></span>
+## <a name="FORMAT"></a><span>Reference.</span>FORMAT <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Reference.NORMALIZE.</span>REF_FORMAT_NORMAL | 0 |
-| <span>Reference.NORMALIZE.</span>REF_FORMAT_ALLOW_ONELEVEL | 1 |
-| <span>Reference.NORMALIZE.</span>REF_FORMAT_REFSPEC_PATTERN | 2 |
-| <span>Reference.NORMALIZE.</span>REF_FORMAT_REFSPEC_SHORTHAND | 4 |
+| <span>Reference.FORMAT.</span>NORMAL | 0 |
+| <span>Reference.FORMAT.</span>ALLOW_ONELEVEL | 1 |
+| <span>Reference.FORMAT.</span>REFSPEC_PATTERN | 2 |
+| <span>Reference.FORMAT.</span>REFSPEC_SHORTHAND | 4 |
 
 ## <a name="TYPE"></a><span>Reference.</span>TYPE <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
 | <span>Reference.TYPE.</span>INVALID | 0 |
-| <span>Reference.TYPE.</span>OID | 1 |
+| <span>Reference.TYPE.</span>DIRECT | 1 |
 | <span>Reference.TYPE.</span>SYMBOLIC | 2 |
-| <span>Reference.TYPE.</span>LISTALL | 3 |
+| <span>Reference.TYPE.</span>ALL | 3 |
 

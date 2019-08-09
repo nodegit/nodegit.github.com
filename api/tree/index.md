@@ -139,7 +139,7 @@ tree.createUpdated(repo, nupdates, updates).then(function(oid) {
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | the repository in which to create the tree, must be the same as for `baseline` |
 | nupdates | Number | the number of elements in the update list |
-| updates | [TreeUpdate](/api/tree_update/) | the list of updates to perform |
+| updates | Array | the list of updates to perform |
 
 | Returns |  |
 | --- | --- |

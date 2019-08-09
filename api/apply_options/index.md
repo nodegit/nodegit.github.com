@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: CvarMap
+title: ApplyOptions
 description: Version 0.24.0
 menu_item: api
 return_to:
@@ -10,11 +10,16 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
+```js
+var applyOptions = new ApplyOptions();
+```
+
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="cvarType"></a>cvarType | Number |  |
-| <a name="mapValue"></a>mapValue | Number |  |
-| <a name="strMatch"></a>strMatch | String |  |
+| <a name="deltaCb"></a>deltaCb | ApplyDeltaCb |  |
+| <a name="hunkCb"></a>hunkCb | ApplyHunkCb |  |
+| <a name="payload"></a>payload | Void |  |
+| <a name="version"></a>version | Number |  |
 

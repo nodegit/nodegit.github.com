@@ -18,6 +18,7 @@ var statusOptions = new StatusOptions();
 
 | Variable | Type | Description |
 | --- | --- | --- |
+| <a name="baseline"></a>baseline | Tree |  |
 | <a name="flags"></a>flags | Number |  |
 | <a name="pathspec"></a>pathspec | Strarray |  |
 | <a name="show"></a>show | Number |  |

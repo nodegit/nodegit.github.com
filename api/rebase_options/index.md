@@ -19,8 +19,11 @@ var rebaseOptions = new RebaseOptions();
 | Variable | Type | Description |
 | --- | --- | --- |
 | <a name="checkoutOptions"></a>checkoutOptions | CheckoutOptions |  |
+| <a name="inmemory"></a>inmemory | Number |  |
 | <a name="mergeOptions"></a>mergeOptions | MergeOptions |  |
+| <a name="payload"></a>payload | Void |  |
 | <a name="quiet"></a>quiet | Number |  |
 | <a name="rewriteNotesRef"></a>rewriteNotesRef | String |  |
+| <a name="signingCb"></a>signingCb | CommitSigningCb |  |
 | <a name="version"></a>version | Number |  |
 

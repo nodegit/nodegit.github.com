@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: TransferProgress
+title: IndexerProgress
 description: Version 0.24.0
 menu_item: api
 return_to:

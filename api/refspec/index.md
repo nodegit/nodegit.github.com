@@ -7,6 +7,7 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "parse": "#parse"
   "#direction": "#direction"
   "#dst": "#dst"
   "#dstMatches": "#dstMatches"
@@ -15,6 +16,23 @@ sections:
   "#srcMatches": "#srcMatches"
   "#string": "#string"
 ---
+
+## <a name="parse"></a><span>Refspec.</span>parse <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+
+```js
+Refspec.parse(input, is_fetch).then(function(refspec) {
+  // Use refspec
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| input | String | the refspec string |
+| is_fetch | Number | is this a refspec for a fetch |
+
+| Returns |  |
+| --- | --- |
+| [Refspec](/api/refspec/) | hold the refspec handle |
 
 ## <a name="direction"></a><span>Refspec#</span>direction <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

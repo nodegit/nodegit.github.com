@@ -26,6 +26,7 @@ sections:
   "#createCommit": "#createCommit"
   "#createCommitBuffer": "#createCommitBuffer"
   "#createCommitOnHead": "#createCommitOnHead"
+  "#createCommitWithSignature": "#createCommitWithSignature"
   "#createLightweightTag": "#createLightweightTag"
   "#createRevWalk": "#createRevWalk"
   "#createTag": "#createTag"
@@ -48,17 +49,21 @@ sections:
   "#getReferenceNames": "#getReferenceNames"
   "#getReferences": "#getReferences"
   "#getRemote": "#getRemote"
+  "#getRemoteNames": "#getRemoteNames"
   "#getRemotes": "#getRemotes"
   "#getStatus": "#getStatus"
   "#getStatusExt": "#getStatusExt"
   "#getSubmoduleNames": "#getSubmoduleNames"
+  "#getSubmodules": "#getSubmodules"
   "#getTag": "#getTag"
   "#getTagByName": "#getTagByName"
   "#getTree": "#getTree"
   "#head": "#head"
   "#headDetached": "#headDetached"
+  "#headDetachedForWorktree": "#headDetachedForWorktree"
   "#headForWorktree": "#headForWorktree"
   "#headUnborn": "#headUnborn"
+  "#ident": "#ident"
   "#index": "#index"
   "#isApplyingMailbox": "#isApplyingMailbox"
   "#isBare": "#isBare"
@@ -80,6 +85,7 @@ sections:
   "#rebaseBranches": "#rebaseBranches"
   "#refdb": "#refdb"
   "#refreshIndex": "#refreshIndex"
+  "#refreshReferences": "#refreshReferences"
   "#setHead": "#setHead"
   "#setHeadDetached": "#setHeadDetached"
   "#setHeadDetachedFromAnnotated": "#setHeadDetachedFromAnnotated"
@@ -270,10 +276,11 @@ latest commit on that reference
 | reference | [Reference](/api/reference/) | the reference to checkout |
 | opts | [Object](/api/object/), [CheckoutOptions](/api/checkout_options/) | the options to use for the checkout |
 
-## <a name="cleanup"></a><span>Repository#</span>cleanup <span class="tags"><span class="sync">Sync</span></span>
+## <a name="cleanup"></a><span>Repository#</span>cleanup <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.cleanup();
+repository.cleanup().then(function() {
+  // method complete});
 ```
 
 ## <a name="commondir"></a><span>Repository#</span>commondir <span class="tags"><span class="sync">Sync</span></span>
@@ -301,7 +308,7 @@ repository.config().then(function(config) {
 ## <a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.continueRebase(signature, beforeNextFn, beforeFinishFn).then(function(oid) {
+repository.continueRebase(signature, beforeNextFn, beforeFinishFn, rebaseOptions).then(function(oid) {
   // Use oid
 });
 ```
@@ -313,15 +320,18 @@ Continues an existing rebase
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
 | beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
 | beforeFinishFn | Function | Callback called before the invocation of finish(). If the callback returns a promise, finish() will be called when the promise resolves. This callback will be provided a detailed overview of the rebase |
+| rebaseOptions | [RebaseOptions](/api/rebase_options/) | Options to initialize the rebase object with |
 
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) | A commit id for a succesful merge or an index for a                      rebase with conflicts |
 
-## <a name="createBlobFromBuffer"></a><span>Repository#</span>createBlobFromBuffer <span class="tags"><span class="sync">Sync</span></span>
+## <a name="createBlobFromBuffer"></a><span>Repository#</span>createBlobFromBuffer <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var oid = repository.createBlobFromBuffer(buffer);
+repository.createBlobFromBuffer(buffer).then(function(oid) {
+  // Use oid
+});
 ```
 
 Create a blob from a buffer
@@ -420,6 +430,30 @@ Creates a new commit on HEAD from the list of passed in files
 | --- | --- |
 | [Oid](/api/oid/) | The oid of the new commit |
 
+## <a name="createCommitWithSignature"></a><span>Repository#</span>createCommitWithSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.createCommitWithSignature(updateRef, author, committer, message, Tree, parents, onSignature).then(function(oid) {
+  // Use oid
+});
+```
+
+Create a commit that is digitally signed
+
+| Parameters | Type |
+| --- | --- | --- |
+| updateRef | String |  |
+| author | [Signature](/api/signature/) |  |
+| committer | [Signature](/api/signature/) |  |
+| message | String |  |
+| Tree | [Tree](/api/tree/), [Oid](/api/oid/), String |  |
+| parents | Array |  |
+| onSignature | Function | Callback to be called with string to be signed |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | The oid of the commit |
+
 ## <a name="createLightweightTag"></a><span>Repository#</span>createLightweightTag <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -442,19 +476,15 @@ Creates a new lightweight tag
 ## <a name="createRevWalk"></a><span>Repository#</span>createRevWalk <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var revWalk = repository.createRevWalk(String);
+var revwalk = repository.createRevWalk();
 ```
 
 Instantiate a new revision walker for browsing the Repository"s history.
 See also `Commit.prototype.history()`
 
-| Parameters | Type |
-| --- | --- | --- |
-| String | String, [Oid](/api/oid/) | sha or Oid |
-
 | Returns |  |
 | --- | --- |
-| RevWalk |  |
+| [Revwalk](/api/revwalk/) |  |
 
 ## <a name="createTag"></a><span>Repository#</span>createTag <span class="tags"><span class="async">Async</span></span>
 
@@ -476,10 +506,12 @@ Creates a new annotated tag
 | --- | --- |
 | [Tag](/api/tag/) |  |
 
-## <a name="defaultSignature"></a><span>Repository#</span>defaultSignature <span class="tags"><span class="sync">Sync</span></span>
+## <a name="defaultSignature"></a><span>Repository#</span>defaultSignature <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var signature = repository.defaultSignature();
+repository.defaultSignature().then(function(signature) {
+  // Use signature
+});
 ```
 
 Gets the default signature for the default user and now timestamp
@@ -734,20 +766,14 @@ Lookup reference names for a repository.
 ## <a name="getReferences"></a><span>Repository#</span>getReferences <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getReferences(type).then(function(arrayReference) {
-  // Use arrayReference
+repository.getReferences().then(function(stdVectorGitReference) {
+  // Use stdVectorGitReference
 });
 ```
 
-Lookup references for a repository.
-
-| Parameters | Type |
-| --- | --- | --- |
-| type | [Reference.TYPE](/api/reference/#TYPE) | Type of reference to look up |
-
 | Returns |  |
 | --- | --- |
-| Array&lt;[Reference](/api/reference/)&gt; |  |
+| StdVectorGitReference |  |
 
 ## <a name="getRemote"></a><span>Repository#</span>getRemote <span class="tags"><span class="async">Async</span></span>
 
@@ -768,10 +794,10 @@ Gets a remote from the repo
 | --- | --- |
 | [Remote](/api/remote/) | The remote object |
 
-## <a name="getRemotes"></a><span>Repository#</span>getRemotes <span class="tags"><span class="async">Async</span></span>
+## <a name="getRemoteNames"></a><span>Repository#</span>getRemoteNames <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.getRemotes(Optional).then(function(object) {
+repository.getRemoteNames(Optional).then(function(object) {
   // Use object
 });
 ```
@@ -785,6 +811,18 @@ Lists out the remotes in the given repository.
 | Returns |  |
 | --- | --- |
 | [Object](/api/object/) | Promise object. |
+
+## <a name="getRemotes"></a><span>Repository#</span>getRemotes <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.getRemotes().then(function(stdVectorGitRemote) {
+  // Use stdVectorGitRemote
+});
+```
+
+| Returns |  |
+| --- | --- |
+| StdVectorGitRemote |  |
 
 ## <a name="getStatus"></a><span>Repository#</span>getStatus <span class="tags"><span class="async">Async</span></span>
 
@@ -836,6 +874,18 @@ Get the names of the submodules in the repository.
 | Returns |  |
 | --- | --- |
 | Array&lt;String&gt; |  |
+
+## <a name="getSubmodules"></a><span>Repository#</span>getSubmodules <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.getSubmodules().then(function(stdVectorGitSubmodule) {
+  // Use stdVectorGitSubmodule
+});
+```
+
+| Returns |  |
+| --- | --- |
+| StdVectorGitSubmodule |  |
 
 ## <a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="async">Async</span></span>
 
@@ -914,6 +964,21 @@ var result = repository.headDetached();
 | Number |  1 if HEAD is detached, 0 if it's not; error code if there
  was an error. |
 
+## <a name="headDetachedForWorktree"></a><span>Repository#</span>headDetachedForWorktree <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = repository.headDetachedForWorktree(name);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | name of the worktree to retrieve HEAD for |
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if HEAD is detached, 0 if its not; error code if
+  there was an error |
+
 ## <a name="headForWorktree"></a><span>Repository#</span>headForWorktree <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -940,6 +1005,16 @@ var result = repository.headUnborn();
 | --- | --- |
 | Number |  1 if the current branch is unborn, 0 if it's not; error
  code if there was an error |
+
+## <a name="ident"></a><span>Repository#</span>ident <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = repository.ident();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="index"></a><span>Repository#</span>index <span class="tags"><span class="async">Async</span></span>
 
@@ -1099,7 +1174,7 @@ repository.itemPath(item).then(function(buf) {
 ## <a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.mergeBranches(to, from, signature, mergePreference, mergeOptions).then(function(oid) {
+repository.mergeBranches(to, from, signature, mergePreference, mergeOptions, mergeBranchOptions).then(function(oid) {
   // Use oid
 });
 ```
@@ -1113,6 +1188,7 @@ Merge a branch onto another branch
 | signature | [Signature](/api/signature/) |  |
 | mergePreference | [Merge.PREFERENCE](/api/merge/#PREFERENCE) |  |
 | mergeOptions | [MergeOptions](/api/merge_options/) |  |
+| mergeBranchOptions | MergeBranchOptions |  |
 
 | Returns |  |
 | --- | --- |
@@ -1164,7 +1240,7 @@ var string = repository.path();
 ## <a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="async">Async</span></span>
 
 ```js
-repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn).then(function(oid) {
+repository.rebaseBranches(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn, rebaseOptions).then(function(oid) {
   // Use oid
 });
 ```
@@ -1179,6 +1255,7 @@ Rebases a branch onto another branch
 | signature | [Signature](/api/signature/) | Identity of the one performing the rebase |
 | beforeNextFn | Function | Callback to be called before each step of the rebase. If the callback returns a promise, the rebase will resume when the promise resolves. The rebase object is is passed to the callback. |
 | beforeFinishFn | Function | Callback called before the invocation of finish(). If the callback returns a promise, finish() will be called when the promise resolves. This callback will be provided a detailed overview of the rebase |
+| rebaseOptions | [RebaseOptions](/api/rebase_options/) | Options to initialize the rebase object with |
 
 | Returns |  |
 | --- | --- |
@@ -1210,6 +1287,13 @@ all previously grabbed indexes
 | Returns |  |
 | --- | --- |
 | [Index](/api/index/) |  |
+
+## <a name="refreshReferences"></a><span>Repository#</span>refreshReferences <span class="tags"><span class="async">Async</span></span>
+
+```js
+repository.refreshReferences().then(function() {
+  // method complete});
+```
 
 ## <a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="async">Async</span></span>
 
@@ -1278,7 +1362,7 @@ repository.setIndex(index);
 
 | Parameters | Type |
 | --- | --- | --- |
-| index | [Index](/api/index/) | An index object |
+| index | [Index](/api/index/) |  |
 
 ## <a name="setNamespace"></a><span>Repository#</span>setNamespace <span class="tags"><span class="sync">Sync</span></span>
 
@@ -1448,6 +1532,7 @@ var string = repository.workdir();
 | <span>Repository.ITEM.</span>LOGS | 11 |
 | <span>Repository.ITEM.</span>MODULES | 12 |
 | <span>Repository.ITEM.</span>WORKTREES | 13 |
+| <span>Repository.ITEM.</span>_LAST | 14 |
 
 ## <a name="OPEN_FLAG"></a><span>Repository.</span>OPEN_FLAG <span class="tags"><span class="enum">ENUM</span></span>
 

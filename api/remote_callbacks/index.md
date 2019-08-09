@@ -21,9 +21,10 @@ var remoteCallbacks = new RemoteCallbacks();
 | <a name="certificateCheck"></a>certificateCheck | TransportCertificateCheckCb |  |
 | <a name="credentials"></a>credentials | CredAcquireCb |  |
 | <a name="payload"></a>payload | Void |  |
-| <a name="pushTransferProgress"></a>pushTransferProgress | PushTransferProgress |  |
+| <a name="pushTransferProgress"></a>pushTransferProgress | PushTransferProgressCb |  |
 | <a name="pushUpdateReference"></a>pushUpdateReference | PushUpdateReferenceCb |  |
-| <a name="transferProgress"></a>transferProgress | TransferProgressCb |  |
+| <a name="resolveUrl"></a>resolveUrl | UrlResolveCb |  |
+| <a name="transferProgress"></a>transferProgress | IndexerProgressCb |  |
 | <a name="transport"></a>transport | TransportCb |  |
 | <a name="version"></a>version | Number |  |
 

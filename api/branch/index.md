@@ -18,6 +18,8 @@ sections:
   "remoteName": "#remoteName"
   "setUpstream": "#setUpstream"
   "upstream": "#upstream"
+  "upstreamName": "#upstreamName"
+  "upstreamRemote": "#upstreamRemote"
   "BRANCH": "#BRANCH"
 ---
 
@@ -207,6 +209,39 @@ Branch.upstream(branch).then(function(reference) {
 | --- | --- |
 | [Reference](/api/reference/) | the retrieved
  reference. |
+
+## <a name="upstreamName"></a><span>Branch.</span>upstreamName <span class="tags"><span class="async">Async</span></span>
+
+```js
+Branch.upstreamName(repo, refname).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository where the branches live |
+| refname | String | reference name of the local branch. |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) |  |
+
+## <a name="upstreamRemote"></a><span>Branch.</span>upstreamRemote <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = Branch.upstreamRemote(buf, repo, refname);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| buf | [Buf](/api/buf/) | the buffer into which to write the name |
+| repo | [Repository](/api/repository/) | the repository in which to look |
+| refname | String | the full name of the branch |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
 
 ## <a name="BRANCH"></a><span>Branch.</span>BRANCH <span class="tags"><span class="enum">ENUM</span></span>
 

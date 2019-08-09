@@ -12,6 +12,7 @@ sections:
   "commitRead": "#commitRead"
   "commitRemove": "#commitRemove"
   "create": "#create"
+  "defaultRef": "#defaultRef"
   "foreach": "#foreach"
   "read": "#read"
   "remove": "#remove"
@@ -116,6 +117,22 @@ Note.create(repo, notes_ref, author, committer, oid, note, force).then(function(
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) |  |
+
+## <a name="defaultRef"></a><span>Note.</span>defaultRef <span class="tags"><span class="async">Async</span></span>
+
+```js
+Note.defaultRef(repo).then(function(buf) {
+  // Use buf
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | The Git repository |
+
+| Returns |  |
+| --- | --- |
+| [Buf](/api/buf/) | buffer in which to store the name of the default notes reference |
 
 ## <a name="foreach"></a><span>Note.</span>foreach <span class="tags"><span class="async">Async</span></span>
 

@@ -16,5 +16,4 @@ sections:
 | --- | --- | --- |
 | <a name="oidCalculations"></a>oidCalculations | Number |  |
 | <a name="statCalls"></a>statCalls | Number |  |
-| <a name="version"></a>version | Number |  |
 

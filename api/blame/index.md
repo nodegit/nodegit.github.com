@@ -18,8 +18,9 @@ sections:
 ## <a name="file"></a><span>Blame.</span>file <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Blame.file(repo, path, [options]).then(function() {
-  // method complete});
+Blame.file(repo, path, [options]).then(function(blame) {
+  // Use blame
+});
 ```
 
 Retrieve the blame of a file
@@ -29,6 +30,10 @@ Retrieve the blame of a file
 | repo | [Repository](/api/repository/) | that contains the file |
 | path | String | to the file to get the blame of |
 | [options] | [BlameOptions](/api/blame_options/) | Options for the blame |
+
+| Returns |  |
+| --- | --- |
+| [Blame](/api/blame/) | the blame |
 
 ## <a name="buffer"></a><span>Blame#</span>buffer <span class="tags"><span class="async">Async</span></span>
 
@@ -95,4 +100,5 @@ var result = blame.getHunkCount();
 | <span>Blame.FLAG.</span>TRACK_COPIES_SAME_COMMIT_COPIES | 4 |
 | <span>Blame.FLAG.</span>TRACK_COPIES_ANY_COMMIT_COPIES | 8 |
 | <span>Blame.FLAG.</span>FIRST_PARENT | 16 |
+| <span>Blame.FLAG.</span>USE_MAILMAP | 32 |
 

@@ -12,6 +12,7 @@ sections:
   "fromRevspec": "#fromRevspec"
   "lookup": "#lookup"
   "#id": "#id"
+  "#ref": "#ref"
 ---
 
 ## <a name="fromFetchhead"></a><span>AnnotatedCommit.</span>fromFetchhead <span class="tags"><span class="async">Async</span></span>
@@ -93,4 +94,14 @@ var oid = annotatedCommit.id();
 | Returns |  |
 | --- | --- |
 | [Oid](/api/oid/) |  commit id |
+
+## <a name="ref"></a><span>AnnotatedCommit#</span>ref <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = annotatedCommit.ref();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  ref name. |
 

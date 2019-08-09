@@ -10,6 +10,10 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
+```js
+var treeUpdate = new TreeUpdate();
+```
+
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type | Description |

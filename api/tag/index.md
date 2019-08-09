@@ -9,13 +9,17 @@ return_to:
 sections:
   "annotationCreate": "#annotationCreate"
   "create": "#create"
+  "createBuffer": "#createBuffer"
+  "createFromBuffer": "#createFromBuffer"
   "createLightweight": "#createLightweight"
+  "createWithSignature": "#createWithSignature"
   "delete": "#delete"
   "list": "#list"
   "listMatch": "#listMatch"
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#dup": "#dup"
+  "#extractSignature": "#extractSignature"
   "#id": "#id"
   "#message": "#message"
   "#name": "#name"
@@ -72,6 +76,43 @@ Tag.create(repo, tag_name, target, tagger, message, force).then(function(oid) {
  will be the oid of the existing tag, and the function will
  return a GIT_EEXISTS error code. |
 
+## <a name="createBuffer"></a><span>Tag.</span>createBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Tag.createBuffer(repo, tagName, target, tagger).then(function(string) {
+  // Use string
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) |  |
+| tagName | String |  |
+| target | [Oid](/api/oid/) |  |
+| tagger | [Signature](/api/signature/) |  |
+
+| Returns |  |
+| --- | --- |
+| String |  |
+
+## <a name="createFromBuffer"></a><span>Tag.</span>createFromBuffer <span class="tags"><span class="async">Async</span></span>
+
+```js
+Tag.createFromBuffer(repo, buffer, force).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | Repository where to store the tag |
+| buffer | String | Raw tag data |
+| force | Number | Overwrite existing tags |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) | the OID of the newly created tag |
+
 ## <a name="createLightweight"></a><span>Tag.</span>createLightweight <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -93,6 +134,28 @@ Tag.createLightweight(repo, tag_name, target, force).then(function(oid) {
  target object. If the tag already exists, this parameter
  will be filled with the oid of the existing pointed object
  and the function will return a GIT_EEXISTS error code. |
+
+## <a name="createWithSignature"></a><span>Tag.</span>createWithSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+Tag.createWithSignature(repo, tagName, target, tagger, message, force, signingCallback).then(function(oid) {
+  // Use oid
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) |  |
+| tagName | String |  |
+| target | [Oid](/api/oid/) |  |
+| tagger | [Signature](/api/signature/) |  |
+| message | String |  |
+| force | Number |  |
+| signingCallback | Function | Takes a string and returns a string representing the signed message |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  |
 
 ## <a name="delete"></a><span>Tag.</span>delete <span class="tags"><span class="async">Async</span></span>
 
@@ -192,6 +255,24 @@ tag.dup().then(function(tag) {
 | Returns |  |
 | --- | --- |
 | [Tag](/api/tag/) |  |
+
+## <a name="extractSignature"></a><span>Tag#</span>extractSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+tag.extractSignature(signatureType).then(function(string) {
+  // Use string
+});
+```
+
+Retrieves the signature of an annotated tag
+
+| Parameters | Type |
+| --- | --- | --- |
+| signatureType | String |  |
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="id"></a><span>Tag#</span>id <span class="tags"><span class="sync">Sync</span></span>
 

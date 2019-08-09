@@ -8,26 +8,13 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "listContains": "#listContains"
-  "listLength": "#listLength"
-  "listNew": "#listNew"
   "listStreamBlob": "#listStreamBlob"
   "listStreamData": "#listStreamData"
   "listStreamFile": "#listStreamFile"
   "load": "#load"
-  "unregister": "#unregister"
   "#applyToBlob": "#applyToBlob"
   "#applyToData": "#applyToData"
   "#applyToFile": "#applyToFile"
-  "#filemode": "#filemode"
-  "#flags": "#flags"
-  "#id": "#id"
-  "#init": "#init"
-  "#listPush": "#listPush"
-  "#lookup": "#lookup"
-  "#mode": "#mode"
-  "#path": "#path"
-  "#register": "#register"
-  "#repo": "#repo"
   "FLAG": "#FLAG"
   "MODE": "#MODE"
   "Instance Variables": "#ivars"
@@ -51,38 +38,6 @@ var result = Filter.listContains(filters, name);
 | Returns |  |
 | --- | --- |
 | Number |  1 if the filter is in the list, 0 otherwise |
-
-## <a name="listLength"></a><span>Filter.</span>listLength <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Filter.listLength(fl);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| fl | [FilterList](/api/filter_list/) | A filter list |
-
-| Returns |  |
-| --- | --- |
-| Number |  The number of filters in the list |
-
-## <a name="listNew"></a><span>Filter.</span>listNew <span class="tags"><span class="async">Async</span></span>
-
-```js
-Filter.listNew(repo, mode, options).then(function(filterList) {
-  // Use filterList
-});
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| repo | [Repository](/api/repository/) |  |
-| mode | Number |  |
-| options | Number |  |
-
-| Returns |  |
-| --- | --- |
-| [FilterList](/api/filter_list/) |  |
 
 ## <a name="listStreamBlob"></a><span>Filter.</span>listStreamBlob <span class="tags"><span class="sync">Sync</span></span>
 
@@ -153,22 +108,6 @@ Filter.load(repo, blob, path, mode, flags).then(function(filterList) {
 | --- | --- |
 | [FilterList](/api/filter_list/) | Output newly created git_filter_list (or NULL) |
 
-## <a name="unregister"></a><span>Filter.</span>unregister <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Filter.unregister(name);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| name | String | The name under which the filter was registered |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on success, error code 
-<
-0 on failure |
-
 ## <a name="applyToBlob"></a><span>Filter#</span>applyToBlob <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -217,126 +156,6 @@ filter.applyToFile(repo, path).then(function(buf) {
 | Returns |  |
 | --- | --- |
 | [Buf](/api/buf/) | buffer into which to store the filtered file |
-
-## <a name="filemode"></a><span>Filter#</span>filemode <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.filemode();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="flags"></a><span>Filter#</span>flags <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.flags();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="id"></a><span>Filter#</span>id <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var oid = filter.id();
-```
-
-| Returns |  |
-| --- | --- |
-| [Oid](/api/oid/) |  |
-
-## <a name="init"></a><span>Filter#</span>init <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.init(version);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| version | Number | Version the struct; pass `GIT_FILTER_VERSION` |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
-
-## <a name="listPush"></a><span>Filter#</span>listPush <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.listPush(fl, payload);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| fl | [FilterList](/api/filter_list/) |  |
-| payload | Void |  |
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="lookup"></a><span>Filter#</span>lookup <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var filter = filter.lookup(name);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| name | String | The name of the filter |
-
-| Returns |  |
-| --- | --- |
-| [Filter](/api/filter/) |  |
-
-## <a name="mode"></a><span>Filter#</span>mode <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.mode();
-```
-
-| Returns |  |
-| --- | --- |
-| Number |  |
-
-## <a name="path"></a><span>Filter#</span>path <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var string = filter.path();
-```
-
-| Returns |  |
-| --- | --- |
-| String |  |
-
-## <a name="register"></a><span>Filter#</span>register <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = filter.register(name, priority);
-```
-
-| Parameters | Type |
-| --- | --- | --- |
-| name | String | A name by which the filter can be referenced. Attempting to register with an in-use name will return GIT_EEXISTS. |
-| priority | Number | The priority for filter application |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 on successful registry, error code 
-<
-0 on failure |
-
-## <a name="repo"></a><span>Filter#</span>repo <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var repository = filter.repo();
-```
-
-| Returns |  |
-| --- | --- |
-| [Repository](/api/repository/) |  |
 
 ## <a name="FLAG"></a><span>Filter.</span>FLAG <span class="tags"><span class="enum">ENUM</span></span>
 

@@ -8,9 +8,11 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "#containsNul": "#containsNul"
+  "#dispose": "#dispose"
   "#grow": "#grow"
   "#isBinary": "#isBinary"
   "#set": "#set"
+  "#setString": "#setString"
   "Instance Variables": "#ivars"
 ---
 
@@ -24,12 +26,16 @@ var result = buf.containsNul();
 | --- | --- |
 | Number |  1 if buffer contains a NUL byte |
 
-## <a name="grow"></a><span>Buf#</span>grow <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="dispose"></a><span>Buf#</span>dispose <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-buf.grow(target_size).then(function(result) {
-  // Use result
-});
+buf.dispose();
+```
+
+## <a name="grow"></a><span>Buf#</span>grow <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var result = buf.grow(target_size);
 ```
 
 | Parameters | Type |
@@ -50,12 +56,10 @@ var result = buf.isBinary();
 | --- | --- |
 | Number |  1 if buffer looks like non-text data |
 
-## <a name="set"></a><span>Buf#</span>set <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
+## <a name="set"></a><span>Buf#</span>set <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
 ```js
-buf.set(data, datalen).then(function(result) {
-  // Use result
-});
+var result = buf.set(data, datalen);
 ```
 
 | Parameters | Type |
@@ -66,6 +70,18 @@ buf.set(data, datalen).then(function(result) {
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, -1 on allocation failure |
+
+## <a name="setString"></a><span>Buf#</span>setString <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+buf.setString(The);
+```
+
+Sets the content of a GitBuf to a string.
+
+| Parameters | Type |
+| --- | --- | --- |
+| The | string | utf8 value to set in the buffer. The string will be null terminated. |
 
 ## <a name="ivars"></a>Instance Variables
 

@@ -13,6 +13,7 @@ sections:
   "createAnonymous": "#createAnonymous"
   "createDetached": "#createDetached"
   "createWithFetchspec": "#createWithFetchspec"
+  "createWithOpts": "#createWithOpts"
   "delete": "#delete"
   "isValidName": "#isValidName"
   "list": "#list"
@@ -45,7 +46,8 @@ sections:
   "#upload": "#upload"
   "#url": "#url"
   "AUTOTAG_OPTION": "#AUTOTAG_OPTION"
-  "COMPLETION_TYPE": "#COMPLETION_TYPE"
+  "COMPLETION": "#COMPLETION"
+  "CREATE_FLAGS": "#CREATE_FLAGS"
 ---
 
 ## <a name="addFetch"></a><span>Remote.</span>addFetch <span class="tags"><span class="sync">Sync</span></span>
@@ -145,6 +147,23 @@ Remote.createWithFetchspec(repo, name, url, fetch).then(function(remote) {
 | name | String | the remote's name |
 | url | String | the remote's url |
 | fetch | String | the remote fetch value |
+
+| Returns |  |
+| --- | --- |
+| [Remote](/api/remote/) | the resulting remote |
+
+## <a name="createWithOpts"></a><span>Remote.</span>createWithOpts <span class="tags"><span class="async">Async</span></span>
+
+```js
+Remote.createWithOpts(url, opts).then(function(remote) {
+  // Use remote
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| url | String | the remote's url |
+| opts | [RemoteCreateOptions](/api/remote_create_options/) | the remote creation options |
 
 | Returns |  |
 | --- | --- |
@@ -520,12 +539,12 @@ var result = remote.refspecCount();
 ## <a name="stats"></a><span>Remote#</span>stats <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-var transferProgress = remote.stats();
+var indexerProgress = remote.stats();
 ```
 
 | Returns |  |
 | --- | --- |
-| [TransferProgress](/api/transfer_progress/) |  |
+| [IndexerProgress](/api/indexer_progress/) |  |
 
 ## <a name="stop"></a><span>Remote#</span>stop <span class="tags"><span class="sync">Sync</span></span>
 
@@ -589,11 +608,18 @@ var string = remote.url();
 | <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_NONE | 2 |
 | <span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_ALL | 3 |
 
-## <a name="COMPLETION_TYPE"></a><span>Remote.</span>COMPLETION_TYPE <span class="tags"><span class="enum">ENUM</span></span>
+## <a name="COMPLETION"></a><span>Remote.</span>COMPLETION <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Remote.COMPLETION_TYPE.</span>COMPLETION_DOWNLOAD | 0 |
-| <span>Remote.COMPLETION_TYPE.</span>COMPLETION_INDEXING | 1 |
-| <span>Remote.COMPLETION_TYPE.</span>COMPLETION_ERROR | 2 |
+| <span>Remote.COMPLETION.</span>DOWNLOAD | 0 |
+| <span>Remote.COMPLETION.</span>INDEXING | 1 |
+| <span>Remote.COMPLETION.</span>ERROR | 2 |
+
+## <a name="CREATE_FLAGS"></a><span>Remote.</span>CREATE_FLAGS <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Remote.CREATE_FLAGS.</span>CREATE_SKIP_INSTEADOF | 1 |
+| <span>Remote.CREATE_FLAGS.</span>CREATE_SKIP_DEFAULT_FETCHSPEC | 2 |
 

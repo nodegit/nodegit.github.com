@@ -102,14 +102,15 @@ Stash.save(repo, stasher, message, flags).then(function(oid) {
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| repo | [Repository](/api/repository/) |  |
-| stasher | [Signature](/api/signature/) |  |
-| message | String |  |
-| flags | Number |  |
+| repo | [Repository](/api/repository/) | The owning repository. |
+| stasher | [Signature](/api/signature/) | The identity of the person performing the stashing. |
+| message | String | Optional description along with the stashed state. |
+| flags | Number | Flags to control the stashing process. (see GIT_STASH_* above) |
 
 | Returns |  |
 | --- | --- |
-| [Oid](/api/oid/) |  |
+| [Oid](/api/oid/) | Object id of the commit containing the stashed state.
+ This commit is also the target of the direct reference refs/stash. |
 
 ## <a name="APPLY_FLAGS"></a><span>Stash.</span>APPLY_FLAGS <span class="tags"><span class="enum">ENUM</span></span>
 

@@ -11,6 +11,7 @@ sections:
   "#cmp": "#cmp"
   "#cpy": "#cpy"
   "#equal": "#equal"
+  "#isZero": "#isZero"
   "#iszero": "#iszero"
   "#ncmp": "#ncmp"
   "#strcmp": "#strcmp"
@@ -26,7 +27,7 @@ var oid = Oid.fromString(str);
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| str | String | input hex string; must be pointing at the start of the hex sequence and have at least the number of bytes needed for an oid encoded in hex (40 bytes). |
+| str | String | input hex string; must be null-terminated. |
 
 | Returns |  |
 | --- | --- |
@@ -74,6 +75,16 @@ var result = oid.equal(b);
 | --- | --- |
 | Number |  true if equal, false otherwise |
 
+## <a name="isZero"></a><span>Oid#</span>isZero <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = oid.isZero();
+```
+
+| Returns |  |
+| --- | --- |
+| Number |  1 if all zeros, 0 otherwise. |
+
 ## <a name="iszero"></a><span>Oid#</span>iszero <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -82,7 +93,7 @@ var result = oid.iszero();
 
 | Returns |  |
 | --- | --- |
-| Number |  1 if all zeros, 0 otherwise. |
+| Number |  |
 
 ## <a name="ncmp"></a><span>Oid#</span>ncmp <span class="tags"><span class="sync">Sync</span></span>
 

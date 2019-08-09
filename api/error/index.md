@@ -7,10 +7,47 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "clear": "#clear"
+  "setOom": "#setOom"
+  "setString": "#setString"
+  "#last": "#last"
   "CODE": "#CODE"
   "ERROR": "#ERROR"
   "Instance Variables": "#ivars"
 ---
+
+## <a name="clear"></a><span>Error.</span>clear <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+Error.clear();
+```
+
+## <a name="setOom"></a><span>Error.</span>setOom <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+Error.setOom();
+```
+
+## <a name="setString"></a><span>Error.</span>setString <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+Error.setString(error_class, string);
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| error_class | Number | One of the `git_error_t` enum above describing the general subsystem that is responsible for the error. |
+| string | String | The formatted error message to keep |
+
+## <a name="last"></a><span>Error#</span>last <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var error = error.last();
+```
+
+| Returns |  |
+| --- | --- |
+| [Error](/api/error/) |  A git_error object. |
 
 ## <a name="CODE"></a><span>Error.</span>CODE <span class="tags"><span class="enum">ENUM</span></span>
 
@@ -44,45 +81,47 @@ sections:
 | <span>Error.CODE.</span>ITEROVER | -31 |
 | <span>Error.CODE.</span>RETRY | -32 |
 | <span>Error.CODE.</span>EMISMATCH | -33 |
+| <span>Error.CODE.</span>EINDEXDIRTY | -34 |
+| <span>Error.CODE.</span>EAPPLYFAIL | -35 |
 
 ## <a name="ERROR"></a><span>Error.</span>ERROR <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Error.ERROR.</span>GITERR_NONE | 0 |
-| <span>Error.ERROR.</span>GITERR_NOMEMORY | 1 |
-| <span>Error.ERROR.</span>GITERR_OS | 2 |
-| <span>Error.ERROR.</span>GITERR_INVALID | 3 |
-| <span>Error.ERROR.</span>GITERR_REFERENCE | 4 |
-| <span>Error.ERROR.</span>GITERR_ZLIB | 5 |
-| <span>Error.ERROR.</span>GITERR_REPOSITORY | 6 |
-| <span>Error.ERROR.</span>GITERR_CONFIG | 7 |
-| <span>Error.ERROR.</span>GITERR_REGEX | 8 |
-| <span>Error.ERROR.</span>GITERR_ODB | 9 |
-| <span>Error.ERROR.</span>GITERR_INDEX | 10 |
-| <span>Error.ERROR.</span>GITERR_OBJECT | 11 |
-| <span>Error.ERROR.</span>GITERR_NET | 12 |
-| <span>Error.ERROR.</span>GITERR_TAG | 13 |
-| <span>Error.ERROR.</span>GITERR_TREE | 14 |
-| <span>Error.ERROR.</span>GITERR_INDEXER | 15 |
-| <span>Error.ERROR.</span>GITERR_SSL | 16 |
-| <span>Error.ERROR.</span>GITERR_SUBMODULE | 17 |
-| <span>Error.ERROR.</span>GITERR_THREAD | 18 |
-| <span>Error.ERROR.</span>GITERR_STASH | 19 |
-| <span>Error.ERROR.</span>GITERR_CHECKOUT | 20 |
-| <span>Error.ERROR.</span>GITERR_FETCHHEAD | 21 |
-| <span>Error.ERROR.</span>GITERR_MERGE | 22 |
-| <span>Error.ERROR.</span>GITERR_SSH | 23 |
-| <span>Error.ERROR.</span>GITERR_FILTER | 24 |
-| <span>Error.ERROR.</span>GITERR_REVERT | 25 |
-| <span>Error.ERROR.</span>GITERR_CALLBACK | 26 |
-| <span>Error.ERROR.</span>GITERR_CHERRYPICK | 27 |
-| <span>Error.ERROR.</span>GITERR_DESCRIBE | 28 |
-| <span>Error.ERROR.</span>GITERR_REBASE | 29 |
-| <span>Error.ERROR.</span>GITERR_FILESYSTEM | 30 |
-| <span>Error.ERROR.</span>GITERR_PATCH | 31 |
-| <span>Error.ERROR.</span>GITERR_WORKTREE | 32 |
-| <span>Error.ERROR.</span>GITERR_SHA1 | 33 |
+| <span>Error.ERROR.</span>NONE | 0 |
+| <span>Error.ERROR.</span>NOMEMORY | 1 |
+| <span>Error.ERROR.</span>OS | 2 |
+| <span>Error.ERROR.</span>INVALID | 3 |
+| <span>Error.ERROR.</span>REFERENCE | 4 |
+| <span>Error.ERROR.</span>ZLIB | 5 |
+| <span>Error.ERROR.</span>REPOSITORY | 6 |
+| <span>Error.ERROR.</span>CONFIG | 7 |
+| <span>Error.ERROR.</span>REGEX | 8 |
+| <span>Error.ERROR.</span>ODB | 9 |
+| <span>Error.ERROR.</span>INDEX | 10 |
+| <span>Error.ERROR.</span>OBJECT | 11 |
+| <span>Error.ERROR.</span>NET | 12 |
+| <span>Error.ERROR.</span>TAG | 13 |
+| <span>Error.ERROR.</span>TREE | 14 |
+| <span>Error.ERROR.</span>INDEXER | 15 |
+| <span>Error.ERROR.</span>SSL | 16 |
+| <span>Error.ERROR.</span>SUBMODULE | 17 |
+| <span>Error.ERROR.</span>THREAD | 18 |
+| <span>Error.ERROR.</span>STASH | 19 |
+| <span>Error.ERROR.</span>CHECKOUT | 20 |
+| <span>Error.ERROR.</span>FETCHHEAD | 21 |
+| <span>Error.ERROR.</span>MERGE | 22 |
+| <span>Error.ERROR.</span>SSH | 23 |
+| <span>Error.ERROR.</span>FILTER | 24 |
+| <span>Error.ERROR.</span>REVERT | 25 |
+| <span>Error.ERROR.</span>CALLBACK | 26 |
+| <span>Error.ERROR.</span>CHERRYPICK | 27 |
+| <span>Error.ERROR.</span>DESCRIBE | 28 |
+| <span>Error.ERROR.</span>REBASE | 29 |
+| <span>Error.ERROR.</span>FILESYSTEM | 30 |
+| <span>Error.ERROR.</span>PATCH | 31 |
+| <span>Error.ERROR.</span>WORKTREE | 32 |
+| <span>Error.ERROR.</span>SHA1 | 33 |
 
 ## <a name="ivars"></a>Instance Variables
 

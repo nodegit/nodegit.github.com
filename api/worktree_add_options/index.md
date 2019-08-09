@@ -15,5 +15,6 @@ sections:
 | Variable | Type | Description |
 | --- | --- | --- |
 | <a name="lock"></a>lock | Number |  |
+| <a name="ref"></a>ref | Reference |  |
 | <a name="version"></a>version | Number |  |
 

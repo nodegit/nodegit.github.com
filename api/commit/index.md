@@ -15,9 +15,12 @@ sections:
   "lookup": "#lookup"
   "lookupPrefix": "#lookupPrefix"
   "#amend": "#amend"
+  "#amendWithSignature": "#amendWithSignature"
   "#author": "#author"
+  "#authorWithMailmap": "#authorWithMailmap"
   "#body": "#body"
   "#committer": "#committer"
+  "#committerWithMailmap": "#committerWithMailmap"
   "#date": "#date"
   "#dup": "#dup"
   "#getDiff": "#getDiff"
@@ -214,6 +217,30 @@ Amend a commit
 | tree | [Tree](/api/tree/), [Oid](/api/oid/) |  |
 | callback | [Oid](/api/oid/) |  |
 
+## <a name="amendWithSignature"></a><span>Commit#</span>amendWithSignature <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.amendWithSignature(updateRef, author, committer, messageEncoding, message, tree, onSignature).then(function(oid) {
+  // Use oid
+});
+```
+
+Amend a commit with the given signature
+
+| Parameters | Type |
+| --- | --- | --- |
+| updateRef | String |  |
+| author | [Signature](/api/signature/) |  |
+| committer | [Signature](/api/signature/) |  |
+| messageEncoding | String |  |
+| message | String |  |
+| tree | [Tree](/api/tree/), [Oid](/api/oid/) |  |
+| onSignature | Function | Callback to be called with string to be signed |
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  |
+
 ## <a name="author"></a><span>Commit#</span>author <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -223,6 +250,22 @@ var signature = commit.author();
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the author of a commit |
+
+## <a name="authorWithMailmap"></a><span>Commit#</span>authorWithMailmap <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.authorWithMailmap(mailmap).then(function(signature) {
+  // Use signature
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| mailmap | [Mailmap](/api/mailmap/) | the mailmap to resolve with. (may be NULL) |
+
+| Returns |  |
+| --- | --- |
+| [Signature](/api/signature/) | store the resolved signature. |
 
 ## <a name="body"></a><span>Commit#</span>body <span class="tags"><span class="sync">Sync</span></span>
 
@@ -244,6 +287,22 @@ var signature = commit.committer();
 | Returns |  |
 | --- | --- |
 | [Signature](/api/signature/) |  the committer of a commit |
+
+## <a name="committerWithMailmap"></a><span>Commit#</span>committerWithMailmap <span class="tags"><span class="async">Async</span></span>
+
+```js
+commit.committerWithMailmap(mailmap).then(function(signature) {
+  // Use signature
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| mailmap | [Mailmap](/api/mailmap/) | the mailmap to resolve with. (may be NULL) |
+
+| Returns |  |
+| --- | --- |
+| [Signature](/api/signature/) | store the resolved signature. |
 
 ## <a name="date"></a><span>Commit#</span>date <span class="tags"><span class="sync">Sync</span></span>
 
@@ -498,18 +557,20 @@ var repository = commit.owner();
 ## <a name="parent"></a><span>Commit#</span>parent <span class="tags"><span class="async">Async</span></span>
 
 ```js
-commit.parent(n).then(function(commit) {
+commit.parent(the).then(function(commit) {
   // Use commit
 });
 ```
 
+Get the specified parent of the commit.
+
 | Parameters | Type |
 | --- | --- | --- |
-| n | Number | the position of the parent (from 0 to `parentcount`) |
+| the | number | position of the parent, starting from 0 |
 
 | Returns |  |
 | --- | --- |
-| [Commit](/api/commit/) | the parent commit |
+| [Commit](/api/commit/) | the parent commit at the specified position |
 
 ## <a name="parentId"></a><span>Commit#</span>parentId <span class="tags"><span class="sync">Sync</span></span>
 

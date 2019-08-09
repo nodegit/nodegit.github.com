@@ -14,8 +14,8 @@ sections:
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="hashMd5"></a>hashMd5 | Char16 |  |
-| <a name="hashSha1"></a>hashSha1 | Char20 |  |
+| <a name="hashMd5"></a>hashMd5 | String |  |
+| <a name="hashSha1"></a>hashSha1 | String |  |
 | <a name="parent"></a>parent | Cert |  |
 | <a name="type"></a>type | Number |  |
 

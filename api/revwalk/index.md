@@ -8,6 +8,7 @@ return_to:
   "API Documentation Index": /api/
 sections:
   "create": "#create"
+  "#commitWalk": "#commitWalk"
   "#fastWalk": "#fastWalk"
   "#fileHistoryWalk": "#fileHistoryWalk"
   "#getCommits": "#getCommits"
@@ -43,6 +44,22 @@ var revwalk = Revwalk.create(repo);
 | Returns |  |
 | --- | --- |
 | [Revwalk](/api/revwalk/) |  |
+
+## <a name="commitWalk"></a><span>Revwalk#</span>commitWalk <span class="tags"><span class="async">Async</span></span>
+
+```js
+revwalk.commitWalk(max_count).then(function(stdVectorGitCommit) {
+  // Use stdVectorGitCommit
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| max_count | Number |  |
+
+| Returns |  |
+| --- | --- |
+| StdVectorGitCommit |  |
 
 ## <a name="fastWalk"></a><span>Revwalk#</span>fastWalk <span class="tags"><span class="async">Async</span></span>
 

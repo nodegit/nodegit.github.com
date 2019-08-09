@@ -9,6 +9,7 @@ return_to:
 sections:
   "hashfile": "#hashfile"
   "open": "#open"
+  "#addDiskAlternate": "#addDiskAlternate"
   "#existsPrefix": "#existsPrefix"
   "#read": "#read"
   "#readPrefix": "#readPrefix"
@@ -48,6 +49,22 @@ Odb.open(objects_dir).then(function(odb) {
 | Returns |  |
 | --- | --- |
 | [Odb](/api/odb/) |  |
+
+## <a name="addDiskAlternate"></a><span>Odb#</span>addDiskAlternate <span class="tags"><span class="async">Async</span></span>
+
+```js
+odb.addDiskAlternate(path).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| path | String | path to the objects folder for the alternate |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 on success; error code otherwise |
 
 ## <a name="existsPrefix"></a><span>Odb#</span>existsPrefix <span class="tags"><span class="async">Async</span></span>
 

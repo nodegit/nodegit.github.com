@@ -15,6 +15,7 @@ sections:
 | Variable | Type | Description |
 | --- | --- | --- |
 | <a name="free"></a>free | VoidGitConfigEntry |  |
+| <a name="includeDepth"></a>includeDepth | Number |  |
 | <a name="level"></a>level | Number |  |
 | <a name="name"></a>name | String |  |
 | <a name="payload"></a>payload | Void |  |

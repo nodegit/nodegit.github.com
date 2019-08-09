@@ -39,12 +39,10 @@ var result = statusList.entrycount();
 | --- | --- |
 | Number |  the number of status entries |
 
-## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="async">Async</span></span>
+## <a name="getPerfdata"></a><span>StatusList#</span>getPerfdata <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-statusList.getPerfdata().then(function(diffPerfdata) {
-  // Use diffPerfdata
-});
+var diffPerfdata = statusList.getPerfdata();
 ```
 
 | Returns |  |

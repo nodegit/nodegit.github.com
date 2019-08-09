@@ -14,18 +14,24 @@ sections:
   "#finish": "#finish"
   "#inmemoryIndex": "#inmemoryIndex"
   "#next": "#next"
+  "#ontoId": "#ontoId"
+  "#ontoName": "#ontoName"
   "#operationByIndex": "#operationByIndex"
   "#operationCurrent": "#operationCurrent"
   "#operationEntrycount": "#operationEntrycount"
+  "#origHeadId": "#origHeadId"
+  "#origHeadName": "#origHeadName"
 ---
 
 ## <a name="init"></a><span>Rebase.</span>init <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Rebase.init(repo, branch, upstream, onto, opts).then(function(rebase) {
-  // Use rebase
+Rebase.init(repo, branch, upstream, onto, options).then(function(remote) {
+  // Use remote
 });
 ```
+
+Initializes a rebase
 
 | Parameters | Type |   |
 | --- | --- | --- |
@@ -33,16 +39,16 @@ Rebase.init(repo, branch, upstream, onto, opts).then(function(rebase) {
 | branch | [AnnotatedCommit](/api/annotated_commit/) | The terminal commit to rebase, or NULL to rebase the current branch |
 | upstream | [AnnotatedCommit](/api/annotated_commit/) | The commit to begin rebasing from, or NULL to rebase all reachable commits |
 | onto | [AnnotatedCommit](/api/annotated_commit/) | The branch to rebase onto, or NULL to rebase onto the given upstream |
-| opts | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed, or NULL |
+| options | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed, or NULL |
 
 | Returns |  |
 | --- | --- |
-| [Rebase](/api/rebase/) |  |
+| [Remote](/api/remote/) |  |
 
 ## <a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span>
 
 ```js
-Rebase.open(repo, options, callback).then(function(remote) {
+Rebase.open(repo, options).then(function(remote) {
   // Use remote
 });
 ```
@@ -54,7 +60,6 @@ of Rebase.open or by another client.
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) | The repository that has a rebase in-progress |
 | options | [RebaseOptions](/api/rebase_options/) | Options to specify how rebase is performed |
-| callback | Function |  |
 
 | Returns |  |
 | --- | --- |
@@ -132,6 +137,26 @@ rebase.next().then(function(rebaseOperation) {
 | --- | --- |
 | [RebaseOperation](/api/rebase_operation/) |  |
 
+## <a name="ontoId"></a><span>Rebase#</span>ontoId <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = rebase.ontoId();
+```
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  The `onto` id |
+
+## <a name="ontoName"></a><span>Rebase#</span>ontoName <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = rebase.ontoName();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  The `onto` ref name |
+
 ## <a name="operationByIndex"></a><span>Rebase#</span>operationByIndex <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -165,4 +190,24 @@ var result = rebase.operationEntrycount();
 | Returns |  |
 | --- | --- |
 | Number |  The number of rebase operations in total |
+
+## <a name="origHeadId"></a><span>Rebase#</span>origHeadId <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var oid = rebase.origHeadId();
+```
+
+| Returns |  |
+| --- | --- |
+| [Oid](/api/oid/) |  The original `HEAD` id |
+
+## <a name="origHeadName"></a><span>Rebase#</span>origHeadName <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var string = rebase.origHeadName();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  The original `HEAD` ref name |
 

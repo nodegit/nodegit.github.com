@@ -6,6 +6,8 @@ description: Version 0.24.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
+  "Apply": "#Apply"
+  "ApplyOptions": "#ApplyOptions"
   "Attr": "#Attr"
   "Blame": "#Blame"
   "BlameHunk": "#BlameHunk"
@@ -18,6 +20,7 @@ sections:
   "CertX509": "#CertX509"
   "Checkout": "#Checkout"
   "CheckoutOptions": "#CheckoutOptions"
+  "CheckoutPerfdata": "#CheckoutPerfdata"
   "Cherrypick": "#Cherrypick"
   "CherrypickOptions": "#CherrypickOptions"
   "Clone": "#Clone"
@@ -25,9 +28,10 @@ sections:
   "Commit": "#Commit"
   "Config": "#Config"
   "ConfigEntry": "#ConfigEntry"
+  "ConfigIterator": "#ConfigIterator"
+  "Configmap": "#Configmap"
   "ConvenientPatch": "#ConvenientPatch"
   "Cred": "#Cred"
-  "CvarMap": "#CvarMap"
   "DescribeFormatOptions": "#DescribeFormatOptions"
   "DescribeOptions": "#DescribeOptions"
   "Diff": "#Diff"
@@ -49,14 +53,19 @@ sections:
   "Filter": "#Filter"
   "FilterList": "#FilterList"
   "FilterSource": "#FilterSource"
-  "Giterr": "#Giterr"
   "Graph": "#Graph"
   "Hashsig": "#Hashsig"
   "Ignore": "#Ignore"
   "Index": "#Index"
+  "IndexConflictIterator": "#IndexConflictIterator"
   "IndexEntry": "#IndexEntry"
+  "IndexIterator": "#IndexIterator"
+  "IndexNameEntry": "#IndexNameEntry"
+  "IndexReucEntry": "#IndexReucEntry"
   "IndexTime": "#IndexTime"
+  "IndexerProgress": "#IndexerProgress"
   "Libgit2": "#Libgit2"
+  "Mailmap": "#Mailmap"
   "Merge": "#Merge"
   "MergeFileInput": "#MergeFileInput"
   "MergeFileOptions": "#MergeFileOptions"
@@ -68,9 +77,9 @@ sections:
   "Oid": "#Oid"
   "OidShorten": "#OidShorten"
   "Oidarray": "#Oidarray"
-  "Openssl": "#Openssl"
   "Packbuilder": "#Packbuilder"
   "Patch": "#Patch"
+  "Path": "#Path"
   "Pathspec": "#Pathspec"
   "PathspecMatchList": "#PathspecMatchList"
   "Proxy": "#Proxy"
@@ -87,6 +96,7 @@ sections:
   "Refspec": "#Refspec"
   "Remote": "#Remote"
   "RemoteCallbacks": "#RemoteCallbacks"
+  "RemoteCreateOptions": "#RemoteCreateOptions"
   "RemoteHead": "#RemoteHead"
   "Repository": "#Repository"
   "RepositoryInitOptions": "#RepositoryInitOptions"
@@ -108,8 +118,7 @@ sections:
   "Tag": "#Tag"
   "Time": "#Time"
   "Trace": "#Trace"
-  "TransferProgress": "#TransferProgress"
-  "Transport": "#Transport"
+  "Transaction": "#Transaction"
   "Tree": "#Tree"
   "TreeEntry": "#TreeEntry"
   "TreeUpdate": "#TreeUpdate"
@@ -131,6 +140,29 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>AnnotatedCommit#</span>id <span>()</span>](/api/annotated_commit/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>AnnotatedCommit#</span>ref <span>()</span>](/api/annotated_commit/#ref) |  <span class="tags"><span class="sync">Sync</span></span> |
+
+
+## <a name='Apply'></a>[Apply](/api/apply/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>Apply.</span>apply <span>(repo, diff, location, options)</span>](/api/apply/#apply) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Apply.</span>toTree <span>(repo, preimage, diff, options)</span>](/api/apply/#toTree) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| ENUMS |  |
+| --- | ---: |
+| [<span>Apply.</span>LOCATION](/api/apply/#LOCATION)|  |
+
+
+## <a name='ApplyOptions'></a>[ApplyOptions](/api/apply_options/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>ApplyOptions#</span>deltaCb](/api/apply_options/#deltaCb) |  |
+| [<span>ApplyOptions#</span>hunkCb](/api/apply_options/#hunkCb) |  |
+| [<span>ApplyOptions#</span>payload](/api/apply_options/#payload) |  |
+| [<span>ApplyOptions#</span>version](/api/apply_options/#version) |  |
 
 
 ## <a name='Attr'></a>[Attr](/api/attr/)
@@ -145,7 +177,7 @@ sections:
 
 | ENUMS |  |
 | --- | ---: |
-| [<span>Attr.</span>STATES](/api/attr/#STATES)|  |
+| [<span>Attr.</span>VALUE](/api/attr/#VALUE)|  |
 
 
 ## <a name='Blame'></a>[Blame](/api/blame/)
@@ -232,6 +264,8 @@ sections:
 | [<span>Branch.</span>remoteName <span>(repo, the)</span>](/api/branch/#remoteName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Branch.</span>setUpstream <span>(branch, upstream_name)</span>](/api/branch/#setUpstream) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Branch.</span>upstream <span>(branch)</span>](/api/branch/#upstream) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Branch.</span>upstreamName <span>(repo, refname)</span>](/api/branch/#upstreamName) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Branch.</span>upstreamRemote <span>(buf, repo, refname)</span>](/api/branch/#upstreamRemote) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -244,9 +278,11 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Buf#</span>containsNul <span>()</span>](/api/buf/#containsNul) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Buf#</span>grow <span>(target_size)</span>](/api/buf/#grow) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Buf#</span>dispose <span>()</span>](/api/buf/#dispose) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Buf#</span>grow <span>(target_size)</span>](/api/buf/#grow) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Buf#</span>isBinary <span>()</span>](/api/buf/#isBinary) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Buf#</span>set <span>(data, datalen)</span>](/api/buf/#set) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Buf#</span>set <span>(data, datalen)</span>](/api/buf/#set) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Buf#</span>setString <span>(The)</span>](/api/buf/#setString) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Variables |  |
 | --- | ---: |
@@ -326,6 +362,15 @@ sections:
 | [<span>CheckoutOptions#</span>version](/api/checkout_options/#version) |  |
 
 
+## <a name='CheckoutPerfdata'></a>[CheckoutPerfdata](/api/checkout_perfdata/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>CheckoutPerfdata#</span>chmodCalls](/api/checkout_perfdata/#chmodCalls) |  |
+| [<span>CheckoutPerfdata#</span>mkdirCalls](/api/checkout_perfdata/#mkdirCalls) |  |
+| [<span>CheckoutPerfdata#</span>statCalls](/api/checkout_perfdata/#statCalls) |  |
+
+
 ## <a name='Cherrypick'></a>[Cherrypick](/api/cherrypick/)
 
 | Class Methods |  |
@@ -384,9 +429,12 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Commit#</span>amend <span>(update_ref, author, committer, message_encoding, message, tree, callback)</span>](/api/commit/#amend) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Commit#</span>amendWithSignature <span>(updateRef, author, committer, messageEncoding, message, tree, onSignature)</span>](/api/commit/#amendWithSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>author <span>()</span>](/api/commit/#author) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit#</span>authorWithMailmap <span>(mailmap)</span>](/api/commit/#authorWithMailmap) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>body <span>()</span>](/api/commit/#body) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>committer <span>()</span>](/api/commit/#committer) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Commit#</span>committerWithMailmap <span>(mailmap)</span>](/api/commit/#committerWithMailmap) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>date <span>()</span>](/api/commit/#date) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>dup <span>()</span>](/api/commit/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>getDiff <span>(callback)</span>](/api/commit/#getDiff) |  <span class="tags"><span class="async">Async</span></span> |
@@ -403,7 +451,7 @@ sections:
 | [<span>Commit#</span>messageRaw <span>()</span>](/api/commit/#messageRaw) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>nthGenAncestor <span>(n)</span>](/api/commit/#nthGenAncestor) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>owner <span>()</span>](/api/commit/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Commit#</span>parent <span>(n)</span>](/api/commit/#parent) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Commit#</span>parent <span>(the)</span>](/api/commit/#parent) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Commit#</span>parentId <span>(n)</span>](/api/commit/#parentId) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>parentcount <span>()</span>](/api/commit/#parentcount) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Commit#</span>parents <span>()</span>](/api/commit/#parents) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -431,19 +479,26 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Config#</span>deleteEntry <span>(name)</span>](/api/config/#deleteEntry) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Config#</span>deleteMultivar <span>(name, regexp)</span>](/api/config/#deleteMultivar) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Config#</span>getBool <span>(name)</span>](/api/config/#getBool) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>getEntry <span>(name)</span>](/api/config/#getEntry) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Config#</span>getInt32 <span>(name)</span>](/api/config/#getInt32) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Config#</span>getInt64 <span>(name)</span>](/api/config/#getInt64) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>getPath <span>(name)</span>](/api/config/#getPath) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>getStringBuf <span>(name)</span>](/api/config/#getStringBuf) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>lock <span>()</span>](/api/config/#lock) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>setBool <span>(name, value)</span>](/api/config/#setBool) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>setInt32 <span>(name, value)</span>](/api/config/#setInt32) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>setInt64 <span>(name, value)</span>](/api/config/#setInt64) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Config#</span>setMultivar <span>(name, regexp, value)</span>](/api/config/#setMultivar) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Config#</span>setMultivar <span>(name, regexp, value)</span>](/api/config/#setMultivar) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Config#</span>setString <span>(name, value)</span>](/api/config/#setString) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Config#</span>snapshot <span>()</span>](/api/config/#snapshot) |  <span class="tags"><span class="async">Async</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
 | [<span>Config.</span>LEVEL](/api/config/#LEVEL)|  |
+| [<span>Config.</span>MAP](/api/config/#MAP)|  |
 
 
 ## <a name='ConfigEntry'></a>[ConfigEntry](/api/config_entry/)
@@ -451,10 +506,33 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>ConfigEntry#</span>free](/api/config_entry/#free) |  |
+| [<span>ConfigEntry#</span>includeDepth](/api/config_entry/#includeDepth) |  |
 | [<span>ConfigEntry#</span>level](/api/config_entry/#level) |  |
 | [<span>ConfigEntry#</span>name](/api/config_entry/#name) |  |
 | [<span>ConfigEntry#</span>payload](/api/config_entry/#payload) |  |
 | [<span>ConfigEntry#</span>value](/api/config_entry/#value) |  |
+
+
+## <a name='ConfigIterator'></a>[ConfigIterator](/api/config_iterator/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>ConfigIterator.</span>create <span>(cfg)</span>](/api/config_iterator/#create) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>ConfigIterator.</span>createGlob <span>(cfg, regexp)</span>](/api/config_iterator/#createGlob) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>ConfigIterator.</span>createMultivar <span>(cfg, name, regexp)</span>](/api/config_iterator/#createMultivar) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>ConfigIterator#</span>next <span>(entry)</span>](/api/config_iterator/#next) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+
+## <a name='Configmap'></a>[Configmap](/api/configmap/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>Configmap#</span>mapValue](/api/configmap/#mapValue) |  |
+| [<span>Configmap#</span>strMatch](/api/configmap/#strMatch) |  |
+| [<span>Configmap#</span>type](/api/configmap/#type) |  |
 
 
 ## <a name='ConvenientPatch'></a>[ConvenientPatch](/api/convenient_patch/)
@@ -499,14 +577,9 @@ sections:
 | --- | ---: |
 | [<span>Cred.</span>TYPE](/api/cred/#TYPE)|  |
 
-
-## <a name='CvarMap'></a>[CvarMap](/api/cvar_map/)
-
 | Instance Variables |  |
 | --- | ---: |
-| [<span>CvarMap#</span>cvarType](/api/cvar_map/#cvarType) |  |
-| [<span>CvarMap#</span>mapValue](/api/cvar_map/#mapValue) |  |
-| [<span>CvarMap#</span>strMatch](/api/cvar_map/#strMatch) |  |
+| [<span>Cred#</span>credtype](/api/cred/#credtype) |  |
 
 
 ## <a name='DescribeFormatOptions'></a>[DescribeFormatOptions](/api/describe_format_options/)
@@ -700,7 +773,6 @@ sections:
 | --- | ---: |
 | [<span>DiffPerfdata#</span>oidCalculations](/api/diff_perfdata/#oidCalculations) |  |
 | [<span>DiffPerfdata#</span>statCalls](/api/diff_perfdata/#statCalls) |  |
-| [<span>DiffPerfdata#</span>version](/api/diff_perfdata/#version) |  |
 
 
 ## <a name='DiffStats'></a>[DiffStats](/api/diff_stats/)
@@ -717,14 +789,22 @@ sections:
 
 | ENUMS |  |
 | --- | ---: |
-| [<span>Enums.</span>CVAR](/api/enums/#CVAR)|  |
 | [<span>Enums.</span>DIRECTION](/api/enums/#DIRECTION)|  |
 | [<span>Enums.</span>FEATURE](/api/enums/#FEATURE)|  |
-| [<span>Enums.</span>IDXENTRY_EXTENDED_FLAG](/api/enums/#IDXENTRY_EXTENDED_FLAG)|  |
-| [<span>Enums.</span>INDXENTRY_FLAG](/api/enums/#INDXENTRY_FLAG)|  |
+| [<span>Enums.</span>SMART_SERVICE](/api/enums/#SMART_SERVICE)|  |
 
 
 ## <a name='Error'></a>[Error](/api/error/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>Error.</span>clear <span>()</span>](/api/error/#clear) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Error.</span>setOom <span>()</span>](/api/error/#setOom) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Error.</span>setString <span>(error_class, string)</span>](/api/error/#setString) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>Error#</span>last <span>()</span>](/api/error/#last) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -762,29 +842,16 @@ sections:
 | Class Methods |  |
 | --- | ---: |
 | [<span>Filter.</span>listContains <span>(filters, name)</span>](/api/filter/#listContains) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter.</span>listLength <span>(fl)</span>](/api/filter/#listLength) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter.</span>listNew <span>(repo, mode, options)</span>](/api/filter/#listNew) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Filter.</span>listStreamBlob <span>(filters, blob, target)</span>](/api/filter/#listStreamBlob) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Filter.</span>listStreamData <span>(filters, data, target)</span>](/api/filter/#listStreamData) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Filter.</span>listStreamFile <span>(filters, repo, path, target)</span>](/api/filter/#listStreamFile) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Filter.</span>load <span>(repo, blob, path, mode, flags)</span>](/api/filter/#load) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Filter.</span>unregister <span>(name)</span>](/api/filter/#unregister) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Filter#</span>applyToBlob <span>(blob)</span>](/api/filter/#applyToBlob) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Filter#</span>applyToData <span>(in)</span>](/api/filter/#applyToData) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Filter#</span>applyToFile <span>(repo, path)</span>](/api/filter/#applyToFile) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Filter#</span>filemode <span>()</span>](/api/filter/#filemode) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>flags <span>()</span>](/api/filter/#flags) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>id <span>()</span>](/api/filter/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>init <span>(version)</span>](/api/filter/#init) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>listPush <span>(fl, payload)</span>](/api/filter/#listPush) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>lookup <span>(name)</span>](/api/filter/#lookup) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>mode <span>()</span>](/api/filter/#mode) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>path <span>()</span>](/api/filter/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>register <span>(name, priority)</span>](/api/filter/#register) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Filter#</span>repo <span>()</span>](/api/filter/#repo) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | ENUMS |  |
 | --- | ---: |
@@ -824,17 +891,7 @@ sections:
 | [<span>FilterSource#</span>id <span>()</span>](/api/filter_source/#id) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>FilterSource#</span>mode <span>()</span>](/api/filter_source/#mode) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>FilterSource#</span>path <span>()</span>](/api/filter_source/#path) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>FilterSource#</span>repo <span>()</span>](/api/filter_source/#repo) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-
-
-## <a name='Giterr'></a>[Giterr](/api/giterr/)
-
-| Class Methods |  |
-| --- | ---: |
-| [<span>Giterr.</span>errClear <span>()</span>](/api/giterr/#errClear) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Giterr.</span>errLast <span>()</span>](/api/giterr/#errLast) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Giterr.</span>errSetOom <span>()</span>](/api/giterr/#errSetOom) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Giterr.</span>errSetString <span>(error_class, string)</span>](/api/giterr/#errSetString) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>FilterSource#</span>repo <span>()</span>](/api/filter_source/#repo) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 
 
 ## <a name='Graph'></a>[Graph](/api/graph/)
@@ -915,8 +972,21 @@ sections:
 | ENUMS |  |
 | --- | ---: |
 | [<span>Index.</span>ADD_OPTION](/api/index/#ADD_OPTION)|  |
-| [<span>Index.</span>CAP](/api/index/#CAP)|  |
+| [<span>Index.</span>CAPABILITY](/api/index/#CAPABILITY)|  |
+| [<span>Index.</span>ENTRY_EXTENDED_FLAG](/api/index/#ENTRY_EXTENDED_FLAG)|  |
+| [<span>Index.</span>ENTRY_FLAG](/api/index/#ENTRY_FLAG)|  |
+| [<span>Index.</span>STAGE](/api/index/#STAGE)|  |
 
+
+## <a name='IndexConflictIterator'></a>[IndexConflictIterator](/api/index_conflict_iterator/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>IndexConflictIterator.</span>create <span>(index)</span>](/api/index_conflict_iterator/#create) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>IndexConflictIterator#</span>next <span>()</span>](/api/index_conflict_iterator/#next) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
 
 ## <a name='IndexEntry'></a>[IndexEntry](/api/index_entry/)
@@ -937,12 +1007,71 @@ sections:
 | [<span>IndexEntry#</span>uid](/api/index_entry/#uid) |  |
 
 
+## <a name='IndexIterator'></a>[IndexIterator](/api/index_iterator/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>IndexIterator.</span>create <span>(index)</span>](/api/index_iterator/#create) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>IndexIterator#</span>next <span>()</span>](/api/index_iterator/#next) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+
+## <a name='IndexNameEntry'></a>[IndexNameEntry](/api/index_name_entry/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>IndexNameEntry.</span>add <span>(index, ancestor, ours, theirs)</span>](/api/index_name_entry/#add) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexNameEntry.</span>clear <span>(index)</span>](/api/index_name_entry/#clear) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexNameEntry.</span>entryCount <span>(index)</span>](/api/index_name_entry/#entryCount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexNameEntry.</span>getByIndex <span>(index, n)</span>](/api/index_name_entry/#getByIndex) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>IndexNameEntry#</span>ancestor](/api/index_name_entry/#ancestor) |  |
+| [<span>IndexNameEntry#</span>ours](/api/index_name_entry/#ours) |  |
+| [<span>IndexNameEntry#</span>theirs](/api/index_name_entry/#theirs) |  |
+
+
+## <a name='IndexReucEntry'></a>[IndexReucEntry](/api/index_reuc_entry/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>IndexReucEntry.</span>add <span>(index, path, ancestor_mode, ancestor_id, our_mode, our_id, their_mode, their_id)</span>](/api/index_reuc_entry/#add) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>clear <span>(index)</span>](/api/index_reuc_entry/#clear) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>entryCount <span>(index)</span>](/api/index_reuc_entry/#entryCount) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>find <span>(index, path)</span>](/api/index_reuc_entry/#find) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>getByIndex <span>(index, n)</span>](/api/index_reuc_entry/#getByIndex) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>getByPath <span>(index, path)</span>](/api/index_reuc_entry/#getByPath) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>IndexReucEntry.</span>remove <span>(index, n)</span>](/api/index_reuc_entry/#remove) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>IndexReucEntry#</span>mode](/api/index_reuc_entry/#mode) |  |
+| [<span>IndexReucEntry#</span>oid](/api/index_reuc_entry/#oid) |  |
+| [<span>IndexReucEntry#</span>path](/api/index_reuc_entry/#path) |  |
+
+
 ## <a name='IndexTime'></a>[IndexTime](/api/index_time/)
 
 | Instance Variables |  |
 | --- | ---: |
 | [<span>IndexTime#</span>nanoseconds](/api/index_time/#nanoseconds) |  |
 | [<span>IndexTime#</span>seconds](/api/index_time/#seconds) |  |
+
+
+## <a name='IndexerProgress'></a>[IndexerProgress](/api/indexer_progress/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>IndexerProgress#</span>indexedDeltas](/api/indexer_progress/#indexedDeltas) |  |
+| [<span>IndexerProgress#</span>indexedObjects](/api/indexer_progress/#indexedObjects) |  |
+| [<span>IndexerProgress#</span>localObjects](/api/indexer_progress/#localObjects) |  |
+| [<span>IndexerProgress#</span>receivedBytes](/api/indexer_progress/#receivedBytes) |  |
+| [<span>IndexerProgress#</span>receivedObjects](/api/indexer_progress/#receivedObjects) |  |
+| [<span>IndexerProgress#</span>totalDeltas](/api/indexer_progress/#totalDeltas) |  |
+| [<span>IndexerProgress#</span>totalObjects](/api/indexer_progress/#totalObjects) |  |
 
 
 ## <a name='Libgit2'></a>[Libgit2](/api/libgit_2/)
@@ -960,14 +1089,30 @@ sections:
 | [<span>Libgit2.</span>OPT](/api/libgit_2/#OPT)|  |
 
 
+## <a name='Mailmap'></a>[Mailmap](/api/mailmap/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>Mailmap.</span>create <span>()</span>](/api/mailmap/#create) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Mailmap.</span>fromBuffer <span>(buf, len)</span>](/api/mailmap/#fromBuffer) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Mailmap.</span>fromRepository <span>(repo)</span>](/api/mailmap/#fromRepository) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+| Instance Methods |  |
+| --- | ---: |
+| [<span>Mailmap#</span>addEntry <span>(real_name, real_email, replace_name, replace_email)</span>](/api/mailmap/#addEntry) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Mailmap#</span>resolve <span>(name, email)</span>](/api/mailmap/#resolve) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Mailmap#</span>resolveSignature <span>(sig)</span>](/api/mailmap/#resolveSignature) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
+
 ## <a name='Merge'></a>[Merge](/api/merge/)
 
 | Class Methods |  |
 | --- | ---: |
+| [<span>Merge.</span>analysis <span>(repo, their_heads, their_heads_len)</span>](/api/merge/#analysis) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Merge.</span>analysisForRef <span>(repo, our_ref, their_heads, their_heads_len)</span>](/api/merge/#analysisForRef) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Merge.</span>base <span>(repo, one, two)</span>](/api/merge/#base) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Merge.</span>bases <span>(repo, one, two)</span>](/api/merge/#bases) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Merge.</span>commits <span>(repo, ourCommit, theirCommit, [options])</span>](/api/merge/#commits) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Merge.</span>fileInitInput <span>(opts, version)</span>](/api/merge/#fileInitInput) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Merge.</span>merge <span>(repo, theirHead, [mergeOpts], [checkoutOpts])</span>](/api/merge/#merge) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Merge.</span>trees <span>(repo, ancestor_tree, our_tree, their_tree, opts)</span>](/api/merge/#trees) |  <span class="tags"><span class="async">Async</span></span> |
 
@@ -1027,6 +1172,7 @@ sections:
 | [<span>Note.</span>commitRead <span>(repo, notes_commit, oid)</span>](/api/note/#commitRead) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Note.</span>commitRemove <span>(repo, notes_commit, author, committer, oid)</span>](/api/note/#commitRemove) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Note.</span>create <span>(repo, notes_ref, author, committer, oid, note, force)</span>](/api/note/#create) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Note.</span>defaultRef <span>(repo)</span>](/api/note/#defaultRef) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Note.</span>foreach <span>(repo, notes_ref, note_cb, payload)</span>](/api/note/#foreach) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Note.</span>read <span>(repo, notes_ref, oid)</span>](/api/note/#read) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Note.</span>remove <span>(repo, notes_ref, author, committer, oid)</span>](/api/note/#remove) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1075,6 +1221,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Odb#</span>addDiskAlternate <span>(path)</span>](/api/odb/#addDiskAlternate) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Odb#</span>existsPrefix <span>(short_id, len)</span>](/api/odb/#existsPrefix) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Odb#</span>read <span>(id)</span>](/api/odb/#read) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Odb#</span>readPrefix <span>(short_id, len)</span>](/api/odb/#readPrefix) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1106,6 +1253,7 @@ sections:
 | [<span>Oid#</span>cmp <span>(b)</span>](/api/oid/#cmp) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Oid#</span>cpy <span>()</span>](/api/oid/#cpy) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Oid#</span>equal <span>(b)</span>](/api/oid/#equal) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Oid#</span>isZero <span>()</span>](/api/oid/#isZero) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Oid#</span>iszero <span>()</span>](/api/oid/#iszero) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Oid#</span>ncmp <span>(b, len)</span>](/api/oid/#ncmp) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Oid#</span>strcmp <span>(str)</span>](/api/oid/#strcmp) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1130,13 +1278,6 @@ sections:
 | --- | ---: |
 | [<span>Oidarray#</span>count](/api/oidarray/#count) |  |
 | [<span>Oidarray#</span>ids](/api/oidarray/#ids) |  |
-
-
-## <a name='Openssl'></a>[Openssl](/api/openssl/)
-
-| Class Methods |  |
-| --- | ---: |
-| [<span>Openssl.</span>setLocking <span>()</span>](/api/openssl/#setLocking) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
 
 ## <a name='Packbuilder'></a>[Packbuilder](/api/packbuilder/)
@@ -1179,6 +1320,18 @@ sections:
 | [<span>Patch#</span>numHunks <span>()</span>](/api/patch/#numHunks) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Patch#</span>numLinesInHunk <span>(hunk_idx)</span>](/api/patch/#numLinesInHunk) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Patch#</span>size <span>(include_context, include_hunk_headers, include_file_headers)</span>](/api/patch/#size) |  <span class="tags"><span class="sync">Sync</span></span> |
+
+
+## <a name='Path'></a>[Path](/api/path/)
+
+| Class Methods |  |
+| --- | ---: |
+| [<span>Path.</span>isGitfile <span>(path, pathlen, gitfile, fs)</span>](/api/path/#isGitfile) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+
+| ENUMS |  |
+| --- | ---: |
+| [<span>Path.</span>FS](/api/path/#FS)|  |
+| [<span>Path.</span>GITFILE](/api/path/#GITFILE)|  |
 
 
 ## <a name='Pathspec'></a>[Pathspec](/api/pathspec/)
@@ -1255,8 +1408,8 @@ sections:
 
 | Class Methods |  |
 | --- | ---: |
-| [<span>Rebase.</span>init <span>(repo, branch, upstream, onto, opts)</span>](/api/rebase/#init) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Rebase.</span>open <span>(repo, options, callback)</span>](/api/rebase/#open) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Rebase.</span>init <span>(repo, branch, upstream, onto, options)</span>](/api/rebase/#init) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Rebase.</span>open <span>(repo, options)</span>](/api/rebase/#open) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
@@ -1265,9 +1418,13 @@ sections:
 | [<span>Rebase#</span>finish <span>(signature)</span>](/api/rebase/#finish) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Rebase#</span>inmemoryIndex <span>(index)</span>](/api/rebase/#inmemoryIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Rebase#</span>next <span>()</span>](/api/rebase/#next) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Rebase#</span>ontoId <span>()</span>](/api/rebase/#ontoId) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>ontoName <span>()</span>](/api/rebase/#ontoName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Rebase#</span>operationByIndex <span>(idx)</span>](/api/rebase/#operationByIndex) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Rebase#</span>operationCurrent <span>()</span>](/api/rebase/#operationCurrent) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Rebase#</span>operationEntrycount <span>()</span>](/api/rebase/#operationEntrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>origHeadId <span>()</span>](/api/rebase/#origHeadId) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Rebase#</span>origHeadName <span>()</span>](/api/rebase/#origHeadName) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
 ## <a name='RebaseOperation'></a>[RebaseOperation](/api/rebase_operation/)
@@ -1288,9 +1445,12 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>RebaseOptions#</span>checkoutOptions](/api/rebase_options/#checkoutOptions) |  |
+| [<span>RebaseOptions#</span>inmemory](/api/rebase_options/#inmemory) |  |
 | [<span>RebaseOptions#</span>mergeOptions](/api/rebase_options/#mergeOptions) |  |
+| [<span>RebaseOptions#</span>payload](/api/rebase_options/#payload) |  |
 | [<span>RebaseOptions#</span>quiet](/api/rebase_options/#quiet) |  |
 | [<span>RebaseOptions#</span>rewriteNotesRef](/api/rebase_options/#rewriteNotesRef) |  |
+| [<span>RebaseOptions#</span>signingCb](/api/rebase_options/#signingCb) |  |
 | [<span>RebaseOptions#</span>version](/api/rebase_options/#version) |  |
 
 
@@ -1322,6 +1482,7 @@ sections:
 | [<span>Reference.</span>remove <span>(repo, name)</span>](/api/reference/#remove) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Reference.</span>symbolicCreate <span>(repo, name, target, force, log_message)</span>](/api/reference/#symbolicCreate) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 | [<span>Reference.</span>symbolicCreateMatching <span>(repo, name, target, force, current_value, log_message)</span>](/api/reference/#symbolicCreateMatching) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Reference.</span>updateTerminal <span>(repo, refName, oid, logMessage, signature)</span>](/api/reference/#updateTerminal) |  <span class="tags"><span class="async">Async</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
@@ -1352,7 +1513,7 @@ sections:
 
 | ENUMS |  |
 | --- | ---: |
-| [<span>Reference.</span>NORMALIZE](/api/reference/#NORMALIZE)|  |
+| [<span>Reference.</span>FORMAT](/api/reference/#FORMAT)|  |
 | [<span>Reference.</span>TYPE](/api/reference/#TYPE)|  |
 
 
@@ -1385,6 +1546,10 @@ sections:
 
 ## <a name='Refspec'></a>[Refspec](/api/refspec/)
 
+| Class Methods |  |
+| --- | ---: |
+| [<span>Refspec.</span>parse <span>(input, is_fetch)</span>](/api/refspec/#parse) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Refspec#</span>direction <span>()</span>](/api/refspec/#direction) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
@@ -1406,6 +1571,7 @@ sections:
 | [<span>Remote.</span>createAnonymous <span>(repo, url)</span>](/api/remote/#createAnonymous) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>createDetached <span>(url)</span>](/api/remote/#createDetached) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>createWithFetchspec <span>(repo, name, url, fetch)</span>](/api/remote/#createWithFetchspec) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Remote.</span>createWithOpts <span>(url, opts)</span>](/api/remote/#createWithOpts) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>delete <span>(repo, name)</span>](/api/remote/#delete) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote.</span>isValidName <span>(remote_name)</span>](/api/remote/#isValidName) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote.</span>list <span>(repo)</span>](/api/remote/#list) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1444,7 +1610,8 @@ sections:
 | ENUMS |  |
 | --- | ---: |
 | [<span>Remote.</span>AUTOTAG_OPTION](/api/remote/#AUTOTAG_OPTION)|  |
-| [<span>Remote.</span>COMPLETION_TYPE](/api/remote/#COMPLETION_TYPE)|  |
+| [<span>Remote.</span>COMPLETION](/api/remote/#COMPLETION)|  |
+| [<span>Remote.</span>CREATE_FLAGS](/api/remote/#CREATE_FLAGS)|  |
 
 
 ## <a name='RemoteCallbacks'></a>[RemoteCallbacks](/api/remote_callbacks/)
@@ -1456,9 +1623,21 @@ sections:
 | [<span>RemoteCallbacks#</span>payload](/api/remote_callbacks/#payload) |  |
 | [<span>RemoteCallbacks#</span>pushTransferProgress](/api/remote_callbacks/#pushTransferProgress) |  |
 | [<span>RemoteCallbacks#</span>pushUpdateReference](/api/remote_callbacks/#pushUpdateReference) |  |
+| [<span>RemoteCallbacks#</span>resolveUrl](/api/remote_callbacks/#resolveUrl) |  |
 | [<span>RemoteCallbacks#</span>transferProgress](/api/remote_callbacks/#transferProgress) |  |
 | [<span>RemoteCallbacks#</span>transport](/api/remote_callbacks/#transport) |  |
 | [<span>RemoteCallbacks#</span>version](/api/remote_callbacks/#version) |  |
+
+
+## <a name='RemoteCreateOptions'></a>[RemoteCreateOptions](/api/remote_create_options/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>RemoteCreateOptions#</span>fetchspec](/api/remote_create_options/#fetchspec) |  |
+| [<span>RemoteCreateOptions#</span>flags](/api/remote_create_options/#flags) |  |
+| [<span>RemoteCreateOptions#</span>name](/api/remote_create_options/#name) |  |
+| [<span>RemoteCreateOptions#</span>repository](/api/remote_create_options/#repository) |  |
+| [<span>RemoteCreateOptions#</span>version](/api/remote_create_options/#version) |  |
 
 
 ## <a name='RemoteHead'></a>[RemoteHead](/api/remote_head/)
@@ -1489,19 +1668,20 @@ sections:
 | --- | ---: |
 | [<span>Repository#</span>checkoutBranch <span>(branch, opts)</span>](/api/repository/#checkoutBranch) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>checkoutRef <span>(reference, opts)</span>](/api/repository/#checkoutRef) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>cleanup <span>()</span>](/api/repository/#cleanup) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>cleanup <span>()</span>](/api/repository/#cleanup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>commondir <span>()</span>](/api/repository/#commondir) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>config <span>()</span>](/api/repository/#config) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn, beforeFinishFn)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>createBlobFromBuffer <span>(buffer)</span>](/api/repository/#createBlobFromBuffer) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>continueRebase <span>(signature, beforeNextFn, beforeFinishFn, rebaseOptions)</span>](/api/repository/#continueRebase) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>createBlobFromBuffer <span>(buffer)</span>](/api/repository/#createBlobFromBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createBranch <span>(name, commit, force)</span>](/api/repository/#createBranch) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createCommit <span>(updateRef, author, committer, message, Tree, parents)</span>](/api/repository/#createCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createCommitBuffer <span>(author, committer, message, treeOid, parents)</span>](/api/repository/#createCommitBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createCommitOnHead <span>(filesToAdd, author, committer, message)</span>](/api/repository/#createCommitOnHead) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>createCommitWithSignature <span>(updateRef, author, committer, message, Tree, parents, onSignature)</span>](/api/repository/#createCommitWithSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>createLightweightTag <span>(String, name)</span>](/api/repository/#createLightweightTag) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>createRevWalk <span>(String)</span>](/api/repository/#createRevWalk) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>createRevWalk <span>()</span>](/api/repository/#createRevWalk) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>createTag <span>(String, name, message)</span>](/api/repository/#createTag) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>defaultSignature <span>()</span>](/api/repository/#defaultSignature) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>defaultSignature <span>()</span>](/api/repository/#defaultSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>deleteTagByName <span>(Short)</span>](/api/repository/#deleteTagByName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>detachHead <span>()</span>](/api/repository/#detachHead) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>fetch <span>(remote, fetchOptions)</span>](/api/repository/#fetch) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1518,19 +1698,23 @@ sections:
 | [<span>Repository#</span>getReference <span>(name)</span>](/api/repository/#getReference) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferenceCommit <span>(name)</span>](/api/repository/#getReferenceCommit) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getReferenceNames <span>(type)</span>](/api/repository/#getReferenceNames) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>getReferences <span>(type)</span>](/api/repository/#getReferences) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getReferences <span>()</span>](/api/repository/#getReferences) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getRemote <span>(remote, callback)</span>](/api/repository/#getRemote) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>getRemotes <span>(Optional)</span>](/api/repository/#getRemotes) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getRemoteNames <span>(Optional)</span>](/api/repository/#getRemoteNames) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getRemotes <span>()</span>](/api/repository/#getRemotes) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getStatus <span>(opts)</span>](/api/repository/#getStatus) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getStatusExt <span>(opts)</span>](/api/repository/#getStatusExt) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getSubmoduleNames <span>()</span>](/api/repository/#getSubmoduleNames) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>getSubmodules <span>()</span>](/api/repository/#getSubmodules) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTag <span>(String)</span>](/api/repository/#getTag) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTagByName <span>(Short)</span>](/api/repository/#getTagByName) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>getTree <span>(String)</span>](/api/repository/#getTree) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>head <span>()</span>](/api/repository/#head) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>headDetached <span>()</span>](/api/repository/#headDetached) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>headDetachedForWorktree <span>(name)</span>](/api/repository/#headDetachedForWorktree) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>headForWorktree <span>(name)</span>](/api/repository/#headForWorktree) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>headUnborn <span>()</span>](/api/repository/#headUnborn) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Repository#</span>ident <span>()</span>](/api/repository/#ident) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>index <span>()</span>](/api/repository/#index) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>isApplyingMailbox <span>()</span>](/api/repository/#isApplyingMailbox) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isBare <span>()</span>](/api/repository/#isBare) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1544,14 +1728,15 @@ sections:
 | [<span>Repository#</span>isShallow <span>()</span>](/api/repository/#isShallow) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>isWorktree <span>()</span>](/api/repository/#isWorktree) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>itemPath <span>(item)</span>](/api/repository/#itemPath) |  <span class="tags"><span class="async">Async</span></span> |
-| [<span>Repository#</span>mergeBranches <span>(to, from, signature, mergePreference, mergeOptions)</span>](/api/repository/#mergeBranches) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>mergeBranches <span>(to, from, signature, mergePreference, mergeOptions, mergeBranchOptions)</span>](/api/repository/#mergeBranches) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>mergeheadForeach <span>(callback)</span>](/api/repository/#mergeheadForeach) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>messageRemove <span>()</span>](/api/repository/#messageRemove) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>odb <span>()</span>](/api/repository/#odb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>path <span>()</span>](/api/repository/#path) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Repository#</span>rebaseBranches <span>(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn)</span>](/api/repository/#rebaseBranches) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>rebaseBranches <span>(branch, upstream, onto, signature, beforeNextFn, beforeFinishFn, rebaseOptions)</span>](/api/repository/#rebaseBranches) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>refdb <span>()</span>](/api/repository/#refdb) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>refreshIndex <span>()</span>](/api/repository/#refreshIndex) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Repository#</span>refreshReferences <span>()</span>](/api/repository/#refreshReferences) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHead <span>(refname)</span>](/api/repository/#setHead) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Repository#</span>setHeadDetached <span>(commitish)</span>](/api/repository/#setHeadDetached) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Repository#</span>setHeadDetachedFromAnnotated <span>(commitish)</span>](/api/repository/#setHeadDetachedFromAnnotated) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1642,6 +1827,7 @@ sections:
 
 | Instance Methods |  |
 | --- | ---: |
+| [<span>Revwalk#</span>commitWalk <span>(max_count)</span>](/api/revwalk/#commitWalk) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>fastWalk <span>(max_count)</span>](/api/revwalk/#fastWalk) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>fileHistoryWalk <span>(filePath, max_count)</span>](/api/revwalk/#fileHistoryWalk) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Revwalk#</span>getCommits <span>(count)</span>](/api/revwalk/#getCommits) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1672,20 +1858,19 @@ sections:
 | Class Methods |  |
 | --- | ---: |
 | [<span>Signature.</span>create <span>(name, email, time, offset)</span>](/api/signature/#create) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Signature.</span>default <span>(repo)</span>](/api/signature/#default) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Signature.</span>default <span>(repo)</span>](/api/signature/#default) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Signature.</span>fromBuffer <span>(buf)</span>](/api/signature/#fromBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Signature.</span>now <span>(name, email)</span>](/api/signature/#now) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Signature#</span>toString <span>()</span>](/api/signature/#toString) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Signature#</span>toString <span>(withTime)</span>](/api/signature/#toString) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 | Instance Variables |  |
 | --- | ---: |
 | [<span>Signature#</span>email](/api/signature/#email) |  |
 | [<span>Signature#</span>name](/api/signature/#name) |  |
 | [<span>Signature#</span>when](/api/signature/#when) |  |
-
 
 
 ## <a name='Stash'></a>[Stash](/api/stash/)
@@ -1751,13 +1936,14 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>StatusList#</span>entrycount <span>()</span>](/api/status_list/#entrycount) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>StatusList#</span>getPerfdata <span>()</span>](/api/status_list/#getPerfdata) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>StatusList#</span>getPerfdata <span>()</span>](/api/status_list/#getPerfdata) |  <span class="tags"><span class="sync">Sync</span></span> |
 
 
 ## <a name='StatusOptions'></a>[StatusOptions](/api/status_options/)
 
 | Instance Variables |  |
 | --- | ---: |
+| [<span>StatusOptions#</span>baseline](/api/status_options/#baseline) |  |
 | [<span>StatusOptions#</span>flags](/api/status_options/#flags) |  |
 | [<span>StatusOptions#</span>pathspec](/api/status_options/#pathspec) |  |
 | [<span>StatusOptions#</span>show](/api/status_options/#show) |  |
@@ -1838,7 +2024,10 @@ sections:
 | --- | ---: |
 | [<span>Tag.</span>annotationCreate <span>(repo, tag_name, target, tagger, message)</span>](/api/tag/#annotationCreate) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag.</span>create <span>(repo, tag_name, target, tagger, message, force)</span>](/api/tag/#create) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tag.</span>createBuffer <span>(repo, tagName, target, tagger)</span>](/api/tag/#createBuffer) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tag.</span>createFromBuffer <span>(repo, buffer, force)</span>](/api/tag/#createFromBuffer) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag.</span>createLightweight <span>(repo, tag_name, target, force)</span>](/api/tag/#createLightweight) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tag.</span>createWithSignature <span>(repo, tagName, target, tagger, message, force, signingCallback)</span>](/api/tag/#createWithSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag.</span>delete <span>(repo, tag_name)</span>](/api/tag/#delete) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag.</span>list <span>(repo)</span>](/api/tag/#list) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag.</span>listMatch <span>(pattern, repo)</span>](/api/tag/#listMatch) |  <span class="tags"><span class="async">Async</span></span> |
@@ -1848,6 +2037,7 @@ sections:
 | Instance Methods |  |
 | --- | ---: |
 | [<span>Tag#</span>dup <span>()</span>](/api/tag/#dup) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Tag#</span>extractSignature <span>(signatureType)</span>](/api/tag/#extractSignature) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Tag#</span>id <span>()</span>](/api/tag/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tag#</span>message <span>()</span>](/api/tag/#message) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Tag#</span>name <span>()</span>](/api/tag/#name) |  <span class="tags"><span class="sync">Sync</span></span> |
@@ -1861,13 +2051,10 @@ sections:
 
 ## <a name='Time'></a>[Time](/api/time/)
 
-| Class Methods |  |
-| --- | ---: |
-| [<span>Time.</span>monotonic <span>()</span>](/api/time/#monotonic) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-
 | Instance Variables |  |
 | --- | ---: |
 | [<span>Time#</span>offset](/api/time/#offset) |  |
+| [<span>Time#</span>sign](/api/time/#sign) |  |
 | [<span>Time#</span>time](/api/time/#time) |  |
 
 
@@ -1878,31 +2065,21 @@ sections:
 | [<span>Trace.</span>LEVEL](/api/trace/#LEVEL)|  |
 
 
+## <a name='Transaction'></a>[Transaction](/api/transaction/)
 
-## <a name='TransferProgress'></a>[TransferProgress](/api/transfer_progress/)
-
-| Instance Variables |  |
+| Class Methods |  |
 | --- | ---: |
-| [<span>TransferProgress#</span>indexedDeltas](/api/transfer_progress/#indexedDeltas) |  |
-| [<span>TransferProgress#</span>indexedObjects](/api/transfer_progress/#indexedObjects) |  |
-| [<span>TransferProgress#</span>localObjects](/api/transfer_progress/#localObjects) |  |
-| [<span>TransferProgress#</span>receivedBytes](/api/transfer_progress/#receivedBytes) |  |
-| [<span>TransferProgress#</span>receivedObjects](/api/transfer_progress/#receivedObjects) |  |
-| [<span>TransferProgress#</span>totalDeltas](/api/transfer_progress/#totalDeltas) |  |
-| [<span>TransferProgress#</span>totalObjects](/api/transfer_progress/#totalObjects) |  |
-
-
-## <a name='Transport'></a>[Transport](/api/transport/)
+| [<span>Transaction.</span>create <span>(repo)</span>](/api/transaction/#create) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
 
 | Instance Methods |  |
 | --- | ---: |
-| [<span>Transport#</span>smartCertificateCheck <span>(cert, valid, hostname)</span>](/api/transport/#smartCertificateCheck) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
-| [<span>Transport#</span>smartCredentials <span>(user, methods)</span>](/api/transport/#smartCredentials) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
-| [<span>Transport#</span>smartProxyOptions <span>()</span>](/api/transport/#smartProxyOptions) |  <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>commit <span>()</span>](/api/transaction/#commit) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>lockRef <span>(refname)</span>](/api/transaction/#lockRef) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>remove <span>(refname)</span>](/api/transaction/#remove) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>setReflog <span>(refname, reflog)</span>](/api/transaction/#setReflog) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>setSymbolicTarget <span>(refname, target, sig, msg)</span>](/api/transaction/#setSymbolicTarget) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Transaction#</span>setTarget <span>(refname, target, sig, msg)</span>](/api/transaction/#setTarget) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 
-| ENUMS |  |
-| --- | ---: |
-| [<span>Transport.</span>FLAGS](/api/transport/#FLAGS)|  |
 
 
 ## <a name='Tree'></a>[Tree](/api/tree/)
@@ -2007,6 +2184,8 @@ sections:
 | [<span>Worktree#</span>isLocked <span>(reason)</span>](/api/worktree/#isLocked) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Worktree#</span>isPrunable <span>(opts)</span>](/api/worktree/#isPrunable) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Worktree#</span>lock <span>(reason)</span>](/api/worktree/#lock) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Worktree#</span>name <span>()</span>](/api/worktree/#name) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
+| [<span>Worktree#</span>path <span>()</span>](/api/worktree/#path) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Worktree#</span>prune <span>(opts)</span>](/api/worktree/#prune) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Worktree#</span>unlock <span>()</span>](/api/worktree/#unlock) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
 | [<span>Worktree#</span>validate <span>()</span>](/api/worktree/#validate) |  <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span> |
@@ -2021,6 +2200,7 @@ sections:
 | Instance Variables |  |
 | --- | ---: |
 | [<span>WorktreeAddOptions#</span>lock](/api/worktree_add_options/#lock) |  |
+| [<span>WorktreeAddOptions#</span>ref](/api/worktree_add_options/#ref) |  |
 | [<span>WorktreeAddOptions#</span>version](/api/worktree_add_options/#version) |  |
 
 

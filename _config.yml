@@ -6,6 +6,7 @@ date_format: "ordinal"
 current_nodegit_version: 0.24.0
 other_nodegit_versions:
   - HEAD
+  - 0.25.0
   - 0.24.0
   - 0.24.0-alpha.1
   - 0.23.0

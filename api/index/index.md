@@ -42,7 +42,10 @@ sections:
   "#writeTree": "#writeTree"
   "#writeTreeTo": "#writeTreeTo"
   "ADD_OPTION": "#ADD_OPTION"
-  "CAP": "#CAP"
+  "CAPABILITY": "#CAPABILITY"
+  "ENTRY_EXTENDED_FLAG": "#ENTRY_EXTENDED_FLAG"
+  "ENTRY_FLAG": "#ENTRY_FLAG"
+  "STAGE": "#STAGE"
 ---
 
 ## <a name="entryIsConflict"></a><span>Index.</span>entryIsConflict <span class="tags"><span class="sync">Sync</span></span>
@@ -148,7 +151,7 @@ var result = index.caps();
 
 | Returns |  |
 | --- | --- |
-| Number |  A combination of GIT_INDEXCAP values |
+| Number |  A combination of GIT_INDEX_CAPABILITY values |
 
 ## <a name="checksum"></a><span>Index#</span>checksum <span class="tags"><span class="sync">Sync</span></span>
 
@@ -447,7 +450,7 @@ var result = index.setCaps(caps);
 
 | Parameters | Type |
 | --- | --- | --- |
-| caps | Number | A combination of GIT_INDEXCAP values |
+| caps | Number | A combination of GIT_INDEX_CAPABILITY values |
 
 | Returns |  |
 | --- | --- |
@@ -544,12 +547,38 @@ index.writeTreeTo(repo).then(function(oid) {
 | <span>Index.ADD_OPTION.</span>ADD_DISABLE_PATHSPEC_MATCH | 2 |
 | <span>Index.ADD_OPTION.</span>ADD_CHECK_PATHSPEC | 4 |
 
-## <a name="CAP"></a><span>Index.</span>CAP <span class="tags"><span class="enum">ENUM</span></span>
+## <a name="CAPABILITY"></a><span>Index.</span>CAPABILITY <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
 | --- | --- | --- |
-| <span>Index.CAP.</span>IGNORE_CASE | 1 |
-| <span>Index.CAP.</span>NO_FILEMODE | 2 |
-| <span>Index.CAP.</span>NO_SYMLINKS | 4 |
-| <span>Index.CAP.</span>FROM_OWNER | -1 |
+| <span>Index.CAPABILITY.</span>IGNORE_CASE | 1 |
+| <span>Index.CAPABILITY.</span>NO_FILEMODE | 2 |
+| <span>Index.CAPABILITY.</span>NO_SYMLINKS | 4 |
+| <span>Index.CAPABILITY.</span>FROM_OWNER | -1 |
+
+## <a name="ENTRY_EXTENDED_FLAG"></a><span>Index.</span>ENTRY_EXTENDED_FLAG <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Index.ENTRY_EXTENDED_FLAG.</span>ENTRY_INTENT_TO_ADD | 8192 |
+| <span>Index.ENTRY_EXTENDED_FLAG.</span>ENTRY_SKIP_WORKTREE | 16384 |
+| <span>Index.ENTRY_EXTENDED_FLAG.</span>S | 24576 |
+| <span>Index.ENTRY_EXTENDED_FLAG.</span>ENTRY_UPTODATE | 4 |
+
+## <a name="ENTRY_FLAG"></a><span>Index.</span>ENTRY_FLAG <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Index.ENTRY_FLAG.</span>ENTRY_EXTENDED | 16384 |
+| <span>Index.ENTRY_FLAG.</span>ENTRY_VALID | 32768 |
+
+## <a name="STAGE"></a><span>Index.</span>STAGE <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Index.STAGE.</span>ANY | -1 |
+| <span>Index.STAGE.</span>NORMAL | 0 |
+| <span>Index.STAGE.</span>ANCESTOR | 1 |
+| <span>Index.STAGE.</span>OURS | 2 |
+| <span>Index.STAGE.</span>THEIRS | 3 |
 

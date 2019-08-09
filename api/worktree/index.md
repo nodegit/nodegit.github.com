@@ -14,6 +14,8 @@ sections:
   "#isLocked": "#isLocked"
   "#isPrunable": "#isPrunable"
   "#lock": "#lock"
+  "#name": "#name"
+  "#path": "#path"
   "#prune": "#prune"
   "#unlock": "#unlock"
   "#validate": "#validate"
@@ -131,6 +133,26 @@ var result = worktree.lock(reason);
 | Returns |  |
 | --- | --- |
 | Number |  0 on success, non-zero otherwise |
+
+## <a name="name"></a><span>Worktree#</span>name <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = worktree.name();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  |
+
+## <a name="path"></a><span>Worktree#</span>path <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+
+```js
+var string = worktree.path();
+```
+
+| Returns |  |
+| --- | --- |
+| String |  |
 
 ## <a name="prune"></a><span>Worktree#</span>prune <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 

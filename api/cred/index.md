@@ -15,6 +15,7 @@ sections:
   "userpassPlaintextNew": "#userpassPlaintextNew"
   "#hasUsername": "#hasUsername"
   "TYPE": "#TYPE"
+  "Instance Variables": "#ivars"
 ---
 
 ## <a name="defaultNew"></a><span>Cred.</span>defaultNew <span class="tags"><span class="sync">Sync</span></span>
@@ -129,4 +130,10 @@ var result = cred.hasUsername();
 | <span>Cred.TYPE.</span>SSH_INTERACTIVE | 16 |
 | <span>Cred.TYPE.</span>USERNAME | 32 |
 | <span>Cred.TYPE.</span>SSH_MEMORY | 64 |
+
+## <a name="ivars"></a>Instance Variables
+
+| Variable | Type | Description |
+| --- | --- | --- |
+| <a name="credtype"></a>credtype | Number |  |
 

@@ -65,10 +65,12 @@ var string = filterSource.path();
 | --- | --- |
 | String |  |
 
-## <a name="repo"></a><span>FilterSource#</span>repo <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
+## <a name="repo"></a><span>FilterSource#</span>repo <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span>
 
 ```js
-var repository = filterSource.repo();
+filterSource.repo().then(function(repository) {
+  // Use repository
+});
 ```
 
 | Returns |  |

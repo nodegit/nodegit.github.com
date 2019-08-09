@@ -13,7 +13,12 @@ sections:
   "findXdg": "#findXdg"
   "openDefault": "#openDefault"
   "openOndisk": "#openOndisk"
+  "#deleteEntry": "#deleteEntry"
+  "#deleteMultivar": "#deleteMultivar"
+  "#getBool": "#getBool"
   "#getEntry": "#getEntry"
+  "#getInt32": "#getInt32"
+  "#getInt64": "#getInt64"
   "#getPath": "#getPath"
   "#getStringBuf": "#getStringBuf"
   "#lock": "#lock"
@@ -22,7 +27,9 @@ sections:
   "#setInt64": "#setInt64"
   "#setMultivar": "#setMultivar"
   "#setString": "#setString"
+  "#snapshot": "#snapshot"
   "LEVEL": "#LEVEL"
+  "MAP": "#MAP"
 ---
 
 ## <a name="findGlobal"></a><span>Config.</span>findGlobal <span class="tags"><span class="async">Async</span></span>
@@ -101,6 +108,51 @@ Config.openOndisk(path).then(function(config) {
 | --- | --- |
 | [Config](/api/config/) | The configuration instance to create |
 
+## <a name="deleteEntry"></a><span>Config#</span>deleteEntry <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = config.deleteEntry(name);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the variable to delete |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="deleteMultivar"></a><span>Config#</span>deleteMultivar <span class="tags"><span class="sync">Sync</span></span>
+
+```js
+var result = config.deleteMultivar(name, regexp);
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the variable's name |
+| regexp | String | a regular expression to indicate which values to delete |
+
+| Returns |  |
+| --- | --- |
+| Number |  0 or an error code |
+
+## <a name="getBool"></a><span>Config#</span>getBool <span class="tags"><span class="async">Async</span></span>
+
+```js
+config.getBool(name).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the variable's name |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
 ## <a name="getEntry"></a><span>Config#</span>getEntry <span class="tags"><span class="async">Async</span></span>
 
 ```js
@@ -116,6 +168,38 @@ config.getEntry(name).then(function(configEntry) {
 | Returns |  |
 | --- | --- |
 | [ConfigEntry](/api/config_entry/) |  |
+
+## <a name="getInt32"></a><span>Config#</span>getInt32 <span class="tags"><span class="async">Async</span></span>
+
+```js
+config.getInt32(name).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the variable's name |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="getInt64"></a><span>Config#</span>getInt64 <span class="tags"><span class="async">Async</span></span>
+
+```js
+config.getInt64(name).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |
+| --- | --- | --- |
+| name | String | the variable's name |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="getPath"></a><span>Config#</span>getPath <span class="tags"><span class="async">Async</span></span>
 
@@ -213,10 +297,12 @@ config.setInt64(name, value).then(function(result) {
 | --- | --- |
 | Number |  0 or an error code |
 
-## <a name="setMultivar"></a><span>Config#</span>setMultivar <span class="tags"><span class="sync">Sync</span></span>
+## <a name="setMultivar"></a><span>Config#</span>setMultivar <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = config.setMultivar(name, regexp, value);
+config.setMultivar(name, regexp, value).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
@@ -246,6 +332,18 @@ config.setString(name, value).then(function(result) {
 | --- | --- |
 | Number |  0 or an error code |
 
+## <a name="snapshot"></a><span>Config#</span>snapshot <span class="tags"><span class="async">Async</span></span>
+
+```js
+config.snapshot().then(function(config) {
+  // Use config
+});
+```
+
+| Returns |  |
+| --- | --- |
+| [Config](/api/config/) |  |
+
 ## <a name="LEVEL"></a><span>Config.</span>LEVEL <span class="tags"><span class="enum">ENUM</span></span>
 
 | Flag | Value |
@@ -257,4 +355,13 @@ config.setString(name, value).then(function(result) {
 | <span>Config.LEVEL.</span>LOCAL | 5 |
 | <span>Config.LEVEL.</span>APP | 6 |
 | <span>Config.LEVEL.</span>HIGHEST_LEVEL | -1 |
+
+## <a name="MAP"></a><span>Config.</span>MAP <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Config.MAP.</span>FALSE | 0 |
+| <span>Config.MAP.</span>TRUE | 1 |
+| <span>Config.MAP.</span>INT32 | 2 |
+| <span>Config.MAP.</span>STRING | 3 |
 

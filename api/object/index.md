@@ -86,7 +86,7 @@ var result = Object.string2Type(str);
 
 | Returns |  |
 | --- | --- |
-| Number |  the corresponding git_otype. |
+| Number |  the corresponding git_object_t. |
 
 ## <a name="type2String"></a><span>Object.</span>type2String <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span>
 
@@ -177,7 +177,7 @@ object.peel(target_type).then(function(object) {
 
 | Parameters | Type |
 | --- | --- | --- |
-| target_type | Number | The type of the requested object (a GIT_OBJ_ value) |
+| target_type | Number | The type of the requested object (a GIT_OBJECT_ value) |
 
 | Returns |  |
 | --- | --- |
@@ -210,13 +210,11 @@ var result = object.type();
 | Flag | Value |
 | --- | --- | --- |
 | <span>Object.TYPE.</span>ANY | -2 |
-| <span>Object.TYPE.</span>BAD | -1 |
-| <span>Object.TYPE.</span>EXT1 | 0 |
+| <span>Object.TYPE.</span>INVALID | -1 |
 | <span>Object.TYPE.</span>COMMIT | 1 |
 | <span>Object.TYPE.</span>TREE | 2 |
 | <span>Object.TYPE.</span>BLOB | 3 |
 | <span>Object.TYPE.</span>TAG | 4 |
-| <span>Object.TYPE.</span>EXT2 | 5 |
 | <span>Object.TYPE.</span>OFS_DELTA | 6 |
 | <span>Object.TYPE.</span>REF_DELTA | 7 |
 

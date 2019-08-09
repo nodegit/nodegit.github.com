@@ -222,7 +222,7 @@ var diffPerfdata = diff.getPerfdata();
 
 | Returns |  |
 | --- | --- |
-| [DiffPerfdata](/api/diff_perfdata/) | Structure to be filled with diff performance data |
+| [DiffPerfdata](/api/diff_perfdata/) |  |
 
 ## <a name="getStats"></a><span>Diff#</span>getStats <span class="tags"><span class="async">Async</span></span>
 
@@ -419,6 +419,7 @@ diff.toBuf(format).then(function(buf) {
 | <span>Diff.OPTION.</span>UPDATE_INDEX | 32768 |
 | <span>Diff.OPTION.</span>INCLUDE_UNREADABLE | 65536 |
 | <span>Diff.OPTION.</span>INCLUDE_UNREADABLE_AS_UNTRACKED | 131072 |
+| <span>Diff.OPTION.</span>INDENT_HEURISTIC | 262144 |
 | <span>Diff.OPTION.</span>FORCE_TEXT | 1048576 |
 | <span>Diff.OPTION.</span>FORCE_BINARY | 2097152 |
 | <span>Diff.OPTION.</span>IGNORE_WHITESPACE | 4194304 |
@@ -429,7 +430,6 @@ diff.toBuf(format).then(function(buf) {
 | <span>Diff.OPTION.</span>PATIENCE | 268435456 |
 | <span>Diff.OPTION.</span>MINIMAL | 536870912 |
 | <span>Diff.OPTION.</span>SHOW_BINARY | 1073741824 |
-| <span>Diff.OPTION.</span>INDENT_HEURISTIC | -2147483648 |
 
 ## <a name="STATS_FORMAT"></a><span>Diff.</span>STATS_FORMAT <span class="tags"><span class="enum">ENUM</span></span>
 

@@ -7,10 +7,11 @@ menu_item: api
 return_to:
   "API Documentation Index": /api/
 sections:
+  "analysis": "#analysis"
+  "analysisForRef": "#analysisForRef"
   "base": "#base"
   "bases": "#bases"
   "commits": "#commits"
-  "fileInitInput": "#fileInitInput"
   "merge": "#merge"
   "trees": "#trees"
   "ANALYSIS": "#ANALYSIS"
@@ -19,6 +20,43 @@ sections:
   "FLAG": "#FLAG"
   "PREFERENCE": "#PREFERENCE"
 ---
+
+## <a name="analysis"></a><span>Merge.</span>analysis <span class="tags"><span class="async">Async</span></span>
+
+```js
+Merge.analysis(repo, their_heads, their_heads_len).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to merge |
+| their_heads | Array | the heads to merge into |
+| their_heads_len | Number | the number of heads to merge |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
+
+## <a name="analysisForRef"></a><span>Merge.</span>analysisForRef <span class="tags"><span class="async">Async</span></span>
+
+```js
+Merge.analysisForRef(repo, our_ref, their_heads, their_heads_len).then(function(result) {
+  // Use result
+});
+```
+
+| Parameters | Type |   |
+| --- | --- | --- |
+| repo | [Repository](/api/repository/) | the repository to merge |
+| our_ref | [Reference](/api/reference/) | the reference to perform the analysis from |
+| their_heads | Array | the heads to merge into |
+| their_heads_len | Number | the number of heads to merge |
+
+| Returns |  |
+| --- | --- |
+| Number |  |
 
 ## <a name="base"></a><span>Merge.</span>base <span class="tags"><span class="async">Async</span></span>
 
@@ -71,21 +109,6 @@ be used to create a merge commit.
 | ourCommit | [Commit](/api/commit/) | The commit that reflects the destination tree |
 | theirCommit | [Commit](/api/commit/) | The commit to merge into ourCommit |
 | [options] | [MergeOptions](/api/merge_options/) | The merge tree options (null for default) |
-
-## <a name="fileInitInput"></a><span>Merge.</span>fileInitInput <span class="tags"><span class="sync">Sync</span></span>
-
-```js
-var result = Merge.fileInitInput(opts, version);
-```
-
-| Parameters | Type |   |
-| --- | --- | --- |
-| opts | [MergeFileInput](/api/merge_file_input/) | the `git_merge_file_input` instance to initialize. |
-| version | Number | the version of the struct; you should pass `GIT_MERGE_FILE_INPUT_VERSION` here. |
-
-| Returns |  |
-| --- | --- |
-| Number |  Zero on success; -1 on failure. |
 
 ## <a name="merge"></a><span>Merge.</span>merge <span class="tags"><span class="sync">Sync</span></span>
 
