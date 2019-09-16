@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.25.0
+description: Version 0.26.0
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -1603,7 +1603,7 @@ sections:
 | [<span>Remote#</span>refspecCount <span>()</span>](/api/remote/#refspecCount) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stats <span>()</span>](/api/remote/#stats) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stop <span>()</span>](/api/remote/#stop) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>updateTips <span>(callbacks, update_fetchhead, download_tags, reflog_message)</span>](/api/remote/#updateTips) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Remote#</span>updateTips <span>(callbacks, update_fetchhead, download_tags, reflog_message)</span>](/api/remote/#updateTips) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>upload <span>(refSpecs, options, callback)</span>](/api/remote/#upload) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>url <span>()</span>](/api/remote/#url) |  <span class="tags"><span class="sync">Sync</span></span> |
 

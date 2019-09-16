@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Commit
-description: Version 0.24.0
+description: Version 0.26.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -133,7 +133,7 @@ Commit.createWithSignature(repo, commit_content, signature, signature_field).the
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) |  |
 | commit_content | String | the content of the unsigned commit object |
-| signature | String | the signature to add to the commit |
+| signature | String | the signature to add to the commit. Leave `NULL` to create a commit without adding a signature field. |
 | signature_field | String | which header field should contain this signature. Leave `NULL` for the default of "gpgsig" |
 
 | Returns |  |

@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: DiffHunk
-description: Version 0.24.0
+description: Version 0.26.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/

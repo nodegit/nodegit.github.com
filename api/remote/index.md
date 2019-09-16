@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.24.0
+description: Version 0.26.0
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -552,10 +552,12 @@ var indexerProgress = remote.stats();
 remote.stop();
 ```
 
-## <a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="sync">Sync</span></span>
+## <a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="async">Async</span></span>
 
 ```js
-var result = remote.updateTips(callbacks, update_fetchhead, download_tags, reflog_message);
+remote.updateTips(callbacks, update_fetchhead, download_tags, reflog_message).then(function(result) {
+  // Use result
+});
 ```
 
 | Parameters | Type |
