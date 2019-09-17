@@ -1,7 +1,7 @@
 ---
 layout: default
 menu_item: api
-title: RemoteHead
+title: BlobFilterOptions
 description: Version 0.26.1
 menu_item: api
 return_to:
@@ -10,13 +10,14 @@ sections:
   "Instance Variables": "#ivars"
 ---
 
+```js
+var blobFilterOptions = new BlobFilterOptions();
+```
+
 ## <a name="ivars"></a>Instance Variables
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| <a name="local"></a>local | Number |  |
-| <a name="loid"></a>loid | Oid |  |
-| <a name="name"></a>name | String |  |
-| <a name="oid"></a>oid | Oid |  |
-| <a name="symrefTarget"></a>symrefTarget | String |  |
+| <a name="flags"></a>flags | Number |  |
+| <a name="version"></a>version | Number |  |
 

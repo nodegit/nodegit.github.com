@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Remote
-description: Version 0.26.0
+description: Version 0.26.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -552,24 +552,20 @@ var indexerProgress = remote.stats();
 remote.stop();
 ```
 
-## <a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="async">Async</span></span>
+## <a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
-remote.updateTips(callbacks, update_fetchhead, download_tags, reflog_message).then(function(result) {
-  // Use result
-});
+remote.updateTips(callbacks, updateFetchhead, downloadTags, reflogMessage);
 ```
+
+Update the tips to the new state
 
 | Parameters | Type |
 | --- | --- | --- |
-| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | pointer to the callback structure to use |
-| update_fetchhead | Number | whether to write to FETCH_HEAD. Pass 1 to behave like git. |
-| download_tags | Number | what the behaviour for downloading tags is for this fetch. This is ignored for push. This must be the same value passed to `git_remote_download()`. |
-| reflog_message | String | The message to insert into the reflogs. If NULL and fetching, the default is "fetch <name>", where <name> is the name of the remote (or its url, for in-memory remotes). This parameter is ignored when pushing. |
-
-| Returns |  |
-| --- | --- |
-| Number |  0 or an error code |
+| callbacks | [RemoteCallbacks](/api/remote_callbacks/) | The callback functions for the connection |
+| updateFetchhead | boolean | whether to write to FETCH_HEAD. Pass true to behave like git. |
+| downloadTags | boolean | what the behaviour for downloading tags is for this fetch. This is ignored for push. This must be the same value passed to Remote.prototype.download |
+| reflogMessage | string | The message to insert into the reflogs. If null and fetching, the default is "fetch ", where is the name of the remote (or its url, for in-memory remotes). This parameter is ignored when pushing. |
 
 ## <a name="upload"></a><span>Remote#</span>upload <span class="tags"><span class="async">Async</span></span>
 

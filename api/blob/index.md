@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Blob
-description: Version 0.26.0
+description: Version 0.26.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -16,12 +16,14 @@ sections:
   "#content": "#content"
   "#dup": "#dup"
   "#filemode": "#filemode"
+  "#filter": "#filter"
   "#id": "#id"
   "#isBinary": "#isBinary"
   "#owner": "#owner"
   "#rawcontent": "#rawcontent"
   "#rawsize": "#rawsize"
   "#toString": "#toString"
+  "FILTER_FLAG": "#FILTER_FLAG"
 ---
 
 ## <a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="async">Async</span></span>
@@ -86,13 +88,13 @@ Blob.filteredContent(blob, as_path, check_for_binary_data).then(function(buffer)
 
 | Parameters | Type |   |
 | --- | --- | --- |
-| blob | [Blob](/api/blob/) | Pointer to the blob |
-| as_path | String | Path used for file attribute lookups, etc. |
-| check_for_binary_data | Number | Should this test if blob content contains NUL bytes / looks like binary data before applying filters? |
+| blob | [Blob](/api/blob/) |  |
+| as_path | String |  |
+| check_for_binary_data | Number |  |
 
 | Returns |  |
 | --- | --- |
-| Buffer | The git_buf to be filled in |
+| Buffer |  |
 
 ## <a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="async">Async</span></span>
 
@@ -167,6 +169,30 @@ Retrieve the Blob's type.
 | --- | --- |
 | Number | The filemode of the blob. |
 
+## <a name="filter"></a><span>Blob#</span>filter <span class="tags"><span class="async">Async</span></span>
+
+```js
+blob.filter(asPath, opts).then(function(promiseString) {
+  // Use promiseString
+});
+```
+
+Get a buffer with the filtered content of a blob.
+
+This applies filters as if the blob was being checked out to the
+working directory under the specified filename. This may apply
+CRLF filtering or other types of changes depending on the file
+attributes set for the blob and the content detected in it.
+
+| Parameters | Type |
+| --- | --- | --- |
+| asPath |  | Path used for file attribute lookups, etc. |
+| opts |  | Options to use for filtering the blob |
+
+| Returns |  |
+| --- | --- |
+| Promise.<string> |  |
+
 ## <a name="id"></a><span>Blob#</span>id <span class="tags"><span class="sync">Sync</span></span>
 
 ```js
@@ -229,4 +255,12 @@ Retrieve the Blob's content as String.
 | Returns |  |
 | --- | --- |
 | String | Contents as a string. |
+
+## <a name="FILTER_FLAG"></a><span>Blob.</span>FILTER_FLAG <span class="tags"><span class="enum">ENUM</span></span>
+
+| Flag | Value |
+| --- | --- | --- |
+| <span>Blob.FILTER_FLAG.</span>CHECK_FOR_BINARY | 1 |
+| <span>Blob.FILTER_FLAG.</span>NO_SYSTEM_ATTRIBUTES | 2 |
+| <span>Blob.FILTER_FLAG.</span>ATTTRIBUTES_FROM_HEAD | 4 |
 

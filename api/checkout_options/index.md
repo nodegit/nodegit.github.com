@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: CheckoutOptions
-description: Version 0.26.0
+description: Version 0.26.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/

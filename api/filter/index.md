@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: Filter
-description: Version 0.26.0
+description: Version 0.26.1
 menu_item: api
 return_to:
   "API Documentation Index": /api/
@@ -163,6 +163,8 @@ filter.applyToFile(repo, path).then(function(buf) {
 | --- | --- | --- |
 | <span>Filter.FLAG.</span>DEFAULT | 0 |
 | <span>Filter.FLAG.</span>ALLOW_UNSAFE | 1 |
+| <span>Filter.FLAG.</span>NO_SYSTEM_ATTRIBUTES | 2 |
+| <span>Filter.FLAG.</span>ATTRIBUTES_FROM_HEAD | 4 |
 
 ## <a name="MODE"></a><span>Filter.</span>MODE <span class="tags"><span class="enum">ENUM</span></span>
 

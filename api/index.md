@@ -2,7 +2,7 @@
 layout: default
 menu_item: api
 title: API Docs
-description: Version 0.26.0
+description: Version 0.26.1
 menu_item: api
 sections:
   "AnnotatedCommit": "#AnnotatedCommit"
@@ -13,6 +13,7 @@ sections:
   "BlameHunk": "#BlameHunk"
   "BlameOptions": "#BlameOptions"
   "Blob": "#Blob"
+  "BlobFilterOptions": "#BlobFilterOptions"
   "Branch": "#Branch"
   "Buf": "#Buf"
   "Cert": "#Cert"
@@ -241,12 +242,25 @@ sections:
 | [<span>Blob#</span>content <span>()</span>](/api/blob/#content) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>dup <span>()</span>](/api/blob/#dup) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob#</span>filemode <span>()</span>](/api/blob/#filemode) |  <span class="tags"><span class="sync">Sync</span></span> |
+| [<span>Blob#</span>filter <span>(asPath, opts)</span>](/api/blob/#filter) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Blob#</span>id <span>()</span>](/api/blob/#id) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>isBinary <span>()</span>](/api/blob/#isBinary) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>owner <span>()</span>](/api/blob/#owner) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>rawcontent <span>()</span>](/api/blob/#rawcontent) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>rawsize <span>()</span>](/api/blob/#rawsize) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Blob#</span>toString <span>()</span>](/api/blob/#toString) |  <span class="tags"><span class="sync">Sync</span></span> |
+
+| ENUMS |  |
+| --- | ---: |
+| [<span>Blob.</span>FILTER_FLAG](/api/blob/#FILTER_FLAG)|  |
+
+
+## <a name='BlobFilterOptions'></a>[BlobFilterOptions](/api/blob_filter_options/)
+
+| Instance Variables |  |
+| --- | ---: |
+| [<span>BlobFilterOptions#</span>flags](/api/blob_filter_options/#flags) |  |
+| [<span>BlobFilterOptions#</span>version](/api/blob_filter_options/#version) |  |
 
 
 ## <a name='Branch'></a>[Branch](/api/branch/)
@@ -1603,7 +1617,7 @@ sections:
 | [<span>Remote#</span>refspecCount <span>()</span>](/api/remote/#refspecCount) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stats <span>()</span>](/api/remote/#stats) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>stop <span>()</span>](/api/remote/#stop) |  <span class="tags"><span class="sync">Sync</span></span> |
-| [<span>Remote#</span>updateTips <span>(callbacks, update_fetchhead, download_tags, reflog_message)</span>](/api/remote/#updateTips) |  <span class="tags"><span class="async">Async</span></span> |
+| [<span>Remote#</span>updateTips <span>(callbacks, updateFetchhead, downloadTags, reflogMessage)</span>](/api/remote/#updateTips) |  <span class="tags"><span class="sync">Sync</span></span> |
 | [<span>Remote#</span>upload <span>(refSpecs, options, callback)</span>](/api/remote/#upload) |  <span class="tags"><span class="async">Async</span></span> |
 | [<span>Remote#</span>url <span>()</span>](/api/remote/#url) |  <span class="tags"><span class="sync">Sync</span></span> |
 
