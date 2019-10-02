@@ -116,7 +116,7 @@ Repository.discover(startPath, acrossFs, ceilingDirs).then(function(string) {
 });
 ```
 
-Creates a branch with the passed in name pointing to the commit
+Look for a git repository beginning with startPath and walk around parent paths, if nothing has been found. The lookup ends as soon as a repository is found or when a directory, referenced in ceilingDirs is reached.
 
 | Parameters | Type |   |
 | --- | --- | --- |
