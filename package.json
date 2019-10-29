@@ -10,7 +10,7 @@
     "dox": "^0.8.0",
     "fs-extra": "^0.22.1",
     "glob": "^5.0.14",
-    "lodash": "^3.10.0"
+    "lodash": "^4.17.13"
   },
   "devDependencies": {},
   "repository": {
