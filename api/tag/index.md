@@ -147,7 +147,7 @@ Tag.createWithSignature(repo, tagName, target, tagger, message, force, signingCa
 | --- | --- | --- |
 | repo | [Repository](/api/repository/) |  |
 | tagName | String |  |
-| target | [Oid](/api/oid/) |  |
+| target | [Object](/api/object/) | Object to which this tag points. This object must belong to the given `repo`. |
 | tagger | [Signature](/api/signature/) |  |
 | message | String |  |
 | force | Number |  |
@@ -367,4 +367,3 @@ var result = tag.targetType();
 | Returns |  |
 | --- | --- |
 | Number |  type of the tagged object |
-
